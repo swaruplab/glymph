@@ -1,0 +1,165 @@
+/* Glymph site palette: midnight navy, ivory ink, champagne gold. One accent; colour is kept for data. */
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
+
+:root {
+  --gl-gold: #b08d57;
+  --gl-gold-text: #8a6a35;
+  --gl-navy: #16233a;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0e1524;
+  --md-default-bg-color--light: #151d2c;
+  --md-default-bg-color--lighter: #1a2333;
+  --md-default-bg-color--lightest: #27324a;
+  --md-default-fg-color: #f3eee4;
+  --md-default-fg-color--light: #c5cbd6;
+  --md-default-fg-color--lighter: #8c96a8;
+  --md-default-fg-color--lightest: #27324a;
+  --md-primary-fg-color: #0a0f19;
+  --md-primary-fg-color--light: #151d2c;
+  --md-primary-fg-color--dark: #070b12;
+  --md-primary-bg-color: #f3eee4;
+  --md-primary-bg-color--light: #c5cbd6;
+  --md-accent-fg-color: #e0c389;
+  --md-accent-fg-color--transparent: rgba(210, 174, 109, 0.12);
+  --md-typeset-color: #c5cbd6;
+  --md-typeset-a-color: #e0c389;
+  --md-code-bg-color: #151d2c;
+  --md-code-fg-color: #e6e1d6;
+  --md-footer-bg-color: #0a0f19;
+  --md-footer-bg-color--dark: #070b12;
+  --md-typeset-table-color: #27324a;
+  --md-typeset-table-color--light: rgba(39, 50, 74, 0.45);
+  --gl-card: #1a2333;
+  --gl-hair: #27324a;
+  --gl-ink: #f3eee4;
+  --gl-accent: #d2ae6d;
+  --gl-accent-text: #e0c389;
+}
+
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: #fdfcfa;
+  --md-primary-fg-color: #16233a;
+  --md-primary-fg-color--light: #2a3a55;
+  --md-primary-fg-color--dark: #0f192b;
+  --md-primary-bg-color: #fdfcfa;
+  --md-accent-fg-color: #8a6a35;
+  --md-accent-fg-color--transparent: rgba(176, 141, 87, 0.12);
+  --md-typeset-color: #3b4658;
+  --md-typeset-a-color: #8a6a35;
+  --md-footer-bg-color: #16233a;
+  --md-footer-bg-color--dark: #0f192b;
+  --gl-card: #f7f8fa;
+  --gl-hair: #e4e7ec;
+  --gl-ink: #16233a;
+  --gl-accent: #b08d57;
+  --gl-accent-text: #8a6a35;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--gl-ink);
+}
+
+.md-typeset h1 { font-size: 2.6rem; margin-bottom: 0.4em; }
+.md-typeset h2 { font-size: 1.7rem; margin-top: 2.2em; }
+.md-header__title { font-family: "Source Serif 4", Georgia, serif; font-size: 1.05rem; letter-spacing: 0.01em; }
+.md-tabs { border-bottom: 1px solid var(--gl-hair); }
+.md-typeset a:hover { color: var(--gl-accent); }
+
+.gl-kicker {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gl-accent-text);
+  margin: 0 0 0.6rem;
+}
+
+.gl-lede {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.35rem;
+  line-height: 1.45;
+  color: var(--gl-ink);
+  max-width: 34em;
+}
+
+.gl-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.9rem;
+  margin: 1.6rem 0 2rem;
+}
+
+.gl-stat {
+  background: var(--gl-card);
+  border: 1px solid var(--gl-hair);
+  border-radius: 0.6rem;
+  padding: 1rem 1.1rem 0.9rem;
+  box-shadow: 0 0.6rem 1.6rem rgba(0, 0, 0, 0.18);
+}
+
+.gl-stat b {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 500;
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--gl-ink);
+  line-height: 1.15;
+}
+
+.gl-stat span { font-size: 0.72rem; color: var(--md-default-fg-color--lighter); line-height: 1.35; display: block; margin-top: 0.3rem; }
+
+.gl-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0.9rem;
+  margin: 1.2rem 0 1.8rem;
+}
+
+.gl-card {
+  background: var(--gl-card);
+  border: 1px solid var(--gl-hair);
+  border-radius: 0.6rem;
+  padding: 1.1rem 1.2rem;
+}
+
+.gl-card h3 { margin: 0 0 0.4rem; font-size: 1.12rem; }
+.gl-card p { margin: 0; font-size: 0.8rem; line-height: 1.5; }
+
+.gl-take {
+  border: 1px solid var(--gl-accent);
+  border-radius: 2rem;
+  padding: 0.7rem 1.3rem;
+  margin: 1.6rem 0;
+  font-size: 0.86rem;
+  color: var(--gl-ink);
+  background: var(--md-accent-fg-color--transparent);
+}
+
+.gl-take b { font-size: 0.62rem; letter-spacing: 0.14em; color: var(--gl-accent-text); margin-right: 0.8rem; }
+
+.gl-fig { margin: 1.4rem 0 0.4rem; }
+.gl-fig img { width: 100%; height: auto; }
+.gl-cap { font-size: 0.72rem; color: var(--md-default-fg-color--lighter); margin: 0 0 1.6rem; }
+
+.md-typeset table:not([class]) { font-size: 0.74rem; border: 1px solid var(--gl-hair); border-radius: 0.5rem; }
+.md-typeset table:not([class]) th { font-weight: 600; color: var(--gl-ink); background: var(--gl-card); }
+.md-typeset table:not([class]) td:not(:first-child),
+.md-typeset table:not([class]) th:not(:first-child) { text-align: right; font-variant-numeric: lining-nums tabular-nums; }
+
+.md-typeset .md-button {
+  border-radius: 2rem;
+  border-color: var(--gl-accent);
+  color: var(--gl-accent-text);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.md-typeset .md-button--primary { background: var(--gl-accent); color: #0c121d; border-color: var(--gl-accent); }
+.md-typeset .md-button:hover { background: var(--gl-accent); color: #0c121d; border-color: var(--gl-accent); }
