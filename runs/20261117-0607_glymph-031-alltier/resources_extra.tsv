@@ -1,3 +1,5 @@
 what	tool	hardware	wall_s	peak_rss_gb	peak_gpu_gb
 All 54 libraries in one job	Glymph 0.3.1	one node, four A30	1148	19.0	
 kidney_rep3, no GPU	Glymph 0.3.1	16 CPU cores	538	3.7	
+hgmm_1k_v3 (1,000 cells), no GPU	Glymph 0.3.1	16 CPU cores	1450	4.6	
+hgmm_20k_v31_HT (20,000 cells), no GPU	Glymph 0.3.1	16 CPU cores	2592	17.0	
