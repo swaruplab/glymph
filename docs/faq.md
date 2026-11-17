@@ -27,6 +27,10 @@ The default (0.4%). A larger `--fpr` removes more and keeps fewer of the cells' 
 On 54 libraries from three platforms against CellBender, scAR, SoupX and DecontX, with species, genotype and tissue truth.
 Twelve libraries were never used in development. See the [benchmark](benchmark.md).
 
+## What is the licence?
+
+MIT. See `LICENSE` in the repository.
+
 ## Why "Glymph"?
 
 After the glymphatic system, which clears waste from the brain.

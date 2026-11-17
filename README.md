@@ -121,3 +121,7 @@ runs/                index.tsv, INDEX.md and one folder per run
 reports/             the literature review
 research_notes/      source notes behind the review
 ```
+
+## License
+
+MIT; see `LICENSE`. The icons in `code/deck/icons/` are Phosphor Icons, also MIT.

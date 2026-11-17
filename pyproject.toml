@@ -7,6 +7,7 @@ name = "glymph"
 version = "0.3.1"
 description = "Platform-general ambient RNA removal for single-cell and single-nucleus RNA-seq by count thinning"
 requires-python = ">=3.10"
+license = {text = "MIT"}
 dependencies = ["numpy", "scipy", "pandas", "h5py", "anndata", "torch>=2.2"]
 
 [project.scripts]
