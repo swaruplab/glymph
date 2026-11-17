@@ -1,0 +1,75 @@
+dataset	tool	wall_s	peak_rss_gb	glymph_priors_s	glymph_setup_s	glymph_train_s	glymph_calibrate_s	glymph_denoise_s	glymph_assemble_s	glymph_read_s	glymph_write_s	glymph_total_s	gpu	peak_gpu_mem_gb	n_cells	epochs_run
+hgmm_1k_v3	ambidose	84.18	1.693196													
+hgmm_5k_v3	ambidose	234.64	4.824236													
+hgmm_6k_v2	ambidose	274.3	4.949552													
+hgmm_10k_gemx_v4	cellbender	4179.0	18.692964													
+hgmm_10k_v3	cellbender	2921.24	15.338276													
+hgmm_12k_v2	cellbender	2857.55	14.37342													
+hgmm_1k_v3	cellbender	465.01	4.621992													
+hgmm_20k_v31_HT	cellbender	3568.03	20.739704													
+hgmm_5k_v3	cellbender	1034.19	15.61426													
+hgmm_6k_v2	cellbender	1384.38	12.438408													
+hgmm_10k_gemx_v4	decontx	561.52	9.8388													
+hgmm_10k_v3	decontx	187.57	7.508164													
+hgmm_12k_v2	decontx	392.7	5.82482													
+hgmm_1k_v3	decontx	39.64	1.587176													
+hgmm_20k_v31_HT	decontx	609.53	11.1233													
+hgmm_5k_v3	decontx	103.53999999999999	4.268256													
+hgmm_6k_v2	decontx	236.32999999999998	4.943764													
+hgmm_10k_gemx_v4	decontx_bg	446.44	9.078204													
+hgmm_10k_v3	decontx_bg	175.56	6.63324													
+hgmm_12k_v2	decontx_bg	295.71	7.009768													
+hgmm_1k_v3	decontx_bg	40.69	1.731616													
+hgmm_20k_v31_HT	decontx_bg	339.38	10.115396													
+hgmm_5k_v3	decontx_bg	98.11	3.847308													
+hgmm_6k_v2	decontx_bg	126.33	5.37594													
+hgmm_10k_gemx_v4	glymph	201.89	7.476268	2.523	1.206	97.244	55.122	1.224	1.46	6.79	26.601	192.188	NVIDIA A30	12.462	23800.0	45.0
+hgmm_10k_v3	glymph	219.86	5.336464	2.177	0.869	78.305	62.244	0.83	2.421	9.273	18.358	174.498	NVIDIA A30	8.348	12762.0	52.0
+hgmm_12k_v2	glymph	166.82	5.041144	1.676	1.259	57.318	40.694	0.691	2.368	5.155	15.378	124.556	NVIDIA A30	7.571	16451.0	35.0
+hgmm_1k_v3	glymph	142.41	2.267108	0.663	0.588	43.249	43.019	0.101	0.113	3.501	2.519	93.899	NVIDIA A30	2.571	2647.0	68.0
+hgmm_20k_v31_HT	glymph	226.55	8.092476	3.599	1.282	105.709	55.708	1.286	4.387	9.974	29.407	211.367	NVIDIA A30	13.453	24602.0	44.0
+hgmm_5k_v3	glymph	163.86	3.644004	1.205	0.521	52.503	53.034	0.366	0.429	5.648	8.79	122.505	NVIDIA A30	4.507	6802.0	55.0
+hgmm_6k_v2	glymph	165.2	4.102524	1.326	0.601	63.054	43.367	0.468	0.594	3.903	10.994	124.318	NVIDIA A30	4.75	9976.0	53.0
+hgmm_10k_gemx_v4	glymph_fpr0	203.07999999999998	7.140864													
+hgmm_10k_v3	glymph_fpr0	154.01	5.687544													
+hgmm_12k_v2	glymph_fpr0	104.82	5.028728													
+hgmm_1k_v3	glymph_fpr0	64.13	2.272824													
+hgmm_20k_v31_HT	glymph_fpr0	212.96	8.1018													
+hgmm_5k_v3	glymph_fpr0	116.92	3.650252													
+hgmm_6k_v2	glymph_fpr0	110.47	4.10236													
+hgmm_10k_gemx_v4	glymph_fpr1	205.17000000000002	7.453492													
+hgmm_10k_v3	glymph_fpr1	171.16	5.674632													
+hgmm_12k_v2	glymph_fpr1	111.82	5.028236													
+hgmm_1k_v3	glymph_fpr1	75.53	1.999664													
+hgmm_20k_v31_HT	glymph_fpr1	206.52	8.089952													
+hgmm_5k_v3	glymph_fpr1	111.84	3.301104													
+hgmm_6k_v2	glymph_fpr1	106.92	4.097276													
+hgmm_10k_gemx_v4	glymph_v0	147.77	7.388624													
+hgmm_10k_v3	glymph_v0	91.19	5.671856													
+hgmm_12k_v2	glymph_v0	78.49	4.993756													
+hgmm_1k_v3	glymph_v0	33.05	2.252													
+hgmm_20k_v31_HT	glymph_v0	147.98	8.062564													
+hgmm_5k_v3	glymph_v0	57.66	3.61364													
+hgmm_6k_v2	glymph_v0	59.52	4.067456													
+hgmm_10k_gemx_v4	glymph_v01	135.69	7.434784													
+hgmm_10k_v3	glymph_v01	96.74000000000001	5.304484													
+hgmm_12k_v2	glymph_v01	93.88	4.978516													
+hgmm_1k_v3	glymph_v01	30.08	2.226076													
+hgmm_20k_v31_HT	glymph_v01	155.66	8.060108													
+hgmm_5k_v3	glymph_v01	58.66	3.625288													
+hgmm_6k_v2	glymph_v01	59.88	4.057932													
+hgmm_10k_gemx_v4	scar	863.11	32.071628													
+hgmm_10k_v3	scar	1608.85	30.797968													
+hgmm_12k_v2	scar	642.8	21.88872													
+hgmm_1k_v3	scar	70.46000000000001	5.71644													
+hgmm_20k_v31_HT	scar	1554.08	30.04058													
+hgmm_5k_v3	scar	367.89	21.17756													
+hgmm_6k_v2	scar	353.33	17.53532													
+hgmm_10k_gemx_v4	soupx	257.24	14.357388													
+hgmm_10k_v3	soupx	138.67000000000002	9.8818													
+hgmm_12k_v2	soupx	211.32	8.80838													
+hgmm_1k_v3	soupx	52.22	1.817436													
+hgmm_20k_v31_HT	soupx	281.79	15.832064													
+hgmm_5k_v3	soupx	102.93	5.691964													
+hgmm_6k_v2	soupx	79.23	6.591664													
+ALL (7 libraries, 4 GPUs)	glymph	269.12														

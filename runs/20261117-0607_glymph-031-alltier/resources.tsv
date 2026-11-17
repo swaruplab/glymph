@@ -1,0 +1,650 @@
+dataset	tool	wall_s	peak_rss_gb	cpu_user_s	cpu_sys_s	cpu_pct	cpu_core_s	node	cores_granted	gpu_model	gpu_peak_mem_gb	gpu_mean_util_pct	gpu_mem_before_gb	tier	platform	kind	truth	development	n_eval_cells
+bd_demo_pbmc	cellbender	2410.37	14.0374	2557.1	218.45	115	2775.55	hpc3-gpu-24-07	8	NVIDIA A30	8.16113	38.3922	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	looked at	11370
+bd_hgmm_mix1	cellbender	2499.56	9.75584	2099.07	593.34	107	2692.41	hpc3-gpu-l54-08	8	NVIDIA A30	10.5654	36.792	0	t3_rhapsody	BD Rhapsody WTA	cells	species	looked at	9899
+bd_hgmm_mix2	cellbender	2029.24	13.6723	2018.11	231.08	110	2249.19	hpc3-gpu-24-06	8	NVIDIA A30	10.9639	41.5567	0	t3_rhapsody	BD Rhapsody WTA	cells	species	held out	7983
+bd_ileum_Cart1	cellbender	2046.62	12.6751	2181.77	114.19	112	2295.96	hpc3-gpu-24-08	8	NVIDIA A30	8.93848	42.835	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15092
+bd_ileum_Cart2	cellbender	2268.76	15.2213	2298.37	363.57	117	2661.94	hpc3-gpu-l54-08	8	NVIDIA A30	10.2939	39.1216	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15299
+bd_ileum_cartridge1	cellbender	873.14	6.38186	924.31	46.04	111	970.35	hpc3-gpu-24-05	8	NVIDIA A30	5.02637	38.5973	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	4621
+bd_ileum_cartridge2	cellbender	1742.37	6.467	2076.14	145.89	127	2222.03	hpc3-gpu-k54-03	8	NVIDIA A30	5.0459	35.4748	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	10667
+bd_ileum_cartridge3	cellbender	1443.76	5.22423	1581.19	70.88	114	1652.07	hpc3-gpu-l54-01	8	NVIDIA A30	4.42871	49.7548	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	13174
+bd_liver	cellbender	2772.65	15.3567	2884.1	381.73	117	3265.83	hpc3-gpu-k54-01	8	NVIDIA A30	12.3193	46.3071	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	13590
+bd_lung	cellbender	5158	15.0212	4234.73	1895.44	118	6130.17	hpc3-gpu-24-05	8	NVIDIA A30	9.74316	33.0427	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	26029
+bd_pbmc_Donor1855	cellbender	2399.96	11.379	2622.74	199.76	117	2822.5	hpc3-gpu-l54-01	8	NVIDIA A30	6.81543	39.565	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	88812
+bd_pbmc_Donor2881	cellbender	2183.88	13.7058	2265.53	374.34	120	2639.87	hpc3-gpu-k54-05	8	NVIDIA A30	9.05762	37.8022	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	79669
+bd_prostate	cellbender	3377.21	13.4863	3974.96	410.03	129	4384.99	hpc3-gpu-l54-07	8	NVIDIA A30	9.71387	39.5003	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	15857
+bd_spleen	cellbender	1096.28	8.48076	1142.95	59.2	109	1202.15	hpc3-gpu-24-05	8	NVIDIA A30	6.16113	37.5647	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	8061
+hgmm_10k_3p_chromX	cellbender	2683.22	12.8343	2700.7	309.94	112	3010.64	hpc3-gpu-k54-03	8	NVIDIA A30	8.97559	21.582	0	t1_holdout	10x 3' v3.1	cells	species	held out	8842
+hgmm_10k_5p_gemx	cellbender	4697	16.6921	4443.38	532.22	105	4975.6	hpc3-gpu-18-03	8	NVIDIA A30	9.99512	29.6794	0	t1_holdout	10x 5' GEM-X	cells	species	held out	12591
+hgmm_10k_5pv2_ctrl	cellbender	4160	15.1777	3000.04	1378.76	105	4378.8	hpc3-gpu-18-04	8	NVIDIA A30	8.84668	16.1861	0	t1_holdout	10x 5' v2	cells	species	looked at	9361
+hgmm_10k_gemx_v4	cellbender	6638	22.909	5059.72	2019.87	106	7079.59	hpc3-gpu-24-06	8	NVIDIA A30	9.75488	23.7698	0	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on	10956
+hgmm_10k_v3	cellbender	3101.09	14.8979	3062.57	330.66	109	3393.23	hpc3-gpu-18-03	8	NVIDIA A30	9.62012	23.5912	0	t1_tuning	10x 3p v3	cells	species	tuned on	10563
+hgmm_10k_v3_DI	cellbender	5033	18.824	3853.99	1492.13	106	5346.12	hpc3-gpu-24-07	8	NVIDIA A30	8.21973	12.6015	0	t1_holdout	10x 3' v3.1	cells	species	held out	11125
+hgmm_12k_v2	cellbender	2838.33	14.6882	2785.07	286.18	108	3071.25	hpc3-gpu-k54-02	8	NVIDIA A30	8.63379	25.5387	0	t1_tuning	10x 3p v2	cells	species	tuned on	12665
+hgmm_1k_3p_LT	cellbender	377.73	2.93828	330.74	21.59	93	352.33	hpc3-gpu-l54-01	8	NVIDIA A30	5.36035	14.6825	0	t1_holdout	10x 3' v3.1 LT	cells	species	held out	708
+hgmm_1k_v2	cellbender	497.47	3.1779	498.3	13.28	102	511.58	hpc3-gpu-24-08	8	NVIDIA A30	4.76465	37.4096	0	t1_holdout	10x 3' v2	cells	species	held out	1019
+hgmm_1k_v3	cellbender	521.24	3.74738	522.29	14.46	102	536.75	hpc3-gpu-k54-05	8	NVIDIA A30	5.42676	36.7471	0	t1_tuning	10x 3p v3	cells	species	tuned on	999
+hgmm_20k_5pv2_HT	cellbender	7349	23.8102	5975.08	1902.27	107	7877.35	hpc3-gpu-18-04	8	NVIDIA A30	9.30762	23.1222	0	t1_holdout	10x 5' v2 HT	cells	species	held out	18280
+hgmm_20k_v31_HT	cellbender	5371	20.9391	5088.52	761.49	108	5850.01	hpc3-gpu-l54-01	8	NVIDIA A30	9.05762	23.987	0	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on	16273
+hgmm_5k_3p_multiplex	cellbender	2463.68	12.2986	1939.27	669.33	105	2608.6	hpc3-gpu-l54-08	8	NVIDIA A30	10.0381	25.8019	0	t1_holdout	10x 3' v3.1	cells	species	held out	4344
+hgmm_5k_v3	cellbender	1560.78	15.1159	1632.75	129.92	112	1762.67	hpc3-gpu-k54-04	8	NVIDIA A30	12.0205	25.4123	0	t1_tuning	10x 3p v3	cells	species	tuned on	5171
+hgmm_6k_v2	cellbender	1980.9	12.1171	2067	168.93	112	2235.93	hpc3-gpu-k54-04	8	NVIDIA A30	8.89551	24.4379	0	t1_tuning	10x 3p v2	cells	species	tuned on	7387
+jurkat_32d	cellbender	1437.03	8.84589	1260.01	292.65	108	1552.66	hpc3-gpu-k54-01	8	NVIDIA A30	8.05957	34.2434	0	t1_holdout	10x 3' v2	cells	species	looked at	6222
+kidney_nuc2	cellbender	2394.84	13.172	2497.23	533.72	126	3030.95	hpc3-gpu-k54-03	8	NVIDIA A30	9.53418	31.1177	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	59249
+kidney_nuc3	cellbender	1054.85	9.23831	1118.22	76.22	113	1194.44	hpc3-gpu-k54-05	8	NVIDIA A30	6.86426	28.1193	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	20129
+kidney_rep1	cellbender	3777	14.1656	3611.52	1008.1	122	4619.62	hpc3-gpu-k54-03	8	NVIDIA A30	8.04199	22.0651	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	21819
+kidney_rep2	cellbender	3299.8	17.6988	3248.17	453.63	112	3701.8	hpc3-gpu-l54-08	8	NVIDIA A30	7.34082	27.9582	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	28187
+kidney_rep3	cellbender	1149.32	9.23144	1230.68	78.99	113	1309.67	hpc3-gpu-24-08	8	NVIDIA A30	6.71191	31.7096	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	6546
+neat_barnyard	cellbender	816	5.58656	785.25	62.53	103	847.78	hpc3-gpu-k54-01	8	NVIDIA A30	6.88965	39.2255	0	t1_nuclei	10x Multiome GEX	nuclei	species	looked at	1308
+parse_bm_hfd	cellbender	4452	32.3129	3921.8	914.61	108	4836.41	hpc3-gpu-k54-03	8	NVIDIA A30	8.40723	7.74989	0	t4_parse	Parse Evercode WT	cells	none	looked at	72204
+parse_hgmm_sub1	cellbender	780.73	5.28942	802.21	33.91	107	836.12	hpc3-gpu-k54-05	8	NVIDIA A30	5.88574	42.3555	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2439
+parse_hgmm_sub2	cellbender	902.24	6.32965	878.36	85.34	106	963.7	hpc3-gpu-k54-02	8	NVIDIA A30	6.8584	38.2124	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2831
+parse_igvf_AXHN	cellbender	2789.96	10.6533	2220.27	924.94	112	3145.21	hpc3-gpu-24-07	8	NVIDIA A30	8.84863	36.5018	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11359
+parse_igvf_BVLA	cellbender	2755.81	11.367	2248.4	915.18	114	3163.58	hpc3-gpu-l54-00	8	NVIDIA A30	9.20801	38.7373	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11793
+parse_igvf_EDTJ	cellbender	2656.63	10.2077	2677.44	599.44	123	3276.88	hpc3-gpu-l54-02	8	NVIDIA A30	8.5498	37.0166	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10811
+parse_igvf_LDUV	cellbender	2095.46	10.0716	2135.97	291.53	115	2427.5	hpc3-gpu-k54-01	8	NVIDIA A30	8.62402	49.2767	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10678
+parse_igvf_NOOZ	cellbender	2148.51	10.0636	2277.25	126.34	111	2403.59	hpc3-gpu-24-05	8	NVIDIA A30	8.74707	51.0326	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	looked at	11346
+parse_igvf_PIQO	cellbender	2010.17	10.0001	2144.89	121.58	112	2266.47	hpc3-gpu-24-05	8	NVIDIA A30	8.60449	51.5612	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10519
+parse_igvf_QPLV	cellbender	2014.9	10.8186	2025.92	229.6	111	2255.52	hpc3-gpu-l54-00	8	NVIDIA A30	8.99902	48.8264	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	12180
+parse_igvf_UXZO	cellbender	2313.83	9.81261	2627.29	280.12	125	2907.41	hpc3-gpu-l54-02	8	NVIDIA A30	8.65137	43.9715	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11446
+pfc_ga22	cellbender	1891.26	11.2557	1957.75	115.17	109	2072.92	hpc3-gpu-18-03	8	NVIDIA A30	7.81152	32.0042	0	t5_notruth	10x 3' v3	nuclei	none	looked at	11924
+xeno_HSC_1	cellbender	673.73	2.79216	644.29	67.97	105	712.26	hpc3-gpu-l54-08	8	NVIDIA A30	4.4209	47.362	0	t2_xeno	10x 3'	cells	species	looked at	1646
+xeno_HSC_2	cellbender	468.89	2.237	476.14	17.04	105	493.18	hpc3-gpu-l54-01	8	NVIDIA A30	3.96582	47.7149	0	t2_xeno	10x 3'	cells	species	held out	1226
+xeno_HSC_3	cellbender	697.51	3.09783	722.8	31.36	108	754.16	hpc3-gpu-l54-01	8	NVIDIA A30	4.45801	48.6705	0	t2_xeno	10x 3'	cells	species	looked at	1824
+xeno_noHSC_1	cellbender	993.74	3.94844	1035.29	49.29	109	1084.58	hpc3-gpu-k54-05	8	NVIDIA A30	5.39355	52.5573	0	t2_xeno	10x 3'	cells	species	held out	1745
+xeno_noHSC_2	cellbender	721.88	4.13248	743.56	28.03	106	771.59	hpc3-gpu-k54-05	8	NVIDIA A30	4.74121	44.482	0	t2_xeno	10x 3'	cells	species	held out	3334
+xeno_noHSC_3	cellbender	942.62	3.9073	1050.01	38.83	115	1088.84	hpc3-gpu-l54-07	8	NVIDIA A30	5.45605	47.6568	0	t2_xeno	10x 3'	cells	species	held out	2107
+bd_demo_pbmc	decontx	182.16	4.40401	294.25	6.66	165	300.91	hpc3-19-13	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	looked at	11370
+bd_hgmm_mix1	decontx	129.43	3.80599	417.83	6.33	327	424.16	hpc3-19-00	20					t3_rhapsody	BD Rhapsody WTA	cells	species	looked at	9899
+bd_hgmm_mix2	decontx	66.21	3.46196	99.25	3.15	154	102.4	hpc3-23-15	20					t3_rhapsody	BD Rhapsody WTA	cells	species	held out	7983
+bd_ileum_Cart1	decontx	96.73	3.85469	424.34	5.67	444	430.01	hpc3-19-07	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15092
+bd_ileum_Cart2	decontx	109.61	4.31182	450.94	4.34	415	455.28	hpc3-19-06	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15299
+bd_ileum_cartridge1	decontx	57.47	2.10583	181.22	2.59	319	183.81	hpc3-19-11	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	4621
+bd_ileum_cartridge2	decontx	70.11	2.68721	321.77	3.73	464	325.5	hpc3-19-11	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	10667
+bd_ileum_cartridge3	decontx	95.56	2.6019	597.76	6.31	632	604.07	hpc3-19-17	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	13174
+bd_liver	decontx	140.24	4.21979	326.86	5.08	236	331.94	hpc3-19-18	20					t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	13590
+bd_lung	decontx	209.58	6.73932	673.99	7.99	325	681.98	hpc3-19-19	20					t3_rhapsody	BD Rhapsody WTA	cells	none	held out	26029
+bd_pbmc_Donor1855	decontx	380.87	10.3683	2518.26	16.61	665	2534.87	hpc3-19-09	20					t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	88812
+bd_pbmc_Donor2881	decontx	302.96	9.17422	1132.56	14.37	378	1146.93	hpc3-20-31	20					t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	79669
+bd_prostate	decontx	134.05	5.17359	329.85	5.24	249	335.09	hpc3-19-19	20					t3_rhapsody	BD Rhapsody WTA	cells	none	held out	15857
+bd_spleen	decontx	93.55	2.84664	281.7	4.69	306	286.39	hpc3-19-17	20					t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	8061
+hgmm_10k_3p_chromX	decontx	280.9	6.68332	310.63	7.24	113	317.87	hpc3-22-10	20					t1_holdout	10x 3' v3.1	cells	species	held out	8842
+hgmm_10k_5p_gemx	decontx	473.1	8.5782	566.56	10.43	121	576.99	hpc3-20-26	20					t1_holdout	10x 5' GEM-X	cells	species	held out	12591
+hgmm_10k_5pv2_ctrl	decontx	389.45	7.83113	437.12	8.84	114	445.96	hpc3-17-11	20					t1_holdout	10x 5' v2	cells	species	looked at	9361
+hgmm_10k_gemx_v4	decontx	436.08	7.6619	495.53	10.08	115	505.61	hpc3-14-07	20					t1_tuning	10x GEM-X 3p v4	cells	species	tuned on	10956
+hgmm_10k_v3	decontx	321.72	7.75497	375.79	11.34	120	387.13	hpc3-14-19	20					t1_tuning	10x 3p v3	cells	species	tuned on	10563
+hgmm_10k_v3_DI	decontx	428.28	10.9081	486.99	8.76	115	495.75	hpc3-21-32	20					t1_holdout	10x 3' v3.1	cells	species	held out	11125
+hgmm_12k_v2	decontx	271.46	5.74763	343.68	8.78	129	352.46	hpc3-20-31	20					t1_tuning	10x 3p v2	cells	species	tuned on	12665
+hgmm_1k_3p_LT	decontx	34.31	1.61273	34.32	1.34	103	35.66	hpc3-23-18	20					t1_holdout	10x 3' v3.1 LT	cells	species	held out	708
+hgmm_1k_v2	decontx	36.51	1.57869	46.23	1.62	131	47.85	hpc3-22-11	20					t1_holdout	10x 3' v2	cells	species	held out	1019
+hgmm_1k_v3	decontx	39.24	1.61263	55.77	3.51	151	59.28	hpc3-14-21	20					t1_tuning	10x 3p v3	cells	species	tuned on	999
+hgmm_20k_5pv2_HT	decontx	847.76	12.2768	939.78	14.53	112	954.31	hpc3-19-12	20					t1_holdout	10x 5' v2 HT	cells	species	held out	18280
+hgmm_20k_v31_HT	decontx	652.28	11.531	711.32	15.04	111	726.36	hpc3-14-01	20					t1_tuning	10x 3p v3.1 HT	cells	species	tuned on	16273
+hgmm_5k_3p_multiplex	decontx	152.74	4.94	169.94	3.76	113	173.7	hpc3-23-04	20					t1_holdout	10x 3' v3.1	cells	species	held out	4344
+hgmm_5k_v3	decontx	154.34	4.21768	202.76	8.42	136	211.18	hpc3-15-03	20					t1_tuning	10x 3p v3	cells	species	tuned on	5171
+hgmm_6k_v2	decontx	113.47	4.9015	129.72	4.31	118	134.03	hpc3-23-15	20					t1_tuning	10x 3p v2	cells	species	tuned on	7387
+jurkat_32d	decontx	71.49	2.8187	129.24	3.95	186	133.19	hpc3-22-10	20					t1_holdout	10x 3' v2	cells	species	looked at	6222
+kidney_nuc2	decontx	150.06	8.66256	342.07	6.88	232	348.95	hpc3-23-09	20					t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	59249
+kidney_nuc3	decontx	78.07	4.55607	171.22	3.5	223	174.72	hpc3-23-06	20					t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	20129
+kidney_rep1	decontx	156.7	5.57823	409.24	6.99	265	416.23	hpc3-22-03	20					t2_kidney	10x 3p v3.1	cells	genotype	tuned on	21819
+kidney_rep2	decontx	232.76	7.09824	415.96	9.47	182	425.43	hpc3-14-23	20					t2_kidney	10x 3p v3.1	cells	genotype	tuned on	28187
+kidney_rep3	decontx	66.8	3.17988	95.37	3.31	147	98.68	hpc3-23-18	20					t2_kidney	10x 3p v3.1	cells	genotype	tuned on	6546
+neat_barnyard	decontx	55.74	1.98794	62.54	2.01	115	64.55	hpc3-23-16	20					t1_nuclei	10x Multiome GEX	nuclei	species	looked at	1308
+parse_bm_hfd	decontx	1307.97	25.0267	1605.82	36.53	125	1642.35	hpc3-14-21	20					t4_parse	Parse Evercode WT	cells	none	looked at	72204
+parse_hgmm_sub1	decontx	89.78	1.99841	220.16	4.99	250	225.15	hpc3-19-19	20					t4_parse	Parse Evercode WT Mini	cells	species	looked at	2439
+parse_hgmm_sub2	decontx	65.75	2.20009	121.44	4.14	190	125.58	hpc3-15-10	20					t4_parse	Parse Evercode WT Mini	cells	species	looked at	2831
+parse_igvf_AXHN	decontx	119.56	3.4612	165.38	6.84	144	172.22	hpc3-14-18	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11359
+parse_igvf_BVLA	decontx	118.76	3.57754	193.01	7.18	168	200.19	hpc3-19-16	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11793
+parse_igvf_EDTJ	decontx	122.68	3.29318	202.2	6.94	170	209.14	hpc3-14-13	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10811
+parse_igvf_LDUV	decontx	125.29	3.38701	183.53	6.27	151	189.8	hpc3-15-08	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10678
+parse_igvf_NOOZ	decontx	113.79	3.29465	151.98	5.72	138	157.7	hpc3-20-06	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	looked at	11346
+parse_igvf_PIQO	decontx	106.87	3.23242	187.52	6.37	181	193.89	hpc3-14-09	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10519
+parse_igvf_QPLV	decontx	131.5	3.35531	187.88	7.03	148	194.91	hpc3-14-06	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	12180
+parse_igvf_UXZO	decontx	121.58	3.46598	170.72	6.11	145	176.83	hpc3-14-10	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11446
+pfc_ga22	decontx	154.82	4.1834	311.84	8.86	207	320.7	hpc3-14-21	20					t5_notruth	10x 3' v3	nuclei	none	looked at	11924
+xeno_HSC_1	decontx	26.78	1.46781	33.83	1.62	132	35.45	hpc3-23-09	20					t2_xeno	10x 3'	cells	species	looked at	1646
+xeno_HSC_2	decontx	24.52	1.4964	31.7	1.29	134	32.99	hpc3-23-06	20					t2_xeno	10x 3'	cells	species	held out	1226
+xeno_HSC_3	decontx	27.05	1.73024	33.63	1.34	129	34.97	hpc3-23-07	20					t2_xeno	10x 3'	cells	species	looked at	1824
+xeno_noHSC_1	decontx	29.36	1.70323	32.72	1.61	116	34.33	hpc3-23-15	20					t2_xeno	10x 3'	cells	species	held out	1745
+xeno_noHSC_2	decontx	34.82	2.01524	45.76	2.17	137	47.93	hpc3-23-08	20					t2_xeno	10x 3'	cells	species	held out	3334
+xeno_noHSC_3	decontx	32.77	1.8455	39.65	2.11	127	41.76	hpc3-23-09	20					t2_xeno	10x 3'	cells	species	held out	2107
+bd_demo_pbmc	decontx_bg	107.43	4.50203	262.78	6.25	250	269.03	hpc3-19-13	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	looked at	11370
+bd_hgmm_mix1	decontx_bg	132.98	3.81803	526.72	5.42	400	532.14	hpc3-19-00	20					t3_rhapsody	BD Rhapsody WTA	cells	species	looked at	9899
+bd_hgmm_mix2	decontx_bg	124.65	3.43977	409.36	5.64	332	415	hpc3-19-04	20					t3_rhapsody	BD Rhapsody WTA	cells	species	held out	7983
+bd_ileum_Cart1	decontx_bg	108.45	3.92629	559.46	6.51	521	565.97	hpc3-19-07	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15092
+bd_ileum_Cart2	decontx_bg	109.29	4.42739	436.47	3.72	402	440.19	hpc3-19-06	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15299
+bd_ileum_cartridge1	decontx_bg	62.37	2.12509	181.49	3.7	296	185.19	hpc3-19-11	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	4621
+bd_ileum_cartridge2	decontx_bg	67.05	2.72615	182.27	4.37	278	186.64	hpc3-19-16	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	10667
+bd_ileum_cartridge3	decontx_bg	68.23	2.5813	277.44	3.32	411	280.76	hpc3-19-11	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	13174
+bd_liver	decontx_bg	138.96	4.36049	599.15	5.49	435	604.64	hpc3-19-18	20					t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	13590
+bd_lung	decontx_bg	197.5	7.03878	727.16	9.03	372	736.19	hpc3-19-19	20					t3_rhapsody	BD Rhapsody WTA	cells	none	held out	26029
+bd_pbmc_Donor1855	decontx_bg	420.71	10.6267	2566.43	15.57	613	2582	hpc3-19-09	20					t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	88812
+bd_pbmc_Donor2881	decontx_bg	376.75	9.2772	2707.62	14.44	722	2722.06	hpc3-19-09	20					t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	79669
+bd_prostate	decontx_bg	140.88	5.26162	546.56	5.01	391	551.57	hpc3-19-19	20					t3_rhapsody	BD Rhapsody WTA	cells	none	held out	15857
+bd_spleen	decontx_bg	86.36	2.96071	233.58	4.25	275	237.83	hpc3-19-17	20					t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	8061
+hgmm_10k_3p_chromX	decontx_bg	183.77	5.94969	209.81	5.18	116	214.99	hpc3-22-13	20					t1_holdout	10x 3' v3.1	cells	species	held out	8842
+hgmm_10k_5p_gemx	decontx_bg	250.51	10.3518	328.9	10.73	135	339.63	hpc3-20-26	20					t1_holdout	10x 5' GEM-X	cells	species	held out	12591
+hgmm_10k_5pv2_ctrl	decontx_bg	238.14	6.9074	284.7	10.48	123	295.18	hpc3-17-11	20					t1_holdout	10x 5' v2	cells	species	looked at	9361
+hgmm_10k_gemx_v4	decontx_bg	431.42	10.6136	483.98	13.74	115	497.72	hpc3-14-07	20					t1_tuning	10x GEM-X 3p v4	cells	species	tuned on	10956
+hgmm_10k_v3	decontx_bg	270.72	6.67574	320.91	12.05	122	332.96	hpc3-14-19	20					t1_tuning	10x 3p v3	cells	species	tuned on	10563
+hgmm_10k_v3_DI	decontx_bg	237.48	9.20114	290.23	10.31	126	300.54	hpc3-21-32	20					t1_holdout	10x 3' v3.1	cells	species	held out	11125
+hgmm_12k_v2	decontx_bg	244.53	6.9065	314.09	8.61	131	322.7	hpc3-20-31	20					t1_tuning	10x 3p v2	cells	species	tuned on	12665
+hgmm_1k_3p_LT	decontx_bg	29.17	1.61778	33.23	1.56	119	34.79	hpc3-23-18	20					t1_holdout	10x 3' v3.1 LT	cells	species	held out	708
+hgmm_1k_v2	decontx_bg	44.76	1.70586	52.51	1.68	121	54.19	hpc3-22-11	20					t1_holdout	10x 3' v2	cells	species	held out	1019
+hgmm_1k_v3	decontx_bg	40.14	1.76216	61.92	2.82	161	64.74	hpc3-14-22	20					t1_tuning	10x 3p v3	cells	species	tuned on	999
+hgmm_20k_5pv2_HT	decontx_bg	453.27	10.8526	552.91	15.25	125	568.16	hpc3-19-12	20					t1_holdout	10x 5' v2 HT	cells	species	held out	18280
+hgmm_20k_v31_HT	decontx_bg	345.07	10.1976	403.62	13.17	120	416.79	hpc3-14-01	20					t1_tuning	10x 3p v3.1 HT	cells	species	tuned on	16273
+hgmm_5k_3p_multiplex	decontx_bg	91.1	4.42596	108.07	4.08	123	112.15	hpc3-23-04	20					t1_holdout	10x 3' v3.1	cells	species	held out	4344
+hgmm_5k_v3	decontx_bg	125.56	4.02736	178.5	7.36	148	185.86	hpc3-15-03	20					t1_tuning	10x 3p v3	cells	species	tuned on	5171
+hgmm_6k_v2	decontx_bg	162.65	5.36626	216.14	7.35	137	223.49	hpc3-14-15	20					t1_tuning	10x 3p v2	cells	species	tuned on	7387
+jurkat_32d	decontx_bg	72.13	2.9779	129.09	3.92	184	133.01	hpc3-22-10	20					t1_holdout	10x 3' v2	cells	species	looked at	6222
+kidney_nuc2	decontx_bg	205.9	8.8317	397.16	7.4	196	404.56	hpc3-23-09	20					t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	59249
+kidney_nuc3	decontx_bg	106.21	4.74206	198.5	3.49	190	201.99	hpc3-23-06	20					t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	20129
+kidney_rep1	decontx_bg	227.23	6.02287	483.18	7.24	215	490.42	hpc3-22-03	20					t2_kidney	10x 3p v3.1	cells	genotype	tuned on	21819
+kidney_rep2	decontx_bg	327.17	7.54086	510.87	9.45	159	520.32	hpc3-14-23	20					t2_kidney	10x 3p v3.1	cells	genotype	tuned on	28187
+kidney_rep3	decontx_bg	52.2	3.20063	78.79	2.78	156	81.57	hpc3-23-18	20					t2_kidney	10x 3p v3.1	cells	genotype	tuned on	6546
+neat_barnyard	decontx_bg	36.47	2.03317	43.32	1.72	123	45.04	hpc3-23-16	20					t1_nuclei	10x Multiome GEX	nuclei	species	looked at	1308
+parse_bm_hfd	decontx_bg	1425.95	34.031	1844.52	38.45	132	1882.97	hpc3-14-21	20					t4_parse	Parse Evercode WT	cells	none	looked at	72204
+parse_hgmm_sub1	decontx_bg	81.41	2.05487	385.51	6.9	482	392.41	hpc3-19-19	20					t4_parse	Parse Evercode WT Mini	cells	species	looked at	2439
+parse_hgmm_sub2	decontx_bg	51.98	2.28978	76.95	2.1	152	79.05	hpc3-23-08	20					t4_parse	Parse Evercode WT Mini	cells	species	looked at	2831
+parse_igvf_AXHN	decontx_bg	112.35	3.45796	159.73	6.46	147	166.19	hpc3-14-18	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11359
+parse_igvf_BVLA	decontx_bg	125.29	3.59695	190.35	8.34	158	198.69	hpc3-14-04	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11793
+parse_igvf_EDTJ	decontx_bg	195.72	3.27663	898.08	14.54	466	912.62	hpc3-19-17	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10811
+parse_igvf_LDUV	decontx_bg	114.8	3.18336	173.3	5.97	156	179.27	hpc3-15-08	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10678
+parse_igvf_NOOZ	decontx_bg	140.34	3.37856	189.63	6.42	139	196.05	hpc3-15-25	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	looked at	11346
+parse_igvf_PIQO	decontx_bg	109.45	3.37184	192.13	7.88	182	200.01	hpc3-14-09	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10519
+parse_igvf_QPLV	decontx_bg	132.5	3.61311	227.96	8.29	178	236.25	hpc3-14-06	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	12180
+parse_igvf_UXZO	decontx_bg	118.01	3.32062	164.38	5.79	144	170.17	hpc3-14-10	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11446
+pfc_ga22	decontx_bg	122.02	4.89698	573.34	6.8	475	580.14	hpc3-18-00	20					t5_notruth	10x 3' v3	nuclei	none	looked at	11924
+xeno_HSC_1	decontx_bg	27.89	1.5407	33.5	1.44	125	34.94	hpc3-23-09	20					t2_xeno	10x 3'	cells	species	looked at	1646
+xeno_HSC_2	decontx_bg	24.8	1.44267	30.71	1.22	128	31.93	hpc3-23-06	20					t2_xeno	10x 3'	cells	species	held out	1226
+xeno_HSC_3	decontx_bg	29.6	1.5923	36.05	1.43	126	37.48	hpc3-23-07	20					t2_xeno	10x 3'	cells	species	looked at	1824
+xeno_noHSC_1	decontx_bg	49.41	1.78106	60.54	2.9	128	63.44	hpc3-20-31	20					t2_xeno	10x 3'	cells	species	held out	1745
+xeno_noHSC_2	decontx_bg	36.02	1.90794	45.14	1.5	129	46.64	hpc3-23-08	20					t2_xeno	10x 3'	cells	species	held out	3334
+xeno_noHSC_3	decontx_bg	30.73	1.81376	38.09	1.84	129	39.93	hpc3-23-09	20					t2_xeno	10x 3'	cells	species	held out	2107
+bd_demo_pbmc	glymph	190.72	3.83014	186.44	3.9	99	190.34	hpc3-gpu-k54-03	6	NVIDIA A30	6.41309	62.2604	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	looked at	11370
+bd_hgmm_mix1	glymph	87.24	3.57281	81.55	2.92	96	84.47	hpc3-gpu-24-05	6	NVIDIA A30	6.94434	75.2045	0	t3_rhapsody	BD Rhapsody WTA	cells	species	looked at	9899
+bd_hgmm_mix2	glymph	89.02	3.52149	84.61	2.84	98	87.45	hpc3-gpu-24-07	6	NVIDIA A30	6.68457	75.5333	0	t3_rhapsody	BD Rhapsody WTA	cells	species	held out	7983
+bd_ileum_Cart1	glymph	97.46	2.99047	92.63	2.85	97	95.48	hpc3-gpu-24-08	6	NVIDIA A30	5.16504	78.0816	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15092
+bd_ileum_Cart2	glymph	168.86	3.26528	165.12	3.68	99	168.8	hpc3-gpu-k54-03	6	NVIDIA A30	6.57129	54.1176	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15299
+bd_ileum_cartridge1	glymph	70.47	2.22258	65.75	2.37	96	68.12	hpc3-gpu-k54-04	6	NVIDIA A30	3.66895	52.7778	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	4621
+bd_ileum_cartridge2	glymph	48.13	2.54521	43.53	2.34	95	45.87	hpc3-gpu-l54-00	6	NVIDIA A30	3.66309	67.56	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	10667
+bd_ileum_cartridge3	glymph	46.48	2.41997	42.36	1.99	95	44.35	hpc3-gpu-l54-01	6	NVIDIA A30	3.83887	72	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	13174
+bd_liver	glymph	156.35	3.27093	150.59	3.74	98	154.33	hpc3-gpu-l54-08	6	NVIDIA A30	6.30371	84.8861	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	13590
+bd_lung	glymph	163.29	4.6444	156.79	4.12	98	160.91	hpc3-gpu-18-04	6	NVIDIA A30	8.8877	80.4634	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	26029
+bd_pbmc_Donor1855	glymph	165.96	4.43141	147.03	18.15	99	165.18	hpc3-gpu-k54-04	6	NVIDIA A30	9.23145	47.0602	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	88812
+bd_pbmc_Donor2881	glymph	93.07	3.92328	88.09	3.5	98	91.59	hpc3-gpu-24-06	6	NVIDIA A30	8.20996	72.4255	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	79669
+bd_prostate	glymph	143.04	3.84738	137.1	3.4	98	140.5	hpc3-gpu-k54-05	6	NVIDIA A30	7.21387	82.4861	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	15857
+bd_spleen	glymph	69.71	2.42838	64.55	2.5	96	67.05	hpc3-gpu-k54-04	6	NVIDIA A30	3.96582	56.0286	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	8061
+hgmm_10k_3p_chromX	glymph	153.01	4.8964	136.31	4.87	92	141.18	hpc3-gpu-l54-00	6	NVIDIA A30	9.34668	68.3117	0	t1_holdout	10x 3' v3.1	cells	species	held out	8842
+hgmm_10k_5p_gemx	glymph	228.16	7.88101	211.84	6.5	95	218.34	hpc3-gpu-l54-08	6	NVIDIA A30	15.0928	75.8435	0	t1_holdout	10x 5' GEM-X	cells	species	held out	12591
+hgmm_10k_5pv2_ctrl	glymph	209.42	6.12774	191.23	5.97	94	197.2	hpc3-gpu-k54-02	6	NVIDIA A30	12.6201	74.7143	0	t1_holdout	10x 5' v2	cells	species	looked at	9361
+hgmm_10k_gemx_v4	glymph	215.65	7.23751	207.17	6.46	99	213.63	hpc3-gpu-24-08	6	NVIDIA A30	15.9404	76.4815	0	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on	10956
+hgmm_10k_v3	glymph	219.94	6.03216	206.92	11.13	99	218.05	hpc3-gpu-24-05	6	NVIDIA A30	11.54	78.6818	0	t1_tuning	10x 3p v3	cells	species	tuned on	10563
+hgmm_10k_v3_DI	glymph	253.01	7.66864	238.72	14.28	99	253	hpc3-gpu-k54-04	6	NVIDIA A30	17.1162	72.8189	0	t1_holdout	10x 3' v3.1	cells	species	held out	11125
+hgmm_12k_v2	glymph	119.63	4.97292	113.09	4.61	98	117.7	hpc3-gpu-24-07	6	NVIDIA A30	10.6396	72.8667	0	t1_tuning	10x 3p v2	cells	species	tuned on	12665
+hgmm_1k_3p_LT	glymph	78.57	2.29781	55.92	1.7	73	57.62	hpc3-gpu-k54-05	6	NVIDIA A30	5.38574	61.275	0	t1_holdout	10x 3' v3.1 LT	cells	species	held out	708
+hgmm_1k_v2	glymph	120.35	2.11112	100.78	1.83	85	102.61	hpc3-gpu-24-07	6	NVIDIA A30	4.41504	74.7705	0	t1_holdout	10x 3' v2	cells	species	held out	1019
+hgmm_1k_v3	glymph	130.37	2.15523	129.55	2.22	101	131.77	hpc3-gpu-k54-04	6	NVIDIA A30	6.90723	76	0	t1_tuning	10x 3p v3	cells	species	tuned on	999
+hgmm_20k_5pv2_HT	glymph	258.96	9.57994	245.68	8.18	98	253.86	hpc3-gpu-l54-07	6	NVIDIA A30	19.7139	73.5385	0	t1_holdout	10x 5' v2 HT	cells	species	held out	18280
+hgmm_20k_v31_HT	glymph	245.15	8.29616	220.37	22.24	98	242.61	hpc3-gpu-24-07	6	NVIDIA A30	18.7334	67.9187	0	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on	16273
+hgmm_5k_3p_multiplex	glymph	166.22	4.11871	147.9	3.99	91	151.89	hpc3-gpu-l54-01	6	NVIDIA A30	8.59277	73.6071	0	t1_holdout	10x 3' v3.1	cells	species	held out	4344
+hgmm_5k_v3	glymph	174.2	3.74435	163.86	3.88	96	167.74	hpc3-gpu-l54-02	6	NVIDIA A30	6.30176	75.6477	0	t1_tuning	10x 3p v3	cells	species	tuned on	5171
+hgmm_6k_v2	glymph	134.86	4.12177	119.21	3.71	91	122.92	hpc3-gpu-24-06	6	NVIDIA A30	7.52832	71.9412	0	t1_tuning	10x 3p v2	cells	species	tuned on	7387
+jurkat_32d	glymph	110.88	2.72582	91.12	2.54	84	93.66	hpc3-gpu-24-08	6	NVIDIA A30	6.14551	67.7143	0	t1_holdout	10x 3' v2	cells	species	looked at	6222
+kidney_nuc2	glymph	93.72	4.07969	91.05	3.75	101	94.8	hpc3-gpu-k54-03	6	NVIDIA A30	5.43066	49.5957	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	59249
+kidney_nuc3	glymph	74.32	3.3796	68.73	2.91	96	71.64	hpc3-gpu-l54-08	6	NVIDIA A30	5.22559	66.9737	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	20129
+kidney_rep1	glymph	98.65	4.01548	84.47	3.73	89	88.2	hpc3-gpu-24-05	6	NVIDIA A30	7.70215	61.92	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	21819
+kidney_rep2	glymph	163.47	5.45665	159	4.9	100	163.9	hpc3-gpu-l54-07	6	NVIDIA A30	9.34277	50.7439	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	28187
+kidney_rep3	glymph	78.26	2.71889	68.11	3.57	91	71.68	hpc3-gpu-k54-05	6	NVIDIA A30	3.75879	64.125	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	6546
+neat_barnyard	glymph	116.15	2.19615	99.35	2.27	87	101.62	hpc3-gpu-24-07	6	NVIDIA A30	8.08887	75.4746	0	t1_nuclei	10x Multiome GEX	nuclei	species	looked at	1308
+parse_bm_hfd	glymph	570.45	18.6938	457.32	115.38	100	572.7	hpc3-gpu-k54-04	6	NVIDIA A30	20.5986	52.3741	0	t4_parse	Parse Evercode WT	cells	none	looked at	72204
+parse_hgmm_sub1	glymph	67.91	2.15265	62.89	2.15	95	65.04	hpc3-gpu-l54-01	6	NVIDIA A30	5.31348	78.8529	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2439
+parse_hgmm_sub2	glymph	78.52	2.23496	74.55	2.37	97	76.92	hpc3-gpu-l54-00	6	NVIDIA A30	6.36621	78.5	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2831
+parse_igvf_AXHN	glymph	108.51	2.81844	85.87	2.53	81	88.4	hpc3-gpu-24-07	6	NVIDIA A30	7.29395	65.7273	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11359
+parse_igvf_BVLA	glymph	91.67	3.15738	86.51	2.64	97	89.15	hpc3-gpu-k54-02	6	NVIDIA A30	7.31934	78.3261	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11793
+parse_igvf_EDTJ	glymph	84.07	3.04648	78.5	2.68	96	81.18	hpc3-gpu-24-06	6	NVIDIA A30	7.05762	75.4884	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10811
+parse_igvf_LDUV	glymph	92.39	2.99286	88.88	2.77	99	91.65	hpc3-gpu-18-04	6	NVIDIA A30	7.07617	78.8298	0.000976562	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10678
+parse_igvf_NOOZ	glymph	92.7	2.6742	89.65	2.89	99	92.54	hpc3-gpu-l54-00	6	NVIDIA A30	7.1709	78.2128	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	looked at	11346
+parse_igvf_PIQO	glymph	93.81	3.03038	89.1	3.63	98	92.73	hpc3-gpu-k54-05	6	NVIDIA A30	7.07324	78.8298	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10519
+parse_igvf_QPLV	glymph	96.71	2.74118	91.31	2.61	97	93.92	hpc3-gpu-l54-01	6	NVIDIA A30	7.25879	79.6531	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	12180
+parse_igvf_UXZO	glymph	91.61	2.76918	88.2	2.56	99	90.76	hpc3-gpu-24-05	6	NVIDIA A30	7.26074	78.2609	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11446
+pfc_ga22	glymph	78.85	4.01392	73.92	3.32	97	77.24	hpc3-gpu-24-06	6	NVIDIA A30	6.30176	70.075	0	t5_notruth	10x 3' v3	nuclei	none	looked at	11924
+xeno_HSC_1	glymph	56.26	2.25528	48.19	1.78	88	49.97	hpc3-gpu-k54-01	6	NVIDIA A30	4.88184	71.1034	0	t2_xeno	10x 3'	cells	species	looked at	1646
+xeno_HSC_2	glymph	68.74	1.98553	66.34	1.64	98	67.98	hpc3-gpu-l54-00	6	NVIDIA A30	5.63965	81.8857	0	t2_xeno	10x 3'	cells	species	held out	1226
+xeno_HSC_3	glymph	76.53	2.05913	73.99	2.09	99	76.08	hpc3-gpu-l54-01	6	NVIDIA A30	6.00293	80.1026	0	t2_xeno	10x 3'	cells	species	looked at	1824
+xeno_noHSC_1	glymph	105.37	2.05078	98.53	2.47	95	101	hpc3-gpu-k54-03	6	NVIDIA A30	6.19043	56.3962	0	t2_xeno	10x 3'	cells	species	held out	1745
+xeno_noHSC_2	glymph	75.93	2.11276	68.55	1.93	92	70.48	hpc3-gpu-24-06	6	NVIDIA A30	5.74707	80.1579	0	t2_xeno	10x 3'	cells	species	held out	3334
+xeno_noHSC_3	glymph	61.39	2.29782	54.3	1.97	91	56.27	hpc3-gpu-18-04	6	NVIDIA A30	5.43848	76	0	t2_xeno	10x 3'	cells	species	held out	2107
+bd_demo_pbmc	glymph_030	142.59	3.82643	137.1	3.53	98	140.63	hpc3-gpu-24-05	8	NVIDIA A30	6.52441	81.0972	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	looked at	11370
+bd_hgmm_mix1	glymph_030	91.95	3.51651	85.65	3.28	96	88.93	hpc3-gpu-24-06	8	NVIDIA A30	6.84473	77.0217	0	t3_rhapsody	BD Rhapsody WTA	cells	species	looked at	9899
+bd_hgmm_mix2	glymph_030	90.37	3.50646	85.93	2.87	98	88.8	hpc3-gpu-18-04	8	NVIDIA A30	6.78418	75.3261	0	t3_rhapsody	BD Rhapsody WTA	cells	species	held out	7983
+bd_ileum_Cart1	glymph_030	97.64	3.31292	92.73	3.43	98	96.16	hpc3-gpu-l54-01	8	NVIDIA A30	5.25293	76	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15092
+bd_ileum_Cart2	glymph_030	178.77	3.36915	175.71	3.41	100	179.12	hpc3-gpu-l54-02	8	NVIDIA A30	6.68066	51.5667	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15299
+bd_ileum_cartridge1	glymph_030	53.37	2.11601	48.53	2.28	95	50.81	hpc3-gpu-24-08	8	NVIDIA A30	3.70215	73.037	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	4621
+bd_ileum_cartridge2	glymph_030	46.13	2.5382	41.28	2.27	94	43.55	hpc3-gpu-k54-02	8	NVIDIA A30	3.78027	67.0833	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	10667
+bd_ileum_cartridge3	glymph_030	46.71	2.06508	42	2.04	94	44.04	hpc3-gpu-k54-05	8	NVIDIA A30	3.86816	71.4583	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	13174
+bd_liver	glymph_030	154.81	3.30484	150.11	3.19	99	153.3	hpc3-gpu-k54-05	8	NVIDIA A30	6.41504	84.7436	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	13590
+bd_lung	glymph_030	173.79	4.68308	172.3	4.39	101	176.69	hpc3-gpu-l54-07	8	NVIDIA A30	9.6084	75.977	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	26029
+bd_pbmc_Donor1855	glymph_030	171.29	4.79883	166.12	7.73	101	173.85	hpc3-gpu-l54-02	8	NVIDIA A30	9.15918	42.9767	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	88812
+bd_pbmc_Donor2881	glymph_030	90.93	4.20039	85.82	3.75	98	89.57	hpc3-gpu-18-03	8	NVIDIA A30	8.44238	72.2391	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	79669
+bd_prostate	glymph_030	143.81	3.89954	137.73	4.07	98	141.8	hpc3-gpu-24-07	8	NVIDIA A30	6.90723	82.4861	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	15857
+bd_spleen	glymph_030	53	2.71453	48.13	2.3	95	50.43	hpc3-gpu-24-05	8	NVIDIA A30	4.0127	73.2963	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	8061
+hgmm_10k_3p_chromX	glymph_030	137.86	5.28035	129.69	5.88	98	135.57	hpc3-gpu-24-07	8	NVIDIA A30	9.63184	73.2029	0	t1_holdout	10x 3' v3.1	cells	species	held out	8842
+hgmm_10k_5p_gemx	glymph_030	221.32	8.21053	212.79	6.62	99	219.41	hpc3-gpu-24-08	8	NVIDIA A30	16.2236	77.2072	0	t1_holdout	10x 5' GEM-X	cells	species	held out	12591
+hgmm_10k_5pv2_ctrl	glymph_030	192.19	6.45971	183.15	7.15	99	190.3	hpc3-gpu-k54-05	8	NVIDIA A30	13.1611	77.8454	0	t1_holdout	10x 5' v2	cells	species	looked at	9361
+hgmm_10k_gemx_v4	glymph_030	233.27	7.31015	206.42	25.79	99	232.21	hpc3-gpu-24-06	8	NVIDIA A30	16.7314	69.7692	0	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on	10956
+hgmm_10k_v3	glymph_030	215.67	6.00042	207.02	6.84	99	213.86	hpc3-gpu-24-05	8	NVIDIA A30	11.9561	80.7963	0	t1_tuning	10x 3p v3	cells	species	tuned on	10563
+hgmm_10k_v3_DI	glymph_030	254.58	8.01071	229.48	21.89	98	251.37	hpc3-gpu-l54-08	8	NVIDIA A30	17.5498	71.8438	0	t1_holdout	10x 3' v3.1	cells	species	held out	11125
+hgmm_12k_v2	glymph_030	122.42	4.97102	116.66	4.6	99	121.26	hpc3-gpu-24-06	8	NVIDIA A30	10.9502	73.4194	0	t1_tuning	10x 3p v2	cells	species	tuned on	12665
+hgmm_1k_3p_LT	glymph_030	60.99	2.29045	55.75	2.05	94	57.8	hpc3-gpu-k54-05	8	NVIDIA A30	5.40332	77.0323	0	t1_holdout	10x 3' v3.1 LT	cells	species	held out	708
+hgmm_1k_v2	glymph_030	135.36	2.35887	136.34	2.02	102	138.36	hpc3-gpu-l54-02	8	NVIDIA A30	4.44238	63.2059	0	t1_holdout	10x 3' v2	cells	species	held out	1019
+hgmm_1k_v3	glymph_030	113.05	2.36343	110.24	2	99	112.24	hpc3-gpu-l54-01	8	NVIDIA A30	6.93652	88.4386	0	t1_tuning	10x 3p v3	cells	species	tuned on	999
+hgmm_20k_5pv2_HT	glymph_030	249.51	9.60322	239.05	7.65	98	246.7	hpc3-gpu-24-05	8	NVIDIA A30	21.1436	75.776	0	t1_holdout	10x 5' v2 HT	cells	species	held out	18280
+hgmm_20k_v31_HT	glymph_030	227.24	8.34103	217.78	7.59	99	225.37	hpc3-gpu-18-03	8	NVIDIA A30	19.1123	73.7982	0	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on	16273
+hgmm_5k_3p_multiplex	glymph_030	145.73	4.49735	139.93	4.31	98	144.24	hpc3-gpu-18-04	8	NVIDIA A30	8.75293	78.7808	0	t1_holdout	10x 3' v3.1	cells	species	held out	4344
+hgmm_5k_v3	glymph_030	159.05	3.72374	154.42	3.65	99	158.07	hpc3-gpu-l54-01	8	NVIDIA A30	6.73926	84.3125	0	t1_tuning	10x 3p v3	cells	species	tuned on	5171
+hgmm_6k_v2	glymph_030	127.16	4.10212	122.78	3.79	99	126.57	hpc3-gpu-18-04	8	NVIDIA A30	7.7002	78.7031	0	t1_tuning	10x 3p v2	cells	species	tuned on	7387
+jurkat_32d	glymph_030	134.42	3.07236	135.09	3.86	103	138.95	hpc3-gpu-l54-02	8	NVIDIA A30	6.22168	56.2059	0	t1_holdout	10x 3' v2	cells	species	looked at	6222
+kidney_nuc2	glymph_030	68.5	4.06642	64.05	3.55	98	67.6	hpc3-gpu-k54-02	8	NVIDIA A30	5.54785	64.7714	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	59249
+kidney_nuc3	glymph_030	107.12	3.73043	106.2	3.07	102	109.27	hpc3-gpu-l54-02	8	NVIDIA A30	5.37988	46.4074	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	20129
+kidney_rep1	glymph_030	92.67	4.39486	87.61	3.99	98	91.6	hpc3-gpu-24-08	8	NVIDIA A30	8.03809	69.4468	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	21819
+kidney_rep2	glymph_030	114.94	5.48961	109.78	4.47	99	114.25	hpc3-gpu-24-05	8	NVIDIA A30	9.27246	70.5345	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	28187
+kidney_rep3	glymph_030	69.19	2.70842	65.83	2.68	99	68.51	hpc3-gpu-24-07	8	NVIDIA A30	3.8252	71.1143	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	6546
+neat_barnyard	glymph_030	105.26	2.57014	102.28	2.23	99	104.51	hpc3-gpu-l54-01	8	NVIDIA A30	8.12988	83.1887	0	t1_nuclei	10x Multiome GEX	nuclei	species	looked at	1308
+parse_bm_hfd	glymph_030	506.25	18.6293	403.63	98.13	99	501.76	hpc3-gpu-l54-08	8	NVIDIA A30	20.2471	57.4488	0	t4_parse	Parse Evercode WT	cells	none	looked at	72204
+parse_hgmm_sub1	glymph_030	62.93	2.0519	58.03	1.96	95	59.99	hpc3-gpu-24-08	8	NVIDIA A30	3.78809	77.5938	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2439
+parse_hgmm_sub2	glymph_030	77.28	2.23188	74.71	2.26	99	76.97	hpc3-gpu-24-08	8	NVIDIA A30	6.40918	78.4615	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2831
+parse_igvf_AXHN	glymph_030	91.19	2.74637	85.56	2.72	96	88.28	hpc3-gpu-18-04	8	NVIDIA A30	7.67676	78.4348	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11359
+parse_igvf_BVLA	glymph_030	93.63	3.14456	88.48	2.82	97	91.3	hpc3-gpu-l54-07	8	NVIDIA A30	7.70996	76.3404	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11793
+parse_igvf_EDTJ	glymph_030	82.08	2.66808	76.73	2.69	96	79.42	hpc3-gpu-24-06	8	NVIDIA A30	7.12207	77.7619	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10811
+parse_igvf_LDUV	glymph_030	88.43	3.0392	85.11	2.47	99	87.58	hpc3-gpu-24-07	8	NVIDIA A30	7.13965	79.1778	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10678
+parse_igvf_NOOZ	glymph_030	90.7	3.04365	87.82	2.63	99	90.45	hpc3-gpu-k54-02	8	NVIDIA A30	7.23535	79.6522	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	looked at	11346
+parse_igvf_PIQO	glymph_030	89.91	2.68024	87.23	2.57	99	89.8	hpc3-gpu-24-08	8	NVIDIA A30	7.13574	79.8667	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10519
+parse_igvf_QPLV	glymph_030	91.1	3.11624	85.75	2.87	97	88.62	hpc3-gpu-k54-05	8	NVIDIA A30	7.31934	79.6522	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	12180
+parse_igvf_UXZO	glymph_030	92.97	2.65925	90.85	2.51	100	93.36	hpc3-gpu-24-05	8	NVIDIA A30	7.15332	79.9362	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11446
+pfc_ga22	glymph_030	161.95	3.66727	76.64	83.52	98	160.16	hpc3-gpu-24-06	8	NVIDIA A30	6.08887	35.8148	0	t5_notruth	10x 3' v3	nuclei	none	looked at	11924
+xeno_HSC_1	glymph_030	52.03	1.99078	47.36	1.84	94	49.2	hpc3-gpu-24-05	8	NVIDIA A30	4.89551	76.7037	0	t2_xeno	10x 3'	cells	species	looked at	1646
+xeno_HSC_2	glymph_030	66.59	2.25546	63.79	1.74	98	65.53	hpc3-gpu-24-07	8	NVIDIA A30	5.64941	81.5294	0	t2_xeno	10x 3'	cells	species	held out	1226
+xeno_HSC_3	glymph_030	67.08	2.18095	64.4	1.75	98	66.15	hpc3-gpu-24-08	8	NVIDIA A30	6.0166	80.7059	0	t2_xeno	10x 3'	cells	species	looked at	1824
+xeno_noHSC_1	glymph_030	97.86	2.38172	98	2.1	102	100.1	hpc3-gpu-l54-07	8	NVIDIA A30	6.22168	60.5102	0	t2_xeno	10x 3'	cells	species	held out	1745
+xeno_noHSC_2	glymph_030	71.64	2.41678	68.26	2	98	70.26	hpc3-gpu-18-03	8	NVIDIA A30	5.77441	79.8056	0	t2_xeno	10x 3'	cells	species	held out	3334
+xeno_noHSC_3	glymph_030	57.7	2.35478	53.37	2.01	95	55.38	hpc3-gpu-k54-05	8	NVIDIA A30	5.45801	78.3793	0	t2_xeno	10x 3'	cells	species	held out	2107
+bd_demo_pbmc	glymph_030_fpr0	141.87	3.82442	135.93	4.14	98	140.07	hpc3-gpu-24-07	8	NVIDIA A30	6.52441	82.2113	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	looked at	11370
+bd_hgmm_mix1	glymph_030_fpr0	87.09	3.21748	81.62	3.12	97	84.74	hpc3-gpu-24-08	8	NVIDIA A30	6.84473	76.5	0	t3_rhapsody	BD Rhapsody WTA	cells	species	looked at	9899
+bd_hgmm_mix2	glymph_030_fpr0	87.35	3.46214	83.81	2.94	99	86.75	hpc3-gpu-24-07	8	NVIDIA A30	6.78223	75.1818	0	t3_rhapsody	BD Rhapsody WTA	cells	species	held out	7983
+bd_ileum_Cart1	glymph_030_fpr0	96.62	2.95362	92.67	3.03	99	95.7	hpc3-gpu-l54-01	8	NVIDIA A30	5.25293	77.9592	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15092
+bd_ileum_Cart2	glymph_030_fpr0	111.23	3.2913	106.88	3.31	99	110.19	hpc3-gpu-24-08	8	NVIDIA A30	6.68262	80.0179	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15299
+bd_ileum_cartridge1	glymph_030_fpr0	51.84	2.49444	47.8	2.11	96	49.91	hpc3-gpu-24-05	8	NVIDIA A30	3.70215	73.1538	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	4621
+bd_ileum_cartridge2	glymph_030_fpr0	73.55	2.52662	68.28	2.75	96	71.03	hpc3-gpu-l54-02	8	NVIDIA A30	3.78027	46.8649	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	10667
+bd_ileum_cartridge3	glymph_030_fpr0	45.58	2.3436	41.3	1.98	94	43.28	hpc3-gpu-l54-01	8	NVIDIA A30	3.86621	67.913	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	13174
+bd_liver	glymph_030_fpr0	148.88	3.5781	144.35	3.25	99	147.6	hpc3-gpu-18-04	8	NVIDIA A30	6.41504	84.5467	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	13590
+bd_lung	glymph_030_fpr0	162.07	5.05158	156.65	4.38	99	161.03	hpc3-gpu-18-04	8	NVIDIA A30	9.6084	80.9878	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	26029
+bd_pbmc_Donor1855	glymph_030_fpr0	173.32	4.41763	170.98	4.31	101	175.29	hpc3-gpu-l54-07	8	NVIDIA A30	9.15918	45.1379	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	88812
+bd_pbmc_Donor2881	glymph_030_fpr0	90.45	3.83086	85.77	3.64	98	89.41	hpc3-gpu-18-03	8	NVIDIA A30	8.44238	72.4348	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	79669
+bd_prostate	glymph_030_fpr0	142.03	3.87767	137.49	3.7	99	141.19	hpc3-gpu-18-03	8	NVIDIA A30	6.90527	80.9296	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	15857
+bd_spleen	glymph_030_fpr0	52.7	2.32464	47.97	2.61	95	50.58	hpc3-gpu-18-03	8	NVIDIA A30	4.0127	73.2222	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	8061
+hgmm_10k_3p_chromX	glymph_030_fpr0	138.78	4.931	139.5	4.81	103	144.31	hpc3-gpu-l54-07	8	NVIDIA A30	9.95605	70.9143	0	t1_holdout	10x 3' v3.1	cells	species	held out	8842
+hgmm_10k_5p_gemx	glymph_030_fpr0	223.65	7.88256	214.27	7.7	99	221.97	hpc3-gpu-k54-05	8	NVIDIA A30	16.2217	77.1875	0	t1_holdout	10x 5' GEM-X	cells	species	held out	12591
+hgmm_10k_5pv2_ctrl	glymph_030_fpr0	180.41	6.12648	177.18	7.09	102	184.27	hpc3-gpu-l54-02	8	NVIDIA A30	13.1592	76.989	0	t1_holdout	10x 5' v2	cells	species	looked at	9361
+hgmm_10k_gemx_v4	glymph_030_fpr0	214.69	7.28291	206.85	6.53	99	213.38	hpc3-gpu-18-03	8	NVIDIA A30	16.7314	75.6667	0	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on	10956
+hgmm_10k_v3	glymph_030_fpr0	216.17	5.99706	206.36	8.12	99	214.48	hpc3-gpu-24-07	8	NVIDIA A30	11.9561	79.2294	0	t1_tuning	10x 3p v3	cells	species	tuned on	10563
+hgmm_10k_v3_DI	glymph_030_fpr0	247.49	8.04786	233.25	12.8	99	246.05	hpc3-gpu-k54-05	8	NVIDIA A30	17.5498	73.6129	0	t1_holdout	10x 3' v3.1	cells	species	held out	11125
+hgmm_12k_v2	glymph_030_fpr0	122.31	4.96878	115.4	5.94	99	121.34	hpc3-gpu-k54-05	8	NVIDIA A30	10.9521	71.7097	0	t1_tuning	10x 3p v2	cells	species	tuned on	12665
+hgmm_1k_3p_LT	glymph_030_fpr0	57.88	2.29181	54.26	1.63	96	55.89	hpc3-gpu-24-07	8	NVIDIA A30	5.40332	82	0	t1_holdout	10x 3' v3.1 LT	cells	species	held out	708
+hgmm_1k_v2	glymph_030_fpr0	138.43	2.09086	140.84	2.18	103	143.02	hpc3-gpu-l54-07	8	NVIDIA A30	5.04199	68.9857	0	t1_holdout	10x 3' v2	cells	species	held out	1019
+hgmm_1k_v3	glymph_030_fpr0	114.28	2.1196	111.49	2.56	99	114.05	hpc3-gpu-24-06	8	NVIDIA A30	6.93652	85.931	0	t1_tuning	10x 3p v3	cells	species	tuned on	999
+hgmm_20k_5pv2_HT	glymph_030_fpr0	247.89	9.26743	238.43	7.63	99	246.06	hpc3-gpu-k54-05	8	NVIDIA A30	21.1514	76.121	0	t1_holdout	10x 5' v2 HT	cells	species	held out	18280
+hgmm_20k_v31_HT	glymph_030_fpr0	233.5	8.35874	217.91	13.19	98	231.1	hpc3-gpu-l54-01	8	NVIDIA A30	19.1123	71	0	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on	16273
+hgmm_5k_3p_multiplex	glymph_030_fpr0	158.24	4.12096	151.81	6.17	99	157.98	hpc3-gpu-l54-08	8	NVIDIA A30	8.75293	80.45	0	t1_holdout	10x 3' v3.1	cells	species	held out	4344
+hgmm_5k_v3	glymph_030_fpr0	167.49	4.06362	168	3.37	102	171.37	hpc3-gpu-l54-02	8	NVIDIA A30	6.73926	79.5357	0	t1_tuning	10x 3p v3	cells	species	tuned on	5171
+hgmm_6k_v2	glymph_030_fpr0	155.02	4.39352	155.84	6.4	104	162.24	hpc3-gpu-l54-02	8	NVIDIA A30	7.7002	61.6923	0	t1_tuning	10x 3p v2	cells	species	tuned on	7387
+jurkat_32d	glymph_030_fpr0	92.74	2.69797	89.4	2.66	99	92.06	hpc3-gpu-18-04	8	NVIDIA A30	6.22168	79.2553	0	t1_holdout	10x 3' v2	cells	species	looked at	6222
+kidney_nuc2	glymph_030_fpr0	69.09	3.72253	62.75	4.9	97	67.65	hpc3-gpu-k54-05	8	NVIDIA A30	5.54785	63.5143	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	59249
+kidney_nuc3	glymph_030_fpr0	72.02	3.7325	67.18	3.13	97	70.31	hpc3-gpu-l54-01	8	NVIDIA A30	5.37988	67	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	20129
+kidney_rep1	glymph_030_fpr0	88.34	4.05388	83.15	3.77	98	86.92	hpc3-gpu-24-05	8	NVIDIA A30	8.03809	68.3333	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	21819
+kidney_rep2	glymph_030_fpr0	114.9	5.13499	108.99	4.58	98	113.57	hpc3-gpu-24-08	8	NVIDIA A30	9.27246	70.6034	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	28187
+kidney_rep3	glymph_030_fpr0	70.61	3.05676	67.58	2.69	99	70.27	hpc3-gpu-k54-02	8	NVIDIA A30	3.8252	73.7778	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	6546
+neat_barnyard	glymph_030_fpr0	100.29	2.2576	97.77	2.18	99	99.95	hpc3-gpu-18-03	8	NVIDIA A30	8.13184	85.1373	0	t1_nuclei	10x Multiome GEX	nuclei	species	looked at	1308
+parse_bm_hfd	glymph_030_fpr0	429.95	18.6575	409.18	17.67	99	426.85	hpc3-gpu-18-03	8	NVIDIA A30	20.2471	68.1535	0	t4_parse	Parse Evercode WT	cells	none	looked at	72204
+parse_hgmm_sub1	glymph_030_fpr0	62.79	2.39221	58.47	2.09	96	60.56	hpc3-gpu-k54-02	8	NVIDIA A30	3.78809	79	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2439
+parse_hgmm_sub2	glymph_030_fpr0	76.96	2.27618	74.34	2.18	99	76.52	hpc3-gpu-l54-01	8	NVIDIA A30	6.40918	78.5897	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2831
+parse_igvf_AXHN	glymph_030_fpr0	91.89	3.08229	87	2.76	97	89.76	hpc3-gpu-24-05	8	NVIDIA A30	7.67676	78.3478	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11359
+parse_igvf_BVLA	glymph_030_fpr0	89.07	3.15159	84.51	2.61	97	87.12	hpc3-gpu-l54-08	8	NVIDIA A30	7.38965	78.1333	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11793
+parse_igvf_EDTJ	glymph_030_fpr0	81.33	3.01482	76.18	2.82	97	79	hpc3-gpu-24-05	8	NVIDIA A30	7.12207	77.2195	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10811
+parse_igvf_LDUV	glymph_030_fpr0	90.65	2.65687	88.14	2.51	100	90.65	hpc3-gpu-24-07	8	NVIDIA A30	7.13965	80.087	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10678
+parse_igvf_NOOZ	glymph_030_fpr0	94.8	3.04558	99.19	2.62	107	101.81	hpc3-gpu-l54-07	8	NVIDIA A30	7.23535	77.7083	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	looked at	11346
+parse_igvf_PIQO	glymph_030_fpr0	93.4	3.01692	90.99	2.54	100	93.53	hpc3-gpu-24-08	8	NVIDIA A30	7.1377	80.1277	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10519
+parse_igvf_QPLV	glymph_030_fpr0	90.94	2.87238	85.7	2.47	96	88.17	hpc3-gpu-l54-08	8	NVIDIA A30	7.31934	78.7391	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	12180
+parse_igvf_UXZO	glymph_030_fpr0	89.02	2.68957	86.63	2.69	100	89.32	hpc3-gpu-24-06	8	NVIDIA A30	7.15332	79.2	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11446
+pfc_ga22	glymph_030_fpr0	77.27	4.01305	73.48	3.41	99	76.89	hpc3-gpu-24-06	8	NVIDIA A30	6.08691	73	0	t5_notruth	10x 3' v3	nuclei	none	looked at	11924
+xeno_HSC_1	glymph_030_fpr0	51.17	2.26265	47.57	1.82	96	49.39	hpc3-gpu-18-04	8	NVIDIA A30	4.89551	79.8462	0	t2_xeno	10x 3'	cells	species	looked at	1646
+xeno_HSC_2	glymph_030_fpr0	70.12	2.24857	68.31	1.71	99	70.02	hpc3-gpu-k54-02	8	NVIDIA A30	5.65137	82	0	t2_xeno	10x 3'	cells	species	held out	1226
+xeno_HSC_3	glymph_030_fpr0	67.42	2.33571	64.8	1.72	98	66.52	hpc3-gpu-l54-08	8	NVIDIA A30	6.01855	83.4706	0	t2_xeno	10x 3'	cells	species	looked at	1824
+xeno_noHSC_1	glymph_030_fpr0	73.85	2.13976	71.12	2.05	99	73.17	hpc3-gpu-18-03	8	NVIDIA A30	6.22168	85.2162	0	t2_xeno	10x 3'	cells	species	held out	1745
+xeno_noHSC_2	glymph_030_fpr0	70.81	2.15658	68.12	1.93	98	70.05	hpc3-gpu-24-08	8	NVIDIA A30	5.77441	80.1944	0	t2_xeno	10x 3'	cells	species	held out	3334
+xeno_noHSC_3	glymph_030_fpr0	56.79	2.35762	52.39	1.76	95	54.15	hpc3-gpu-l54-01	8	NVIDIA A30	5.45801	78.3448	0	t2_xeno	10x 3'	cells	species	held out	2107
+bd_demo_pbmc	glymph_030_fpr1	140.59	3.83209	135.56	3.64	99	139.2	hpc3-gpu-24-08	8	NVIDIA A30	6.52441	81.6338	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	looked at	11370
+bd_hgmm_mix1	glymph_030_fpr1	86.57	3.48365	81.04	3.11	97	84.15	hpc3-gpu-24-08	8	NVIDIA A30	6.84473	74.25	0	t3_rhapsody	BD Rhapsody WTA	cells	species	looked at	9899
+bd_hgmm_mix2	glymph_030_fpr1	87.29	3.42615	83.64	2.96	99	86.6	hpc3-gpu-24-08	8	NVIDIA A30	6.78223	76.4545	0	t3_rhapsody	BD Rhapsody WTA	cells	species	held out	7983
+bd_ileum_Cart1	glymph_030_fpr1	96.72	2.98236	92.17	2.86	98	95.03	hpc3-gpu-24-05	8	NVIDIA A30	5.25293	76.1224	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15092
+bd_ileum_Cart2	glymph_030_fpr1	111.02	3.57251	106.53	3.26	98	109.79	hpc3-gpu-18-04	8	NVIDIA A30	6.68066	80.125	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15299
+bd_ileum_cartridge1	glymph_030_fpr1	52.74	2.44868	48.02	2.33	95	50.35	hpc3-gpu-k54-01	8	NVIDIA A30	3.70215	70.5185	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	4621
+bd_ileum_cartridge2	glymph_030_fpr1	47.18	2.51422	42.52	2.38	95	44.9	hpc3-gpu-k54-01	8	NVIDIA A30	3.78027	70.9167	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	10667
+bd_ileum_cartridge3	glymph_030_fpr1	46.07	2.06551	41.15	1.96	93	43.11	hpc3-gpu-l54-08	8	NVIDIA A30	3.86816	67.3333	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	13174
+bd_liver	glymph_030_fpr1	154.6	3.2745	149.69	3	98	152.69	hpc3-gpu-24-05	8	NVIDIA A30	6.41504	85.0513	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	13590
+bd_lung	glymph_030_fpr1	163.12	4.71848	157.13	4.2	98	161.33	hpc3-gpu-24-07	8	NVIDIA A30	9.6084	80.8537	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	26029
+bd_pbmc_Donor1855	glymph_030_fpr1	106.4	4.56126	100.85	4.06	98	104.91	hpc3-gpu-18-04	8	NVIDIA A30	9.15918	72.8519	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	88812
+bd_pbmc_Donor2881	glymph_030_fpr1	90.89	3.84178	85.96	3.69	98	89.65	hpc3-gpu-18-03	8	NVIDIA A30	8.44238	71.7609	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	79669
+bd_prostate	glymph_030_fpr1	143.94	3.9027	137.36	5.02	98	142.38	hpc3-gpu-k54-05	8	NVIDIA A30	6.90723	82.4444	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	15857
+bd_spleen	glymph_030_fpr1	73.5	2.68422	67.61	3.53	96	71.14	hpc3-gpu-l54-02	8	NVIDIA A30	4.0127	51.2973	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	8061
+hgmm_10k_3p_chromX	glymph_030_fpr1	134.63	5.26478	129.3	4.66	99	133.96	hpc3-gpu-k54-02	8	NVIDIA A30	9.63379	74.0882	0	t1_holdout	10x 3' v3.1	cells	species	held out	8842
+hgmm_10k_5p_gemx	glymph_030_fpr1	227.72	7.86538	213.04	12.59	99	225.63	hpc3-gpu-l54-01	8	NVIDIA A30	16.2236	75.4386	0	t1_holdout	10x 5' GEM-X	cells	species	held out	12591
+hgmm_10k_5pv2_ctrl	glymph_030_fpr1	176.59	6.09928	170.19	6.13	99	176.32	hpc3-gpu-18-03	8	NVIDIA A30	13.1611	76.7416	0	t1_holdout	10x 5' v2	cells	species	looked at	9361
+hgmm_10k_gemx_v4	glymph_030_fpr1	215.15	7.45574	207.35	6.57	99	213.92	hpc3-gpu-18-03	8	NVIDIA A30	16.7314	76.0278	0	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on	10956
+hgmm_10k_v3	glymph_030_fpr1	214	6.38203	206.63	6.34	99	212.97	hpc3-gpu-k54-05	8	NVIDIA A30	11.958	80.9252	0	t1_tuning	10x 3p v3	cells	species	tuned on	10563
+hgmm_10k_v3_DI	glymph_030_fpr1	238.32	7.67953	230.26	6.61	99	236.87	hpc3-gpu-l54-01	8	NVIDIA A30	17.5498	77.2333	0	t1_holdout	10x 3' v3.1	cells	species	held out	11125
+hgmm_12k_v2	glymph_030_fpr1	129.65	4.98613	123.19	10.93	103	134.12	hpc3-gpu-l54-02	8	NVIDIA A30	10.9502	67.4615	0	t1_tuning	10x 3p v2	cells	species	tuned on	12665
+hgmm_1k_3p_LT	glymph_030_fpr1	58.8	1.98295	54.53	2.06	96	56.59	hpc3-gpu-k54-05	8	NVIDIA A30	5.40332	77.1	0	t1_holdout	10x 3' v3.1 LT	cells	species	held out	708
+hgmm_1k_v2	glymph_030_fpr1	140.5	2.40948	143.4	2.22	103	145.62	hpc3-gpu-l54-07	8	NVIDIA A30	5.04199	68.3944	0	t1_holdout	10x 3' v2	cells	species	held out	1019
+hgmm_1k_v3	glymph_030_fpr1	108.84	2.10461	105.09	2.27	98	107.36	hpc3-gpu-24-08	8	NVIDIA A30	6.93652	88.0545	0	t1_tuning	10x 3p v3	cells	species	tuned on	999
+hgmm_20k_5pv2_HT	glymph_030_fpr1	248.23	9.23653	242.6	7.51	100	250.11	hpc3-gpu-l54-07	8	NVIDIA A30	21.1514	76.256	0	t1_holdout	10x 5' v2 HT	cells	species	held out	18280
+hgmm_20k_v31_HT	glymph_030_fpr1	227.77	8.70016	222.75	7.57	101	230.32	hpc3-gpu-l54-07	8	NVIDIA A30	19.1123	73.7632	0	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on	16273
+hgmm_5k_3p_multiplex	glymph_030_fpr1	140.17	4.10638	135.71	3.7	99	139.41	hpc3-gpu-k54-05	8	NVIDIA A30	8.75293	79.493	0	t1_holdout	10x 3' v3.1	cells	species	held out	4344
+hgmm_5k_v3	glymph_030_fpr1	152.19	3.73634	147.49	3.48	99	150.97	hpc3-gpu-24-08	8	NVIDIA A30	6.7373	83.7013	0	t1_tuning	10x 3p v3	cells	species	tuned on	5171
+hgmm_6k_v2	glymph_030_fpr1	124.35	4.4743	119.69	3.79	99	123.48	hpc3-gpu-k54-02	8	NVIDIA A30	7.7002	76.8095	0	t1_tuning	10x 3p v2	cells	species	tuned on	7387
+jurkat_32d	glymph_030_fpr1	92.12	2.69672	88.51	2.43	98	90.94	hpc3-gpu-l54-08	8	NVIDIA A30	6.22168	81.7234	0	t1_holdout	10x 3' v2	cells	species	looked at	6222
+kidney_nuc2	glymph_030_fpr1	68.25	4.07766	63.06	3.63	97	66.69	hpc3-gpu-l54-08	8	NVIDIA A30	5.54785	64.8286	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	59249
+kidney_nuc3	glymph_030_fpr1	71.49	3.76258	67.04	3.01	97	70.05	hpc3-gpu-24-05	8	NVIDIA A30	5.38184	67.6111	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	20129
+kidney_rep1	glymph_030_fpr1	92.56	4.34615	88.07	4.04	99	92.11	hpc3-gpu-18-03	8	NVIDIA A30	8.03809	70.1277	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	21819
+kidney_rep2	glymph_030_fpr1	111.88	5.4698	106.05	4.43	98	110.48	hpc3-gpu-24-08	8	NVIDIA A30	9.27246	72.1964	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	28187
+kidney_rep3	glymph_030_fpr1	97.57	3.04094	101.63	2.79	107	104.42	hpc3-gpu-l54-02	8	NVIDIA A30	3.8252	48.9184	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	6546
+neat_barnyard	glymph_030_fpr1	101.55	2.2293	98.68	2.14	99	100.82	hpc3-gpu-24-06	8	NVIDIA A30	8.13184	84.0392	0	t1_nuclei	10x Multiome GEX	nuclei	species	looked at	1308
+parse_bm_hfd	glymph_030_fpr1	506.19	19.0304	410.24	93.07	99	503.31	hpc3-gpu-24-06	8	NVIDIA A30	20.2471	58.0354	0	t4_parse	Parse Evercode WT	cells	none	looked at	72204
+parse_hgmm_sub1	glymph_030_fpr1	62.86	2.04366	57.65	1.91	94	59.56	hpc3-gpu-l54-08	8	NVIDIA A30	3.78809	78.2188	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2439
+parse_hgmm_sub2	glymph_030_fpr1	83.88	2.6002	87.55	2.28	107	89.83	hpc3-gpu-k54-03	8	NVIDIA A30	6.40918	73.5952	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2831
+parse_igvf_AXHN	glymph_030_fpr1	93.34	2.72191	87.99	2.79	97	90.78	hpc3-gpu-l54-08	8	NVIDIA A30	7.67676	78.6809	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11359
+parse_igvf_BVLA	glymph_030_fpr1	90.18	2.80199	85.25	2.6	97	87.85	hpc3-gpu-k54-05	8	NVIDIA A30	7.38965	77.4783	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11793
+parse_igvf_EDTJ	glymph_030_fpr1	80.87	2.68319	75.52	2.71	96	78.23	hpc3-gpu-l54-08	8	NVIDIA A30	7.12207	77.2927	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10811
+parse_igvf_LDUV	glymph_030_fpr1	90.97	3.01783	88.13	2.55	99	90.68	hpc3-gpu-24-07	8	NVIDIA A30	7.13965	79.6522	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10678
+parse_igvf_NOOZ	glymph_030_fpr1	90.32	2.7883	87.03	2.53	99	89.56	hpc3-gpu-k54-01	8	NVIDIA A30	7.23535	79.6522	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	looked at	11346
+parse_igvf_PIQO	glymph_030_fpr1	128.49	2.95155	89.71	37.58	99	127.29	hpc3-gpu-24-06	8	NVIDIA A30	7.13574	56.9231	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10519
+parse_igvf_QPLV	glymph_030_fpr1	92.91	3.11518	88.09	2.62	97	90.71	hpc3-gpu-k54-01	8	NVIDIA A30	7.32129	80.0638	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	12180
+parse_igvf_UXZO	glymph_030_fpr1	88.88	3.02975	86.38	2.44	99	88.82	hpc3-gpu-l54-01	8	NVIDIA A30	7.15332	79.3111	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11446
+pfc_ga22	glymph_030_fpr1	81.56	3.6457	76.5	3.84	98	80.34	hpc3-gpu-24-07	8	NVIDIA A30	6.08887	72.4878	0	t5_notruth	10x 3' v3	nuclei	none	looked at	11924
+xeno_HSC_1	glymph_030_fpr1	69.21	2.2693	64.1	1.75	95	65.85	hpc3-gpu-k54-03	8	NVIDIA A30	4.89551	60.1714	0	t2_xeno	10x 3'	cells	species	looked at	1646
+xeno_HSC_2	glymph_030_fpr1	68.68	2.01437	66.3	1.7	99	68	hpc3-gpu-k54-05	8	NVIDIA A30	5.64941	82.2571	0	t2_xeno	10x 3'	cells	species	held out	1226
+xeno_HSC_3	glymph_030_fpr1	68.31	2.32235	66.19	2.17	100	68.36	hpc3-gpu-24-06	8	NVIDIA A30	6.0166	79.7429	0	t2_xeno	10x 3'	cells	species	looked at	1824
+xeno_noHSC_1	glymph_030_fpr1	72.88	2.04365	69.93	1.96	98	71.89	hpc3-gpu-24-07	8	NVIDIA A30	6.22168	80.8919	0	t2_xeno	10x 3'	cells	species	held out	1745
+xeno_noHSC_2	glymph_030_fpr1	70.95	2.04752	67.79	1.86	98	69.65	hpc3-gpu-24-05	8	NVIDIA A30	5.77441	82.3611	0	t2_xeno	10x 3'	cells	species	held out	3334
+xeno_noHSC_3	glymph_030_fpr1	56.59	2.30508	52.51	1.75	95	54.26	hpc3-gpu-24-05	8	NVIDIA A30	5.45801	76.6897	0	t2_xeno	10x 3'	cells	species	held out	2107
+batch	glymph_4gpu							hpc3-gpu-24-05	20	NVIDIA A30,NVIDIA A30,NVIDIA A30,NVIDIA A30	20.5947	79.2766	0						
+bd_demo_pbmc	glymph_fpr0	144.99	3.78341	137.7	4.74	98	142.44	hpc3-gpu-k54-05	6	NVIDIA A30	6.40527	79.1918	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	looked at	11370
+bd_hgmm_mix1	glymph_fpr0	89.56	3.15069	83.9	3.09	97	86.99	hpc3-gpu-k54-01	6	NVIDIA A30	6.94434	75.6	0	t3_rhapsody	BD Rhapsody WTA	cells	species	looked at	9899
+bd_hgmm_mix2	glymph_fpr0	94.38	3.15715	89.75	2.95	98	92.7	hpc3-gpu-l54-00	6	NVIDIA A30	6.68457	74.8333	0	t3_rhapsody	BD Rhapsody WTA	cells	species	held out	7983
+bd_ileum_Cart1	glymph_fpr0	99.39	2.96867	94.22	3.1	97	97.32	hpc3-gpu-24-06	6	NVIDIA A30	5.16504	75.66	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15092
+bd_ileum_Cart2	glymph_fpr0	112.8	3.28035	107.14	3.33	97	110.47	hpc3-gpu-l54-01	6	NVIDIA A30	6.57129	79.9649	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15299
+bd_ileum_cartridge1	glymph_fpr0	54.65	2.11334	49.91	2.29	95	52.2	hpc3-gpu-k54-02	6	NVIDIA A30	3.66895	66.4643	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	4621
+bd_ileum_cartridge2	glymph_fpr0	46.57	2.19245	41.41	2.31	93	43.72	hpc3-gpu-l54-08	6	NVIDIA A30	3.66504	65.5	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	10667
+bd_ileum_cartridge3	glymph_fpr0	46.48	2.08858	41.89	2.01	94	43.9	hpc3-gpu-24-08	6	NVIDIA A30	3.84082	70.125	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	13174
+bd_liver	glymph_fpr0	150.28	3.26305	145.2	3.14	98	148.34	hpc3-gpu-24-08	6	NVIDIA A30	6.30371	84.6711	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	13590
+bd_lung	glymph_fpr0	174.46	4.65797	171.22	4.18	100	175.4	hpc3-gpu-l54-02	6	NVIDIA A30	8.8916	75.3295	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	26029
+bd_pbmc_Donor1855	glymph_fpr0	106.18	4.4364	99.67	5.45	99	105.12	hpc3-gpu-l54-01	6	NVIDIA A30	9.23145	68.8148	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	88812
+bd_pbmc_Donor2881	glymph_fpr0	93.99	3.83324	87.8	4.79	98	92.59	hpc3-gpu-24-05	6	NVIDIA A30	8.20996	73.0638	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	79669
+bd_prostate	glymph_fpr0	143.81	3.82678	137.06	4.49	98	141.55	hpc3-gpu-k54-05	6	NVIDIA A30	7.21387	80.125	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	15857
+bd_spleen	glymph_fpr0	54.58	2.35997	49.27	2.7	95	51.97	hpc3-gpu-k54-05	6	NVIDIA A30	3.96777	71.1071	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	8061
+hgmm_10k_3p_chromX	glymph_fpr0	136.56	4.89724	130.32	4.41	98	134.73	hpc3-gpu-24-05	6	NVIDIA A30	9.34668	73.6232	0	t1_holdout	10x 3' v3.1	cells	species	held out	8842
+hgmm_10k_5p_gemx	glymph_fpr0	223.5	7.85927	214.33	6.39	98	220.72	hpc3-gpu-24-06	6	NVIDIA A30	15.126	78.2857	0	t1_holdout	10x 5' GEM-X	cells	species	held out	12591
+hgmm_10k_5pv2_ctrl	glymph_fpr0	197.92	6.08904	190.95	5.19	99	196.14	hpc3-gpu-24-07	6	NVIDIA A30	12.6025	79.9495	0	t1_holdout	10x 5' v2	cells	species	looked at	9361
+hgmm_10k_gemx_v4	glymph_fpr0	202.62	7.28471	189.86	9.84	98	199.7	hpc3-gpu-l54-08	6	NVIDIA A30	15.9346	72.3529	0	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on	10956
+hgmm_10k_v3	glymph_fpr0	218.72	5.99556	207.83	8.67	98	216.5	hpc3-gpu-k54-05	6	NVIDIA A30	11.5264	78.9909	0	t1_tuning	10x 3p v3	cells	species	tuned on	10563
+hgmm_10k_v3_DI	glymph_fpr0	245.1	8.00816	232.37	10.81	99	243.18	hpc3-gpu-l54-00	6	NVIDIA A30	17.0947	74.9675	0	t1_holdout	10x 3' v3.1	cells	species	held out	11125
+hgmm_12k_v2	glymph_fpr0	119.26	5.30507	113.28	4.29	98	117.57	hpc3-gpu-24-05	6	NVIDIA A30	10.6416	72.4167	0	t1_tuning	10x 3p v2	cells	species	tuned on	12665
+hgmm_1k_3p_LT	glymph_fpr0	62.05	2.00607	55.05	1.71	91	56.76	hpc3-gpu-24-08	6	NVIDIA A30	5.38574	77.3438	0	t1_holdout	10x 3' v3.1 LT	cells	species	held out	708
+hgmm_1k_v2	glymph_fpr0	139.48	2.41088	139.1	2.03	101	141.13	hpc3-gpu-k54-03	6	NVIDIA A30	5.01465	67.4429	0	t1_holdout	10x 3' v2	cells	species	held out	1019
+hgmm_1k_v3	glymph_fpr0	112.72	2.40828	109.16	2.03	98	111.19	hpc3-gpu-24-06	6	NVIDIA A30	6.90723	88.2632	0	t1_tuning	10x 3p v3	cells	species	tuned on	999
+hgmm_20k_5pv2_HT	glymph_fpr0	256.39	9.23001	240.3	13.49	98	253.79	hpc3-gpu-24-07	6	NVIDIA A30	19.958	74.5194	0	t1_holdout	10x 5' v2 HT	cells	species	held out	18280
+hgmm_20k_v31_HT	glymph_fpr0	227.75	8.40623	217.84	7.55	98	225.39	hpc3-gpu-k54-02	6	NVIDIA A30	18.7607	73.6579	0	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on	16273
+hgmm_5k_3p_multiplex	glymph_fpr0	144.6	4.47102	144.12	3.59	102	147.71	hpc3-gpu-k54-04	6	NVIDIA A30	8.59277	79.9452	0	t1_holdout	10x 3' v3.1	cells	species	held out	4344
+hgmm_5k_v3	glymph_fpr0	155.51	3.70776	150.21	3.27	98	153.48	hpc3-gpu-k54-01	6	NVIDIA A30	6.30176	83.6282	0	t1_tuning	10x 3p v3	cells	species	tuned on	5171
+hgmm_6k_v2	glymph_fpr0	128.62	4.13527	122.93	3.89	98	126.82	hpc3-gpu-k54-02	6	NVIDIA A30	7.52832	76.9385	0	t1_tuning	10x 3p v2	cells	species	tuned on	7387
+jurkat_32d	glymph_fpr0	94.85	3.06416	90.63	2.52	98	93.15	hpc3-gpu-24-08	6	NVIDIA A30	6.14551	79.1042	0	t1_holdout	10x 3' v2	cells	species	looked at	6222
+kidney_nuc2	glymph_fpr0	72.96	3.97991	65.3	6.35	98	71.65	hpc3-gpu-18-04	6	NVIDIA A30	5.42969	62.2703	0.000976562	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	59249
+kidney_nuc3	glymph_fpr0	104.85	3.40806	102.02	3.31	100	105.33	hpc3-gpu-k54-04	6	NVIDIA A30	5.22559	47.566	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	20129
+kidney_rep1	glymph_fpr0	92.1	4.39896	86.98	3.91	98	90.89	hpc3-gpu-l54-01	6	NVIDIA A30	7.70215	68.383	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	21819
+kidney_rep2	glymph_fpr0	118.16	5.13568	110.83	5.38	98	116.21	hpc3-gpu-k54-05	6	NVIDIA A30	9.34473	69.55	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	28187
+kidney_rep3	glymph_fpr0	67.52	2.70443	63.84	2.61	98	66.45	hpc3-gpu-24-08	6	NVIDIA A30	3.75879	73.7941	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	6546
+neat_barnyard	glymph_fpr0	102.63	2.57093	98.93	2.25	98	101.18	hpc3-gpu-l54-01	6	NVIDIA A30	8.09082	84.9038	0	t1_nuclei	10x Multiome GEX	nuclei	species	looked at	1308
+parse_bm_hfd	glymph_fpr0	447.6	18.7091	421.89	23.06	99	444.95	hpc3-gpu-24-06	6	NVIDIA A30	20.5928	67	0	t4_parse	Parse Evercode WT	cells	none	looked at	72204
+parse_hgmm_sub1	glymph_fpr0	67.03	2.06116	62.37	1.87	95	64.24	hpc3-gpu-24-08	6	NVIDIA A30	5.31348	79.2647	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2439
+parse_hgmm_sub2	glymph_fpr0	78.48	2.26112	74.74	2.33	98	77.07	hpc3-gpu-l54-00	6	NVIDIA A30	6.36621	78.775	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2831
+parse_igvf_AXHN	glymph_fpr0	93.01	2.72235	87.05	2.69	96	89.74	hpc3-gpu-l54-08	6	NVIDIA A30	7.61621	76.5532	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11359
+parse_igvf_BVLA	glymph_fpr0	91.3	2.79458	85.84	2.63	96	88.47	hpc3-gpu-24-08	6	NVIDIA A30	7.31934	78.5	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11793
+parse_igvf_EDTJ	glymph_fpr0	85.09	2.71539	79.83	2.48	96	82.31	hpc3-gpu-k54-02	6	NVIDIA A30	7.05762	76.907	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10811
+parse_igvf_LDUV	glymph_fpr0	90.98	2.65714	87.05	2.59	98	89.64	hpc3-gpu-24-05	6	NVIDIA A30	7.07715	78.3043	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10678
+parse_igvf_NOOZ	glymph_fpr0	93.29	2.67696	88.36	2.62	97	90.98	hpc3-gpu-l54-08	6	NVIDIA A30	7.1709	76.0426	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	looked at	11346
+parse_igvf_PIQO	glymph_fpr0	97.29	2.65926	89.38	6.97	99	96.35	hpc3-gpu-l54-00	6	NVIDIA A30	7.07324	75.6122	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10519
+parse_igvf_QPLV	glymph_fpr0	95.29	2.77095	89.17	2.61	96	91.78	hpc3-gpu-24-05	6	NVIDIA A30	7.25879	79.75	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	12180
+parse_igvf_UXZO	glymph_fpr0	92.76	3.0517	89.31	2.47	98	91.78	hpc3-gpu-24-07	6	NVIDIA A30	7.26074	78.0213	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11446
+pfc_ga22	glymph_fpr0	80.66	3.65666	75.22	3.34	97	78.56	hpc3-gpu-k54-01	6	NVIDIA A30	6.30176	69.9512	0	t5_notruth	10x 3' v3	nuclei	none	looked at	11924
+xeno_HSC_1	glymph_fpr0	52.1	1.99001	47.77	1.69	94	49.46	hpc3-gpu-24-08	6	NVIDIA A30	4.88184	74.037	0	t2_xeno	10x 3'	cells	species	looked at	1646
+xeno_HSC_2	glymph_fpr0	68.92	1.99362	65.74	1.66	97	67.4	hpc3-gpu-k54-01	6	NVIDIA A30	5.63965	82.1143	0	t2_xeno	10x 3'	cells	species	held out	1226
+xeno_HSC_3	glymph_fpr0	75.69	2.04162	72.47	1.76	98	74.23	hpc3-gpu-k54-01	6	NVIDIA A30	6.00488	82.6842	0	t2_xeno	10x 3'	cells	species	looked at	1824
+xeno_noHSC_1	glymph_fpr0	73.39	2.01861	69.21	1.95	96	71.16	hpc3-gpu-l54-08	6	NVIDIA A30	6.19043	81.0811	0	t2_xeno	10x 3'	cells	species	held out	1745
+xeno_noHSC_2	glymph_fpr0	72.85	2.06814	69.49	1.91	98	71.4	hpc3-gpu-24-05	6	NVIDIA A30	5.74707	81.0811	0	t2_xeno	10x 3'	cells	species	held out	3334
+xeno_noHSC_3	glymph_fpr0	58.27	2.04935	54.13	1.81	95	55.94	hpc3-gpu-k54-02	6	NVIDIA A30	5.43848	76.9	0	t2_xeno	10x 3'	cells	species	held out	2107
+bd_demo_pbmc	glymph_fpr02	143.5	3.83092	137.79	3.42	98	141.21	hpc3-gpu-k54-02	6	NVIDIA A30	6.41113	81.1389	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	looked at	11370
+bd_hgmm_mix1	glymph_fpr02	87.11	3.22267	80.79	2.99	96	83.78	hpc3-gpu-l54-08	6	NVIDIA A30	6.94434	76.5	0	t3_rhapsody	BD Rhapsody WTA	cells	species	looked at	9899
+bd_hgmm_mix2	glymph_fpr02	89.42	3.16008	83.64	3.62	97	87.26	hpc3-gpu-l54-08	6	NVIDIA A30	6.68457	75.6222	0	t3_rhapsody	BD Rhapsody WTA	cells	species	held out	7983
+bd_ileum_Cart1	glymph_fpr02	97.42	2.95427	92.67	2.9	98	95.57	hpc3-gpu-24-08	6	NVIDIA A30	5.16504	79.6939	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15092
+bd_ileum_Cart2	glymph_fpr02	178.1	3.25958	173.97	3.49	99	177.46	hpc3-gpu-k54-04	6	NVIDIA A30	6.57129	50.1778	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15299
+bd_ileum_cartridge1	glymph_fpr02	56.02	2.49851	51.53	2.04	95	53.57	hpc3-gpu-24-08	6	NVIDIA A30	3.6709	70.3793	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	4621
+bd_ileum_cartridge2	glymph_fpr02	46.87	2.24566	41.79	2.84	95	44.63	hpc3-gpu-24-07	6	NVIDIA A30	3.66504	66.25	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	10667
+bd_ileum_cartridge3	glymph_fpr02	46.4	2.12359	42.16	1.93	95	44.09	hpc3-gpu-24-05	6	NVIDIA A30	3.83887	71.8333	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	13174
+bd_liver	glymph_fpr02	154.91	3.2716	150.32	2.94	98	153.26	hpc3-gpu-k54-05	6	NVIDIA A30	6.30371	84.3846	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	13590
+bd_lung	glymph_fpr02	164.59	4.66265	156.8	5.66	98	162.46	hpc3-gpu-24-05	6	NVIDIA A30	8.88965	79.3133	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	26029
+bd_pbmc_Donor1855	glymph_fpr02	105.13	4.40592	99.77	4.13	98	103.9	hpc3-gpu-24-07	6	NVIDIA A30	9.23145	71.2075	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	88812
+bd_pbmc_Donor2881	glymph_fpr02	92.75	3.87112	86.64	4.18	97	90.82	hpc3-gpu-l54-08	6	NVIDIA A30	8.20996	71.8298	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	79669
+bd_prostate	glymph_fpr02	142.65	3.84427	137.92	3.63	99	141.55	hpc3-gpu-k54-05	6	NVIDIA A30	7.21387	81.0139	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	15857
+bd_spleen	glymph_fpr02	53.85	2.69926	49.07	2.32	95	51.39	hpc3-gpu-24-07	6	NVIDIA A30	3.96777	73.3333	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	8061
+hgmm_10k_3p_chromX	glymph_fpr02	141.84	4.92769	136.03	4.5	99	140.53	hpc3-gpu-k54-01	6	NVIDIA A30	9.6709	75.9718	0	t1_holdout	10x 3' v3.1	cells	species	held out	8842
+hgmm_10k_5p_gemx	glymph_fpr02	225.76	7.84896	213.93	9.45	98	223.38	hpc3-gpu-24-06	6	NVIDIA A30	15.1123	76.6726	0	t1_holdout	10x 5' GEM-X	cells	species	held out	12591
+hgmm_10k_5pv2_ctrl	glymph_fpr02	180.01	6.10173	172.89	5.08	98	177.97	hpc3-gpu-k54-01	6	NVIDIA A30	12.6045	78.1333	0	t1_holdout	10x 5' v2	cells	species	looked at	9361
+hgmm_10k_gemx_v4	glymph_fpr02	200.26	7.30877	196.71	6.46	101	203.17	hpc3-gpu-l54-02	6	NVIDIA A30	15.9404	73.7129	0	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on	10956
+hgmm_10k_v3	glymph_fpr02	218.34	6.3575	207.55	8.66	99	216.21	hpc3-gpu-24-05	6	NVIDIA A30	11.5264	79.2364	0	t1_tuning	10x 3p v3	cells	species	tuned on	10563
+hgmm_10k_v3_DI	glymph_fpr02	241.1	7.66998	231.64	6.84	98	238.48	hpc3-gpu-24-05	6	NVIDIA A30	17.1143	77.0248	0	t1_holdout	10x 3' v3.1	cells	species	held out	11125
+hgmm_12k_v2	glymph_fpr02	123.35	4.98674	116.45	4.38	97	120.83	hpc3-gpu-24-08	6	NVIDIA A30	10.6396	73.0161	0	t1_tuning	10x 3p v2	cells	species	tuned on	12665
+hgmm_1k_3p_LT	glymph_fpr02	59.38	2.24787	54.75	1.87	95	56.62	hpc3-gpu-k54-02	6	NVIDIA A30	5.38574	79.3333	0	t1_holdout	10x 3' v3.1 LT	cells	species	held out	708
+hgmm_1k_v2	glymph_fpr02	103.31	2.39762	99.87	1.91	98	101.78	hpc3-gpu-k54-01	6	NVIDIA A30	4.41699	87.4615	0	t1_holdout	10x 3' v2	cells	species	held out	1019
+hgmm_1k_v3	glymph_fpr02	135.01	2.42609	136.17	2.18	102	138.35	hpc3-gpu-l54-07	6	NVIDIA A30	6.90723	71.1029	0	t1_tuning	10x 3p v3	cells	species	tuned on	999
+hgmm_20k_5pv2_HT	glymph_fpr02	251.73	9.22872	244.44	8.13	100	252.57	hpc3-gpu-k54-03	6	NVIDIA A30	19.9541	75.9286	0	t1_holdout	10x 5' v2 HT	cells	species	held out	18280
+hgmm_20k_v31_HT	glymph_fpr02	229.63	8.3773	219.53	7.97	99	227.5	hpc3-gpu-k54-02	6	NVIDIA A30	18.7314	73.3913	0	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on	16273
+hgmm_5k_3p_multiplex	glymph_fpr02	145.57	4.48824	137.8	6.28	98	144.08	hpc3-gpu-l54-01	6	NVIDIA A30	8.59082	78.1233	0	t1_holdout	10x 3' v3.1	cells	species	held out	4344
+hgmm_5k_v3	glymph_fpr02	162.66	3.71546	155.66	4.8	98	160.46	hpc3-gpu-18-04	6	NVIDIA A30	6.30176	83.2927	0	t1_tuning	10x 3p v3	cells	species	tuned on	5171
+hgmm_6k_v2	glymph_fpr02	125.03	4.40676	119.2	3.73	98	122.93	hpc3-gpu-24-05	6	NVIDIA A30	7.52637	77.8889	0	t1_tuning	10x 3p v2	cells	species	tuned on	7387
+jurkat_32d	glymph_fpr02	93.76	2.70681	89.47	2.55	98	92.02	hpc3-gpu-24-08	6	NVIDIA A30	6.14551	82.0851	0	t1_holdout	10x 3' v2	cells	species	looked at	6222
+kidney_nuc2	glymph_fpr02	91.82	4.0647	89.26	3.41	100	92.67	hpc3-gpu-k54-04	6	NVIDIA A30	5.43066	49.3696	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	59249
+kidney_nuc3	glymph_fpr02	78.58	3.41455	70.79	5.88	97	76.67	hpc3-gpu-18-04	6	NVIDIA A30	5.22461	64.25	0.000976562	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	20129
+kidney_rep1	glymph_fpr02	94.57	4.03572	89.41	3.66	98	93.07	hpc3-gpu-24-06	6	NVIDIA A30	7.70215	69.5208	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	21819
+kidney_rep2	glymph_fpr02	118.15	5.46574	111.12	4.62	97	115.74	hpc3-gpu-k54-02	6	NVIDIA A30	9.34277	71.2	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	28187
+kidney_rep3	glymph_fpr02	71.43	2.67619	67.47	2.68	98	70.15	hpc3-gpu-k54-01	6	NVIDIA A30	3.75879	72.8611	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	6546
+neat_barnyard	glymph_fpr02	125.78	2.2132	127.01	2.36	102	129.37	hpc3-gpu-k54-03	6	NVIDIA A30	8.09082	78.5873	0	t1_nuclei	10x Multiome GEX	nuclei	species	looked at	1308
+parse_bm_hfd	glymph_fpr02	486.25	18.7203	420.13	63.41	99	483.54	hpc3-gpu-l54-00	6	NVIDIA A30	20.5947	60.9549	0	t4_parse	Parse Evercode WT	cells	none	looked at	72204
+parse_hgmm_sub1	glymph_fpr02	67.25	2.42206	62.47	1.96	95	64.43	hpc3-gpu-k54-05	6	NVIDIA A30	5.31348	79.2941	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2439
+parse_hgmm_sub2	glymph_fpr02	78.07	2.22995	74.44	2.22	98	76.66	hpc3-gpu-24-08	6	NVIDIA A30	6.36621	80.375	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2831
+parse_igvf_AXHN	glymph_fpr02	87.75	2.45435	82.3	2.54	96	84.84	hpc3-gpu-l54-08	6	NVIDIA A30	7.29395	81.9318	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11359
+parse_igvf_BVLA	glymph_fpr02	92.84	2.77761	87.16	3.18	97	90.34	hpc3-gpu-24-07	6	NVIDIA A30	7.63965	76.7447	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11793
+parse_igvf_EDTJ	glymph_fpr02	92.46	3.05264	86.58	2.94	96	89.52	hpc3-gpu-k54-03	6	NVIDIA A30	7.05762	71.4043	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10811
+parse_igvf_LDUV	glymph_fpr02	93.28	3.01938	94.71	2.65	104	97.36	hpc3-gpu-l54-07	6	NVIDIA A30	7.07715	75.6809	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10678
+parse_igvf_NOOZ	glymph_fpr02	91.79	2.72479	88.1	2.51	98	90.61	hpc3-gpu-24-06	6	NVIDIA A30	7.1709	78.4783	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	looked at	11346
+parse_igvf_PIQO	glymph_fpr02	94.84	2.65709	91.12	2.85	99	93.97	hpc3-gpu-24-07	6	NVIDIA A30	7.07324	79.2292	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10519
+parse_igvf_QPLV	glymph_fpr02	93.95	2.75368	87.88	3.13	96	91.01	hpc3-gpu-l54-00	6	NVIDIA A30	7.26074	78.8511	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	12180
+parse_igvf_UXZO	glymph_fpr02	98.29	2.6592	101.49	2.73	106	104.22	hpc3-gpu-k54-04	6	NVIDIA A30	7.26074	77.86	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11446
+pfc_ga22	glymph_fpr02	78.66	3.63628	73.4	3.16	97	76.56	hpc3-gpu-24-06	6	NVIDIA A30	6.30176	69.35	0	t5_notruth	10x 3' v3	nuclei	none	looked at	11924
+xeno_HSC_1	glymph_fpr02	70.16	2.25646	65.17	1.76	95	66.93	hpc3-gpu-k54-03	6	NVIDIA A30	4.88184	57.5278	0	t2_xeno	10x 3'	cells	species	looked at	1646
+xeno_HSC_2	glymph_fpr02	103.05	1.99979	102.95	1.73	101	104.68	hpc3-gpu-l54-02	6	NVIDIA A30	5.63965	55.2308	0	t2_xeno	10x 3'	cells	species	held out	1226
+xeno_HSC_3	glymph_fpr02	70.61	2.07384	67.17	1.88	97	69.05	hpc3-gpu-24-05	6	NVIDIA A30	6.00293	80.9167	0	t2_xeno	10x 3'	cells	species	looked at	1824
+xeno_noHSC_1	glymph_fpr02	98.94	2.33572	98.62	2.24	101	100.86	hpc3-gpu-k54-03	6	NVIDIA A30	6.19043	59.8	0	t2_xeno	10x 3'	cells	species	held out	1745
+xeno_noHSC_2	glymph_fpr02	99.64	2.37546	99.77	1.91	102	101.68	hpc3-gpu-k54-04	6	NVIDIA A30	5.74707	57.98	0	t2_xeno	10x 3'	cells	species	held out	3334
+xeno_noHSC_3	glymph_fpr02	76.19	2.30285	71.46	1.94	96	73.4	hpc3-gpu-l54-07	6	NVIDIA A30	5.43848	60.1026	0	t2_xeno	10x 3'	cells	species	held out	2107
+bd_demo_pbmc	glymph_fpr1	144.22	4.18666	137.67	4.01	98	141.68	hpc3-gpu-l54-08	6	NVIDIA A30	6.41113	81.0137	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	looked at	11370
+bd_hgmm_mix1	glymph_fpr1	87.8	3.55912	82.49	2.9	97	85.39	hpc3-gpu-24-08	6	NVIDIA A30	6.94434	75.4091	0	t3_rhapsody	BD Rhapsody WTA	cells	species	looked at	9899
+bd_hgmm_mix2	glymph_fpr1	94.16	3.50083	89.35	2.89	97	92.24	hpc3-gpu-24-06	6	NVIDIA A30	6.68457	75.125	0	t3_rhapsody	BD Rhapsody WTA	cells	species	held out	7983
+bd_ileum_Cart1	glymph_fpr1	168.56	2.96365	165.56	3.22	100	168.78	hpc3-gpu-k54-04	6	NVIDIA A30	5.16504	44.1765	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15092
+bd_ileum_Cart2	glymph_fpr1	113.02	3.61508	107.29	3.84	98	111.13	hpc3-gpu-24-07	6	NVIDIA A30	6.57129	79.1579	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15299
+bd_ileum_cartridge1	glymph_fpr1	54.11	2.47664	49.13	2.16	94	51.29	hpc3-gpu-24-06	6	NVIDIA A30	3.66895	70.3571	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	4621
+bd_ileum_cartridge2	glymph_fpr1	74.22	2.5252	69.14	2.27	96	71.41	hpc3-gpu-k54-03	6	NVIDIA A30	3.66504	41.9737	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	10667
+bd_ileum_cartridge3	glymph_fpr1	46.56	2.40184	42.38	1.87	95	44.25	hpc3-gpu-k54-02	6	NVIDIA A30	3.83887	70.5	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	13174
+bd_liver	glymph_fpr1	167.21	3.28494	164.11	3.55	100	167.66	hpc3-gpu-k54-03	6	NVIDIA A30	6.30371	76.4762	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	13590
+bd_lung	glymph_fpr1	154.55	4.6654	148.54	4.13	98	152.67	hpc3-gpu-24-05	6	NVIDIA A30	8.88965	79.6538	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	26029
+bd_pbmc_Donor1855	glymph_fpr1	166.48	4.79797	162.83	4.26	100	167.09	hpc3-gpu-l54-07	6	NVIDIA A30	9.23145	45.3333	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	88812
+bd_pbmc_Donor2881	glymph_fpr1	93.61	3.8797	88.86	4.18	99	93.04	hpc3-gpu-18-04	6	NVIDIA A30	8.20996	72.0213	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	79669
+bd_prostate	glymph_fpr1	142.87	3.8763	136.15	4.64	98	140.79	hpc3-gpu-l54-08	6	NVIDIA A30	7.21191	82.4028	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	15857
+bd_spleen	glymph_fpr1	53.54	2.69865	48.91	2.35	95	51.26	hpc3-gpu-k54-01	6	NVIDIA A30	3.96582	73.3333	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	8061
+hgmm_10k_3p_chromX	glymph_fpr1	136.06	4.92883	130.08	4.43	98	134.51	hpc3-gpu-k54-01	6	NVIDIA A30	9.34668	73.8406	0	t1_holdout	10x 3' v3.1	cells	species	held out	8842
+hgmm_10k_5p_gemx	glymph_fpr1	221.76	7.87929	210.55	8.17	98	218.72	hpc3-gpu-l54-08	6	NVIDIA A30	15.1104	78.2523	0	t1_holdout	10x 5' GEM-X	cells	species	held out	12591
+hgmm_10k_5pv2_ctrl	glymph_fpr1	196.38	6.15274	190.19	5.18	99	195.37	hpc3-gpu-l54-01	6	NVIDIA A30	12.6025	78.5455	0	t1_holdout	10x 5' v2	cells	species	looked at	9361
+hgmm_10k_gemx_v4	glymph_fpr1	206.57	7.64358	201.46	8.01	101	209.47	hpc3-gpu-l54-07	6	NVIDIA A30	15.9404	72.6058	0	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on	10956
+hgmm_10k_v3	glymph_fpr1	211.37	6.04057	203.17	5.69	98	208.86	hpc3-gpu-24-07	6	NVIDIA A30	11.54	79.9906	0	t1_tuning	10x 3p v3	cells	species	tuned on	10563
+hgmm_10k_v3_DI	glymph_fpr1	240.75	7.68166	231.47	6.85	98	238.32	hpc3-gpu-k54-01	6	NVIDIA A30	17.1162	76.2066	0	t1_holdout	10x 3' v3.1	cells	species	held out	11125
+hgmm_12k_v2	glymph_fpr1	122.24	5.06122	116.12	4.33	98	120.45	hpc3-gpu-24-07	6	NVIDIA A30	10.6396	73.4677	0	t1_tuning	10x 3p v2	cells	species	tuned on	12665
+hgmm_1k_3p_LT	glymph_fpr1	59.23	2.0125	54.99	1.84	95	56.83	hpc3-gpu-l54-01	6	NVIDIA A30	5.38574	75.8667	0	t1_holdout	10x 3' v3.1 LT	cells	species	held out	708
+hgmm_1k_v2	glymph_fpr1	103.66	2.40045	99.99	1.75	98	101.74	hpc3-gpu-l54-01	6	NVIDIA A30	4.41699	87.4615	0	t1_holdout	10x 3' v2	cells	species	held out	1019
+hgmm_1k_v3	glymph_fpr1	114.68	2.42465	111.41	1.86	98	113.27	hpc3-gpu-24-06	6	NVIDIA A30	6.90723	88.3103	0	t1_tuning	10x 3p v3	cells	species	tuned on	999
+hgmm_20k_5pv2_HT	glymph_fpr1	256.54	9.58076	240.71	13.25	98	253.96	hpc3-gpu-l54-00	6	NVIDIA A30	19.9561	73.876	0	t1_holdout	10x 5' v2 HT	cells	species	held out	18280
+hgmm_20k_v31_HT	glymph_fpr1	229.08	8.69927	218.47	7.74	98	226.21	hpc3-gpu-k54-02	6	NVIDIA A30	18.7334	73.687	0	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on	16273
+hgmm_5k_3p_multiplex	glymph_fpr1	148.38	4.49261	147.92	3.81	102	151.73	hpc3-gpu-l54-02	6	NVIDIA A30	8.59082	80.2533	0	t1_holdout	10x 3' v3.1	cells	species	held out	4344
+hgmm_5k_v3	glymph_fpr1	161.34	4.07881	154.58	5.04	98	159.62	hpc3-gpu-l54-00	6	NVIDIA A30	6.30176	83.6173	0	t1_tuning	10x 3p v3	cells	species	tuned on	5171
+hgmm_6k_v2	glymph_fpr1	127.16	4.4624	120.03	5.98	99	126.01	hpc3-gpu-l54-01	6	NVIDIA A30	7.52832	77.0781	0	t1_tuning	10x 3p v2	cells	species	tuned on	7387
+jurkat_32d	glymph_fpr1	95.09	2.7251	90.89	2.5	98	93.39	hpc3-gpu-24-08	6	NVIDIA A30	6.14551	78.5625	0	t1_holdout	10x 3' v2	cells	species	looked at	6222
+kidney_nuc2	glymph_fpr1	70.14	3.91493	64.16	4.07	97	68.23	hpc3-gpu-k54-05	6	NVIDIA A30	5.43066	64.3333	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	59249
+kidney_nuc3	glymph_fpr1	111.25	3.73745	108.76	3.14	100	111.9	hpc3-gpu-k54-04	6	NVIDIA A30	5.22559	44.5357	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	20129
+kidney_rep1	glymph_fpr1	88.65	4.4135	83.02	4.21	98	87.23	hpc3-gpu-24-07	6	NVIDIA A30	7.70215	66.9556	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	21819
+kidney_rep2	glymph_fpr1	113.97	5.13148	107.61	4.53	98	112.14	hpc3-gpu-k54-05	6	NVIDIA A30	9.34277	71.8772	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	28187
+kidney_rep3	glymph_fpr1	69.12	3.05677	65.15	2.53	97	67.68	hpc3-gpu-18-04	6	NVIDIA A30	3.75879	70.2286	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	6546
+neat_barnyard	glymph_fpr1	105.69	2.20222	101.93	2.14	98	104.07	hpc3-gpu-24-07	6	NVIDIA A30	8.08887	84.3585	0	t1_nuclei	10x Multiome GEX	nuclei	species	looked at	1308
+parse_bm_hfd	glymph_fpr1	445.54	18.6628	419.57	24.02	99	443.59	hpc3-gpu-18-04	6	NVIDIA A30	20.5947	66.5561	0	t4_parse	Parse Evercode WT	cells	none	looked at	72204
+parse_hgmm_sub1	glymph_fpr1	66.75	2.09662	62.5	1.84	96	64.34	hpc3-gpu-24-07	6	NVIDIA A30	5.31348	81.2941	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2439
+parse_hgmm_sub2	glymph_fpr1	91.26	2.27214	87.83	2.7	99	90.53	hpc3-gpu-k54-05	6	NVIDIA A30	6.36621	82.4783	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2831
+parse_igvf_AXHN	glymph_fpr1	92.38	2.74851	87.05	3.2	97	90.25	hpc3-gpu-l54-00	6	NVIDIA A30	7.29395	76.6596	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11359
+parse_igvf_BVLA	glymph_fpr1	94.16	3.15918	89.04	2.93	97	91.97	hpc3-gpu-k54-03	6	NVIDIA A30	7.31934	75.4375	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11793
+parse_igvf_EDTJ	glymph_fpr1	81.58	3.04603	76.13	2.69	96	78.82	hpc3-gpu-l54-08	6	NVIDIA A30	7.05762	76	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10811
+parse_igvf_LDUV	glymph_fpr1	89.29	3.01952	86.09	2.42	99	88.51	hpc3-gpu-24-08	6	NVIDIA A30	7.07715	77.2444	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10678
+parse_igvf_NOOZ	glymph_fpr1	91.6	2.70464	87.73	2.49	98	90.22	hpc3-gpu-24-08	6	NVIDIA A30	7.1709	78.3696	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	looked at	11346
+parse_igvf_PIQO	glymph_fpr1	95.64	2.64942	98.51	2.69	105	101.2	hpc3-gpu-k54-04	6	NVIDIA A30	7.07324	76.0208	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10519
+parse_igvf_QPLV	glymph_fpr1	93.43	3.12928	87.49	3.86	97	91.35	hpc3-gpu-24-05	6	NVIDIA A30	7.26074	76.6809	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	12180
+parse_igvf_UXZO	glymph_fpr1	91.6	2.69007	87.92	2.73	98	90.65	hpc3-gpu-l54-01	6	NVIDIA A30	7.26074	78.3043	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11446
+pfc_ga22	glymph_fpr1	79.48	3.67407	74.13	3.27	97	77.4	hpc3-gpu-k54-01	6	NVIDIA A30	6.30176	70.625	0	t5_notruth	10x 3' v3	nuclei	none	looked at	11924
+xeno_HSC_1	glymph_fpr1	52.04	1.99494	47.62	1.73	94	49.35	hpc3-gpu-l54-08	6	NVIDIA A30	4.88184	73.5926	0	t2_xeno	10x 3'	cells	species	looked at	1646
+xeno_HSC_2	glymph_fpr1	68.14	1.99631	65.12	1.68	98	66.8	hpc3-gpu-24-07	6	NVIDIA A30	5.6377	79.3429	0	t2_xeno	10x 3'	cells	species	held out	1226
+xeno_HSC_3	glymph_fpr1	75.6	2.0321	72.52	1.87	98	74.39	hpc3-gpu-l54-01	6	NVIDIA A30	6.00293	82.9737	0	t2_xeno	10x 3'	cells	species	looked at	1824
+xeno_noHSC_1	glymph_fpr1	74.52	2.39028	71	2.06	98	73.06	hpc3-gpu-k54-05	6	NVIDIA A30	6.19043	83.1842	0	t2_xeno	10x 3'	cells	species	held out	1745
+xeno_noHSC_2	glymph_fpr1	73.84	2.02776	67.77	4.68	98	72.45	hpc3-gpu-l54-00	6	NVIDIA A30	5.74707	77.7027	0	t2_xeno	10x 3'	cells	species	held out	3334
+xeno_noHSC_3	glymph_fpr1	56.44	2.05816	52.3	1.72	95	54.02	hpc3-gpu-24-08	6	NVIDIA A30	5.43848	76.2759	0	t2_xeno	10x 3'	cells	species	held out	2107
+bd_demo_pbmc	scar	396.56	18.4529	984.44	202.53	299	1186.97	hpc3-gpu-18-03	15	NVIDIA A30	5.18652	39.7286	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	looked at	11370
+bd_hgmm_mix1	scar	695.94	19.6454	986.63	115.65	158	1102.28	hpc3-gpu-k54-04	15	NVIDIA A30	5.4209	26.7672	0	t3_rhapsody	BD Rhapsody WTA	cells	species	looked at	9899
+bd_hgmm_mix2	scar	619.88	18.6628	839.93	157.18	160	997.11	hpc3-gpu-l54-07	15	NVIDIA A30	5.16309	24.2355	0	t3_rhapsody	BD Rhapsody WTA	cells	species	held out	7983
+bd_ileum_Cart1	scar	1647.62	12.5726	1092.7	822.39	116	1915.09	hpc3-gpu-l54-02	15	NVIDIA A30	3.69434	11.8337	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15092
+bd_ileum_Cart2	scar	359.09	13.0269	520.02	74.99	165	595.01	hpc3-gpu-24-08	15	NVIDIA A30	3.7334	41.3222	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15299
+bd_ileum_cartridge1	scar	139.37	9.70378	326.74	70.54	285	397.28	hpc3-gpu-l54-00	15	NVIDIA A30	2.79395	31.4286	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	4621
+bd_ileum_cartridge2	scar	253.42	11.5492	434.87	74.85	201	509.72	hpc3-gpu-k54-01	15	NVIDIA A30	3.24121	39.4724	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	10667
+bd_ileum_cartridge3	scar	312.85	11.2592	502.57	108.38	195	610.95	hpc3-gpu-24-05	15	NVIDIA A30	3.31934	38.6688	0	t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	13174
+bd_liver	scar	521.36	25.2468	855.75	142.2	191	997.95	hpc3-gpu-18-03	15	NVIDIA A30	7.39355	48.7203	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	13590
+bd_lung	scar	1515.77	25.3371	14150	178.98	945	14329	hpc3-gpu-k54-01	15	NVIDIA A30	8.7041	32.9208	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	26029
+bd_pbmc_Donor1855	scar	7880	15.2365	8158.77	631.92	111	8790.69	hpc3-gpu-l54-00	15	NVIDIA A30	4.66699	16.9673	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	88812
+bd_pbmc_Donor2881	scar	6892	15.0574	7137.48	521.23	111	7658.71	hpc3-gpu-24-07	15	NVIDIA A30	4.51074	17.1654	0	t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	79669
+bd_prostate	scar	551.18	22.7079	878.7	163.71	189	1042.41	hpc3-gpu-24-05	15	NVIDIA A30	7.3291	51.5	0	t3_rhapsody	BD Rhapsody WTA	cells	none	held out	15857
+bd_spleen	scar	206.62	11.4448	347.17	81	207	428.17	hpc3-gpu-24-05	15	NVIDIA A30	3.03223	36.3558	0	t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	8061
+hgmm_10k_3p_chromX	scar	615.6	24.9243	2594.05	696.65	534	3290.7	hpc3-gpu-24-08	15	NVIDIA A30	6.47168	26.4058	0	t1_holdout	10x 3' v3.1	cells	species	held out	8842
+hgmm_10k_5p_gemx	scar	1080.5	31.0958	1982.99	1046.52	280	3029.51	hpc3-gpu-l54-00	15	NVIDIA A30	8.48145	25.3641	0	t1_holdout	10x 5' GEM-X	cells	species	held out	12591
+hgmm_10k_5pv2_ctrl	scar	582.19	25.615	1590.6	511.41	361	2102.01	hpc3-gpu-24-05	15	NVIDIA A30	6.62012	29.9521	0	t1_holdout	10x 5' v2	cells	species	looked at	9361
+hgmm_10k_gemx_v4	scar	693.76	30.8632	2001.78	508.62	361	2510.4	hpc3-gpu-k54-01	15	NVIDIA A30	8.20801	35.0202	0	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on	10956
+hgmm_10k_v3	scar	1226.53	31.3986	2391.18	1383.33	307	3774.51	hpc3-gpu-18-04	15	NVIDIA A30	8.4248	19.8974	0	t1_tuning	10x 3p v3	cells	species	tuned on	10563
+hgmm_10k_v3_DI	scar	2391.32	28.239	5745.56	3769.39	397	9514.95	hpc3-gpu-18-04	15	NVIDIA A30	7.35059	9.12625	0	t1_holdout	10x 3' v3.1	cells	species	held out	11125
+hgmm_12k_v2	scar	567.27	21.8885	1547.13	403.82	343	1950.95	hpc3-gpu-l54-08	15	NVIDIA A30	6.08301	34.6444	0	t1_tuning	10x 3p v2	cells	species	tuned on	12665
+hgmm_1k_3p_LT	scar	59.63	5.24708	79.84	9.96	150	89.8	hpc3-gpu-l54-02	15	NVIDIA A30	1.38184	21.3667	0	t1_holdout	10x 3' v3.1 LT	cells	species	held out	708
+hgmm_1k_v2	scar	86.78	5.9375	284.21	112.41	457	396.62	hpc3-gpu-24-05	15	NVIDIA A30	1.7627	16.5909	0	t1_holdout	10x 3' v2	cells	species	held out	1019
+hgmm_1k_v3	scar	73.22	5.74724	280.74	73.83	484	354.57	hpc3-gpu-18-03	15	NVIDIA A30	1.77246	21.9459	0	t1_tuning	10x 3p v3	cells	species	tuned on	999
+hgmm_20k_5pv2_HT	scar	1262.33	30.476	2069.19	1083.7	249	3152.89	hpc3-gpu-k54-01	15	NVIDIA A30	8.73926	28.3339	0	t1_holdout	10x 5' v2 HT	cells	species	held out	18280
+hgmm_20k_v31_HT	scar	5698	31.8319	5165.51	6242.29	200	11407.8	hpc3-gpu-l54-02	15	NVIDIA A30	8.54199	6.28326	0	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on	16273
+hgmm_5k_3p_multiplex	scar	507.68	22.9101	1543.52	414.18	385	1957.7	hpc3-gpu-k54-04	15	NVIDIA A30	6.61816	18.3386	0	t1_holdout	10x 3' v3.1	cells	species	held out	4344
+hgmm_5k_v3	scar	326.82	21.0589	1058.85	266.77	405	1325.62	hpc3-gpu-18-03	15	NVIDIA A30	6.43262	32.2561	0	t1_tuning	10x 3p v3	cells	species	tuned on	5171
+hgmm_6k_v2	scar	353.67	18.2175	1167.61	293.18	413	1460.79	hpc3-gpu-24-08	15	NVIDIA A30	5.27832	32.7684	0	t1_tuning	10x 3p v2	cells	species	tuned on	7387
+jurkat_32d	scar	742.78	13.3504	746.89	468.34	163	1215.23	hpc3-gpu-l54-02	15	NVIDIA A30	4.10645	13.5269	0	t1_holdout	10x 3' v2	cells	species	looked at	6222
+kidney_nuc2	scar	5602	14.7769	6025.56	279.63	112	6305.19	hpc3-gpu-k54-04	15	NVIDIA A30	4.52441	15.8354	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	59249
+kidney_nuc3	scar	514.09	13.8753	993.73	190.21	230	1183.94	hpc3-gpu-24-08	15	NVIDIA A30	4.11816	37.6512	0	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	20129
+kidney_rep1	scar	832.88	13.4383	1261.41	361.21	194	1622.62	hpc3-gpu-24-05	15	NVIDIA A30	3.92871	24.3669	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	21819
+kidney_rep2	scar	2130.1	14.281	2770.2	262.12	142	3032.32	hpc3-gpu-l54-07	15	NVIDIA A30	4.02246	17.3033	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	28187
+kidney_rep3	scar	183.17	9.21246	410.26	89.22	272	499.48	hpc3-gpu-18-03	15	NVIDIA A30	2.71777	31.3587	0	t2_kidney	10x 3p v3.1	cells	genotype	tuned on	6546
+neat_barnyard	scar	211.69	7.67082	779.59	364.38	540	1143.97	hpc3-gpu-24-05	15	NVIDIA A30	2.50293	12.2075	0	t1_nuclei	10x Multiome GEX	nuclei	species	looked at	1308
+parse_bm_hfd	scar	8899	40.1188	93536	2906.9	1083	96442.9	hpc3-gpu-24-06	15	NVIDIA A30	8.30762	18.8946	0	t4_parse	Parse Evercode WT	cells	none	looked at	72204
+parse_hgmm_sub1	scar	199.42	9.84711	343.35	66.32	205	409.67	hpc3-gpu-l54-07	15	NVIDIA A30	3.05566	22.8	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2439
+parse_hgmm_sub2	scar	117.23	11.8541	290.58	62.7	301	353.28	hpc3-gpu-24-08	15	NVIDIA A30	3.63965	38.322	0	t4_parse	Parse Evercode WT Mini	cells	species	looked at	2831
+parse_igvf_AXHN	scar	679.66	24.8581	1358.34	452.5	266	1810.84	hpc3-gpu-l54-08	15	NVIDIA A30	7.63965	34.2765	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11359
+parse_igvf_BVLA	scar	1162.22	24.9509	1699.79	567.93	195	2267.72	hpc3-gpu-l54-07	15	NVIDIA A30	7.76074	23.0842	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11793
+parse_igvf_EDTJ	scar	847.81	26.2083	1260.83	670.42	227	1931.25	hpc3-gpu-24-05	15	NVIDIA A30	7.49902	25.8443	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10811
+parse_igvf_LDUV	scar	1009.92	26.0817	1558.46	534.18	207	2092.64	hpc3-gpu-k54-03	15	NVIDIA A30	7.46191	22.8832	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10678
+parse_igvf_NOOZ	scar	1400.48	25.5111	1633.32	778.43	172	2411.75	hpc3-gpu-k54-04	15	NVIDIA A30	7.6377	18.2625	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	looked at	11346
+parse_igvf_PIQO	scar	472.42	25.081	1203.89	256.3	309	1460.19	hpc3-gpu-24-08	15	NVIDIA A30	7.43066	45.1561	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10519
+parse_igvf_QPLV	scar	536.6	25.5451	1311.79	272.12	295	1583.91	hpc3-gpu-24-08	15	NVIDIA A30	7.80176	46.2751	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	12180
+parse_igvf_UXZO	scar	551.08	24.6235	1277.28	290.57	284	1567.85	hpc3-gpu-18-03	15	NVIDIA A30	7.62207	42.2899	0	t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11446
+pfc_ga22	scar	355.06	15.4154	745.96	155.21	253	901.17	hpc3-gpu-24-08	15	NVIDIA A30	4.40527	38.809	0	t5_notruth	10x 3' v3	nuclei	none	looked at	11924
+xeno_HSC_1	scar	71.86	6.42987	191.24	46.42	330	237.66	hpc3-gpu-24-08	15	NVIDIA A30	1.9834	29.8333	0	t2_xeno	10x 3'	cells	species	looked at	1646
+xeno_HSC_2	scar	102.41	4.98907	228.33	47.88	269	276.21	hpc3-gpu-k54-04	15	NVIDIA A30	1.56348	19.4423	0	t2_xeno	10x 3'	cells	species	held out	1226
+xeno_HSC_3	scar	145.11	7.15462	236.99	142.71	261	379.7	hpc3-gpu-24-05	15	NVIDIA A30	2.13379	16.3014	0	t2_xeno	10x 3'	cells	species	looked at	1824
+xeno_noHSC_1	scar	75.42	6.49136	219.93	55.29	364	275.22	hpc3-gpu-24-08	15	NVIDIA A30	1.97559	28.2632	0	t2_xeno	10x 3'	cells	species	held out	1745
+xeno_noHSC_2	scar	262.74	11.5358	377.54	82.01	174	459.55	hpc3-gpu-l54-07	15	NVIDIA A30	3.41895	21.2879	0	t2_xeno	10x 3'	cells	species	held out	3334
+xeno_noHSC_3	scar	102.28	8.2558	303.17	105.71	399	408.88	hpc3-gpu-24-05	15	NVIDIA A30	2.46777	27.5577	0	t2_xeno	10x 3'	cells	species	held out	2107
+bd_demo_pbmc	soupx	103.65	5.48159	202.61	6.83	202	209.44	hpc3-19-13	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	looked at	11370
+bd_hgmm_mix1	soupx	107.99	5.53145	340.72	3.73	318	344.45	hpc3-19-00	20					t3_rhapsody	BD Rhapsody WTA	cells	species	looked at	9899
+bd_hgmm_mix2	soupx	98.69	5.09622	271.52	4.51	279	276.03	hpc3-19-04	20					t3_rhapsody	BD Rhapsody WTA	cells	species	held out	7983
+bd_ileum_Cart1	soupx	89.99	4.60685	166.45	3.38	188	169.83	hpc3-19-07	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15092
+bd_ileum_Cart2	soupx	92.74	5.01927	215.84	3.38	236	219.22	hpc3-19-06	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	15299
+bd_ileum_cartridge1	soupx	40.38	2.31566	62.01	1.43	157	63.44	hpc3-19-11	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	4621
+bd_ileum_cartridge2	soupx	64.03	2.63803	297.53	2.89	469	300.42	hpc3-19-11	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	10667
+bd_ileum_cartridge3	soupx	47.79	2.63418	156.65	2.13	332	158.78	hpc3-19-11	20					t3_rhapsody	BD Rhapsody WTA + AbSeq	cells	none	held out	13174
+bd_liver	soupx	112.86	5.1109	382.45	3.52	341	385.97	hpc3-19-18	20					t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	13590
+bd_lung	soupx	170.09	9.12432	344	6.65	206	350.65	hpc3-19-19	20					t3_rhapsody	BD Rhapsody WTA	cells	none	held out	26029
+bd_pbmc_Donor1855	soupx	287.1	11.5475	1295.63	11.73	455	1307.36	hpc3-19-09	20					t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	88812
+bd_pbmc_Donor2881	soupx	254.34	9.45787	1256.37	8.8	497	1265.17	hpc3-19-09	20					t3_rhapsody	BD Rhapsody WTA + AbSeq (V1 beads)	cells	none	held out	79669
+bd_prostate	soupx	126.13	6.57898	269.29	4.87	217	274.16	hpc3-19-19	20					t3_rhapsody	BD Rhapsody WTA	cells	none	held out	15857
+bd_spleen	soupx	57.38	3.18693	99.48	2.47	177	101.95	hpc3-l18-00	20					t3_rhapsody	BD Rhapsody WTA	cells	none	looked at	8061
+hgmm_10k_3p_chromX	soupx	147.9	8.60875	247.93	8.17	173	256.1	hpc3-22-13	20					t1_holdout	10x 3' v3.1	cells	species	held out	8842
+hgmm_10k_5p_gemx	soupx	223.68	12.7977	378.2	13.81	175	392.01	hpc3-20-26	20					t1_holdout	10x 5' GEM-X	cells	species	held out	12591
+hgmm_10k_5pv2_ctrl	soupx	191.21	10.7169	325.33	11.33	176	336.66	hpc3-17-11	20					t1_holdout	10x 5' v2	cells	species	looked at	9361
+hgmm_10k_gemx_v4	soupx	264.04	13.9738	424.87	23.92	169	448.79	hpc3-14-07	20					t1_tuning	10x GEM-X 3p v4	cells	species	tuned on	10956
+hgmm_10k_v3	soupx	210.98	11.3091	397.54	11.71	193	409.25	hpc3-14-19	20					t1_tuning	10x 3p v3	cells	species	tuned on	10563
+hgmm_10k_v3_DI	soupx	276.26	14.3933	357.89	17.81	135	375.7	hpc3-21-32	20					t1_holdout	10x 3' v3.1	cells	species	held out	11125
+hgmm_12k_v2	soupx	155.32	8.72854	229.11	8.87	153	237.98	hpc3-20-31	20					t1_tuning	10x 3p v2	cells	species	tuned on	12665
+hgmm_1k_3p_LT	soupx	25.23	1.43976	72.23	0.68	288	72.91	hpc3-23-18	20					t1_holdout	10x 3' v3.1 LT	cells	species	held out	708
+hgmm_1k_v2	soupx	36.16	1.62582	100.87	0.85	281	101.72	hpc3-22-11	20					t1_holdout	10x 3' v2	cells	species	held out	1019
+hgmm_1k_v3	soupx	41.35	1.72194	150.59	1.68	368	152.27	hpc3-14-22	20					t1_tuning	10x 3p v3	cells	species	tuned on	999
+hgmm_20k_5pv2_HT	soupx	364.99	17.2721	492.09	25.91	141	518	hpc3-19-12	20					t1_holdout	10x 5' v2 HT	cells	species	held out	18280
+hgmm_20k_v31_HT	soupx	317.54	16.937	463.9	21.62	152	485.52	hpc3-14-01	20					t1_tuning	10x 3p v3.1 HT	cells	species	tuned on	16273
+hgmm_5k_3p_multiplex	soupx	102.83	6.36391	214.64	4.1	212	218.74	hpc3-23-04	20					t1_holdout	10x 3' v3.1	cells	species	held out	4344
+hgmm_5k_v3	soupx	116.7	5.77871	267.98	6.15	234	274.13	hpc3-15-03	20					t1_tuning	10x 3p v3	cells	species	tuned on	5171
+hgmm_6k_v2	soupx	123.38	6.80504	230.63	7	192	237.63	hpc3-14-15	20					t1_tuning	10x 3p v2	cells	species	tuned on	7387
+jurkat_32d	soupx	62.96	3.41059	83.4	3.25	137	86.65	hpc3-22-10	20					t1_holdout	10x 3' v2	cells	species	looked at	6222
+kidney_nuc2	soupx	133.2	10.5892	182.5	6.36	141	188.86	hpc3-23-09	20					t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	59249
+kidney_nuc3	soupx	62.56	5.29303	82.81	3.26	137	86.07	hpc3-23-06	20					t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on	20129
+kidney_rep1	soupx	134.03	7.70384	174.76	7.61	136	182.37	hpc3-22-03	20					t2_kidney	10x 3p v3.1	cells	genotype	tuned on	21819
+kidney_rep2	soupx	179.95	9.2885	199.07	10.53	116	209.6	hpc3-14-23	20					t2_kidney	10x 3p v3.1	cells	genotype	tuned on	28187
+kidney_rep3	soupx	46.06	3.48582	50.8	2.33	115	53.13	hpc3-23-18	20					t2_kidney	10x 3p v3.1	cells	genotype	tuned on	6546
+neat_barnyard	soupx	37.23	2.27772	141.1	1.24	382	142.34	hpc3-23-16	20					t1_nuclei	10x Multiome GEX	nuclei	species	looked at	1308
+parse_bm_hfd	soupx	823.81	41.5645	981.88	66.51	127	1048.39	hpc3-14-21	20					t4_parse	Parse Evercode WT	cells	none	looked at	72204
+parse_hgmm_sub1	soupx	141.59	2.05732	2027.32	2.58	1433	2029.9	hpc3-19-19	20					t4_parse	Parse Evercode WT Mini	cells	species	looked at	2439
+parse_hgmm_sub2	soupx	49.01	2.51608	163.57	2.87	339	166.44	hpc3-15-10	20					t4_parse	Parse Evercode WT Mini	cells	species	looked at	2831
+parse_igvf_AXHN	soupx	113.94	4.22794	234.11	4.9	209	239.01	hpc3-14-18	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11359
+parse_igvf_BVLA	soupx	119.98	4.68946	295.37	5.81	251	301.18	hpc3-14-04	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11793
+parse_igvf_EDTJ	soupx	109.12	3.92889	271.79	5.1	253	276.89	hpc3-14-13	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10811
+parse_igvf_LDUV	soupx	107.11	4.07097	254.98	4.67	242	259.65	hpc3-15-08	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10678
+parse_igvf_NOOZ	soupx	109.46	4.49202	250.79	5.04	233	255.83	hpc3-15-25	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	looked at	11346
+parse_igvf_PIQO	soupx	108.45	4.35682	283.11	5.07	265	288.18	hpc3-14-09	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	10519
+parse_igvf_QPLV	soupx	117.8	4.75722	294.22	5.35	254	299.57	hpc3-14-06	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	12180
+parse_igvf_UXZO	soupx	110.14	4.5252	234.66	4.93	217	239.59	hpc3-14-10	20					t4_parse	Parse Evercode WT v2	nuclei	tissue_by_well	held out	11446
+pfc_ga22	soupx	113.86	6.4374	165.49	4.62	149	170.11	hpc3-18-00	20					t5_notruth	10x 3' v3	nuclei	none	looked at	11924
+xeno_HSC_1	soupx	20.96	1.27448	24.34	0.77	119	25.11	hpc3-23-09	20					t2_xeno	10x 3'	cells	species	looked at	1646
+xeno_HSC_2	soupx	16.98	1.06379	20.92	0.55	126	21.47	hpc3-23-06	20					t2_xeno	10x 3'	cells	species	held out	1226
+xeno_HSC_3	soupx	22.75	1.39281	27.71	0.71	124	28.42	hpc3-23-07	20					t2_xeno	10x 3'	cells	species	looked at	1824
+xeno_noHSC_1	soupx	23.8	1.47202	27.34	0.99	119	28.33	hpc3-23-15	20					t2_xeno	10x 3'	cells	species	held out	1745
+xeno_noHSC_2	soupx	29.66	1.86849	34.86	0.86	120	35.72	hpc3-23-08	20					t2_xeno	10x 3'	cells	species	held out	3334
+xeno_noHSC_3	soupx	33.55	1.45458	78.13	1.04	235	79.17	hpc3-23-09	20					t2_xeno	10x 3'	cells	species	held out	2107

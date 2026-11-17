@@ -1,0 +1,8 @@
+name	chemistry	cellranger	url	human_genome	mouse_genome	used_in
+hgmm_1k_v3	10x 3p v3	3.0.0	https://cf.10xgenomics.com/samples/cell-exp/3.0.0/hgmm_1k_v3/hgmm_1k_v3_raw_feature_bc_matrix.h5	GRCh38	mm10	Schroeder 2026 size series (1k; excluded from their mean for very low contamination)
+hgmm_5k_v3	10x 3p v3	3.0.0	https://cf.10xgenomics.com/samples/cell-exp/3.0.0/hgmm_5k_v3/hgmm_5k_v3_raw_feature_bc_matrix.h5	GRCh38	mm10	Schroeder 2026 size series (5k)
+hgmm_6k_v2	10x 3p v2	2.1.0	https://cf.10xgenomics.com/samples/cell-exp/2.1.0/hgmm_6k/hgmm_6k_raw_gene_bc_matrices_h5.h5	hg19	mm10	Schroeder 2026 size series (6k)
+hgmm_10k_v3	10x 3p v3	3.0.0	https://cf.10xgenomics.com/samples/cell-exp/3.0.0/hgmm_10k_v3/hgmm_10k_v3_raw_feature_bc_matrix.h5	GRCh38	mm10	Schroeder 2026 size series (10k)
+hgmm_12k_v2	10x 3p v2	2.1.0	https://cf.10xgenomics.com/samples/cell-exp/2.1.0/hgmm_12k/hgmm_12k_raw_gene_bc_matrices_h5.h5	hg19	mm10	CellBender paper (Fleming 2023); Schroeder 2026 (12k)
+hgmm_20k_v31_HT	10x 3p v3.1 HT	6.1.0	https://cf.10xgenomics.com/samples/cell-exp/6.1.0/20k_hgmm_3p_HT_nextgem_Chromium_X/20k_hgmm_3p_HT_nextgem_Chromium_X_raw_feature_bc_matrix.h5	GRCh38	mm10	Schroeder 2026 size series (20k); scAR preprint
+hgmm_10k_gemx_v4	10x GEM-X 3p v4	8.0.0	https://cf.10xgenomics.com/samples/cell-exp/8.0.0/10k_hgmm_3p_gemx_Multiplex/10k_hgmm_3p_gemx_Multiplex_count_raw_feature_bc_matrix.h5	GRCh38	GRCm39	AmbiDose preprint held-out GEM-X mixture (file identity to confirm)

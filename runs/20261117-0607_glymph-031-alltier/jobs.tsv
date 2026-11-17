@@ -1,0 +1,21 @@
+job_id	what	tool	unit	unit_names	note
+59743674	Glymph 0.3.1, default (false-positive budget 0.4%)	Glymph	library		One A30 per library.
+59743675	Glymph 0.3.1, budget 0	Glymph	library		
+59743676	Glymph 0.3.1, budget 0.2%	Glymph	library		
+59743677	Glymph 0.3.1, budget 1%	Glymph	library		
+59743678	Scoring of every tool on every library	scoring	library		Glymph 0.3.0 scored as glymph_030.
+59743679	Tables	collect	run		
+59744535	Glymph 0.3.1 default, 8 tasks that hit an occupied GPU on hpc3-gpu-18-04, rerun	Glymph	library		
+59744536	Glymph 0.3.1 budget 0, 38 tasks rerun for the same reason	Glymph	library		
+59744537	Glymph 0.3.1 budget 0.2%, 37 tasks rerun	Glymph	library		
+59744538	Glymph 0.3.1 budget 1%, 19 tasks rerun	Glymph	library		
+59744539	Scoring again, every library	scoring	library		
+59744540	Tables again	collect	run		
+59744874	All 54 libraries on one node with four A30s, Glymph 0.3.1	Glymph	run		Throughput.
+59744875	Glymph 0.3.1 without a GPU, 16 cores	Glymph	hgmm_1k_v3		
+59744876	Glymph 0.3.1 without a GPU, 16 cores	Glymph	kidney_rep3		
+59744877	Glymph 0.3.1 without a GPU, 16 cores	Glymph	hgmm_20k_v31_HT		
+59744878	Scaling, Glymph 0.3.1, 20,000 cells	Glymph	hgmm_20k_x1		
+59744879	Scaling, Glymph 0.3.1, 40,000 cells	Glymph	hgmm_20k_x2		
+59744880	Scaling, Glymph 0.3.1, 80,000 cells	Glymph	hgmm_20k_x4		
+59744881	Scaling, Glymph 0.3.1, 160,000 cells	Glymph	hgmm_20k_x8		

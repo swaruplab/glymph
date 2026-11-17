@@ -1,0 +1,477 @@
+scores	libraries	group	tool	n	cross_species_removed	own_retained	native_loss	same_species_ratio	contam_rmsle	contam_kendall	n_above_raw	n_noninteger	removed_over_truth	marker_removed_nonpt	marker_kept_pt	removed_pct	marker_removed_off	marker_kept_on	n_missing	wall_s	cpu_core_s	peak_rss_gb	gpu_peak_mem_gb	gpu_mean_util_pct
+species	all	BD Rhapsody	cellbender	2	0.92912	0.99372	0	0.89197	0.048924	0.50931	0	0												
+species	all	BD Rhapsody	cellbender_fpr0	2	0.78578	0.99965	0	0.050474	0.017609	0.61101	0	0												
+species	all	BD Rhapsody	cellbender_fpr05	2	0.90204	0.99728	0	0.38626	0.028806	0.60188	0	0												
+species	all	BD Rhapsody	decontx	2	0.67559	0.99953	0	0.065636	0.015107	0.68843	0	2.3996e+07												
+species	all	BD Rhapsody	decontx_bg	2	0.73395	0.99449	0	0.78619	0.013091	0.69008	0	2.4015e+07												
+species	all	BD Rhapsody	glymph	2	0.85262	0.99317	0.00032149	0.98213	0.014848	0.62131	0	0												
+species	all	BD Rhapsody	glymph_fpr0	2	0.80953	0.99689	0	0.45027	0.015564	0.62566	0	0												
+species	all	BD Rhapsody	glymph_fpr02	2	0.83002	0.99508	0	0.70695	0.01911	0.60419	0	0												
+species	all	BD Rhapsody	glymph_fpr1	2	0.88673	0.98739	0.0056359	1.811	0.016139	0.61577	0	0												
+species	all	BD Rhapsody	scar	2	0.98242	0.96136	0.031851	5.4385	0.03828	0.24229	1.541e+07	0												
+species	all	BD Rhapsody	soupx	2	0.63332	0.99413	0	0.83817	0.017012	0.33	0	2.4011e+07												
+species	all	Parse Evercode	cellbender	2	0.62416	0.99748	0	0.13407	0.03857	0.41378	0	0												
+species	all	Parse Evercode	cellbender_fpr0	2	0.51121	0.99968	0	0.016839	0.031288	0.34856	0	0												
+species	all	Parse Evercode	cellbender_fpr05	2	0.58805	0.99887	0	0.059813	0.033249	0.42216	0	0												
+species	all	Parse Evercode	decontx	2	0.45256	0.98697	0.0033543	0.76784	0.035647	0.74011	0	5.5668e+06												
+species	all	Parse Evercode	decontx_bg	2	0.49006	0.97332	0.014042	1.3388	0.035879	0.79429	0	5.6657e+06												
+species	all	Parse Evercode	glymph	2	0.60541	0.98498	7.3895e-05	0.78892	0.029191	0.33145	0	0												
+species	all	Parse Evercode	glymph_fpr0	2	0.57712	0.98886	0	0.57942	0.029532	0.37533	0	0												
+species	all	Parse Evercode	glymph_fpr02	2	0.59085	0.98657	0	0.70149	0.029333	0.33945	0	0												
+species	all	Parse Evercode	glymph_fpr1	2	0.63809	0.97906	0.0032784	1.1106	0.029783	0.31229	0	0												
+species	all	Parse Evercode	scar	2	0.98051	0.9328	0.049644	3.5671	0.047183	0.14625	3.7092e+06	0												
+species	all	Parse Evercode	soupx	2	0.27345	0.99318	0	0.37237	0.033077	0.16475	0	5.6473e+06												
+species	all	cell-line mixtures, other (10x)	cellbender	9	0.91435	0.98672	0.0032495	1.0635	0.043193	0.63774	0	0												
+species	all	cell-line mixtures, other (10x)	cellbender_fpr0	9	0.80099	0.99429	8.4907e-05	0.43879	0.025601	0.65242	0	0												
+species	all	cell-line mixtures, other (10x)	cellbender_fpr05	9	0.88587	0.99081	0.00082939	0.72583	0.03343	0.65662	0	0												
+species	all	cell-line mixtures, other (10x)	decontx	9	0.51855	0.9988	0	0.095783	0.02492	0.68634	0	3.9966e+07												
+species	all	cell-line mixtures, other (10x)	decontx_bg	9	0.80226	0.98891	0	0.86113	0.015282	0.78065	0	3.9791e+07												
+species	all	cell-line mixtures, other (10x)	glymph	9	0.90885	0.98857	0.00013361	0.9025	0.011131	0.75283	0	0												
+species	all	cell-line mixtures, other (10x)	glymph_fpr0	9	0.88585	0.99199	0	0.62195	0.012626	0.7858	0	0												
+species	all	cell-line mixtures, other (10x)	glymph_fpr02	9	0.89658	0.99041	0	0.74959	0.011441	0.7529	0	0												
+species	all	cell-line mixtures, other (10x)	glymph_fpr1	9	0.92653	0.98244	0.0048744	1.4178	0.01132	0.81069	0	0												
+species	all	cell-line mixtures, other (10x)	scar	9	0.95915	0.98458	0.0032545	1.1937	0.017871	0.44015	2.3341e+07	0												
+species	all	cell-line mixtures, other (10x)	soupx	9	0.57412	0.99039	5.3137e-05	0.75311	0.026292	0.18522	0	3.9369e+07												
+species	all	cell-line mixtures, tuning (10x)	cellbender	7	0.95898	0.99016	0.00061911	0.78579	0.037046	0.56566	0	0												
+species	all	cell-line mixtures, tuning (10x)	cellbender_fpr0	7	0.85457	0.99755	0	0.13494	0.02054	0.55921	0	0												
+species	all	cell-line mixtures, tuning (10x)	cellbender_fpr05	7	0.9376	0.99417	0	0.42745	0.027126	0.57461	0	0												
+species	all	cell-line mixtures, tuning (10x)	decontx	7	0.60056	0.99756	0	0.14152	0.037625	0.58276	0	4.2359e+07												
+species	all	cell-line mixtures, tuning (10x)	decontx_bg	7	0.77746	0.98607	0.00047581	0.87578	0.032649	0.69715	0	4.2615e+07												
+species	all	cell-line mixtures, tuning (10x)	glymph	7	0.94932	0.98637	0.00029784	0.92159	0.014466	0.69791	0	0												
+species	all	cell-line mixtures, tuning (10x)	glymph_fpr0	7	0.91406	0.99009	0	0.59878	0.015916	0.69197	0	0												
+species	all	cell-line mixtures, tuning (10x)	glymph_fpr02	7	0.93899	0.98824	0	0.75809	0.014972	0.69851	0	0												
+species	all	cell-line mixtures, tuning (10x)	glymph_fpr1	7	0.96515	0.98055	0.0048916	1.4369	0.014961	0.69931	0	0												
+species	all	cell-line mixtures, tuning (10x)	glymph_gpu_V100	1	0.9617	0.98339	0	0.36744	0.049327	0.35208	0	0												
+species	all	cell-line mixtures, tuning (10x)	scar	7	0.98354	0.97033	0.011887	3.4481	0.026652	0.43376	2.3975e+07	0												
+species	all	cell-line mixtures, tuning (10x)	soupx	7	0.7232	0.98685	0.00068464	0.95679	0.024138	0.16547	0	4.2117e+07												
+species	all	nuclei mixture (10x)	cellbender	1	0.3223	0.99797	0	0.036731	0.068216	0.3042	0	0												
+species	all	nuclei mixture (10x)	cellbender_fpr0	1	0.096613	0.99868	0	0.023965	0.073771	0.13648	0	0												
+species	all	nuclei mixture (10x)	cellbender_fpr05	1	0.23081	0.99819	0	0.032687	0.070404	0.23281	0	0												
+species	all	nuclei mixture (10x)	decontx	1	0.1295	0.99925	0	0.013663	0.073193	0.57954	0	3.6837e+06												
+species	all	nuclei mixture (10x)	decontx_bg	1	0.61836	0.959	0	0.74249	0.034766	0.28594	0	3.6515e+06												
+species	all	nuclei mixture (10x)	glymph	1	0.75974	0.96168	0	0.69394	0.032144	0.62195	0	0												
+species	all	nuclei mixture (10x)	glymph_fpr0	1	0.75413	0.96341	0	0.66255	0.032392	0.61513	0	0												
+species	all	nuclei mixture (10x)	glymph_fpr02	1	0.75537	0.96065	0	0.7126	0.031948	0.65442	0	0												
+species	all	nuclei mixture (10x)	glymph_fpr1	1	0.78324	0.95592	0	0.79826	0.029031	0.62302	0	0												
+species	all	nuclei mixture (10x)	scar	1	0.79898	0.63852	0.32416	6.546	0.24557	-0.10058	1.827e+06	0												
+species	all	nuclei mixture (10x)	soupx	1	0.57624	0.94852	0	0.93232	0.034217	0.0047193	0	3.6401e+06												
+species	all	xenograft skin (10x)	cellbender	6	0.69651	0.9934	0	0.47898	0.03838	0.28704	0	0												
+species	all	xenograft skin (10x)	cellbender_fpr0	6	0.54596	0.99712	0	0.20127	0.032721	0.24251	0	0												
+species	all	xenograft skin (10x)	cellbender_fpr05	6	0.63445	0.99508	0	0.36276	0.035185	0.27544	0	0												
+species	all	xenograft skin (10x)	decontx	6	0.31138	0.97706	0.0094785	1.444	0.056002	0.27628	0	3.1132e+06												
+species	all	xenograft skin (10x)	decontx_bg	6	0.42808	0.97113	0.013673	1.8454	0.071562	0.2965	0	3.187e+06												
+species	all	xenograft skin (10x)	glymph	6	0.6735	0.9796	0.0050403	1.4111	0.02904	0.28795	0	0												
+species	all	xenograft skin (10x)	glymph_fpr0	6	0.54596	0.98603	0.00031188	0.90423	0.028544	0.32575	0	0												
+species	all	xenograft skin (10x)	glymph_fpr02	6	0.61216	0.98265	0.0026598	1.1715	0.028352	0.30536	0	0												
+species	all	xenograft skin (10x)	glymph_fpr1	6	0.71657	0.97606	0.0086398	1.6581	0.029009	0.28064	0	0												
+species	all	xenograft skin (10x)	scar	6	0.84791	0.77528	0.21182	20.734	0.18309	-0.030727	1.9253e+06	0												
+species	all	xenograft skin (10x)	soupx	6	0.3033	0.99058	0.00024225	0.70167	0.03141	-0.057068	0	3.1894e+06												
+species	held out	BD Rhapsody	cellbender	2	0.92912	0.99372	0	0.89197	0.048924	0.50931	0	0												
+species	held out	BD Rhapsody	cellbender_fpr0	2	0.78578	0.99965	0	0.050474	0.017609	0.61101	0	0												
+species	held out	BD Rhapsody	cellbender_fpr05	2	0.90204	0.99728	0	0.38626	0.028806	0.60188	0	0												
+species	held out	BD Rhapsody	decontx	2	0.67559	0.99953	0	0.065636	0.015107	0.68843	0	2.3996e+07												
+species	held out	BD Rhapsody	decontx_bg	2	0.73395	0.99449	0	0.78619	0.013091	0.69008	0	2.4015e+07												
+species	held out	BD Rhapsody	glymph	2	0.85262	0.99317	0.00032149	0.98213	0.014848	0.62131	0	0												
+species	held out	BD Rhapsody	glymph_fpr0	2	0.80953	0.99689	0	0.45027	0.015564	0.62566	0	0												
+species	held out	BD Rhapsody	glymph_fpr02	2	0.83002	0.99508	0	0.70695	0.01911	0.60419	0	0												
+species	held out	BD Rhapsody	glymph_fpr1	2	0.88673	0.98739	0.0056359	1.811	0.016139	0.61577	0	0												
+species	held out	BD Rhapsody	scar	2	0.98242	0.96136	0.031851	5.4385	0.03828	0.24229	1.541e+07	0												
+species	held out	BD Rhapsody	soupx	2	0.63332	0.99413	0	0.83817	0.017012	0.33	0	2.4011e+07												
+species	held out	Parse Evercode	cellbender	2	0.62416	0.99748	0	0.13407	0.03857	0.41378	0	0												
+species	held out	Parse Evercode	cellbender_fpr0	2	0.51121	0.99968	0	0.016839	0.031288	0.34856	0	0												
+species	held out	Parse Evercode	cellbender_fpr05	2	0.58805	0.99887	0	0.059813	0.033249	0.42216	0	0												
+species	held out	Parse Evercode	decontx	2	0.45256	0.98697	0.0033543	0.76784	0.035647	0.74011	0	5.5668e+06												
+species	held out	Parse Evercode	decontx_bg	2	0.49006	0.97332	0.014042	1.3388	0.035879	0.79429	0	5.6657e+06												
+species	held out	Parse Evercode	glymph	2	0.60541	0.98498	7.3895e-05	0.78892	0.029191	0.33145	0	0												
+species	held out	Parse Evercode	glymph_fpr0	2	0.57712	0.98886	0	0.57942	0.029532	0.37533	0	0												
+species	held out	Parse Evercode	glymph_fpr02	2	0.59085	0.98657	0	0.70149	0.029333	0.33945	0	0												
+species	held out	Parse Evercode	glymph_fpr1	2	0.63809	0.97906	0.0032784	1.1106	0.029783	0.31229	0	0												
+species	held out	Parse Evercode	scar	2	0.98051	0.9328	0.049644	3.5671	0.047183	0.14625	3.7092e+06	0												
+species	held out	Parse Evercode	soupx	2	0.27345	0.99318	0	0.37237	0.033077	0.16475	0	5.6473e+06												
+species	held out	cell-line mixtures, other (10x)	cellbender	7	0.92586	0.98737	0.0032101	1.0998	0.041461	0.63426	0	0												
+species	held out	cell-line mixtures, other (10x)	cellbender_fpr0	7	0.80172	0.99485	0.00010917	0.4265	0.023366	0.64245	0	0												
+species	held out	cell-line mixtures, other (10x)	cellbender_fpr05	7	0.89528	0.9914	0.00074411	0.7357	0.03176	0.65073	0	0												
+species	held out	cell-line mixtures, other (10x)	decontx	7	0.48671	0.99873	0	0.10605	0.022839	0.64339	0	4.2779e+07												
+species	held out	cell-line mixtures, other (10x)	decontx_bg	7	0.78753	0.9904	0	0.84658	0.015225	0.75252	0	4.2325e+07												
+species	held out	cell-line mixtures, other (10x)	glymph	7	0.91509	0.98975	0.00016533	0.90826	0.010667	0.73956	0	0												
+species	held out	cell-line mixtures, other (10x)	glymph_fpr0	7	0.89114	0.99307	0	0.6094	0.012093	0.78752	0	0												
+species	held out	cell-line mixtures, other (10x)	glymph_fpr02	7	0.90129	0.99156	0	0.74298	0.010871	0.74168	0	0												
+species	held out	cell-line mixtures, other (10x)	glymph_fpr1	7	0.93481	0.98348	0.0053343	1.4789	0.011127	0.81222	0	0												
+species	held out	cell-line mixtures, other (10x)	scar	7	0.96405	0.98693	0.0023237	1.1735	0.018677	0.37987	2.4709e+07	0												
+species	held out	cell-line mixtures, other (10x)	soupx	7	0.5746	0.99157	6.8319e-05	0.75509	0.024426	0.19577	0	4.1805e+07												
+species	held out	xenograft skin (10x)	cellbender	5	0.67429	0.99301	0	0.50954	0.040976	0.30462	0	0												
+species	held out	xenograft skin (10x)	cellbender_fpr0	5	0.52517	0.99695	0	0.21302	0.033785	0.26023	0	0												
+species	held out	xenograft skin (10x)	cellbender_fpr05	5	0.61157	0.99478	0	0.38723	0.036966	0.29409	0	0												
+species	held out	xenograft skin (10x)	decontx	5	0.32968	0.9738	0.011374	1.6405	0.060321	0.26353	0	3.2406e+06												
+species	held out	xenograft skin (10x)	decontx_bg	5	0.44303	0.96922	0.015394	1.9447	0.07593	0.29869	0	3.3008e+06												
+species	held out	xenograft skin (10x)	glymph	5	0.65423	0.97844	0.0059909	1.4893	0.030234	0.27059	0	0												
+species	held out	xenograft skin (10x)	glymph_fpr0	5	0.52065	0.98545	0.00037426	0.9307	0.029547	0.31271	0	0												
+species	held out	xenograft skin (10x)	glymph_fpr02	5	0.60556	0.9812	0.0031917	1.2644	0.029332	0.30193	0	0												
+species	held out	xenograft skin (10x)	glymph_fpr1	5	0.69765	0.97539	0.0091	1.7025	0.030247	0.26217	0	0												
+species	held out	xenograft skin (10x)	scar	5	0.83501	0.77079	0.21612	22.15	0.17925	-0.02083	1.973e+06	0												
+species	held out	xenograft skin (10x)	soupx	5	0.29884	0.99046	0.0002907	0.71893	0.032448	-0.067012	0	3.304e+06												
+species, artifact genes counted	all	BD Rhapsody	cellbender	2	0.83957	0.99372	0	0.81998	0.048357	0.4311														
+species, artifact genes counted	all	BD Rhapsody	cellbender_fpr0	2	0.709	0.99964	0	0.047011	0.018238	0.56249														
+species, artifact genes counted	all	BD Rhapsody	cellbender_fpr05	2	0.81438	0.99728	0	0.35546	0.028687	0.53473														
+species, artifact genes counted	all	BD Rhapsody	decontx	2	0.60775	0.99954	0	0.060212	0.01617	0.63504														
+species, artifact genes counted	all	BD Rhapsody	decontx_bg	2	0.66434	0.99446	0	0.72304	0.013621	0.68664														
+species, artifact genes counted	all	BD Rhapsody	glymph	2	0.77337	0.99314	0	0.89842	0.015117	0.52391														
+species, artifact genes counted	all	BD Rhapsody	glymph_fpr0	2	0.73308	0.99686	0	0.41302	0.016148	0.54617														
+species, artifact genes counted	all	BD Rhapsody	glymph_fpr02	2	0.7527	0.99506	0	0.64755	0.019453	0.51033														
+species, artifact genes counted	all	BD Rhapsody	glymph_fpr1	2	0.80527	0.98737	0.0050233	1.6546	0.015897	0.50933														
+species, artifact genes counted	all	BD Rhapsody	scar	2	0.94494	0.96057	0.03203	5.1236	0.038678	0.1055														
+species, artifact genes counted	all	BD Rhapsody	soupx	2	0.57531	0.99408	0	0.77297	0.017726	0.31462														
+species, artifact genes counted	all	Parse Evercode	cellbender	2	0.21206	0.99733	0	0.040226	0.074118	-0.090743														
+species, artifact genes counted	all	Parse Evercode	cellbender_fpr0	2	0.17154	0.99964	0	0.0055455	0.075529	-0.19176														
+species, artifact genes counted	all	Parse Evercode	cellbender_fpr05	2	0.19911	0.99879	0	0.018273	0.074143	-0.1347														
+species, artifact genes counted	all	Parse Evercode	decontx	2	0.1337	0.99137	0	0.13689	0.078043	0.097065														
+species, artifact genes counted	all	Parse Evercode	decontx_bg	2	0.1542	0.97897	0	0.3074	0.07469	0.2677														
+species, artifact genes counted	all	Parse Evercode	glymph	2	0.20892	0.98489	0	0.22555	0.064077	0.23964														
+species, artifact genes counted	all	Parse Evercode	glymph_fpr0	2	0.19882	0.98881	0	0.16619	0.066856	0.23321														
+species, artifact genes counted	all	Parse Evercode	glymph_fpr02	2	0.2036	0.98649	0	0.20095	0.065182	0.24153														
+species, artifact genes counted	all	Parse Evercode	glymph_fpr1	2	0.22209	0.97891	0	0.31619	0.060197	0.25068														
+species, artifact genes counted	all	Parse Evercode	scar	2	0.69894	0.93315	0.0069715	1.0051	0.032997	0.47446														
+species, artifact genes counted	all	Parse Evercode	soupx	2	0.093942	0.9932	0	0.10353	0.073995	0.39955														
+species, artifact genes counted	all	cell-line mixtures, other (10x)	cellbender	9	0.90753	0.98672	0.0031782	1.0554	0.043135	0.63735														
+species, artifact genes counted	all	cell-line mixtures, other (10x)	cellbender_fpr0	9	0.79438	0.99429	4.4449e-05	0.43419	0.025588	0.65283														
+species, artifact genes counted	all	cell-line mixtures, other (10x)	cellbender_fpr05	9	0.87909	0.99081	0.00077373	0.71949	0.033392	0.65657														
+species, artifact genes counted	all	cell-line mixtures, other (10x)	decontx	9	0.51463	0.9988	0	0.094861	0.025057	0.68937														
+species, artifact genes counted	all	cell-line mixtures, other (10x)	decontx_bg	9	0.79626	0.98891	0	0.85638	0.015356	0.77337														
+species, artifact genes counted	all	cell-line mixtures, other (10x)	glymph	9	0.90198	0.98856	8.8941e-05	0.89741	0.011182	0.74893														
+species, artifact genes counted	all	cell-line mixtures, other (10x)	glymph_fpr0	9	0.87904	0.99199	0	0.61858	0.012713	0.78144														
+species, artifact genes counted	all	cell-line mixtures, other (10x)	glymph_fpr02	9	0.8897	0.9904	0	0.74521	0.011521	0.7491														
+species, artifact genes counted	all	cell-line mixtures, other (10x)	glymph_fpr1	9	0.91969	0.98244	0.0048029	1.4104	0.011304	0.80551														
+species, artifact genes counted	all	cell-line mixtures, other (10x)	scar	9	0.95208	0.98458	0.0032135	1.1881	0.017912	0.43719														
+species, artifact genes counted	all	cell-line mixtures, other (10x)	soupx	9	0.57045	0.99039	5.3137e-05	0.74969	0.026397	0.18101														
+species, artifact genes counted	all	cell-line mixtures, tuning (10x)	cellbender	7	0.94342	0.99016	0.00060071	0.77459	0.036918	0.57269														
+species, artifact genes counted	all	cell-line mixtures, tuning (10x)	cellbender_fpr0	7	0.84273	0.99754	0	0.13447	0.020673	0.57201														
+species, artifact genes counted	all	cell-line mixtures, tuning (10x)	cellbender_fpr05	7	0.92249	0.99417	0	0.42224	0.027069	0.58344														
+species, artifact genes counted	all	cell-line mixtures, tuning (10x)	decontx	7	0.58708	0.99756	0	0.14091	0.037758	0.59179														
+species, artifact genes counted	all	cell-line mixtures, tuning (10x)	decontx_bg	7	0.76405	0.98605	0.00046434	0.86946	0.032765	0.68163														
+species, artifact genes counted	all	cell-line mixtures, tuning (10x)	glymph	7	0.93441	0.98636	0.00025437	0.91373	0.014547	0.70321														
+species, artifact genes counted	all	cell-line mixtures, tuning (10x)	glymph_fpr0	7	0.9006	0.99008	0	0.59579	0.016062	0.70289														
+species, artifact genes counted	all	cell-line mixtures, tuning (10x)	glymph_fpr02	7	0.92444	0.98823	0	0.75276	0.015096	0.70546														
+species, artifact genes counted	all	cell-line mixtures, tuning (10x)	glymph_fpr1	7	0.94984	0.98054	0.0048354	1.4213	0.014917	0.70359														
+species, artifact genes counted	all	cell-line mixtures, tuning (10x)	glymph_gpu_V100	1	0.94959	0.98335	0	0.36769	0.049278	0.35035														
+species, artifact genes counted	all	cell-line mixtures, tuning (10x)	scar	7	0.9677	0.97025	0.011887	3.3853	0.026538	0.42671														
+species, artifact genes counted	all	cell-line mixtures, tuning (10x)	soupx	7	0.71054	0.98684	0.00065427	0.9464	0.024237	0.15405														
+species, artifact genes counted	all	nuclei mixture (10x)	cellbender	1	0.25976	0.99797	0	0.02767	0.086694	0.35105														
+species, artifact genes counted	all	nuclei mixture (10x)	cellbender_fpr0	1	0.077527	0.99868	0	0.018025	0.092376	0.19338														
+species, artifact genes counted	all	nuclei mixture (10x)	cellbender_fpr05	1	0.18524	0.99819	0	0.024601	0.08891	0.28749														
+species, artifact genes counted	all	nuclei mixture (10x)	decontx	1	0.10464	0.99925	0	0.010281	0.092218	0.56098														
+species, artifact genes counted	all	nuclei mixture (10x)	decontx_bg	1	0.50224	0.95901	0	0.55849	0.050187	0.2379														
+species, artifact genes counted	all	nuclei mixture (10x)	glymph	1	0.61537	0.96169	0	0.522	0.046592	0.57199														
+species, artifact genes counted	all	nuclei mixture (10x)	glymph_fpr0	1	0.61008	0.96342	0	0.49837	0.047405	0.57742														
+species, artifact genes counted	all	nuclei mixture (10x)	glymph_fpr02	1	0.61191	0.96066	0	0.53602	0.04599	0.60249														
+species, artifact genes counted	all	nuclei mixture (10x)	glymph_fpr1	1	0.63563	0.95592	0	0.60051	0.041654	0.58293														
+species, artifact genes counted	all	nuclei mixture (10x)	scar	1	0.69315	0.63836	0.31108	4.9272	0.2243	-0.086429														
+species, artifact genes counted	all	nuclei mixture (10x)	soupx	1	0.46795	0.94852	0	0.70131	0.045723	-0.01996														
+species, artifact genes counted	all	xenograft skin (10x)	cellbender	6	0.65336	0.9934	0	0.43355	0.039518	0.24559														
+species, artifact genes counted	all	xenograft skin (10x)	cellbender_fpr0	6	0.51078	0.99711	0	0.18152	0.034392	0.20562														
+species, artifact genes counted	all	xenograft skin (10x)	cellbender_fpr05	6	0.59476	0.99508	0	0.32932	0.036535	0.23306														
+species, artifact genes counted	all	xenograft skin (10x)	decontx	6	0.29034	0.97706	0.0076735	1.2817	0.056516	0.2648														
+species, artifact genes counted	all	xenograft skin (10x)	decontx_bg	6	0.39648	0.97112	0.011367	1.6434	0.07167	0.273														
+species, artifact genes counted	all	xenograft skin (10x)	glymph	6	0.63219	0.97959	0.0031908	1.2745	0.029925	0.2664														
+species, artifact genes counted	all	xenograft skin (10x)	glymph_fpr0	6	0.51157	0.98602	0.00026255	0.8099	0.02983	0.30296														
+species, artifact genes counted	all	xenograft skin (10x)	glymph_fpr02	6	0.57411	0.98264	0.0017142	1.0543	0.029419	0.27997														
+species, artifact genes counted	all	xenograft skin (10x)	glymph_fpr1	6	0.67258	0.97605	0.0063117	1.4968	0.029591	0.25781														
+species, artifact genes counted	all	xenograft skin (10x)	scar	6	0.79717	0.77523	0.20983	19.372	0.18115	-0.018261														
+species, artifact genes counted	all	xenograft skin (10x)	soupx	6	0.28569	0.99058	0.0001929	0.63961	0.033203	-0.043855														
+species, artifact genes counted	held out	BD Rhapsody	cellbender	2	0.83957	0.99372	0	0.81998	0.048357	0.4311														
+species, artifact genes counted	held out	BD Rhapsody	cellbender_fpr0	2	0.709	0.99964	0	0.047011	0.018238	0.56249														
+species, artifact genes counted	held out	BD Rhapsody	cellbender_fpr05	2	0.81438	0.99728	0	0.35546	0.028687	0.53473														
+species, artifact genes counted	held out	BD Rhapsody	decontx	2	0.60775	0.99954	0	0.060212	0.01617	0.63504														
+species, artifact genes counted	held out	BD Rhapsody	decontx_bg	2	0.66434	0.99446	0	0.72304	0.013621	0.68664														
+species, artifact genes counted	held out	BD Rhapsody	glymph	2	0.77337	0.99314	0	0.89842	0.015117	0.52391														
+species, artifact genes counted	held out	BD Rhapsody	glymph_fpr0	2	0.73308	0.99686	0	0.41302	0.016148	0.54617														
+species, artifact genes counted	held out	BD Rhapsody	glymph_fpr02	2	0.7527	0.99506	0	0.64755	0.019453	0.51033														
+species, artifact genes counted	held out	BD Rhapsody	glymph_fpr1	2	0.80527	0.98737	0.0050233	1.6546	0.015897	0.50933														
+species, artifact genes counted	held out	BD Rhapsody	scar	2	0.94494	0.96057	0.03203	5.1236	0.038678	0.1055														
+species, artifact genes counted	held out	BD Rhapsody	soupx	2	0.57531	0.99408	0	0.77297	0.017726	0.31462														
+species, artifact genes counted	held out	Parse Evercode	cellbender	2	0.21206	0.99733	0	0.040226	0.074118	-0.090743														
+species, artifact genes counted	held out	Parse Evercode	cellbender_fpr0	2	0.17154	0.99964	0	0.0055455	0.075529	-0.19176														
+species, artifact genes counted	held out	Parse Evercode	cellbender_fpr05	2	0.19911	0.99879	0	0.018273	0.074143	-0.1347														
+species, artifact genes counted	held out	Parse Evercode	decontx	2	0.1337	0.99137	0	0.13689	0.078043	0.097065														
+species, artifact genes counted	held out	Parse Evercode	decontx_bg	2	0.1542	0.97897	0	0.3074	0.07469	0.2677														
+species, artifact genes counted	held out	Parse Evercode	glymph	2	0.20892	0.98489	0	0.22555	0.064077	0.23964														
+species, artifact genes counted	held out	Parse Evercode	glymph_fpr0	2	0.19882	0.98881	0	0.16619	0.066856	0.23321														
+species, artifact genes counted	held out	Parse Evercode	glymph_fpr02	2	0.2036	0.98649	0	0.20095	0.065182	0.24153														
+species, artifact genes counted	held out	Parse Evercode	glymph_fpr1	2	0.22209	0.97891	0	0.31619	0.060197	0.25068														
+species, artifact genes counted	held out	Parse Evercode	scar	2	0.69894	0.93315	0.0069715	1.0051	0.032997	0.47446														
+species, artifact genes counted	held out	Parse Evercode	soupx	2	0.093942	0.9932	0	0.10353	0.073995	0.39955														
+species, artifact genes counted	held out	cell-line mixtures, other (10x)	cellbender	7	0.91774	0.98737	0.0031378	1.0911	0.041406	0.6339														
+species, artifact genes counted	held out	cell-line mixtures, other (10x)	cellbender_fpr0	7	0.79387	0.99485	5.7149e-05	0.42165	0.023361	0.6434														
+species, artifact genes counted	held out	cell-line mixtures, other (10x)	cellbender_fpr05	7	0.88721	0.9914	0.00069211	0.72897	0.031726	0.65092														
+species, artifact genes counted	held out	cell-line mixtures, other (10x)	decontx	7	0.48206	0.99873	0	0.105	0.022985	0.64823														
+species, artifact genes counted	held out	cell-line mixtures, other (10x)	decontx_bg	7	0.78041	0.99039	0	0.84164	0.015313	0.74349														
+species, artifact genes counted	held out	cell-line mixtures, other (10x)	glymph	7	0.90688	0.98974	0.00011435	0.90295	0.010715	0.73504														
+species, artifact genes counted	held out	cell-line mixtures, other (10x)	glymph_fpr0	7	0.88302	0.99307	0	0.60598	0.012182	0.78242														
+species, artifact genes counted	held out	cell-line mixtures, other (10x)	glymph_fpr02	7	0.89308	0.99156	0	0.73843	0.010954	0.73729														
+species, artifact genes counted	held out	cell-line mixtures, other (10x)	glymph_fpr1	7	0.92664	0.98347	0.0052618	1.4712	0.011102	0.80608														
+species, artifact genes counted	held out	cell-line mixtures, other (10x)	scar	7	0.9556	0.98692	0.0022711	1.1674	0.018713	0.3766														
+species, artifact genes counted	held out	cell-line mixtures, other (10x)	soupx	7	0.57022	0.99157	6.8319e-05	0.75146	0.024537	0.19015														
+species, artifact genes counted	held out	xenograft skin (10x)	cellbender	5	0.63134	0.99301	0	0.46178	0.042032	0.26693														
+species, artifact genes counted	held out	xenograft skin (10x)	cellbender_fpr0	5	0.49008	0.99695	0	0.19227	0.035446	0.22583														
+species, artifact genes counted	held out	xenograft skin (10x)	cellbender_fpr05	5	0.57215	0.99478	0	0.35208	0.038256	0.25539														
+species, artifact genes counted	held out	xenograft skin (10x)	decontx	5	0.30681	0.9738	0.0092082	1.4552	0.060694	0.25197														
+species, artifact genes counted	held out	xenograft skin (10x)	decontx_bg	5	0.40882	0.96921	0.012961	1.7302	0.075976	0.26725														
+species, artifact genes counted	held out	xenograft skin (10x)	glymph	5	0.61299	0.97843	0.003829	1.3465	0.031135	0.24776														
+species, artifact genes counted	held out	xenograft skin (10x)	glymph_fpr0	5	0.48666	0.98544	0.00031506	0.83351	0.030878	0.28858														
+species, artifact genes counted	held out	xenograft skin (10x)	glymph_fpr02	5	0.56689	0.98119	0.002057	1.1383	0.030365	0.27581														
+species, artifact genes counted	held out	xenograft skin (10x)	glymph_fpr1	5	0.65357	0.97538	0.0066408	1.5387	0.03087	0.23867														
+species, artifact genes counted	held out	xenograft skin (10x)	scar	5	0.78268	0.77073	0.21402	20.803	0.17712	-0.0095444														
+species, artifact genes counted	held out	xenograft skin (10x)	soupx	5	0.2812	0.99046	0.00023148	0.65722	0.034327	-0.05883														
+kidney	all	kidney strain mixture (10x)	cellbender	5					0.096999	0.36888	0	0	0.96278	0.83193	0.86681									
+kidney	all	kidney strain mixture (10x)	cellbender_fpr0	5					0.095537	0.36911	0	0	0.89147	0.81172	0.87291									
+kidney	all	kidney strain mixture (10x)	cellbender_fpr05	5					0.096146	0.36919	0	0	0.92637	0.82389	0.86996									
+kidney	all	kidney strain mixture (10x)	decontx	5					0.20544	0.095601	0	1.921e+07	2.8019	0.70119	0.73301									
+kidney	all	kidney strain mixture (10x)	decontx_bg	5					0.28887	0.16015	0	1.9475e+07	5.9625	0.73712	0.68709									
+kidney	all	kidney strain mixture (10x)	glymph	5					0.087886	0.37638	0	0	0.95136	0.80047	0.87596									
+kidney	all	kidney strain mixture (10x)	glymph_fpr0	5					0.088818	0.37463	0	0	0.88814	0.78072	0.88311									
+kidney	all	kidney strain mixture (10x)	glymph_fpr02	5					0.088341	0.37641	0	0	0.91153	0.79192	0.88195									
+kidney	all	kidney strain mixture (10x)	glymph_fpr1	5					0.088117	0.37318	0	0	1.0153	0.815	0.87486									
+kidney	all	kidney strain mixture (10x)	scar	5					0.15787	0.11048	9.9941e+06	0	3.344	0.81951	0.82364									
+kidney	all	kidney strain mixture (10x)	soupx	5					0.14348	-0.089838	0	1.9445e+07	0.39537	0.22008	0.96649									
+generic	all	BD Rhapsody	cellbender	14							0	0				10.298	0.089869	0.92195	7611.6					
+generic	all	BD Rhapsody	cellbender_fpr0	14							0	0				9.6797	0.056766	0.92303	7611.6					
+generic	all	BD Rhapsody	cellbender_fpr05	14							0	0				9.9788	0.075819	0.92272	7611.6					
+generic	all	BD Rhapsody	decontx	14							0	2.3365e+07				14.744	0.23534	0.99517	0					
+generic	all	BD Rhapsody	decontx_bg	14							0	2.3607e+07				22.888	0.31395	0.90374	0					
+generic	all	BD Rhapsody	glymph	14							0	0				5.7219	0.13468	0.99552	9.3571					
+generic	all	BD Rhapsody	glymph_fpr0	14							0	0				7.5677	0.15125	0.99583	9.3571					
+generic	all	BD Rhapsody	glymph_fpr02	14							0	0				8.077	0.1517	0.99518	9.4286					
+generic	all	BD Rhapsody	glymph_fpr1	14							0	0				8.3247	0.17042	0.99097	9.3571					
+generic	all	BD Rhapsody	scar	14							1.2115e+07	0				24.246	0.20067	0.96584	0					
+generic	all	BD Rhapsody	soupx	14							0	2.3697e+07				3.7571	0.083084	0.99725	0					
+generic	all	Parse Evercode	cellbender	11							0	0				4.7416	0.19639	0.99458	5734.7					
+generic	all	Parse Evercode	cellbender_fpr0	11							0	0				4.1926	0.14277	0.99745	5734.7					
+generic	all	Parse Evercode	cellbender_fpr05	11							0	0				4.4508	0.17133	0.99606	5734.7					
+generic	all	Parse Evercode	decontx	11							0	3.6014e+07				7.7069	0.20527	0.98234	0					
+generic	all	Parse Evercode	decontx_bg	11							0	3.6e+07				8.6407	0.28159	0.88527	0					
+generic	all	Parse Evercode	glymph	11							0	0				4.6049	0.25981	0.96668	0.27273					
+generic	all	Parse Evercode	glymph_fpr0	11							0	0				2.7242	0.18757	0.97829	0.090909					
+generic	all	Parse Evercode	glymph_fpr02	11							0	0				3.9687	0.22644	0.97466	0.45455					
+generic	all	Parse Evercode	glymph_fpr1	11							0	0				4.1838	0.26093	0.97022	0.27273					
+generic	all	Parse Evercode	scar	11							1.5332e+07	0				21.791	0.52924	0.93399	0					
+generic	all	Parse Evercode	soupx	11							0	3.6107e+07				1.2636	0.15493	0.9947	0					
+generic	all	cell-line mixtures, other (10x)	cellbender	9							0	0				2.4038	0.19451	0.99717	17.111					
+generic	all	cell-line mixtures, other (10x)	cellbender_fpr0	9							0	0				1.5091	0.15257	0.99912	17.111					
+generic	all	cell-line mixtures, other (10x)	cellbender_fpr05	9							0	0				1.9561	0.17632	0.99827	17.111					
+generic	all	cell-line mixtures, other (10x)	decontx	9							0	4.3135e+07				4.5653	0.34348	0.99665	0					
+generic	all	cell-line mixtures, other (10x)	decontx_bg	9							0	4.2972e+07				4.6686	0.24446	0.99314	0					
+generic	all	cell-line mixtures, other (10x)	glymph	9							0	0				2.1888	0.18249	0.99619	1					
+generic	all	cell-line mixtures, other (10x)	glymph_fpr0	9							0	0				1.8326	0.16188	0.99706	0					
+generic	all	cell-line mixtures, other (10x)	glymph_fpr02	9							0	0				1.9896	0.17394	0.99663	0.11111					
+generic	all	cell-line mixtures, other (10x)	glymph_fpr1	9							0	0				2.8183	0.20308	0.9942	0					
+generic	all	cell-line mixtures, other (10x)	scar	9							2.436e+07	0				4.8964	0.22179	0.93509	4.5556					
+generic	all	cell-line mixtures, other (10x)	soupx	9							0	4.2503e+07				1.7222	0.15573	0.99449	0					
+generic	all	cell-line mixtures, tuning (10x)	cellbender	7							0	0				2.1094	0.070714	0.99941	9.2857					
+generic	all	cell-line mixtures, tuning (10x)	cellbender_fpr0	7							0	0				1.2598	0.045186	0.99989	9.2857					
+generic	all	cell-line mixtures, tuning (10x)	cellbender_fpr05	7							0	0				1.6767	0.058057	0.99974	9.2857					
+generic	all	cell-line mixtures, tuning (10x)	decontx	7							0	4.5402e+07				5.0479	0.12476	0.99898	0					
+generic	all	cell-line mixtures, tuning (10x)	decontx_bg	7							0	4.5689e+07				5.617	0.101	0.9933	0					
+generic	all	cell-line mixtures, tuning (10x)	glymph	7							0	0				2.5031	0.067526	0.99948	0.28571					
+generic	all	cell-line mixtures, tuning (10x)	glymph_fpr0	7							0	0				2.1124	0.057786	0.9998	0.28571					
+generic	all	cell-line mixtures, tuning (10x)	glymph_fpr02	7							0	0				2.3088	0.063384	0.99959	0.28571					
+generic	all	cell-line mixtures, tuning (10x)	glymph_fpr1	7							0	0				3.0898	0.083574	0.99887	0.14286					
+generic	all	cell-line mixtures, tuning (10x)	glymph_gpu_V100	1							0	0				3.105	0.092475	0.9993	0					
+generic	all	cell-line mixtures, tuning (10x)	scar	7							2.4886e+07	0				6.4379	0.16686	0.92243	2.5714					
+generic	all	cell-line mixtures, tuning (10x)	soupx	7							0	4.5158e+07				2.2714	0.05738	0.99656	0					
+generic	all	cortex nuclei (10x)	cellbender	1							0	0				5.5846	0.092378	0.9995	35					
+generic	all	cortex nuclei (10x)	cellbender_fpr0	1							0	0				4.6335	0.077717	0.99963	35					
+generic	all	cortex nuclei (10x)	cellbender_fpr05	1							0	0				5.1088	0.084844	0.99963	35					
+generic	all	cortex nuclei (10x)	decontx	1							0	2.7791e+07				23.649	0.59405	0.99222	0					
+generic	all	cortex nuclei (10x)	decontx_bg	1							0	2.7718e+07				23.392	0.47077	0.96242	0					
+generic	all	cortex nuclei (10x)	glymph	1							0	0				31.809	0.43379	0.991	1					
+generic	all	cortex nuclei (10x)	glymph_fpr0	1							0	0				30.868	0.42043	0.99175	1					
+generic	all	cortex nuclei (10x)	glymph_fpr02	1							0	0				30.135	0.40456	0.99213	1					
+generic	all	cortex nuclei (10x)	glymph_fpr1	1							0	0				31.836	0.43095	0.9915	1					
+generic	all	cortex nuclei (10x)	scar	1							1.1205e+07	0				38.768	0.63567	0.87106	0					
+generic	all	cortex nuclei (10x)	soupx	1							0	2.7873e+07				7.9	0.25921	0.9891	0					
+generic	all	kidney strain mixture (10x)	cellbender	5							0	0				19.456	0.13724	0.99946	10672					
+generic	all	kidney strain mixture (10x)	cellbender_fpr0	5							0	0				18.743	0.10524	0.99983	10672					
+generic	all	kidney strain mixture (10x)	cellbender_fpr05	5							0	0				19.097	0.12146	0.99972	10672					
+generic	all	kidney strain mixture (10x)	decontx	5							0	2.8546e+07				22.914	0.35711	0.96419	0					
+generic	all	kidney strain mixture (10x)	decontx_bg	5							0	2.8923e+07				50.433	0.29992	0.94747	0					
+generic	all	kidney strain mixture (10x)	glymph	5							0	0				17.767	0.14629	0.99757	6260.2					
+generic	all	kidney strain mixture (10x)	glymph_fpr0	5							0	0				16.797	0.12723	0.99896	6083					
+generic	all	kidney strain mixture (10x)	glymph_fpr02	5							0	0				17.06	0.13525	0.99861	6081.8					
+generic	all	kidney strain mixture (10x)	glymph_fpr1	5							0	0				18.058	0.16054	0.99632	6087					
+generic	all	kidney strain mixture (10x)	scar	5							1.4132e+07	0				32.318	0.24455	0.93867	0					
+generic	all	kidney strain mixture (10x)	soupx	5							0	2.8892e+07				4.84	0.069748	0.99779	0					
+generic	all	nuclei mixture (10x)	cellbender	1							0	0				0.9073	0.067227	0.99756	0					
+generic	all	nuclei mixture (10x)	cellbender_fpr0	1							0	0				0.31292	0.012605	1	0					
+generic	all	nuclei mixture (10x)	cellbender_fpr05	1							0	0				0.63012	0.042017	0.99951	0					
+generic	all	nuclei mixture (10x)	decontx	1							0	7.3398e+06				10.575	0.7046	0.99762	0					
+generic	all	nuclei mixture (10x)	decontx_bg	1							0	7.2926e+06				10.486	0.23128	0.99369	0					
+generic	all	nuclei mixture (10x)	glymph	1							0	0				6.0841	0.10504	0.99414	0					
+generic	all	nuclei mixture (10x)	glymph_fpr0	1							0	0				6.0535	0.10084	0.99731	0					
+generic	all	nuclei mixture (10x)	glymph_fpr02	1							0	0				6.1081	0.088235	0.99487	0					
+generic	all	nuclei mixture (10x)	glymph_fpr1	1							0	0				6.6762	0.12605	0.98901	0					
+generic	all	nuclei mixture (10x)	scar	1							3.9845e+06	0				30.285	-0.02521	0.81519	0					
+generic	all	nuclei mixture (10x)	soupx	1							0	7.2218e+06				6.4	0.094275	0.99485	0					
+generic	all	xenograft skin (10x)	cellbender	6							0	0				0.83235	0.18286	0.99892	0					
+generic	all	xenograft skin (10x)	cellbender_fpr0	6							0	0				0.42064	0.10672	0.99994	0					
+generic	all	xenograft skin (10x)	cellbender_fpr05	6							0	0				0.64811	0.16164	0.99921	0					
+generic	all	xenograft skin (10x)	decontx	6							0	3.1384e+06				2.7286	0.47154	0.99462	0					
+generic	all	xenograft skin (10x)	decontx_bg	6							0	3.2124e+06				3.427	0.45465	0.9924	0					
+generic	all	xenograft skin (10x)	glymph	6							0	0				2.2163	0.26081	0.99608	0					
+generic	all	xenograft skin (10x)	glymph_fpr0	6							0	0				1.5359	0.22381	0.99925	0					
+generic	all	xenograft skin (10x)	glymph_fpr02	6							0	0				1.9014	0.25125	0.99681	0					
+generic	all	xenograft skin (10x)	glymph_fpr1	6							0	0				2.5745	0.24826	0.99373	0					
+generic	all	xenograft skin (10x)	scar	6							1.9377e+06	0				22.753	0.28926	0.7856	22					
+generic	all	xenograft skin (10x)	soupx	6							0	3.2218e+06				1.0333	0.10684	0.99867	0					
+generic	held out	BD Rhapsody	cellbender	11							0	0				12.594	0.085987	0.8987	9687.5					
+generic	held out	BD Rhapsody	cellbender_fpr0	11							0	0				11.995	0.052642	0.89995	9687.5					
+generic	held out	BD Rhapsody	cellbender_fpr05	11							0	0				12.286	0.072361	0.89958	9687.5					
+generic	held out	BD Rhapsody	decontx	11							0	2.4269e+07				16.845	0.24481	0.99592	0					
+generic	held out	BD Rhapsody	decontx_bg	11							0	2.4602e+07				26.32	0.33027	0.88266	0					
+generic	held out	BD Rhapsody	glymph	11							0	0				6.2707	0.12824	0.99473	11.727					
+generic	held out	BD Rhapsody	glymph_fpr0	11							0	0				6.3751	0.11936	0.99647	11.727					
+generic	held out	BD Rhapsody	glymph_fpr02	11							0	0				7.0588	0.12191	0.99576	11.818					
+generic	held out	BD Rhapsody	glymph_fpr1	11							0	0				7.1464	0.1385	0.99184	11.727					
+generic	held out	BD Rhapsody	scar	11							1.2452e+07	0				23.91	0.17191	0.97206	0					
+generic	held out	BD Rhapsody	soupx	11							0	2.4687e+07				4.1364	0.0798	0.99703	0					
+generic	held out	Parse Evercode	cellbender	9							0	0				0.98983	0.1274	0.9941	0					
+generic	held out	Parse Evercode	cellbender_fpr0	9							0	0				0.44075	0.070016	0.99726	0					
+generic	held out	Parse Evercode	cellbender_fpr05	9							0	0				0.69642	0.10069	0.99573	0					
+generic	held out	Parse Evercode	decontx	9							0	1.4291e+07				7.7603	0.21489	0.99378	0					
+generic	held out	Parse Evercode	decontx_bg	9							0	1.4296e+07				8.0393	0.2218	0.98541	0					
+generic	held out	Parse Evercode	glymph	9							0	0				3.1881	0.17914	0.97873	0					
+generic	held out	Parse Evercode	glymph_fpr0	9							0	0				1.2763	0.10417	0.99491	0					
+generic	held out	Parse Evercode	glymph_fpr02	9							0	0				2.6241	0.15176	0.98566	0					
+generic	held out	Parse Evercode	glymph_fpr1	9							0	0				2.3161	0.16636	0.98802	0					
+generic	held out	Parse Evercode	scar	9							7.9694e+06	0				20.435	0.46635	0.94162	0					
+generic	held out	Parse Evercode	soupx	9							0	1.4319e+07				1.1	0.098774	0.99649	0					
+generic	held out	cell-line mixtures, other (10x)	cellbender	7							0	0				2.1948	0.10152	0.99874	0.14286					
+generic	held out	cell-line mixtures, other (10x)	cellbender_fpr0	7							0	0				1.3221	0.062829	0.99963	0.14286					
+generic	held out	cell-line mixtures, other (10x)	cellbender_fpr05	7							0	0				1.7579	0.082331	0.99928	0.14286					
+generic	held out	cell-line mixtures, other (10x)	decontx	7							0	4.6172e+07				4.7014	0.29477	0.99538	0					
+generic	held out	cell-line mixtures, other (10x)	decontx_bg	7							0	4.573e+07				4.5277	0.13231	0.99551	0					
+generic	held out	cell-line mixtures, other (10x)	glymph	7							0	0				1.9343	0.077223	0.99908	1.2857					
+generic	held out	cell-line mixtures, other (10x)	glymph_fpr0	7							0	0				1.5926	0.061015	0.9995	0					
+generic	held out	cell-line mixtures, other (10x)	glymph_fpr02	7							0	0				1.7393	0.069897	0.99928	0					
+generic	held out	cell-line mixtures, other (10x)	glymph_fpr1	7							0	0				2.5825	0.098101	0.99765	0					
+generic	held out	cell-line mixtures, other (10x)	scar	7							2.5811e+07	0				4.7369	0.075518	0.92981	5.8571					
+generic	held out	cell-line mixtures, other (10x)	soupx	7							0	4.5152e+07				1.5286	0.05492	0.9968	0					
+generic	held out	xenograft skin (10x)	cellbender	5							0	0				0.85978	0.15175	0.99912	0					
+generic	held out	xenograft skin (10x)	cellbender_fpr0	5							0	0				0.42785	0.085405	0.99993	0					
+generic	held out	xenograft skin (10x)	cellbender_fpr05	5							0	0				0.66699	0.13095	0.9994	0					
+generic	held out	xenograft skin (10x)	decontx	5							0	3.2669e+06				3.065	0.42234	0.99337	0					
+generic	held out	xenograft skin (10x)	decontx_bg	5							0	3.3261e+06				3.6231	0.38062	0.99079	0					
+generic	held out	xenograft skin (10x)	glymph	5							0	0				2.3216	0.22654	0.99615	0					
+generic	held out	xenograft skin (10x)	glymph_fpr0	5							0	0				1.5812	0.18477	0.99919	0					
+generic	held out	xenograft skin (10x)	glymph_fpr02	5							0	0				2.044	0.24007	0.9965	0					
+generic	held out	xenograft skin (10x)	glymph_fpr1	5							0	0				2.6298	0.21018	0.99457	0					
+generic	held out	xenograft skin (10x)	scar	5							1.9848e+06	0				23.201	0.21324	0.90251	17.6					
+generic	held out	xenograft skin (10x)	soupx	5							0	3.3367e+06				1.04	0.087099	0.99853	0					
+resources	all	BD Rhapsody	cellbender	14																2307.3	2711.8	11.49	8.3739	39.736
+resources	all	BD Rhapsody	decontx	14																147.75	581.67	4.6968		
+resources	all	BD Rhapsody	decontx_bg	14																152.97	736.37	4.7908		
+resources	all	BD Rhapsody	glymph	14																109.65	108.41	3.418	6.2845	71.736
+resources	all	BD Rhapsody	glymph_fpr0	14																104.61	103.34	3.371	6.2842	72.647
+resources	all	BD Rhapsody	glymph_fpr02	14																106.67	105.15	3.4203	6.2842	70.225
+resources	all	BD Rhapsody	glymph_fpr1	14																100.05	98.231	3.3791	6.2843	74.401
+resources	all	BD Rhapsody	scar	14																1570.8	2897.2	16.422	4.8707	32.649
+resources	all	BD Rhapsody	soupx	14																118.08	387.63	5.595		
+resources	all	Parse Evercode	cellbender	11																2265.5	2589.3	11.539	8.3076	40.477
+resources	all	Parse Evercode	decontx	11																220.32	317.07	5.1175		
+resources	all	Parse Evercode	decontx_bg	11																237.07	419.43	5.9613		
+resources	all	Parse Evercode	glymph	11																124.22	122.5	4.1828	8.0851	76.757
+resources	all	Parse Evercode	glymph_fpr0	11																117.35	116.66	4.2596	8.0562	77.755
+resources	all	Parse Evercode	glymph_fpr02	11																146.63	145.5	4.2255	8.0853	75.076
+resources	all	Parse Evercode	glymph_fpr1	11																128.08	126.97	4.2531	8.0562	74.446
+resources	all	Parse Evercode	scar	11																1443.3	10212	24.062	6.896	30.735
+resources	all	Parse Evercode	soupx	11																173.67	491.33	7.3806		
+resources	all	cell-line mixtures, other (10x)	cellbender	9																3188.7	3401.5	12.733	8.1742	23.923
+resources	all	cell-line mixtures, other (10x)	decontx	9																301.62	353.48	6.3586		
+resources	all	cell-line mixtures, other (10x)	decontx_bg	9																177.81	228.07	5.9989		
+resources	all	cell-line mixtures, other (10x)	glymph	9																170.22	169.19	5.5315	11.392	72.344
+resources	all	cell-line mixtures, other (10x)	glymph_fpr0	9																165.06	165.73	5.273	11.495	76.168
+resources	all	cell-line mixtures, other (10x)	glymph_fpr02	9																162.07	161.3	5.3044	11.377	76.433
+resources	all	cell-line mixtures, other (10x)	glymph_fpr1	9																161.9	161.72	5.2601	11.46	76.274
+resources	all	cell-line mixtures, other (10x)	scar	9																814.31	2749.9	20.866	5.7258	21.001
+resources	all	cell-line mixtures, other (10x)	soupx	9																159.02	262.05	8.5143		
+resources	all	cell-line mixtures, tuning (10x)	cellbender	7																3144.5	3418.5	14.916	9.0585	26.212
+resources	all	cell-line mixtures, tuning (10x)	decontx	7																284.08	339.44	6.2039		
+resources	all	cell-line mixtures, tuning (10x)	decontx_bg	7																231.44	292.04	6.507		
+resources	all	cell-line mixtures, tuning (10x)	glymph	7																171.12	169.94	5.2588	11.447	78.462
+resources	all	cell-line mixtures, tuning (10x)	glymph_fpr0	7																174.78	175.42	5.312	11.447	74.966
+resources	all	cell-line mixtures, tuning (10x)	glymph_fpr02	7																171.71	171.63	5.2494	11.446	76.15
+resources	all	cell-line mixtures, tuning (10x)	glymph_fpr1	7																167.42	167.59	5.4056	11.447	78.106
+resources	all	cell-line mixtures, tuning (10x)	glymph_gpu_A100	1																165.66	146.34	6.3743	13.089	64.542
+resources	all	cell-line mixtures, tuning (10x)	glymph_gpu_V100	1																374.83	374.26	6.3186	12.475	85.5
+resources	all	cell-line mixtures, tuning (10x)	scar	7																1277	3254.9	23.001	6.3916	26.117
+resources	all	cell-line mixtures, tuning (10x)	soupx	7																175.62	320.8	9.322		
+resources	all	cortex nuclei (10x)	cellbender	1																1891.3	2072.9	11.256	7.8115	32.004
+resources	all	cortex nuclei (10x)	decontx	1																154.82	320.7	4.1834		
+resources	all	cortex nuclei (10x)	decontx_bg	1																122.02	580.14	4.897		
+resources	all	cortex nuclei (10x)	glymph	1																161.95	160.16	3.6673	6.0889	35.815
+resources	all	cortex nuclei (10x)	glymph_fpr0	1																77.27	76.89	4.013	6.0869	73
+resources	all	cortex nuclei (10x)	glymph_fpr02	1																81.16	80.89	3.6922	6.0889	69.659
+resources	all	cortex nuclei (10x)	glymph_fpr1	1																81.56	80.34	3.6457	6.0889	72.488
+resources	all	cortex nuclei (10x)	scar	1																355.06	901.17	15.415	4.4053	38.809
+resources	all	cortex nuclei (10x)	soupx	1																113.86	170.11	6.4374		
+resources	all	kidney strain mixture (10x)	cellbender	5																2335.2	2771.3	12.701	7.6986	28.194
+resources	all	kidney strain mixture (10x)	decontx	5																136.88	292.8	5.815		
+resources	all	kidney strain mixture (10x)	decontx_bg	5																183.74	339.77	6.0676		
+resources	all	kidney strain mixture (10x)	glymph	5																90.484	90.246	4.0779	6.4127	64.455
+resources	all	kidney strain mixture (10x)	glymph_fpr0	5																82.992	81.744	3.9401	6.4127	68.646
+resources	all	kidney strain mixture (10x)	glymph_fpr02	5																82.248	81.374	4.0744	6.4131	69.716
+resources	all	kidney strain mixture (10x)	glymph_fpr1	5																88.35	88.75	4.1394	6.4131	64.736
+resources	all	kidney strain mixture (10x)	scar	5																1852.4	2528.7	13.117	3.8623	25.303
+resources	all	kidney strain mixture (10x)	soupx	5																111.16	144.01	7.2721		
+resources	all	nuclei mixture (10x)	cellbender	1																816	847.78	5.5866	6.8896	39.225
+resources	all	nuclei mixture (10x)	decontx	1																55.74	64.55	1.9879		
+resources	all	nuclei mixture (10x)	decontx_bg	1																36.47	45.04	2.0332		
+resources	all	nuclei mixture (10x)	glymph	1																105.26	104.51	2.5701	8.1299	83.189
+resources	all	nuclei mixture (10x)	glymph_fpr0	1																100.29	99.95	2.2576	8.1318	85.137
+resources	all	nuclei mixture (10x)	glymph_fpr02	1																101.99	101.8	2.2456	8.1318	87.02
+resources	all	nuclei mixture (10x)	glymph_fpr1	1																101.55	100.82	2.2293	8.1318	84.039
+resources	all	nuclei mixture (10x)	scar	1																211.69	1144	7.6708	2.5029	12.208
+resources	all	nuclei mixture (10x)	soupx	1																37.23	142.34	2.2777		
+resources	all	xenograft skin (10x)	cellbender	6																749.73	817.43	3.3525	4.7393	48.074
+resources	all	xenograft skin (10x)	decontx	6																29.217	37.905	1.7097		
+resources	all	xenograft skin (10x)	decontx_bg	6																33.075	42.393	1.6797		
+resources	all	xenograft skin (10x)	glymph	6																68.817	67.77	2.2634	5.6693	76.272
+resources	all	xenograft skin (10x)	glymph_fpr0	6																65.027	63.883	2.2501	5.6699	81.512
+resources	all	xenograft skin (10x)	glymph_fpr02	6																69.222	68.325	2.3194	5.5846	75.914
+resources	all	xenograft skin (10x)	glymph_fpr1	6																67.77	66.335	2.167	5.6693	77.019
+resources	all	xenograft skin (10x)	scar	6																126.64	339.54	7.4761	2.2572	23.781
+resources	all	xenograft skin (10x)	soupx	6																24.617	36.37	1.421		
+resources	held out	BD Rhapsody	cellbender	11																2365.7	2792.9	11.181	8.2357	39.458
+resources	held out	BD Rhapsody	decontx	11																150.23	656.74	4.935		
+resources	held out	BD Rhapsody	decontx_bg	11																164.44	836.16	5.0226		
+resources	held out	BD Rhapsody	glymph	11																107.71	106.67	3.4551	6.4573	69.561
+resources	held out	BD Rhapsody	glymph_fpr0	11																101.92	100.77	3.4061	6.4569	70.644
+resources	held out	BD Rhapsody	glymph_fpr02	11																98.494	96.815	3.462	6.4568	71.2
+resources	held out	BD Rhapsody	glymph_fpr1	11																93.813	92.018	3.4107	6.4571	74.876
+resources	held out	BD Rhapsody	scar	11																1897	3449.8	15.887	4.7797	30.207
+resources	held out	BD Rhapsody	soupx	11																125.39	429.96	5.8682		
+resources	held out	Parse Evercode	cellbender	9																2035.5	2360.3	9.3945	8.2477	42.94
+resources	held out	Parse Evercode	decontx	9																111.31	187.52	3.1079		
+resources	held out	Parse Evercode	decontx_bg	9																115.72	281.63	3.1295		
+resources	held out	Parse Evercode	glymph	9																85.502	83.924	2.7042	6.8282	78.581
+resources	held out	Parse Evercode	glymph_fpr0	9																85.117	83.848	2.7948	6.7929	78.827
+resources	held out	Parse Evercode	glymph_fpr02	9																85.48	84.131	2.7498	6.8285	78.66
+resources	held out	Parse Evercode	glymph_fpr1	9																90.264	89.306	2.7739	6.7929	75.691
+resources	held out	Parse Evercode	scar	9																619.6	1497.5	22.117	6.6568	33.437
+resources	held out	Parse Evercode	soupx	9																108.57	455.6	3.9033		
+resources	held out	cell-line mixtures, other (10x)	cellbender	7																3300.2	3526	12.939	8.0944	23.554
+resources	held out	cell-line mixtures, other (10x)	decontx	7																321.94	371.73	6.654		
+resources	held out	cell-line mixtures, other (10x)	decontx_bg	7																184.29	232.06	6.3007		
+resources	held out	cell-line mixtures, other (10x)	glymph	7																172.19	170.49	5.7502	11.878	73.864
+resources	held out	cell-line mixtures, other (10x)	glymph_fpr0	7																173.19	173.61	5.5189	12.011	75.61
+resources	held out	cell-line mixtures, other (10x)	glymph_fpr02	7																169.8	169.03	5.5028	11.859	76.008
+resources	held out	cell-line mixtures, other (10x)	glymph_fpr1	7																169.77	169.74	5.5064	11.965	75.429
+resources	held out	cell-line mixtures, other (10x)	scar	7																857.69	3061.7	21.261	5.8294	20.789
+resources	held out	cell-line mixtures, other (10x)	soupx	7																168.15	276.45	8.9288		
+resources	held out	xenograft skin (10x)	cellbender	5																764.93	838.47	3.4646	4.8029	48.216
+resources	held out	xenograft skin (10x)	decontx	5																29.704	38.396	1.7581		
+resources	held out	xenograft skin (10x)	decontx_bg	5																34.112	43.884	1.7075		
+resources	held out	xenograft skin (10x)	glymph	5																72.174	71.484	2.3179	5.824	76.186
+resources	held out	xenograft skin (10x)	glymph_fpr0	5																67.798	66.782	2.2476	5.8248	81.845
+resources	held out	xenograft skin (10x)	glymph_fpr02	5																73.454	72.952	2.3294	5.8244	76.153
+resources	held out	xenograft skin (10x)	glymph_fpr1	5																67.482	66.432	2.1466	5.824	80.389
+resources	held out	xenograft skin (10x)	scar	5																137.59	359.91	7.6853	2.3119	22.57
+resources	held out	xenograft skin (10x)	soupx	5																25.348	38.622	1.4503		

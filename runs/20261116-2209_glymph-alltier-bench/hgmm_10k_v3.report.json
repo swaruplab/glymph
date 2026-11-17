@@ -1,0 +1,715 @@
+{
+ "version": "0.3.0",
+ "device": "cuda:0",
+ "gpu": "NVIDIA A30",
+ "peak_gpu_mem_gb": 10.1,
+ "timings": {
+  "priors_s": 1.464,
+  "setup_s": 1.129,
+  "train_s": 109.205,
+  "calibrate_s": 64.264,
+  "denoise_s": 4.104,
+  "assemble_s": 2.9,
+  "read_s": 6.604,
+  "write_s": 18.027,
+  "total_s": 207.71
+ },
+ "n_cells": 16899,
+ "e_unit": {
+  "all": 426.0000915527344
+ },
+ "swap_fraction": {
+  "all": 4.999999873689376e-06
+ },
+ "ambient_multiplier": {
+  "all": 0.8613661527633667
+ },
+ "empty_alpha": 4.475609086886824,
+ "swap_calibration": {
+  "applied": true,
+  "per_cell": {
+   "0": {
+    "kappa": 0.8613661353083619,
+    "kappa_depth": 0.5711708126669257,
+    "depth_ref": 19094.0,
+    "n_informative": 18413,
+    "n_outlier": 122,
+    "n_barcodes": 92936,
+    "alpha": 21.14827412142351,
+    "expected_silent_counts_median": 100.1576648327369,
+    "multiplier_over_trend_q10_q50_q90": [
+     0.854,
+     1.047,
+     1.315
+    ]
+   },
+   "masked_cells": 18535,
+   "silent_genes_per_cluster_median": 438.0
+  },
+  "swap_learned": [
+   0.006497686263173819
+  ],
+  "swap_estimate": [
+   1e-07
+  ],
+  "kappa_estimate": [
+   0.8613661353083619
+  ],
+  "kappa_used": [
+   0.8613661527633667
+  ],
+  "swap_used": [
+   4.999999873689376e-06
+  ],
+  "n_confident_cells": 10563,
+  "confident_threshold": 2505.936168136375,
+  "pools": {
+   "0": {
+    "n_cells": 10563,
+    "n_clusters": 20,
+    "min_expected_used": 30.0,
+    "ridge": 1.175,
+    "ridge_histogram": [
+     239,
+     18,
+     15,
+     14,
+     20,
+     6,
+     7,
+     19,
+     18,
+     22,
+     14,
+     21,
+     22,
+     22,
+     36,
+     32,
+     55,
+     105,
+     414,
+     2128,
+     4894,
+     4274,
+     1715,
+     491,
+     185,
+     88,
+     126,
+     148,
+     110,
+     72,
+     45,
+     19,
+     8,
+     4,
+     15,
+     37,
+     26,
+     13,
+     8,
+     118
+    ],
+    "clusters": [
+     {
+      "cluster": 0,
+      "cells": 724,
+      "candidates": 492,
+      "genes": 324,
+      "ratio": 1.192,
+      "used": true
+     },
+     {
+      "cluster": 1,
+      "cells": 136,
+      "candidates": 79,
+      "genes": 5,
+      "ratio": 0.132,
+      "used": true
+     },
+     {
+      "cluster": 2,
+      "cells": 868,
+      "candidates": 1867,
+      "genes": 1777,
+      "ratio": 0.991,
+      "used": true
+     },
+     {
+      "cluster": 3,
+      "cells": 562,
+      "candidates": 552,
+      "genes": 423,
+      "ratio": 1.039,
+      "used": true
+     },
+     {
+      "cluster": 4,
+      "cells": 561,
+      "candidates": 649,
+      "genes": 481,
+      "ratio": 1.012,
+      "used": true
+     },
+     {
+      "cluster": 5,
+      "cells": 160,
+      "candidates": 141,
+      "genes": 113,
+      "ratio": 1.087,
+      "used": true
+     },
+     {
+      "cluster": 6,
+      "cells": 556,
+      "candidates": 1323,
+      "genes": 1281,
+      "ratio": 0.947,
+      "used": true
+     },
+     {
+      "cluster": 7,
+      "cells": 323,
+      "candidates": 832,
+      "genes": 438,
+      "ratio": 0.833,
+      "used": true
+     },
+     {
+      "cluster": 8,
+      "cells": 714,
+      "candidates": 780,
+      "genes": 578,
+      "ratio": 1.011,
+      "used": true
+     },
+     {
+      "cluster": 9,
+      "cells": 171,
+      "candidates": 43,
+      "genes": 2,
+      "ratio": 0.773,
+      "used": true
+     },
+     {
+      "cluster": 10,
+      "cells": 716,
+      "candidates": 653,
+      "genes": 485,
+      "ratio": 1.044,
+      "used": true
+     },
+     {
+      "cluster": 11,
+      "cells": 739,
+      "candidates": 1514,
+      "genes": 1425,
+      "ratio": 1.041,
+      "used": true
+     },
+     {
+      "cluster": 12,
+      "cells": 428,
+      "candidates": 165,
+      "genes": 8,
+      "ratio": 0.123,
+      "used": true
+     },
+     {
+      "cluster": 13,
+      "cells": 152,
+      "candidates": 146,
+      "genes": 102,
+      "ratio": 1.16,
+      "used": true
+     },
+     {
+      "cluster": 14,
+      "cells": 832,
+      "candidates": 885,
+      "genes": 632,
+      "ratio": 1.054,
+      "used": true
+     },
+     {
+      "cluster": 15,
+      "cells": 738,
+      "candidates": 1585,
+      "genes": 1496,
+      "ratio": 0.998,
+      "used": true
+     },
+     {
+      "cluster": 16,
+      "cells": 909,
+      "candidates": 1952,
+      "genes": 1679,
+      "ratio": 0.973,
+      "used": true
+     },
+     {
+      "cluster": 17,
+      "cells": 107,
+      "candidates": 215,
+      "genes": 4,
+      "ratio": 0.372,
+      "used": true
+     },
+     {
+      "cluster": 18,
+      "cells": 493,
+      "candidates": 282,
+      "genes": 254,
+      "ratio": 1.108,
+      "used": true
+     },
+     {
+      "cluster": 19,
+      "cells": 674,
+      "candidates": 1468,
+      "genes": 1408,
+      "ratio": 0.967,
+      "used": true
+     }
+    ],
+    "kappa": 0.8613661353083619,
+    "kappa_depth": 0.5711708126669257,
+    "s": 1e-07,
+    "depth_ref": 19094.0,
+    "cells_fitted": 10563,
+    "cells_trimmed": 64,
+    "silent_counts": 2100333.0,
+    "clusters_dropped": []
+   }
+  }
+ },
+ "removed_fraction_in_cells": 0.03990779773155095,
+ "priors": {
+  "threshold_method": "plateau",
+  "confident_threshold": 2505.936168136375,
+  "n_confident": 10563,
+  "empty_sd0": 0.1950272700600886,
+  "knee": "none",
+  "rejected_plateau": "none",
+  "bead_cliff": 111.93605692841733,
+  "plateau": {
+   "P": 422.6011,
+   "mu0": 2.6259,
+   "sd0": 0.195,
+   "cliff": 111.9361,
+   "T": 2505.9362,
+   "hi": 422.6011,
+   "n_empty": 111024.0,
+   "n_cells": 15915.2681,
+   "dispersion": 1.0635
+  },
+  "cell_threshold": 2505.936168136375,
+  "n_cells_prior": 10563,
+  "empty_level": 422.6011322396844,
+  "empty_max": 422.6011322396844,
+  "n_background_barcodes": 41976,
+  "n_plateau_barcodes": 41976,
+  "n_analyzed": 92936,
+  "n_train_empties": 41976,
+  "n_genes": 58513,
+  "soup_umis_per_unit": {
+   "all": 13745545.0
+  },
+  "e_unit_init": {
+   "all": 426.0
+  }
+ },
+ "train": {
+  "epochs_run": 35,
+  "epochs_planned": 35,
+  "steps": 3045,
+  "best_val": 8.07959563296242
+ },
+ "train_calibrated": {
+  "epochs_run": 20,
+  "epochs_planned": 20,
+  "steps": 1740,
+  "best_val": 8.081484524577373
+ },
+ "train_matched": {},
+ "history": [
+  {
+   "epoch": 1,
+   "train": 7.78791,
+   "val": 8.13397,
+   "s": 0.0098
+  },
+  {
+   "epoch": 2,
+   "train": 7.61034,
+   "val": 8.10617,
+   "s": 0.00952
+  },
+  {
+   "epoch": 3,
+   "train": 7.57517,
+   "val": 8.09951,
+   "s": 0.00927
+  },
+  {
+   "epoch": 4,
+   "train": 7.57795,
+   "val": 8.0953,
+   "s": 0.00905
+  },
+  {
+   "epoch": 5,
+   "train": 7.6138,
+   "val": 8.09174,
+   "s": 0.00883
+  },
+  {
+   "epoch": 6,
+   "train": 7.60722,
+   "val": 8.08915,
+   "s": 0.00861
+  },
+  {
+   "epoch": 7,
+   "train": 7.59932,
+   "val": 8.08793,
+   "s": 0.00838
+  },
+  {
+   "epoch": 8,
+   "train": 7.59312,
+   "val": 8.08618,
+   "s": 0.00817
+  },
+  {
+   "epoch": 9,
+   "train": 7.59364,
+   "val": 8.08559,
+   "s": 0.00798
+  },
+  {
+   "epoch": 10,
+   "train": 7.60014,
+   "val": 8.08425,
+   "s": 0.00781
+  },
+  {
+   "epoch": 11,
+   "train": 7.5822,
+   "val": 8.08451,
+   "s": 0.00764
+  },
+  {
+   "epoch": 12,
+   "train": 7.56963,
+   "val": 8.08283,
+   "s": 0.0075
+  },
+  {
+   "epoch": 13,
+   "train": 7.60653,
+   "val": 8.08179,
+   "s": 0.00736
+  },
+  {
+   "epoch": 14,
+   "train": 7.60522,
+   "val": 8.08175,
+   "s": 0.00724
+  },
+  {
+   "epoch": 15,
+   "train": 7.56861,
+   "val": 8.08118,
+   "s": 0.00712
+  },
+  {
+   "epoch": 16,
+   "train": 7.58471,
+   "val": 8.08073,
+   "s": 0.00703
+  },
+  {
+   "epoch": 17,
+   "train": 7.57734,
+   "val": 8.08091,
+   "s": 0.00694
+  },
+  {
+   "epoch": 18,
+   "train": 7.57965,
+   "val": 8.08036,
+   "s": 0.00688
+  },
+  {
+   "epoch": 19,
+   "train": 7.56657,
+   "val": 8.08039,
+   "s": 0.00682
+  },
+  {
+   "epoch": 20,
+   "train": 7.58932,
+   "val": 8.08028,
+   "s": 0.00676
+  },
+  {
+   "epoch": 21,
+   "train": 7.61049,
+   "val": 8.07991,
+   "s": 0.00672
+  },
+  {
+   "epoch": 22,
+   "train": 7.587,
+   "val": 8.07998,
+   "s": 0.00668
+  },
+  {
+   "epoch": 23,
+   "train": 7.58835,
+   "val": 8.07991,
+   "s": 0.00664
+  },
+  {
+   "epoch": 24,
+   "train": 7.59229,
+   "val": 8.07998,
+   "s": 0.00661
+  },
+  {
+   "epoch": 25,
+   "train": 7.58804,
+   "val": 8.07982,
+   "s": 0.00658
+  },
+  {
+   "epoch": 26,
+   "train": 7.57221,
+   "val": 8.0797,
+   "s": 0.00656
+  },
+  {
+   "epoch": 27,
+   "train": 7.573,
+   "val": 8.0797,
+   "s": 0.00653
+  },
+  {
+   "epoch": 28,
+   "train": 7.55504,
+   "val": 8.07984,
+   "s": 0.00652
+  },
+  {
+   "epoch": 29,
+   "train": 7.57056,
+   "val": 8.0796,
+   "s": 0.0065
+  },
+  {
+   "epoch": 30,
+   "train": 7.57149,
+   "val": 8.07978,
+   "s": 0.00648
+  },
+  {
+   "epoch": 31,
+   "train": 7.57211,
+   "val": 8.07975,
+   "s": 0.00647
+  },
+  {
+   "epoch": 32,
+   "train": 7.57349,
+   "val": 8.0797,
+   "s": 0.00646
+  },
+  {
+   "epoch": 33,
+   "train": 7.58141,
+   "val": 8.07976,
+   "s": 0.00645
+  },
+  {
+   "epoch": 34,
+   "train": 7.60178,
+   "val": 8.0798,
+   "s": 0.00643
+  },
+  {
+   "epoch": 35,
+   "train": 7.57449,
+   "val": 8.07993,
+   "s": 0.00642
+  }
+ ],
+ "history_calibrated": [
+  {
+   "epoch": 1,
+   "train": 7.57529,
+   "val": 8.0846,
+   "s": 0.0
+  },
+  {
+   "epoch": 2,
+   "train": 7.57287,
+   "val": 8.08247,
+   "s": 0.0
+  },
+  {
+   "epoch": 3,
+   "train": 7.54822,
+   "val": 8.08284,
+   "s": 0.0
+  },
+  {
+   "epoch": 4,
+   "train": 7.55457,
+   "val": 8.08254,
+   "s": 0.0
+  },
+  {
+   "epoch": 5,
+   "train": 7.59287,
+   "val": 8.08197,
+   "s": 0.0
+  },
+  {
+   "epoch": 6,
+   "train": 7.58748,
+   "val": 8.08148,
+   "s": 0.0
+  },
+  {
+   "epoch": 7,
+   "train": 7.58012,
+   "val": 8.0816,
+   "s": 0.0
+  },
+  {
+   "epoch": 8,
+   "train": 7.57495,
+   "val": 8.08153,
+   "s": 0.0
+  },
+  {
+   "epoch": 9,
+   "train": 7.57634,
+   "val": 8.08201,
+   "s": 0.0
+  },
+  {
+   "epoch": 10,
+   "train": 7.58337,
+   "val": 8.08191,
+   "s": 0.0
+  },
+  {
+   "epoch": 11,
+   "train": 7.56611,
+   "val": 8.08152,
+   "s": 0.0
+  },
+  {
+   "epoch": 12,
+   "train": 7.55383,
+   "val": 8.08171,
+   "s": 0.0
+  },
+  {
+   "epoch": 13,
+   "train": 7.59094,
+   "val": 8.08194,
+   "s": 0.0
+  },
+  {
+   "epoch": 14,
+   "train": 7.59006,
+   "val": 8.08194,
+   "s": 0.0
+  },
+  {
+   "epoch": 15,
+   "train": 7.55366,
+   "val": 8.082,
+   "s": 0.0
+  },
+  {
+   "epoch": 16,
+   "train": 7.57012,
+   "val": 8.08229,
+   "s": 0.0
+  },
+  {
+   "epoch": 17,
+   "train": 7.56309,
+   "val": 8.08229,
+   "s": 0.0
+  },
+  {
+   "epoch": 18,
+   "train": 7.56585,
+   "val": 8.08254,
+   "s": 0.0
+  },
+  {
+   "epoch": 19,
+   "train": 7.55317,
+   "val": 8.08248,
+   "s": 0.0
+  },
+  {
+   "epoch": 20,
+   "train": 7.5765,
+   "val": 8.08263,
+   "s": 0.0
+  }
+ ],
+ "config": {
+  "n_hidden": 512,
+  "n_latent": 32,
+  "n_cond": 16,
+  "likelihood": "multinomial",
+  "eps_alpha": 10.0,
+  "eps_alpha_calibrated": 50.0,
+  "eps_alpha_pinned": 2000.0,
+  "learn_ambient_level": false,
+  "s_init": 0.01,
+  "s_max": 0.05,
+  "calibrate_swap": true,
+  "calib_clusters": 20,
+  "cell_multipliers": true,
+  "mask_silent": true,
+  "match_posterior_mean": false,
+  "keep_cell_totals": true,
+  "cell_totals_max_entries": 150000000,
+  "calib_quantile": 0.5,
+  "calib_steps_frac": 0.5,
+  "bg_reward": 0.0,
+  "s_freeze_frac": 0.0,
+  "global_lr_mult": 1.0,
+  "batch_size": 1024,
+  "target_steps": 3000,
+  "min_epochs": 20,
+  "max_epochs": 300,
+  "lr": 0.001,
+  "kl_warmup_frac": 0.2,
+  "val_frac": 0.05,
+  "patience": 8,
+  "seed": 0,
+  "low_count": 5.0,
+  "expected_cells": "none",
+  "empty_level": "none",
+  "max_barcodes": 250000,
+  "estimator": "gene",
+  "fpr": 0.004,
+  "strength": 1.0,
+  "cell_prob_cutoff": 0.5,
+  "keep_non_cells": false,
+  "device": "cuda:0"
+ },
+ "input": "/dfs7/swaruplab/vswarup/compute/glymph/data/std/hgmm_10k_v3.h5ad",
+ "output": "out/glymph/hgmm_10k_v3.h5ad"
+}

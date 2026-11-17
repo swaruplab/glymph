@@ -1,0 +1,10 @@
+# Runs
+
+Generated from `runs/index.tsv` by `code/dashboard/build_tracker.py`. Edit the TSV, not this file.
+
+run_id | host | job id or tmux | status | summary
+---|---|---|---|---
+20261116-1539_glymph-hgmm-bench | HPC3 (gpu partition, A30) | 53 Slurm jobs, listed in the run folder's jobs.tsv | DONE | Tier 1 benchmark on seven 10x human + mouse mixtures. Glymph 0.2.0: 93.3% of cross-species counts removed (CellBender 0.3.2: 94.3%), 0.005% native loss (0.024%), no integrity violations, per-cell error 0.010 (0.017), 184 s mean per library on an A30 (2,344 s). About level with CellBender on accuracy and 13 times faster; not yet ahead. scAR, SoupX, DecontX and AmbiDose also scored.
+20261116-2010_glymph-datasets | HPC3 (standard partition) + Studio tmux for downloads | listed in the run folder jobs.tsv | DONE | Dataset phase for all tiers: 70 files downloaded onto HPC3, two species mixtures on BD Rhapsody and two on Parse aligned from reads, 54 usable libraries converted to one standard format; Glymph 0.3.0 developed against tissue, nuclei and the new platforms (12 development rounds).
+20261116-2209_glymph-alltier-bench | HPC3 (gpu partition, A30; standard for CPU tools) | listed in the run folder jobs.tsv | DONE | All tiers, 54 libraries on 10x, BD Rhapsody and Parse, every tool. Glymph 0.3.0 against CellBender 0.3.2 on held-out mixtures: 20 times faster (median 98 s against 2,122 s), lower per-cell error on 24 of 27 mixtures, removal level on 10x cell lines (91.5% against 92.6%), behind on BD Rhapsody (85% against 93%), ahead on nuclei (76% against 32%). Failed at 80,000 cells and more (GPU memory). Parse scores needed a mask for ribosomal RNA reads aligned to the wrong genome.
+20261117-0544_glymph-031-dev | HPC3 (gpu partition, A30) | listed in the run folder jobs.tsv | RUNNING | Glymph 0.3.1 development: wider silent-gene set, retry with fewer clusters, memory fix for large libraries; 21 development libraries, confirmation libraries kept shut.

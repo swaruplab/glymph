@@ -1,0 +1,58 @@
+site_name: Glymph
+site_description: Ambient RNA removal for single-cell and single-nucleus RNA-seq that measures the background instead of inferring it.
+site_url: https://swaruplab.github.io/glymph/
+repo_url: https://github.com/swaruplab/glymph
+repo_name: swaruplab/glymph
+docs_dir: docs
+copyright: Swarup Lab, UCI MIND
+
+theme:
+  name: material
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/water-outline
+
+extra_css:
+  - stylesheets/glymph.css
+
+nav:
+  - Home: index.md
+  - The idea: idea.md
+  - Architecture: architecture.md
+  - Benchmark: benchmark.md
+  - Quickstart: quickstart.md
+  - Limits and FAQ: faq.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - toc:
+      permalink: true

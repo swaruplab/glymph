@@ -1,0 +1,17 @@
+path	bytes	md5	run	sample	url
+parse/PRJEB67549/fastq/ERR12167393_1.fastq.gz	1938392962	de65e6c904ba48d4c2476ece218e9e27	ERR12167393	I23-1338-01_human_sublib1	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/093/ERR12167393/ERR12167393_1.fastq.gz
+parse/PRJEB67549/fastq/ERR12167393_2.fastq.gz	2090976373	0bad1c7caf09b406e415c974f5432565	ERR12167393	I23-1338-01_human_sublib1	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/093/ERR12167393/ERR12167393_2.fastq.gz
+parse/PRJEB67549/fastq/ERR12167394_1.fastq.gz	3270080597	71ea18a233ce0f548098359860306f55	ERR12167394	I23-1338-01_human_sublib2	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/094/ERR12167394/ERR12167394_1.fastq.gz
+parse/PRJEB67549/fastq/ERR12167394_2.fastq.gz	3011982841	d6946bfd3b8b3ecf9c1308b25ccb521b	ERR12167394	I23-1338-01_human_sublib2	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/094/ERR12167394/ERR12167394_2.fastq.gz
+parse/PRJEB67549/fastq/ERR12167395_1.fastq.gz	647735008	82af9de220de4ed61a43eb35fa8d9471	ERR12167395	I23-1338-01_mouse_sublib1	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/095/ERR12167395/ERR12167395_1.fastq.gz
+parse/PRJEB67549/fastq/ERR12167395_2.fastq.gz	691226698	0308175ea3ca5bdfbc8cb08a42091a89	ERR12167395	I23-1338-01_mouse_sublib1	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/095/ERR12167395/ERR12167395_2.fastq.gz
+parse/PRJEB67549/fastq/ERR12167396_1.fastq.gz	965109154	694ce73fdeab4be6b8c8c25a9282eb95	ERR12167396	I23-1338-01_mouse_sublib2	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/096/ERR12167396/ERR12167396_1.fastq.gz
+parse/PRJEB67549/fastq/ERR12167396_2.fastq.gz	1036303266	4052f25428c0ccef3842e261b27e6ec6	ERR12167396	I23-1338-01_mouse_sublib2	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/096/ERR12167396/ERR12167396_2.fastq.gz
+parse/PRJEB67549/fastq/ERR12167397_1.fastq.gz	1436656487	e743db7c5ec8fe122a622b134f04f11e	ERR12167397	I23-1338-01_mixed_sublib1	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/097/ERR12167397/ERR12167397_1.fastq.gz
+parse/PRJEB67549/fastq/ERR12167397_2.fastq.gz	1546177525	b008d1cf67510c97a7a26087490d6f3a	ERR12167397	I23-1338-01_mixed_sublib1	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/097/ERR12167397/ERR12167397_2.fastq.gz
+parse/PRJEB67549/fastq/ERR12167398_1.fastq.gz	2558013245	d7c1c99a032b66d1b9c42818b977374a	ERR12167398	I23-1338-01_mixed_sublib2	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/098/ERR12167398/ERR12167398_1.fastq.gz
+parse/PRJEB67549/fastq/ERR12167398_2.fastq.gz	2369548718	2fc7b4b624c42c5340cea064692f1783	ERR12167398	I23-1338-01_mixed_sublib2	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/098/ERR12167398/ERR12167398_2.fastq.gz
+rhapsody/rock_roi/fastq/SRR28817193_1.fastq.gz	3348523529	5697d8fe47d30f5593a6f1b6a26afdef	SRR28817193	unmod, first mixing experiment	https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR288/093/SRR28817193/SRR28817193_1.fastq.gz
+rhapsody/rock_roi/fastq/SRR28817193_2.fastq.gz	4202673043	fa3a6cb649de70a74ef01fbd496cb0ed	SRR28817193	unmod, first mixing experiment	https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR288/093/SRR28817193/SRR28817193_2.fastq.gz
+rhapsody/rock_roi/fastq/SRR28830618_1.fastq.gz	2824342162	f5f0ff2cd83b04f9822fdc87092c4a4d	SRR28830618	unmod, second mixing experiment	https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR288/018/SRR28830618/SRR28830618_1.fastq.gz
+rhapsody/rock_roi/fastq/SRR28830618_2.fastq.gz	3641954902	44330039c4468d47d0dd9ad2ace5ee01	SRR28830618	unmod, second mixing experiment	https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR288/018/SRR28830618/SRR28830618_2.fastq.gz

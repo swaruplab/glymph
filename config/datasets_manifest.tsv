@@ -1,0 +1,71 @@
+platform	dataset	subdir	url	outname
+10x	hgmm held-out mixtures (cells)	hgmm_holdout	https://cf.10xgenomics.com/samples/cell-vdj/6.1.0/10k_hgmm_5pv2_nextgem_Chromium_Controller/10k_hgmm_5pv2_nextgem_Chromium_Controller_raw_feature_bc_matrix.h5	
+10x	hgmm held-out mixtures (cells)	hgmm_holdout	https://cf.10xgenomics.com/samples/cell-vdj/6.1.0/20k_hgmm_5pv2_HT_nextgem_Chromium_X/20k_hgmm_5pv2_HT_nextgem_Chromium_X_raw_feature_bc_matrix.h5	
+10x	hgmm held-out mixtures (cells)	hgmm_holdout	https://cf.10xgenomics.com/samples/cell-vdj/8.0.0/10k_hgmm_5p_gemx_Multiplex/10k_hgmm_5p_gemx_Multiplex_count_raw_feature_bc_matrix.h5	
+10x	hgmm held-out mixtures (cells)	hgmm_holdout	https://cf.10xgenomics.com/samples/cell-exp/6.1.0/10k_hgmm_3p_nextgem_Chromium_X/10k_hgmm_3p_nextgem_Chromium_X_raw_feature_bc_matrix.h5	
+10x	hgmm held-out mixtures (cells)	hgmm_holdout	https://cf.10xgenomics.com/samples/cell-exp/8.0.0/5k_hgmm_3p_nextgem_Multiplex/5k_hgmm_3p_nextgem_Multiplex_count_raw_feature_bc_matrix.h5	
+10x	hgmm held-out mixtures (cells)	hgmm_holdout	https://cf.10xgenomics.com/samples/cell-exp/6.0.0/1k_hgmm_3p_LT/1k_hgmm_3p_LT_raw_feature_bc_matrix.h5	
+10x	hgmm held-out mixtures (cells)	hgmm_holdout	https://cf.10xgenomics.com/samples/cell-exp/4.0.0/SC3_v3_NextGem_DI_Human_Mouse_10K/SC3_v3_NextGem_DI_Human_Mouse_10K_raw_feature_bc_matrix.h5	
+10x	hgmm held-out mixtures (cells)	hgmm_holdout	https://cf.10xgenomics.com/samples/cell-exp/3.0.0/hgmm_1k_v2/hgmm_1k_v2_raw_feature_bc_matrix.h5	
+10x	NEAT-seq K562 + mESC nuclei (GSE178707)	neat_barnyard	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5396nnn/GSM5396329/suppl/GSM5396329_barnyard_raw_feature_bc_matrix.h5	
+10x	NEAT-seq K562 + mESC nuclei (GSE178707)	neat_barnyard	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5396nnn/GSM5396328/suppl/GSM5396328_cell_calls.tsv.gz	
+10x	Jurkat + 32D cells (GSM4228200)	jurkat_32d	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM4228nnn/GSM4228200/suppl/GSM4228200_MF179_raw_gene_bc_matrices_h5.h5	
+10x	Jurkat + 32D cells (GSM4228200)	jurkat_32d	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM4228nnn/GSM4228200/suppl/GSM4228200_MF179_CellAnnotation_final.tsv.gz	
+10x	humanized mouse skin grafts (GSE240009)	xenograft_skin	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7679nnn/GSM7679757/suppl/GSM7679757_noHSC_1_raw_feature_bc_matrix.h5	
+10x	humanized mouse skin grafts (GSE240009)	xenograft_skin	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7679nnn/GSM7679758/suppl/GSM7679758_noHSC_2_raw_feature_bc_matrix.h5	
+10x	humanized mouse skin grafts (GSE240009)	xenograft_skin	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7679nnn/GSM7679759/suppl/GSM7679759_noHSC_3_raw_feature_bc_matrix.h5	
+10x	humanized mouse skin grafts (GSE240009)	xenograft_skin	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7679nnn/GSM7679760/suppl/GSM7679760_HSC_1_raw_feature_bc_matrix.h5	
+10x	humanized mouse skin grafts (GSE240009)	xenograft_skin	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7679nnn/GSM7679761/suppl/GSM7679761_HSC_2_raw_feature_bc_matrix.h5	
+10x	humanized mouse skin grafts (GSE240009)	xenograft_skin	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7679nnn/GSM7679762/suppl/GSM7679762_HSC_3_raw_feature_bc_matrix.h5	
+10x	human PFC nuclei, no truth (GSE168408)	pfc_nuclei	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5138nnn/GSM5138509/suppl/GSM5138509_RL2103_ga22_snRNAseq_raw_feature_bc_matrix.h5.gz	
+rhapsody	BD demo PBMC, WTA + AbSeq	rhapsody/bd_demo_pbmc	https://bd-rhapsody-public.s3.amazonaws.com/ExternalSharing/09ABC_RSEC_MolsPerCell_Unfiltered_MEX.zip	
+rhapsody	mouse splenocytes (GSE261975)	rhapsody/GSE261975	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE261nnn/GSE261975/suppl/GSE261975_NVA8_BD1_cDNA_Expression_Data_Unfiltered.st.txt.gz	
+rhapsody	mouse splenocytes (GSE261975)	rhapsody/GSE261975	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE261nnn/GSE261975/suppl/GSE261975_NVA8_BD1_cDNA_RSEC_MolsPerCell.csv.gz	
+rhapsody	mouse ileal epithelium (GSE348009)	rhapsody/GSE348009	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM10065nnn/GSM10065191/suppl/GSM10065191_cartridge1_RSEC_MolsPerCell_Unfiltered.csv.gz	
+rhapsody	mouse ileal epithelium (GSE348009)	rhapsody/GSE348009	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM10065nnn/GSM10065191/suppl/GSM10065191_cartridge1_RSEC_MolsPerCell.csv.gz	
+rhapsody	mouse ileal epithelium (GSE348009)	rhapsody/GSE348009	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM10065nnn/GSM10065192/suppl/GSM10065192_cartridge2_RSEC_MolsPerCell_Unfiltered.csv.gz	
+rhapsody	mouse ileal epithelium (GSE348009)	rhapsody/GSE348009	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM10065nnn/GSM10065192/suppl/GSM10065192_cartridge2_RSEC_MolsPerCell.csv.gz	
+rhapsody	mouse ileal epithelium (GSE348009)	rhapsody/GSE348009	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM10065nnn/GSM10065193/suppl/GSM10065193_cartridge3_RSEC_MolsPerCell_Unfiltered.csv.gz	
+rhapsody	mouse ileal epithelium (GSE348009)	rhapsody/GSE348009	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM10065nnn/GSM10065193/suppl/GSM10065193_cartridge3_RSEC_MolsPerCell.csv.gz	
+rhapsody	mouse ileal epithelium (GSE348009)	rhapsody/GSE348009	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM10065nnn/GSM10065194/suppl/GSM10065194_Cart1_RSEC_MolsPerCell_Unfiltered.csv.gz	
+rhapsody	mouse ileal epithelium (GSE348009)	rhapsody/GSE348009	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM10065nnn/GSM10065194/suppl/GSM10065194_Cart1_RSEC_MolsPerCell.csv.gz	
+rhapsody	mouse ileal epithelium (GSE348009)	rhapsody/GSE348009	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM10065nnn/GSM10065195/suppl/GSM10065195_Cart2_RSEC_MolsPerCell_Unfiltered.csv.gz	
+rhapsody	mouse ileal epithelium (GSE348009)	rhapsody/GSE348009	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM10065nnn/GSM10065195/suppl/GSM10065195_Cart2_RSEC_MolsPerCell.csv.gz	
+rhapsody	human PBMC (GSE310996)	rhapsody/GSE310996	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9314nnn/GSM9314822/suppl/GSM9314822_Donor1855_untreated_70_DBEC_MolsPerCell_Unfiltered.csv.gz	
+rhapsody	human PBMC (GSE310996)	rhapsody/GSE310996	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9314nnn/GSM9314824/suppl/GSM9314824_Donor2881_untreated_27_DBEC_MolsPerCell_Unfiltered.csv.gz	
+rhapsody	human liver, lung, prostate (Zenodo 12165000)	rhapsody/zenodo_12165000	https://zenodo.org/api/records/12165000/files/liver_raw.h5ad/content	liver_raw.h5ad
+rhapsody	human liver, lung, prostate (Zenodo 12165000)	rhapsody/zenodo_12165000	https://zenodo.org/api/records/12165000/files/lung_raw.h5ad/content	lung_raw.h5ad
+rhapsody	human liver, lung, prostate (Zenodo 12165000)	rhapsody/zenodo_12165000	https://zenodo.org/api/records/12165000/files/prostate_raw.h5ad/content	prostate_raw.h5ad
+rhapsody	HEK293T + mouse L-cells species mixture, authors' labels (GSE265962)	rhapsody/rock_roi	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8238nnn/GSM8238055/suppl/GSM8238055_first_mixing_experiment_species_unmod.csv.gz	
+rhapsody	HEK293T + mouse L-cells species mixture, authors' labels (GSE265962)	rhapsody/rock_roi	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8240nnn/GSM8240933/suppl/GSM8240933_second_mixing_experiment_species_unmod.csv.gz	
+rhapsody	HEK293T + mouse L-cells species mixture, reads (GSE265962)	rhapsody/rock_roi/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR288/093/SRR28817193/SRR28817193_1.fastq.gz	
+rhapsody	HEK293T + mouse L-cells species mixture, reads (GSE265962)	rhapsody/rock_roi/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR288/093/SRR28817193/SRR28817193_2.fastq.gz	
+rhapsody	HEK293T + mouse L-cells species mixture, reads (GSE265962)	rhapsody/rock_roi/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR288/018/SRR28830618/SRR28830618_1.fastq.gz	
+rhapsody	HEK293T + mouse L-cells species mixture, reads (GSE265962)	rhapsody/rock_roi/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR288/018/SRR28830618/SRR28830618_2.fastq.gz	
+parse	mouse tissue nuclei, plate igvf_012, tissues in separate wells (IGVF)	parse/igvf_012	https://api.data.igvf.org/matrix-files/IGVFFI6701NOOZ/@@download/IGVFFI6701NOOZ.h5ad	IGVFFI6701NOOZ.h5ad
+parse	mouse tissue nuclei, plate igvf_012, tissues in separate wells (IGVF)	parse/igvf_012	https://api.data.igvf.org/matrix-files/IGVFFI7862QPLV/@@download/IGVFFI7862QPLV.h5ad	IGVFFI7862QPLV.h5ad
+parse	mouse tissue nuclei, plate igvf_012, tissues in separate wells (IGVF)	parse/igvf_012	https://api.data.igvf.org/matrix-files/IGVFFI7709BVLA/@@download/IGVFFI7709BVLA.h5ad	IGVFFI7709BVLA.h5ad
+parse	mouse tissue nuclei, plate igvf_012, tissues in separate wells (IGVF)	parse/igvf_012	https://api.data.igvf.org/matrix-files/IGVFFI1661UXZO/@@download/IGVFFI1661UXZO.h5ad	IGVFFI1661UXZO.h5ad
+parse	mouse tissue nuclei, plate igvf_012, tissues in separate wells (IGVF)	parse/igvf_012	https://api.data.igvf.org/matrix-files/IGVFFI2712EDTJ/@@download/IGVFFI2712EDTJ.h5ad	IGVFFI2712EDTJ.h5ad
+parse	mouse tissue nuclei, plate igvf_012, tissues in separate wells (IGVF)	parse/igvf_012	https://api.data.igvf.org/matrix-files/IGVFFI1014AXHN/@@download/IGVFFI1014AXHN.h5ad	IGVFFI1014AXHN.h5ad
+parse	mouse tissue nuclei, plate igvf_012, tissues in separate wells (IGVF)	parse/igvf_012	https://api.data.igvf.org/matrix-files/IGVFFI5951LDUV/@@download/IGVFFI5951LDUV.h5ad	IGVFFI5951LDUV.h5ad
+parse	mouse tissue nuclei, plate igvf_012, tissues in separate wells (IGVF)	parse/igvf_012	https://api.data.igvf.org/matrix-files/IGVFFI1186PIQO/@@download/IGVFFI1186PIQO.h5ad	IGVFFI1186PIQO.h5ad
+parse	mouse bone marrow (GSE252604)	parse/GSE252604	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE252nnn/GSE252604/suppl/GSE252604_Alternate_HFD_unfiltered_DGE.mtx.gz	
+parse	mouse bone marrow (GSE252604)	parse/GSE252604	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE252nnn/GSE252604/suppl/GSE252604_Alternate_HFD_unfiltered_cell.csv.gz	
+parse	mouse bone marrow (GSE252604)	parse/GSE252604	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE252nnn/GSE252604/suppl/GSE252604_Alternate_HFD_unfiltered_all_genes.csv.gz	
+parse	mouse fracture callus (GSE292578)	parse/GSE292578	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE292nnn/GSE292578/suppl/GSE292578_all_unfiltered_DGE.mtx.gz	
+parse	mouse fracture callus (GSE292578)	parse/GSE292578	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE292nnn/GSE292578/suppl/GSE292578_all_unfiltered_cell_metadata.csv.gz	
+parse	mouse fracture callus (GSE292578)	parse/GSE292578	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE292nnn/GSE292578/suppl/GSE292578_all_unfiltered_genes.csv.gz	
+parse	K562 + mouse ES cells species mixture, reads (PRJEB67549)	parse/PRJEB67549/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/093/ERR12167393/ERR12167393_1.fastq.gz	
+parse	K562 + mouse ES cells species mixture, reads (PRJEB67549)	parse/PRJEB67549/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/093/ERR12167393/ERR12167393_2.fastq.gz	
+parse	K562 + mouse ES cells species mixture, reads (PRJEB67549)	parse/PRJEB67549/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/094/ERR12167394/ERR12167394_1.fastq.gz	
+parse	K562 + mouse ES cells species mixture, reads (PRJEB67549)	parse/PRJEB67549/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/094/ERR12167394/ERR12167394_2.fastq.gz	
+parse	K562 + mouse ES cells species mixture, reads (PRJEB67549)	parse/PRJEB67549/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/095/ERR12167395/ERR12167395_1.fastq.gz	
+parse	K562 + mouse ES cells species mixture, reads (PRJEB67549)	parse/PRJEB67549/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/095/ERR12167395/ERR12167395_2.fastq.gz	
+parse	K562 + mouse ES cells species mixture, reads (PRJEB67549)	parse/PRJEB67549/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/096/ERR12167396/ERR12167396_1.fastq.gz	
+parse	K562 + mouse ES cells species mixture, reads (PRJEB67549)	parse/PRJEB67549/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/096/ERR12167396/ERR12167396_2.fastq.gz	
+parse	K562 + mouse ES cells species mixture, reads (PRJEB67549)	parse/PRJEB67549/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/097/ERR12167397/ERR12167397_1.fastq.gz	
+parse	K562 + mouse ES cells species mixture, reads (PRJEB67549)	parse/PRJEB67549/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/097/ERR12167397/ERR12167397_2.fastq.gz	
+parse	K562 + mouse ES cells species mixture, reads (PRJEB67549)	parse/PRJEB67549/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/098/ERR12167398/ERR12167398_1.fastq.gz	
+parse	K562 + mouse ES cells species mixture, reads (PRJEB67549)	parse/PRJEB67549/fastq	https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR121/098/ERR12167398/ERR12167398_2.fastq.gz	
+parse	mouse tissue nuclei, plate igvf_012, tissues in separate wells (IGVF)	parse/igvf_012	https://raw.githubusercontent.com/mortazavilab/parse_pipeline/main/configs/sample_metadata.csv	

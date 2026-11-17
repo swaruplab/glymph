@@ -1,0 +1,13 @@
+usage: ambidose [-h] [--version] {inspect,estimate-chi,denoise} ...
+
+Per-cell ambient dose removal using empty droplets for χ.
+
+positional arguments:
+  {inspect,estimate-chi,denoise}
+    inspect             Validate input and cell-whitelist matching
+    estimate-chi        SoupX-style χ from empty droplets
+    denoise             Estimate χ and per-cell dose, subtract d·χ
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit

@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.DS_Store
+# built website (published from the gh-pages branch)
+site/
+# caches and working notes
+reports/.deck_cache/
+research_notes/
+dashboard/store/
+runs/*/first_pass/
+# third-party data: fetch with code/benchmark/01_download_tier2_kidney.sh
+data/kidney_strainmix/
+# large matrices never belong here
+*.h5ad
+*.h5
+*.mtx
+*.mtx.gz

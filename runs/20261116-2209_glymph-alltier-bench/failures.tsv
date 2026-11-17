@@ -1,0 +1,3 @@
+dataset	tool	wall_s	node
+batch	glymph_4gpu	1318.34	hpc3-gpu-k54-03
+hgmm_10k_v3	glymph_gpu_A100	165.66	hpc3-gpu-l54-04

@@ -1,0 +1,867 @@
+<meta name="dash-one-writer">
+<style>
+  /* Layout: one column. Verdict sentence, job-state tiles, scoreboard, three dot charts, then the working tables. */
+  .gl { display: grid; gap: var(--cds-gap-xl); color: var(--color-fg); font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-body); min-width: 0; }
+  .gl-head { display: grid; gap: var(--cds-gap-sm); }
+  .gl-eyebrow { margin: 0; font-size: var(--cds-font-size-caption); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-fg-muted); }
+  .gl-title { margin: 0; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); text-wrap: balance; }
+  .gl-lede { margin: 0; max-width: 70ch; font-size: var(--cds-font-size-heading); line-height: 1.4; }
+  .gl-lede b { font-weight: var(--cds-font-weight-medium); font-variant-numeric: tabular-nums; }
+  .gl-note { margin: 0; max-width: 75ch; color: var(--color-fg-muted); line-height: 1.5; }
+  .gl-sec { display: grid; gap: var(--cds-gap-md); min-width: 0; }
+  .gl-h2 { margin: 0; font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); text-wrap: balance; }
+  .gl-h3 { margin: 0; font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); }
+  .gl-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: var(--cds-gap-md); }
+  .gl-tile { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-xs); }
+  .gl-tile-n { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .gl-tile-l { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+  .gl-tile-l::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; background: var(--color-fg-muted); }
+  .gl-tile-ok .gl-tile-l::before { background: var(--color-ok); }
+  .gl-tile-warn .gl-tile-l::before { background: var(--color-warn); }
+  .gl-tile-bad .gl-tile-l::before { background: var(--color-bad); }
+  .gl-charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--cds-gap-lg); }
+  .gl-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-sm); min-width: 0; align-content: start; }
+  .gl-sub { margin: 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); line-height: 1.45; }
+  .gl-chart { min-height: 230px; min-width: 0; }
+  .gl-plot { position: relative; }
+  .gl-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-bottom: 6px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .gl-key { display: inline-flex; align-items: center; gap: 5px; }
+  .gl-key i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .gl-axis text { fill: var(--cds-text-secondary); font-size: var(--cds-font-size-caption); font-family: var(--font-anthropic-sans); }
+  .gl-axis path, .gl-axis line { stroke: var(--cds-chart-axis); }
+  .gl-grid line { stroke: var(--cds-chart-grid); }
+  .gl-dot { stroke: var(--color-panel); stroke-width: 1.5px; cursor: default; }
+  .gl-tip { position: absolute; pointer-events: none; z-index: 2; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); box-shadow: var(--cds-shadow-popover); border-radius: var(--cds-radius); padding: 4px 8px; font-size: var(--cds-font-size-caption); white-space: nowrap; }
+  .gl-tip[hidden] { display: none; }
+  .gl-empty { margin: 0; color: var(--color-fg-muted); padding: var(--cds-pad-md) 0; }
+  .gl-scroll { overflow-x: auto; min-width: 0; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+  .gl-table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .gl-table th { text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: 8px 10px; border-bottom: 1px solid var(--color-border-line); white-space: nowrap; vertical-align: bottom; background: var(--color-panel); }
+  .gl-table td { padding: 7px 10px; border-bottom: 1px solid var(--color-border-line); vertical-align: top; line-height: 1.4; }
+  .gl-table tr:last-child td { border-bottom: 0; }
+  .gl-table .gl-r { text-align: right; white-space: nowrap; }
+  .gl-table .gl-nw { white-space: nowrap; }
+  .gl-table .gl-wide { min-width: 22ch; }
+  .gl-pill { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+  .gl-pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--color-fg-muted); }
+  .gl-pill-ok::before { background: var(--color-ok); }
+  .gl-pill-warn::before { background: var(--color-warn); }
+  .gl-pill-bad::before { background: var(--color-bad); }
+  .gl-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--cds-gap-lg); align-items: start; }
+  .gl-details { color: var(--color-fg-muted); line-height: 1.5; max-width: 80ch; }
+  .gl-details summary { cursor: pointer; color: var(--color-fg); }
+  .gl-details dt { color: var(--color-fg); margin-top: 8px; }
+  .gl-details dd { margin: 0; }
+</style>
+
+<div class="gl">
+  <header class="gl-head" id="summary">
+    <p class="gl-eyebrow">Ambient RNA removal · 55 libraries on 10x, BD Rhapsody and Parse · five tiers</p>
+    <h1 class="gl-title">Glymph benchmark tracker</h1>
+    <p class="gl-lede" data-when="scores" hidden>On the <b data-draw="num" data-source="tool_summary" data-field="libraries" data-where="tool=glymph"></b> libraries scored so far, Glymph removes <b data-draw="num" data-source="tool_summary" data-field="removed_pct" data-where="tool=glymph"></b>% of cross-species counts, in a median of <b data-draw="num" data-source="tool_summary" data-field="median_wall_s" data-where="tool=glymph"></b> s per library on one A30. <span data-when="cellbender" hidden>CellBender removes <b data-draw="num" data-source="tool_summary" data-field="removed_pct" data-where="tool=cellbender"></b>% on <b data-draw="num" data-source="tool_summary" data-field="libraries" data-where="tool=cellbender"></b> libraries, in a median of <b data-draw="num" data-source="tool_summary" data-field="median_wall_s" data-where="tool=cellbender"></b> s.</span></p>
+    <p class="gl-lede" data-when="no-scores" hidden>Nothing is scored yet. The job table shows what is running.</p>
+    <p class="gl-note">Where things stand, 17 November 2026, 6 am Eastern. The benchmark of every tool on all 54 libraries finished overnight; its results are in the section "All tiers" just below. In short, against CellBender 0.3.2 on libraries Glymph 0.3.0 had never seen: about 20 times faster, lower per-cell error on 24 of 27 mixtures, level on removal for 10x cell lines, well ahead on nuclei, behind on BD Rhapsody, and it failed on libraries of 80,000 cells and more. A fix for the last two points (Glymph 0.3.1) is being tested now and is not in these tables. The tier 1 and tier 2 sections further down are the first run (Glymph 0.2.0) and are kept for the record.</p>
+    <p class="gl-note">Cross-species counts are the ground truth here: in a human cell every mouse read is background, and the reverse. Cell-line mixtures carry only 1 to 3% contamination, far less than tissue nuclei, so a lead on this tier alone does not show a method is better on real tissue.</p>
+  </header>
+
+  <section class="gl-sec" id="status">
+    <h2 class="gl-h2">Jobs on HPC3 right now</h2>
+    <div class="gl-tiles">
+      <div class="gl-tile gl-tile-warn"><span class="gl-tile-n" data-draw="num" data-source="job_counts" data-field="n" data-where="state=RUNNING"></span><span class="gl-tile-l">running</span></div>
+      <div class="gl-tile"><span class="gl-tile-n" data-draw="num" data-source="job_counts" data-field="n" data-where="state=PENDING"></span><span class="gl-tile-l">waiting in the queue</span></div>
+      <div class="gl-tile gl-tile-ok"><span class="gl-tile-n" data-draw="num" data-source="job_counts" data-field="n" data-where="state=COMPLETED"></span><span class="gl-tile-l">completed</span></div>
+      <div class="gl-tile gl-tile-bad"><span class="gl-tile-n" data-draw="num" data-source="job_counts" data-field="n" data-where="state=FAILED"></span><span class="gl-tile-l">failed or cancelled</span></div>
+    </div>
+    <p class="gl-sub">One count per Slurm job; an array of seven libraries is one job. Counts include earlier attempts that were fixed and resubmitted, and the development experiments. The job table further down says which is which.</p>
+  </section>
+
+  <section class="gl-sec" id="alltier">
+    <h2 class="gl-h2">All tiers: Glymph 0.3.0 against every tool</h2>
+    <p class="gl-note">Run 20261116-2209, 54 libraries. Species truth with alignment-artifact genes masked for every tool (see the last table of this section). "Budget" is the false-positive budget: extra counts a tool may remove beyond the background it expects. Glymph's default is 0.4%, CellBender's is 1%, so the fairest rows to compare are the two at 1% and the two at 0.</p>
+    <h3 class="gl-h3">Held-out libraries only: human + mouse mixtures by platform</h3>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="alltier_heldout" data-row-key="group,tool" id="alltier-heldout-table">
+        <thead><tr>
+          <th data-field="group">Group</th>
+          <th data-field="tool">Tool</th>
+          <th data-field="libraries" class="gl-r">Libraries</th>
+          <th data-field="removed_pct" class="gl-r">Cross-species removed, %</th>
+          <th data-field="own_kept_pct" class="gl-r">Same-species kept, %</th>
+          <th data-field="native_loss_pct" class="gl-r">Native loss, %</th>
+          <th data-field="same_species_ratio" class="gl-r">Same-species ratio</th>
+          <th data-field="rmsle" class="gl-r">Per-cell error</th>
+          <th data-field="kendall" class="gl-r">Rank agreement</th>
+          <th data-field="adds_counts">Adds counts</th>
+          <th data-field="whole_numbers">Whole numbers</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+    <p class="gl-sub">Held out means Glymph was never run on the library before this benchmark. Higher is better for removal, same-species kept and rank agreement; lower for native loss and per-cell error; the same-species ratio should sit near 1 (well below 1 means same-species background was left in). The nuclei mixture and the tuning mixtures are not held out and appear in the next table.</p>
+    <details class="gl-details"><summary>The same over all libraries, tuning and looked-at ones included</summary>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="alltier_everything" data-row-key="group,tool" id="alltier-all-table">
+        <thead><tr>
+          <th data-field="group">Group</th>
+          <th data-field="tool">Tool</th>
+          <th data-field="libraries" class="gl-r">Libraries</th>
+          <th data-field="removed_pct" class="gl-r">Cross-species removed, %</th>
+          <th data-field="own_kept_pct" class="gl-r">Same-species kept, %</th>
+          <th data-field="native_loss_pct" class="gl-r">Native loss, %</th>
+          <th data-field="same_species_ratio" class="gl-r">Same-species ratio</th>
+          <th data-field="rmsle" class="gl-r">Per-cell error</th>
+          <th data-field="kendall" class="gl-r">Rank agreement</th>
+          <th data-field="adds_counts">Adds counts</th>
+          <th data-field="whole_numbers">Whole numbers</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+    </details>
+    <h3 class="gl-h3">Glymph against CellBender, library by library (both at their defaults)</h3>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="alltier_lib" data-row-key="library" id="alltier-lib-table">
+        <thead><tr>
+          <th data-field="library">Library</th>
+          <th data-field="platform">Platform</th>
+          <th data-field="development">In development</th>
+          <th data-field="cross_pct" class="gl-r">Cross-species counts, %</th>
+          <th data-field="masked_pct" class="gl-r">Of which masked, %</th>
+          <th data-field="glymph_removed" class="gl-r">Removed, Glymph %</th>
+          <th data-field="cellbender_removed" class="gl-r">Removed, CellBender %</th>
+          <th data-field="glymph_kept" class="gl-r">Kept, Glymph %</th>
+          <th data-field="cellbender_kept" class="gl-r">Kept, CellBender %</th>
+          <th data-field="glymph_rmsle" class="gl-r">Error, Glymph</th>
+          <th data-field="cellbender_rmsle" class="gl-r">Error, CellBender</th>
+          <th data-field="glymph_kendall" class="gl-r">Rank, Glymph</th>
+          <th data-field="cellbender_kendall" class="gl-r">Rank, CellBender</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+    <h3 class="gl-h3">Mouse kidney, cells and nuclei (authors' genotype truth; Glymph was tuned on these five libraries)</h3>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="alltier_kidney" data-row-key="tool" id="alltier-kidney-table">
+        <thead><tr>
+          <th data-field="tool">Tool</th>
+          <th data-field="libraries" class="gl-r">Libraries</th>
+          <th data-field="rmsle" class="gl-r">Per-cell error</th>
+          <th data-field="kendall" class="gl-r">Rank agreement</th>
+          <th data-field="removed_over_truth" class="gl-r">Removed / truth</th>
+          <th data-field="marker_removed_pct" class="gl-r">Tubule markers removed from other cells, %</th>
+          <th data-field="marker_kept_pct" class="gl-r">Tubule markers kept in tubule cells, %</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+    <h3 class="gl-h3">Time and memory</h3>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="alltier_res" data-row-key="what,tool,hardware" id="alltier-res-table">
+        <thead><tr>
+          <th data-field="what">What was run</th>
+          <th data-field="tool">Tool</th>
+          <th data-field="hardware">Hardware</th>
+          <th data-field="median_wall_s" class="gl-r">Wall, s (median where many)</th>
+          <th data-field="longest_wall_s" class="gl-r">Longest, s</th>
+          <th data-field="total_hours" class="gl-r">Total, hours</th>
+          <th data-field="median_ram_gb" class="gl-r">Median RAM, GB</th>
+          <th data-field="peak_ram_gb" class="gl-r">Peak RAM, GB</th>
+          <th data-field="peak_gpu_gb" class="gl-r">Peak GPU memory, GB</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+    <h3 class="gl-h3">Scaling: one 20,000-cell library copied 1 to 8 times, one A30</h3>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="alltier_scaling" data-row-key="tool,cells" id="alltier-scaling-table">
+        <thead><tr>
+          <th data-field="tool">Tool</th>
+          <th data-field="cells" class="gl-r">Cells</th>
+          <th data-field="state">Outcome</th>
+          <th data-field="wall_s" class="gl-r">Wall, s</th>
+          <th data-field="peak_ram_gb" class="gl-r">Peak RAM, GB</th>
+          <th data-field="note" class="gl-wide">Note</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+    <details class="gl-details"><summary>Libraries without truth: how much each tool removes, and marker leakage</summary>
+    <p class="gl-sub">Marker genes here are genes found in one cluster only, from the raw data; "removed elsewhere" is the share of their counts removed from other clusters, "kept at home" the share kept in their own cluster. Without truth these say what a tool does, not whether it is right.</p>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="alltier_free" data-row-key="group,tool" id="alltier-free-table">
+        <thead><tr>
+          <th data-field="group">Group</th>
+          <th data-field="tool">Tool</th>
+          <th data-field="libraries" class="gl-r">Libraries</th>
+          <th data-field="removed_pct" class="gl-r">Counts removed, %</th>
+          <th data-field="marker_removed_pct" class="gl-r">Markers removed elsewhere, %</th>
+          <th data-field="marker_kept_pct" class="gl-r">Markers kept at home, %</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+    </details>
+    <details class="gl-details"><summary>Genes masked from the species score, and why</summary>
+    <p class="gl-sub">In human Parse cells 68% of the "mouse" counts are on Gm42418 and 10% on Lars2, at the same level in wells that held only human cells: ribosomal RNA reads aligned to the wrong genome, not RNA from another cell. A gene is masked for every tool when it holds at least 0.5% of one species' cross-species counts and that share is more than ten times its share both in the other species' cells and in the empty partitions. The rule uses raw counts only. It also finds human IL6 and CSF1 in the xenograft mice, which carry those transgenes. Before the mask every tool removed about 20% on Parse.</p>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="alltier_artifacts" data-row-key="library,gene,in_cells_of" id="alltier-artifacts-table">
+        <thead><tr>
+          <th data-field="library">Library</th>
+          <th data-field="gene">Gene</th>
+          <th data-field="in_cells_of">Found in cells of</th>
+          <th data-field="share_of_cross_pct" class="gl-r">Share of cross-species counts, %</th>
+          <th data-field="share_in_source_cells_pct" class="gl-r">Share in the other species' cells, %</th>
+          <th data-field="share_in_soup_pct" class="gl-r">Share in empty partitions, %</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+    </details>
+  </section>
+
+  <section class="gl-sec" id="scoreboard">
+    <h2 class="gl-h2">First run (Glymph 0.2.0), tier 1 scoreboard: human + mouse mixtures</h2>
+    <div class="gl-two">
+      <div class="gl-sec">
+        <h3 class="gl-h3">This benchmark, mean over the libraries scored so far</h3>
+        <div class="gl-scroll">
+          <table class="gl-table" data-source="tool_summary" data-row-key="tool" id="scoreboard-table">
+            <thead><tr>
+              <th data-field="tool">Tool</th>
+              <th data-field="libraries" class="gl-r">Libraries</th>
+              <th data-field="removed_pct" class="gl-r">Cross-species removed, %</th>
+              <th data-field="own_kept_pct" class="gl-r">Same-species kept, %</th>
+              <th data-field="native_loss_pct" class="gl-r">Native loss, %</th>
+              <th data-field="same_species_ratio" class="gl-r">Same-species ratio</th>
+              <th data-field="rmsle" class="gl-r">Per-cell error</th>
+              <th data-field="above_raw" class="gl-r">Entries above raw</th>
+              <th data-field="non_integer" class="gl-r">Non-integer entries</th>
+              <th data-field="median_wall_s" class="gl-r">Median wall, s</th>
+            </tr></thead>
+            <tbody data-draw="rows"></tbody>
+          </table>
+        </div>
+        <p class="gl-sub">Higher is better for removal and for same-species kept. Lower is better for native loss, per-cell error and wall time. Same-species ratio should sit near 1. Entries above raw and non-integer entries should be 0.</p>
+        <p class="gl-sub"><b>Which Glymph is which.</b> glymph is version 0.2.0 at its default, a false-positive budget of 0.5%. glymph_fpr0 and glymph_fpr1 are the same model with a budget of 0 and of 1% (CellBender's default is 1%). glymph_v01 and glymph_v0 are the two earlier versions, kept to show what each change bought.</p>
+      </div>
+      <div class="gl-sec">
+        <h3 class="gl-h3">Published values for comparison</h3>
+        <div class="gl-scroll">
+          <table class="gl-table" data-source="published" data-row-key="tool" id="published-table">
+            <thead><tr>
+              <th data-field="tool">Tool</th>
+              <th data-field="removed_pct" class="gl-r">Cross-species removed, %</th>
+              <th data-field="source">Source</th>
+              <th data-field="note" class="gl-wide">How it was measured</th>
+            </tr></thead>
+            <tbody data-draw="rows"></tbody>
+          </table>
+        </div>
+        <p class="gl-sub">Quoted from the literature, not rerun here. The library set overlaps this one but the chemistry versions the authors used are not confirmed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gl-sec" id="charts">
+    <h2 class="gl-h2">Tier 1 scores by library</h2>
+    <div class="gl-charts">
+      <div class="gl-card" id="chart-removed">
+        <h3 class="gl-h3">Cross-species counts removed, %</h3>
+        <p class="gl-sub">Share of known background removed from evaluation cells. Right is better.</p>
+        <div class="gl-chart" data-draw="dots" data-source="scores" data-metric="removed_pct" data-unit="%" data-label="Cross-species counts removed per library and tool, in percent"></div>
+      </div>
+      <div class="gl-card" id="chart-native">
+        <h3 class="gl-h3">Native counts lost, %</h3>
+        <p class="gl-sub">Same-species counts removed beyond the expected background. Left is better.</p>
+        <div class="gl-chart" data-draw="dots" data-source="scores" data-metric="native_loss_pct" data-unit="%" data-label="Native counts lost per library and tool, in percent"></div>
+      </div>
+      <div class="gl-card" id="chart-kept">
+        <h3 class="gl-h3">Same-species counts kept, %</h3>
+        <p class="gl-sub">What each tool leaves of a cell's own species. Read it beside removal: taking more counts raises removal and lowers this.</p>
+        <div class="gl-chart" data-draw="dots" data-source="scores" data-metric="own_kept_pct" data-unit="%" data-label="Same-species counts kept per library and tool, in percent"></div>
+      </div>
+      <div class="gl-card" id="chart-wall">
+        <h3 class="gl-h3">Wall time per library, s (log scale)</h3>
+        <p class="gl-sub">Whole command on one A30 for the GPU tools, including reading and writing files. Left is better.</p>
+        <div class="gl-chart" data-draw="dots" data-source="scores" data-metric="wall_s" data-unit=" s" data-log data-label="Wall time per library and tool, in seconds on a log scale"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gl-sec" id="scores">
+    <h2 class="gl-h2">Tier 1, every score</h2>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="scores" data-row-key="library,tool" id="scores-table">
+        <thead><tr>
+          <th data-field="library">Library</th>
+          <th data-field="tool">Tool</th>
+          <th data-field="cells_scored" class="gl-r">Cells scored</th>
+          <th data-field="cells_missing" class="gl-r">Not called by tool</th>
+          <th data-field="raw_cross_pct" class="gl-r">Cross-species in raw, %</th>
+          <th data-field="removed_pct" class="gl-r">Removed, %</th>
+          <th data-field="cell_median_removed_pct" class="gl-r">Removed, per-cell median, %</th>
+          <th data-field="native_loss_pct" class="gl-r">Native loss, %</th>
+          <th data-field="own_kept_pct" class="gl-r">Same-species kept, %</th>
+          <th data-field="same_species_ratio" class="gl-r">Same-species ratio</th>
+          <th data-field="above_raw" class="gl-r">Above raw</th>
+          <th data-field="non_integer" class="gl-r">Non-integer</th>
+          <th data-field="rmsle" class="gl-r">Per-cell error</th>
+          <th data-field="kendall" class="gl-r">Per-cell rank agreement</th>
+          <th data-field="wall_s" class="gl-r">Wall, s</th>
+          <th data-field="peak_rss_gb" class="gl-r">Peak RAM, GB</th>
+          <th data-field="peak_gpu_gb" class="gl-r">Peak GPU, GB</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+    <h3 class="gl-h3">Whole-benchmark wall time</h3>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="speed" data-row-key="what,tool" id="speed-table">
+        <thead><tr>
+          <th data-field="what">What was timed</th>
+          <th data-field="tool">Tool</th>
+          <th data-field="wall_s" class="gl-r">Wall, s</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="gl-sec" id="tier2">
+    <h2 class="gl-h2">Tier 2: mouse kidney, cells and nuclei</h2>
+    <p class="gl-note">Five libraries pooled from two mouse subspecies (Janssen et al. 2023): three from cells and two from nuclei, with 3 to 35% background. The truth is the authors' own: for every cell, the background fraction read from the other subspecies' alleles. Proximal tubule (PT) cells make up most of each library, so PT marker counts in other cell types are almost all background.</p>
+    <p class="gl-lede" data-when="no-kidney" hidden>Nothing is scored on tier 2 yet.</p>
+    <div class="gl-two">
+      <div class="gl-sec">
+        <h3 class="gl-h3">This benchmark, mean over the libraries scored so far</h3>
+        <div class="gl-scroll">
+          <table class="gl-table" data-source="kidney_summary" data-row-key="tool" id="kidney-scoreboard">
+            <thead><tr>
+              <th data-field="tool">Tool</th>
+              <th data-field="libraries" class="gl-r">Libraries</th>
+              <th data-field="rmsle" class="gl-r">Per-cell error</th>
+              <th data-field="kendall" class="gl-r">Rank agreement</th>
+              <th data-field="removed_over_truth" class="gl-r">Removed / true background</th>
+              <th data-field="marker_removed_pct" class="gl-r">PT markers removed from non-PT, %</th>
+              <th data-field="marker_kept_pct" class="gl-r">PT markers kept in PT, %</th>
+              <th data-field="above_raw" class="gl-r">Entries above raw</th>
+              <th data-field="non_integer" class="gl-r">Non-integer entries</th>
+              <th data-field="median_wall_s" class="gl-r">Median wall, s</th>
+            </tr></thead>
+            <tbody data-draw="rows"></tbody>
+          </table>
+        </div>
+        <p class="gl-sub">Lower is better for per-cell error and wall time; higher for rank agreement and both marker columns. Removed / true background should sit near 1.</p>
+      </div>
+      <div class="gl-sec">
+        <h3 class="gl-h3">Published values for the same libraries</h3>
+        <div class="gl-scroll">
+          <table class="gl-table" data-source="kidney_published" data-row-key="tool,library" id="kidney-published">
+            <thead><tr>
+              <th data-field="tool">Tool</th>
+              <th data-field="library">Library</th>
+              <th data-field="rmsle" class="gl-r">Per-cell error</th>
+              <th data-field="kendall" class="gl-r">Rank agreement</th>
+              <th data-field="marker_log2fc" class="gl-r">Marker log2 fold change</th>
+            </tr></thead>
+            <tbody data-draw="rows"></tbody>
+          </table>
+        </div>
+        <p class="gl-sub">From Janssen et al. 2023 at their default settings, with older tool versions. Their per-cell error may be defined on a slightly different cell set, so read these as orientation.</p>
+      </div>
+    </div>
+    <div class="gl-charts">
+      <div class="gl-card" id="chart-kidney-rmsle">
+        <h3 class="gl-h3">Per-cell contamination error</h3>
+        <p class="gl-sub">Estimated against genotype-based background fraction. Left is better.</p>
+        <div class="gl-chart" data-draw="dots" data-source="kidney" data-metric="rmsle" data-label="Per-cell contamination error per kidney library and tool"></div>
+      </div>
+      <div class="gl-card" id="chart-kidney-marker">
+        <h3 class="gl-h3">PT markers removed from non-PT cells, %</h3>
+        <p class="gl-sub">Background by construction. Right is better.</p>
+        <div class="gl-chart" data-draw="dots" data-source="kidney" data-metric="marker_removed_pct" data-unit="%" data-label="PT marker counts removed from non-PT cells per kidney library and tool, in percent"></div>
+      </div>
+      <div class="gl-card" id="chart-kidney-kept">
+        <h3 class="gl-h3">PT markers kept in PT cells, %</h3>
+        <p class="gl-sub">Real signal. Right is better.</p>
+        <div class="gl-chart" data-draw="dots" data-source="kidney" data-metric="marker_kept_pct" data-unit="%" data-label="PT marker counts kept in PT cells per kidney library and tool, in percent"></div>
+      </div>
+    </div>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="kidney" data-row-key="library,tool" id="kidney-table">
+        <thead><tr>
+          <th data-field="library">Library</th>
+          <th data-field="kind">Kind</th>
+          <th data-field="tool">Tool</th>
+          <th data-field="cells_scored" class="gl-r">Cells scored</th>
+          <th data-field="cells_missing" class="gl-r">Not returned by tool</th>
+          <th data-field="truth_pct" class="gl-r">True background, %</th>
+          <th data-field="removed_pct" class="gl-r">Removed, %</th>
+          <th data-field="rmsle" class="gl-r">Per-cell error</th>
+          <th data-field="kendall" class="gl-r">Rank agreement</th>
+          <th data-field="marker_removed_pct" class="gl-r">PT markers removed from non-PT, %</th>
+          <th data-field="marker_kept_pct" class="gl-r">PT markers kept in PT, %</th>
+          <th data-field="slc34a1_before_pct" class="gl-r">Non-PT cells with Slc34a1, raw, %</th>
+          <th data-field="slc34a1_after_pct" class="gl-r">Non-PT cells with Slc34a1, after, %</th>
+          <th data-field="above_raw" class="gl-r">Above raw</th>
+          <th data-field="non_integer" class="gl-r">Non-integer</th>
+          <th data-field="wall_s" class="gl-r">Wall, s</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="gl-sec" id="jobs">
+    <h2 class="gl-h2">Jobs</h2>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="jobs" data-row-key="job" id="jobs-table">
+        <thead><tr>
+          <th data-field="job">Job</th>
+          <th data-field="what" class="gl-wide">What</th>
+          <th data-field="state">State</th>
+          <th data-field="detail">Tasks</th>
+          <th data-field="longest_task" class="gl-r">Longest task</th>
+          <th data-field="peak_rss_gb" class="gl-r">Peak RAM, GB</th>
+          <th data-field="note" class="gl-wide">Note</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="gl-sec" id="runs">
+    <h2 class="gl-h2">Runs</h2>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="runs" data-row-key="run_id" id="runs-table">
+        <thead><tr>
+          <th data-field="run_id">Run</th>
+          <th data-field="host">Where</th>
+          <th data-field="status">Status</th>
+          <th data-field="started">Started</th>
+          <th data-field="summary" class="gl-wide">Summary</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="gl-sec" id="libraries">
+    <h2 class="gl-h2">Libraries</h2>
+    <p class="gl-note">Every library in the benchmark. "Cells" is the number of barcodes above the gap between cells and background, found from the depth distribution alone; "vendor cells" is the vendor pipeline's own call where one exists. No model is fitted for this table. "In development" says how far a library has shaped the method: "tuned on" (settings and design were fitted to it), "looked at" (run during development, results seen), "held out" (never run with Glymph before the benchmark).</p>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="libraries" data-row-key="library" id="libraries-table">
+        <thead><tr>
+          <th data-field="library">Library</th>
+          <th data-field="tier">Tier</th>
+          <th data-field="platform">Platform</th>
+          <th data-field="kind">Kind</th>
+          <th data-field="truth">Truth</th>
+          <th data-field="status">Status</th>
+          <th data-field="development">In development</th>
+          <th data-field="barcodes" class="gl-num">Barcodes</th>
+          <th data-field="cells" class="gl-num">Cells</th>
+          <th data-field="vendor_cells" class="gl-num">Vendor cells</th>
+          <th data-field="thresholds_from">Thresholds from</th>
+          <th data-field="note" class="gl-wide">Note</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="gl-sec" id="tools">
+    <h2 class="gl-h2">Tools and environments</h2>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="tools" data-row-key="tool" id="tools-table">
+        <thead><tr>
+          <th data-field="tool">Tool</th>
+          <th data-field="role">Role</th>
+          <th data-field="version">Version</th>
+          <th data-field="environment">Environment on HPC3</th>
+          <th data-field="status">Status</th>
+          <th data-field="note" class="gl-wide">Note</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="gl-sec" id="log">
+    <h2 class="gl-h2">Decisions and events, newest first</h2>
+    <div class="gl-scroll">
+      <table class="gl-table" data-source="log" data-row-key="n" id="log-table">
+        <thead><tr>
+          <th data-field="n" class="gl-r">#</th>
+          <th data-field="at">When (MacBook clock)</th>
+          <th data-field="entry" class="gl-wide">What happened or was decided</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <details class="gl-details" id="definitions">
+    <summary>How each score is defined</summary>
+    <dl>
+      <dt>Evaluation cells</dt><dd>Barcodes at or above the order-of-magnitude count threshold in the raw matrix with at least 90% of counts from one species. Every tool is scored on the same barcodes.</dd>
+      <dt>Cross-species removed</dt><dd>Share of the other species' counts removed from evaluation cells, summed over cells. The per-cell median is the same share taken cell by cell.</dd>
+      <dt>Native loss</dt><dd>Same-species counts removed beyond the expected same-species background, as a share of native counts. The expectation scales each cell's cross-species counts by the species split of the empty droplets.</dd>
+      <dt>Same-species ratio</dt><dd>Same-species counts removed divided by that expectation. Above 1 means native counts were taken; well below 1 means same-species background was left in.</dd>
+      <dt>Entries above raw, non-integer entries</dt><dd>Count integrity. A cleaned entry must not exceed the raw entry and should stay a whole number.</dd>
+      <dt>False-positive budget</dt><dd>Extra counts a tool may remove beyond the background it expects, as a share of each gene's native counts. It buys removal at the price of native counts, so tools should be compared at similar values of same-species kept.</dd>
+      <dt>Per-cell error and rank agreement</dt><dd>Root mean squared log error and Kendall rank correlation between each cell's estimated and true contamination fraction.</dd>
+      <dt>Wall time, peak RAM, peak GPU</dt><dd>Wall time and peak resident memory of the whole command from /usr/bin/time; peak GPU memory from the tool's own report where it gives one.</dd>
+    </dl>
+  </details>
+</div>
+
+<script>
+  // One attached file holds every table; each loader takes its own table out of it.
+  dash.loader('runs', {
+    description: 'One row per run. Taken from the "runs" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.runs) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.loader('jobs', {
+    description: 'One row per Slurm job or array task. Taken from the "jobs" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.jobs) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.loader('scores', {
+    description: 'One row per library and tool. Taken from the "scores" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.scores) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.loader('speed', {
+    description: 'Wall time of whole-benchmark runs. Taken from the "speed" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.speed) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.loader('libraries', {
+    description: 'Every library of the benchmark with its status and cell counts. Taken from the "libraries" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.libraries) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.loader('tools', {
+    description: 'Tools in the benchmark and where they are installed. Taken from the "tools" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.tools) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.loader('published', {
+    description: 'Values quoted from published benchmarks. Taken from the "published" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.published) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.loader('log', {
+    description: 'Dated decisions and events. Taken from the "log" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.log) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+
+  dash.loader('kidney', {
+    description: 'One row per kidney library and tool. Taken from the "kidney" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.kidney) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.loader('kidney_published', {
+    description: 'Values quoted from Janssen et al. 2023. Taken from the "kidney_published" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.kidney_published) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+
+  dash.loader('alltier', {
+    description: 'Means per group and tool on the species mixtures of the all-tier benchmark. Taken from the "alltier" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.alltier) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.loader('alltier_lib', {
+    description: 'Glymph and CellBender side by side on every species-truth library. Taken from the "alltier_lib" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.alltier_lib) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.loader('alltier_kidney', {
+    description: 'Means over the five kidney libraries in the all-tier benchmark. Taken from the "alltier_kidney" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.alltier_kidney) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.loader('alltier_free', {
+    description: 'Truth-free scores per group and tool in the all-tier benchmark. Taken from the "alltier_free" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.alltier_free) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.loader('alltier_res', {
+    description: 'Time and memory per tool in the all-tier benchmark, and the special runs. Taken from the "alltier_res" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.alltier_res) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.loader('alltier_scaling', {
+    description: 'Time and memory against library size. Taken from the "alltier_scaling" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.alltier_scaling) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.loader('alltier_artifacts', {
+    description: 'Genes masked from the species score. Taken from the "alltier_artifacts" table of the tracker file.',
+    fn: ({ answer }) => {
+      const rows = (answer && answer.alltier_artifacts) || [];
+      return { columns: rows.length ? Object.keys(rows[0]) : [], rows };
+    },
+  });
+  dash.calc('alltier_heldout', {
+    inputs: ['alltier'],
+    title: 'All tiers, held-out libraries',
+    description: 'Rows of the all-tier species table that are means over held-out libraries only.',
+    fn: (rows) => rows.filter((r) => r.scope === 'held out'),
+  });
+  dash.calc('alltier_everything', {
+    inputs: ['alltier'],
+    title: 'All tiers, every library',
+    description: 'Rows of the all-tier species table that are means over all libraries of a group.',
+    fn: (rows) => rows.filter((r) => r.scope === 'all'),
+  });
+
+  dash.calc('kidney_summary', {
+    inputs: ['kidney'],
+    title: 'Tier 2 scoreboard by tool',
+    description: 'Mean over the kidney libraries scored so far; wall time is the median; integrity counts are sums.',
+    fn: (kidney) => {
+      const order = ['glymph', 'glymph_fpr0', 'glymph_fpr1', 'cellbender', 'scar', 'ambidose', 'soupx', 'decontx', 'decontx_bg'];
+      const vals = (rows, f) => rows.map((r) => r[f]).filter((x) => x !== null && x !== undefined && x !== '');
+      const mean = (rows, f, nd) => { const v = vals(rows, f); return v.length ? +d3.mean(v).toFixed(nd) : null; };
+      const total = (rows, f) => { const v = vals(rows, f); return v.length ? d3.sum(v) : null; };
+      const out = Array.from(d3.group(kidney, (r) => r.tool), ([tool, rows]) => ({
+        tool,
+        libraries: rows.length,
+        rmsle: mean(rows, 'rmsle', 3),
+        kendall: mean(rows, 'kendall', 2),
+        removed_over_truth: mean(rows, 'removed_over_truth', 2),
+        marker_removed_pct: mean(rows, 'marker_removed_pct', 1),
+        marker_kept_pct: mean(rows, 'marker_kept_pct', 1),
+        above_raw: total(rows, 'above_raw'),
+        non_integer: total(rows, 'non_integer'),
+        median_wall_s: vals(rows, 'wall_s').length ? Math.round(d3.median(vals(rows, 'wall_s'))) : null,
+      }));
+      const rank = (t) => (order.indexOf(t) < 0 ? order.length : order.indexOf(t));
+      return out.sort((a, b) => rank(a.tool) - rank(b.tool) || d3.ascending(a.tool, b.tool));
+    },
+  });
+
+  dash.calc('job_counts', {
+    inputs: ['jobs'],
+    title: 'Jobs by state',
+    description: 'Number of Slurm jobs and array tasks in each state. Failed also counts cancelled, timed out and out of memory.',
+    fn: (jobs) => {
+      const bad = ['FAILED', 'CANCELLED', 'TIMEOUT', 'OUT_OF_MEMORY', 'NODE_FAIL'];
+      return ['RUNNING', 'PENDING', 'COMPLETED', 'FAILED'].map((state) => ({
+        state,
+        n: jobs.filter((j) => (state === 'FAILED' ? bad.includes(j.state) : j.state === state)).length,
+      }));
+    },
+  });
+
+  dash.calc('tool_summary', {
+    inputs: ['scores'],
+    title: 'Scoreboard by tool',
+    description: 'Mean over the libraries scored so far; wall time is the median; integrity counts are sums.',
+    fn: (scores) => {
+      const order = ['glymph', 'glymph_fpr0', 'glymph_fpr1', 'cellbender', 'scar', 'ambidose', 'soupx', 'decontx', 'decontx_bg', 'glymph_v01', 'glymph_v0'];
+      const vals = (rows, f) => rows.map((r) => r[f]).filter((x) => x !== null && x !== undefined && x !== '');
+      const mean = (rows, f, nd) => { const v = vals(rows, f); return v.length ? +d3.mean(v).toFixed(nd) : null; };
+      const total = (rows, f) => { const v = vals(rows, f); return v.length ? d3.sum(v) : null; };
+      const out = Array.from(d3.group(scores, (r) => r.tool), ([tool, rows]) => ({
+        tool,
+        libraries: rows.length,
+        removed_pct: mean(rows, 'removed_pct', 1),
+        own_kept_pct: mean(rows, 'own_kept_pct', 2),
+        native_loss_pct: mean(rows, 'native_loss_pct', 2),
+        same_species_ratio: mean(rows, 'same_species_ratio', 2),
+        rmsle: mean(rows, 'rmsle', 4),
+        above_raw: total(rows, 'above_raw'),
+        non_integer: total(rows, 'non_integer'),
+        median_wall_s: vals(rows, 'wall_s').length ? Math.round(d3.median(vals(rows, 'wall_s'))) : null,
+      }));
+      const rank = (t) => (order.indexOf(t) < 0 ? order.length : order.indexOf(t));
+      return out.sort((a, b) => rank(a.tool) - rank(b.tool) || d3.ascending(a.tool, b.tool));
+    },
+  });
+
+  const TOOL_ORDER = ['glymph', 'glymph_fpr0', 'glymph_fpr1', 'cellbender', 'scar', 'ambidose', 'soupx', 'decontx', 'decontx_bg', 'glymph_v01', 'glymph_v0'];
+  const toolRank = (t) => (TOOL_ORDER.indexOf(t) < 0 ? TOOL_ORDER.length : TOOL_ORDER.indexOf(t));
+  const toolColor = (t, tools) => {
+    const i = TOOL_ORDER.indexOf(t);
+    return dash.colors[(i >= 0 ? i : TOOL_ORDER.length + tools.indexOf(t)) % dash.colors.length];
+  };
+  const shortLib = (s) => String(s).replace('hgmm_', '').replace('kidney_', '');
+  const pillClass = (v) => {
+    const s = String(v || '').toUpperCase();
+    if (['COMPLETED', 'DONE', 'INSTALLED', 'SCORED'].some((k) => s.startsWith(k))) return 'gl-pill-ok';
+    if (['RUNNING', 'PENDING', 'ENVIRONMENT BUILDING', 'PLANNED', 'MIXED'].some((k) => s.startsWith(k))) return 'gl-pill-warn';
+    if (['FAILED', 'CANCELLED', 'TIMEOUT', 'OUT_OF_MEMORY', 'NODE_FAIL', 'LEFT OUT'].some((k) => s.startsWith(k))) return 'gl-pill-bad';
+    return '';
+  };
+
+  // A single value: the cell named by the element's own data-source, data-field and data-where.
+  dash.draw('num', (el) => {
+    const d = dash.data(el.dataset.source);
+    let v = null;
+    if (d.status === 'ok' && d.data) {
+      let rows = d.data;
+      if (el.dataset.where) {
+        const [k, val] = el.dataset.where.split('=');
+        rows = rows.filter((r) => String(r[k]) === decodeURIComponent(val));
+      }
+      if (rows.length) v = rows[0][el.dataset.field];
+    }
+    el.textContent = v === null || v === undefined || v === '' ? '...' : String(v);
+  });
+
+  // Table bodies: one row per data row, one cell per header column, in header order.
+  dash.draw('rows', (tb) => {
+    const table = tb.closest('table');
+    if (!table) return;
+    const heads = Array.from(table.querySelectorAll('thead th'));
+    const keys = (table.dataset.rowKey || '').split(',');
+    const d = dash.data(table.dataset.source);
+    if (d.status !== 'ok' || !d.data) { tb.replaceChildren(); return; }
+    const trs = d.data.map((r) => {
+      const tr = document.createElement('tr');
+      tr.dataset.key = keys.map((k) => encodeURIComponent(String(r[k]))).join(',');
+      for (const th of heads) {
+        const f = th.dataset.field, v = r[f];
+        const td = document.createElement('td');
+        if (th.classList.contains('gl-r')) td.className = 'gl-r';
+        if (th.classList.contains('gl-wide')) td.className = 'gl-wide';
+        const text = v === null || v === undefined ? '' : String(v);
+        if (f === 'state' || f === 'status') {
+          const pill = document.createElement('span');
+          pill.className = 'gl-pill ' + pillClass(text);
+          pill.textContent = text;
+          td.append(pill);
+        } else {
+          td.textContent = text;
+          if (f === 'job' || f === 'run_id' || f === 'at' || f === 'library') td.classList.add('gl-nw');
+        }
+        tr.append(td);
+      }
+      return tr;
+    });
+    if (!trs.length) {
+      const tr = document.createElement('tr'), td = document.createElement('td');
+      td.colSpan = heads.length; td.className = 'gl-empty'; td.textContent = 'Nothing here yet.';
+      tr.append(td); trs.push(tr);
+    }
+    tb.replaceChildren(...trs);
+  });
+
+  // Dot chart: one row per library, one dot per tool, for the metric named on the element.
+  dash.draw('dots', (el) => {
+    const metric = el.dataset.metric, unit = el.dataset.unit || '', isLog = el.hasAttribute('data-log');
+    const d = dash.data(el.dataset.source || 'scores');
+    el.replaceChildren();
+    if (d.status !== 'ok' || !d.data) {
+      const p = document.createElement('p'); p.className = 'gl-empty';
+      p.textContent = d.status === 'error' ? 'Failed to load' : '...';
+      el.append(p); return;
+    }
+    const rows = d.data.filter((r) => r[metric] !== null && r[metric] !== undefined && r[metric] !== '' && (!isLog || r[metric] > 0));
+    if (!rows.length) {
+      const p = document.createElement('p'); p.className = 'gl-empty'; p.textContent = 'Nothing scored yet.';
+      el.append(p); return;
+    }
+    const libs = Array.from(new Set(d.data.map((r) => r.library)));
+    const tools = Array.from(new Set(rows.map((r) => r.tool))).sort((a, b) => toolRank(a) - toolRank(b) || d3.ascending(a, b));
+    const root = d3.select(el);
+    const legend = root.append('div').attr('class', 'gl-legend');
+    legend.selectAll('span.gl-key').data(tools).join('span').attr('class', 'gl-key').each(function (t) {
+      const k = d3.select(this);
+      k.append('i').style('background', toolColor(t, tools));
+      k.append('span').text(t);
+    });
+    const box = root.append('div').attr('class', 'gl-plot');
+    const W = Math.max(260, box.node().clientWidth || el.clientWidth || 320), rowH = 26;
+    const svg = box.append('svg').attr('width', '100%').attr('role', 'img').attr('aria-label', el.dataset.label || '');
+    const probe = svg.append('g').attr('class', 'gl-axis');
+    let labelW = 0;
+    probe.selectAll('text').data(libs).join('text').text(shortLib).each(function () { labelW = Math.max(labelW, this.getComputedTextLength()); });
+    probe.remove();
+    const m = { t: 6, r: 22, b: 26, l: Math.ceil(labelW || 90) + 12 };
+    const H = m.t + m.b + rowH * libs.length;
+    svg.attr('viewBox', '0 0 ' + W + ' ' + H).attr('height', H);
+    const vals = rows.map((r) => +r[metric]);
+    let x;
+    if (isLog) {
+      x = d3.scaleLog().domain([d3.min(vals) / 1.6, d3.max(vals) * 1.6]).range([m.l, W - m.r]);
+    } else {
+      let [lo, hi] = d3.extent(vals);
+      if (lo === hi) { lo -= 1; hi += 1; }
+      const pad = (hi - lo) * 0.08;
+      x = d3.scaleLinear().domain([lo - pad, hi + pad]).nice().range([m.l, W - m.r]);
+    }
+    const y = d3.scaleBand().domain(libs).range([m.t, H - m.b]);
+    const nTicks = Math.max(2, Math.floor((W - m.l - m.r) / 70));
+    svg.append('g').attr('class', 'gl-grid').selectAll('line').data(libs).join('line')
+      .attr('x1', m.l).attr('x2', W - m.r).attr('y1', (l) => y(l) + y.bandwidth() / 2).attr('y2', (l) => y(l) + y.bandwidth() / 2);
+    const axis = isLog ? d3.axisBottom(x).ticks(nTicks, '~s') : d3.axisBottom(x).ticks(nTicks);
+    svg.append('g').attr('class', 'gl-axis').attr('transform', 'translate(0,' + (H - m.b) + ')').call(axis.tickSizeOuter(0));
+    svg.append('g').attr('class', 'gl-axis').selectAll('text').data(libs).join('text')
+      .attr('x', m.l - 8).attr('y', (l) => y(l) + y.bandwidth() / 2).attr('dy', '0.35em').attr('text-anchor', 'end').text(shortLib);
+    const tip = box.append('div').attr('class', 'gl-tip').attr('hidden', '');
+    const spread = Math.min(4, (rowH - 12) / Math.max(1, tools.length - 1));
+    svg.append('g').selectAll('circle').data(rows).join('circle').attr('class', 'gl-dot').attr('r', 5)
+      .attr('cx', (r) => x(+r[metric]))
+      .attr('cy', (r) => y(r.library) + y.bandwidth() / 2 + (tools.indexOf(r.tool) - (tools.length - 1) / 2) * spread)
+      .style('fill', (r) => toolColor(r.tool, tools))
+      .on('pointerenter pointermove', (ev, r) => {
+        tip.attr('hidden', null).text(r.tool + ' · ' + shortLib(r.library) + ': ' + r[metric] + unit);
+        const b = box.node().getBoundingClientRect(), tw = tip.node().offsetWidth;
+        let left = ev.clientX - b.left + 12;
+        if (left + tw > b.width) left = Math.max(0, ev.clientX - b.left - tw - 12);
+        tip.style('left', left + 'px').style('top', Math.max(0, ev.clientY - b.top - 34) + 'px');
+      })
+      .on('pointerleave', () => tip.attr('hidden', ''));
+  });
+
+  // Which headline sentence shows depends on whether anything is scored yet.
+  dash.onData(() => {
+    const s = dash.data('scores');
+    const has = s.status === 'ok' && s.data && s.data.length > 0;
+    const hasCB = has && s.data.some((r) => r.tool === 'cellbender');
+    for (const el of document.querySelectorAll('.gl [data-when="scores"]')) el.hidden = !has;
+    for (const el of document.querySelectorAll('.gl [data-when="no-scores"]')) el.hidden = has || s.status === 'loading';
+    for (const el of document.querySelectorAll('.gl [data-when="cellbender"]')) el.hidden = !hasCB;
+    const k = dash.data('kidney');
+    for (const el of document.querySelectorAll('.gl [data-when="no-kidney"]')) el.hidden = k.status !== 'ok' || (k.data && k.data.length > 0);
+  });
+</script>

@@ -1,0 +1,5 @@
+tool	removed_pct	source	note
+scAR	95.6	Schroeder et al. 2026, bioRxiv	mean over five 10x human + mouse mixtures; scAR also adds counts
+CellBender 0.3.0	94.0	Schroeder et al. 2026, bioRxiv	mean over five 10x human + mouse mixtures
+SoupX	70.9	Schroeder et al. 2026, bioRxiv	mean over five 10x human + mouse mixtures
+DecontX	53.2	Schroeder et al. 2026, bioRxiv	mean over five 10x human + mouse mixtures

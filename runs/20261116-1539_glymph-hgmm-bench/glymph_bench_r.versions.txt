@@ -1,0 +1,7 @@
+R 4.5.3 
+SoupX 1.6.2 
+decontX 1.8.0 
+Seurat 5.5.1 
+rhdf5 2.56.1 
+Matrix 1.7.6 
+1015M	/dfs7/swaruplab/vswarup/bin/miniconda_envs/glymph_bench_r

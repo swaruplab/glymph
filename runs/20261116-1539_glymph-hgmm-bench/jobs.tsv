@@ -1,0 +1,54 @@
+job_id	what	tool	unit	unit_names	note
+59725467	Metrics, every tool (final)	metrics			One task per library; two minutes each.
+59725533	Collect tables and summary figure (final)	metrics	all seven		After the 4-GPU run, with the redrawn summary figure.
+59725469	Collect after the 4-GPU run	metrics	all seven		
+59725468	Collect before the 4-GPU run	metrics	all seven		
+59725510	AmbiDose retry with its full-typing option	ambidose		x,x,x,hgmm_10k_v3,hgmm_12k_v2,hgmm_20k_v31_HT,hgmm_10k_gemx_v4	Same failure inside scanpy on the four larger libraries. AmbiDose is scored on three of seven.
+59725333	Glymph 0.2.0 at defaults, one library per GPU (final)	glymph			Calibrated swap fraction, gene budget, false-positive budget 0.5%.
+59725334	Glymph 0.2.0, no false-positive budget (final)	glymph_fpr0			
+59725335	Glymph 0.2.0, false-positive budget 1% (final)	glymph_fpr1			
+59725336	Glymph 0.2.0, all seven libraries on one 4-GPU node (final)	glymph	all seven		All seven libraries in 269 s wall on one node with four A30s.
+59725337	Metrics, every tool (first final submission)	metrics			Cancelled so scoring did not wait for the 4-GPU job in the queue; rerun as 59725467.
+59725338	Collect (first final submission)	metrics	all seven		Cancelled with the job above.
+59725281	Score the 0.2.0 candidates	metrics			
+59724634	Glymph 0.2.0 candidate: calibrated swap fraction, false-positive budget 1%	experiment			94.3% mean removal, equal to CellBender, but 0.25% native loss and 98.5% of own counts kept.
+59724633	Glymph 0.2.0 candidate: false-positive budget 0.5%	experiment			93.4% mean removal, 0.025% native loss, 98.9% of own counts kept. Became the default.
+59724632	Glymph 0.2.0 candidate: no false-positive budget	experiment			90.5% mean removal, no native loss, 99.3% of own counts kept.
+59724635	Score the 0.2.0 candidates	metrics	all seven		Cancelled after 17 minutes on a slow node; rerun as a parallel array (59725281).
+59724466	SoupX rerun for one library	soupx		x,x,x,x,hgmm_12k_v2	The package failed to load from the shared filesystem on the first pass.
+59723871	Experiment: calibration with the lower quartile of group estimates	experiment			Slightly lower removal than the median (88.1 against 89.8%); median kept.
+59723663	Experiment: first calibrated run (exclusion bound, short second phase)	experiment			89.8% mean removal, no native loss.
+59723411	Experiment: first calibrated run, failed attempt	experiment			The calibration ran, then the output file could not hold the nested run report. The report is now stored as one JSON string.
+59722650	Metrics and summary figure	metrics	all seven		
+59722867	Experiment: no early stopping	experiment			No gain: 79.7% on the 10k v3 library against 79.1%.
+59722868	Experiment: four times more training steps	experiment			No gain.
+59722869	Experiment: swap fraction fixed at 2%	experiment			The decisive one: 93 to 97% removal on six libraries with no native loss, but 2% is far too high for the 1k library (true value about 0.35%), where it removed native counts.
+59722870	Experiment: swap fraction fixed at 2%, four times more steps	experiment			Slightly better than the shorter run with the same fixed fraction.
+59722871	Experiment: batch size 256, four times more steps	experiment			No gain.
+59722872	Score the experiments	metrics	all seven		Scored 11 configurations on 7 libraries.
+59722588	Glymph 0.1.0, one library per GPU (gene-budget output)	glymph_v01			76 to 87% removal. Superseded by 0.2.0.
+59722589	Experiment: per-entry mode output	experiment			Worse than the gene budget (40 to 67% removal): most background shares for single counts are below one half. Not shown in the scores.
+59722424	AmbiDose rerun for three libraries	ambidose		x,x,x,x,hgmm_12k_v2,hgmm_20k_v31_HT,hgmm_10k_gemx_v4	Failed again inside scanpy after the scipy pin.
+59722398	Metrics, interim pass	metrics	all seven		
+59722366	Experiment: parsimony prior 0.02 on the swap fraction	experiment			Did not help: the likelihood pushed the swap fraction down, not up. Outputs kept in out/exp_parsimony__failed, not scored.
+59722367	Experiment: parsimony prior 0.005	experiment			Same outcome; not scored.
+59722368	Experiment: parsimony prior 0.05	experiment			Same outcome; not scored.
+59722385	AmbiDose (CPU)	ambidose			Two libraries finished; the rest failed inside scanpy (scipy 1.17 dropped a method scanpy 1.11 calls). scipy pinned to 1.14.1 in the AmbiDose environment and the failed libraries rerun as 59722424.
+59722386	SoupX rerun for one library	soupx		not used,not used,hgmm_6k_v2	
+59721524	Glymph 0.0.1 (v0), one library per GPU	glymph_v0			
+59721911	Glymph 0.0.1 (v0), all seven libraries on one 4-GPU node	glymph	all seven		All seven finished in 223 s wall.
+59721651	CellBender 0.3.2 at defaults (lab's checkpoint fix)	cellbender			
+59722006	SoupX and DecontX (CPU)	soupx, decontx			Three tools per library: SoupX, DecontX, DecontX with empty droplets as background. SoupX failed to load on one library (shared filesystem error) and was rerun as 59722386.
+59722010	scAR, one library per GPU	scar			
+59722198	AmbiDose (CPU), first attempt	ambidose			Denoising ran, but AmbiDose crashed writing its own QC metadata to .h5ad on six libraries. Rerun as 59722385 with 10x MTX output.
+59722199	Metrics and summary figure, all tools	metrics	all seven		Ran with the earlier tool list, so it missed AmbiDose and the first Glymph run; rescored later.
+59721650	Prepare shared inputs for the baselines	setup			
+59721839	Metrics and summary figure	metrics	all seven		Rerun as each tool finishes.
+59721872	Build baseline environments (scAR, AmbiDose)	setup		not used,glymph_bench_scar (scAR from GitHub),glymph_bench_ambidose (AmbiDose)	
+59721513	Build baseline environments (first pass)	setup		glymph_bench_r (SoupX and DecontX),glymph_bench_scar (wrong package)	Task 1 built SoupX and DecontX. Task 2 installed the PyPI project called scar, which is an unrelated cloud tool; scAR is rebuilt from GitHub in 59721872.
+59721593	Metrics and summary figure (Glymph only, first pass)	metrics	all seven		
+59721652	Glymph on one 4-GPU node (attempt 2)	glymph	all seven		Four libraries finished in 150 s. Three failed with CUDA out of memory because another process held 19.75 GB on one of the four GPUs. The batch command now retries failed libraries on the GPUs that worked; resubmitted as 59721911.
+59721466	Glymph, one library per GPU (attempt 1)	glymph			Failed in 10 s: a CUDA statistics call ran before the CUDA context existed. Fixed and resubmitted as 59721524.
+59721467	Glymph on one 4-GPU node (attempt 1)	glymph	all seven		Same CUDA bug in every worker, and the command still exited 0. Both fixed.
+59721468	CellBender 0.3.2 at defaults (attempt 1)	cellbender			Task 1 trained, then died at the checkpoint save (cannot pickle weakref). The other six were cancelled and all seven resubmitted as 59721651 through the lab's cellbender_fix launcher.
+59721469	Metrics and summary figure (attempt 1)	metrics	all seven		Cancelled with the CellBender array it depended on.

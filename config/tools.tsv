@@ -1,0 +1,8 @@
+tool	role	version	environment	status	note
+Glymph	method under test	0.2.0	scanpy (existing; code loaded from the run folder)	completed	default false-positive budget 0.5%; also scored at 0 and 1%, and as versions 0.1.0 and 0.0.1; torch 2.10, CUDA 12
+CellBender	baseline	0.3.2	cellbender (existing MODEL-AD project environment)	completed	defaults, as in the published benchmarks
+SoupX	baseline	1.6.2	glymph_bench_r (new)	completed	R 4.5.3, Seurat 5.5.1 clusters, autoEstCont, default adjustCounts
+DecontX	baseline	1.8.0 (decontX)	glymph_bench_r (new)	completed	run twice: defaults, and with all non-cell droplets as background
+scAR	baseline	0.7.0	glymph_bench_scar (new)	completed	from github.com/Novartis/scar; torch 2.14.1; tutorial settings (200 epochs, batch 64)
+AmbiDose	baseline	0.5.15	glymph_bench_ambidose (new)	completed on 3 of 7	PyPI; fails inside scanpy 1.11 on libraries of about 9,000 cells or more, with scipy 1.17 and 1.14 and with either graph option
+CellSweep	baseline		none	left out	no public package or repository found

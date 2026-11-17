@@ -1,0 +1,852 @@
+{
+ "version": "0.3.1.dev2",
+ "device": "cuda:0",
+ "gpu": "NVIDIA A30",
+ "peak_gpu_mem_gb": 2.23,
+ "timings": {
+  "priors_s": 0.62,
+  "setup_s": 0.339,
+  "train_s": 30.455,
+  "calibrate_s": 23.778,
+  "denoise_s": 0.999,
+  "assemble_s": 0.312,
+  "read_s": 2.067,
+  "write_s": 4.145,
+  "total_s": 62.726
+ },
+ "n_cells": 24472,
+ "e_unit": {
+  "all": 281.0000305175781
+ },
+ "swap_fraction": {
+  "all": 6.078169826650992e-05
+ },
+ "ambient_multiplier": {
+  "all": 1.214866042137146
+ },
+ "empty_alpha": 7.071413387659788,
+ "swap_calibration": {
+  "applied": true,
+  "per_cell": {
+   "0": {
+    "kappa": 1.214865997404312,
+    "kappa_depth": 0.01745609125341331,
+    "depth_ref": 6446.0,
+    "n_informative": 25034,
+    "n_outlier": 571,
+    "n_barcodes": 47076,
+    "silent_set": "broad",
+    "expected_rescaled_by": 0.8414,
+    "alpha": 20.812196260398277,
+    "expected_silent_counts_median": 140.5976854060737,
+    "multiplier_over_trend_q10_q50_q90": [
+     0.829,
+     0.984,
+     1.207
+    ]
+   },
+   "masked_cells": 25605,
+   "silent_genes_per_cluster_median": 7647.0
+  },
+  "swap_learned": [
+   0.005095654632896185
+  ],
+  "swap_estimate": [
+   6.078171394774546e-05
+  ],
+  "kappa_estimate": [
+   1.214865997404312
+  ],
+  "kappa_used": [
+   1.214866042137146
+  ],
+  "swap_used": [
+   6.078169826650992e-05
+  ],
+  "n_confident_cells": 6049,
+  "confident_threshold": 1674.8271957891463,
+  "pools": {
+   "0": {
+    "n_cells": 6049,
+    "n_clusters": 20,
+    "min_expected_used": 30.0,
+    "ridge": 1.181,
+    "ridge_histogram": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2,
+     3,
+     16,
+     53,
+     141,
+     385,
+     325,
+     104,
+     60,
+     85,
+     139,
+     195,
+     135,
+     57,
+     47,
+     44,
+     50,
+     60,
+     61,
+     39,
+     22,
+     34,
+     12,
+     11,
+     5
+    ],
+    "clusters_tried": [
+     20
+    ],
+    "clusters": [
+     {
+      "cluster": 0,
+      "cells": 441,
+      "candidates": 58,
+      "genes": 12,
+      "ratio": 0.938,
+      "used": true
+     },
+     {
+      "cluster": 1,
+      "cells": 187,
+      "candidates": 53,
+      "genes": 3,
+      "ratio": 0.911,
+      "used": true
+     },
+     {
+      "cluster": 2,
+      "cells": 232,
+      "candidates": 162,
+      "genes": 6,
+      "ratio": 0.733,
+      "used": true
+     },
+     {
+      "cluster": 3,
+      "cells": 166,
+      "candidates": 69,
+      "genes": 19,
+      "ratio": 0.689,
+      "used": true
+     },
+     {
+      "cluster": 4,
+      "cells": 747,
+      "candidates": 744,
+      "genes": 706,
+      "ratio": 1.093,
+      "used": true
+     },
+     {
+      "cluster": 5,
+      "cells": 230,
+      "candidates": 29,
+      "genes": 3,
+      "ratio": 0.526,
+      "used": true
+     },
+     {
+      "cluster": 6,
+      "cells": 222,
+      "candidates": 177,
+      "genes": 2,
+      "ratio": 0.915,
+      "used": true
+     },
+     {
+      "cluster": 7,
+      "cells": 516,
+      "candidates": 159,
+      "genes": 54,
+      "ratio": 0.727,
+      "used": true
+     },
+     {
+      "cluster": 8,
+      "cells": 157,
+      "candidates": 57,
+      "genes": 14,
+      "ratio": 0.92,
+      "used": true
+     },
+     {
+      "cluster": 9,
+      "cells": 174,
+      "candidates": 20,
+      "genes": 6,
+      "ratio": 0.663,
+      "used": true
+     },
+     {
+      "cluster": 10,
+      "cells": 470,
+      "candidates": 45,
+      "genes": 14,
+      "ratio": 0.996,
+      "used": true
+     },
+     {
+      "cluster": 11,
+      "cells": 166,
+      "candidates": 45,
+      "genes": 3,
+      "ratio": 0.721,
+      "used": true
+     },
+     {
+      "cluster": 12,
+      "cells": 361,
+      "candidates": 43,
+      "genes": 9,
+      "ratio": 0.908,
+      "used": true
+     },
+     {
+      "cluster": 13,
+      "cells": 207,
+      "candidates": 93,
+      "genes": 9,
+      "ratio": 0.931,
+      "used": true
+     },
+     {
+      "cluster": 14,
+      "cells": 298,
+      "candidates": 46,
+      "genes": 13,
+      "ratio": 0.918,
+      "used": true
+     },
+     {
+      "cluster": 15,
+      "cells": 164,
+      "candidates": 27,
+      "genes": 7,
+      "ratio": 0.761,
+      "used": true
+     },
+     {
+      "cluster": 16,
+      "cells": 245,
+      "candidates": 55,
+      "genes": 13,
+      "ratio": 0.575,
+      "used": true
+     },
+     {
+      "cluster": 17,
+      "cells": 256,
+      "candidates": 95,
+      "genes": 29,
+      "ratio": 0.886,
+      "used": true
+     },
+     {
+      "cluster": 18,
+      "cells": 340,
+      "candidates": 40,
+      "genes": 13,
+      "ratio": 0.799,
+      "used": true
+     },
+     {
+      "cluster": 19,
+      "cells": 470,
+      "candidates": 68,
+      "genes": 16,
+      "ratio": 0.903,
+      "used": true
+     }
+    ],
+    "kappa": 1.214865997404312,
+    "kappa_depth": 0.01745609125341331,
+    "s": 6.078171394774546e-05,
+    "depth_ref": 6446.0,
+    "cells_fitted": 6049,
+    "cells_trimmed": 201,
+    "silent_counts": 125669.0,
+    "clusters_dropped": [],
+    "silent_genes_tested_median": 12.0,
+    "silent_genes_broad_median": 7647.0,
+    "silent_counts_broad": 216512.0,
+    "cells_left_out_of_cluster_sums": 321
+   }
+  }
+ },
+ "removed_fraction_in_cells": 0.12038858987535919,
+ "priors": {
+  "threshold_method": "plateau",
+  "confident_threshold": 1674.8271957891463,
+  "n_confident": 6049,
+  "empty_sd0": 0.1579472576185027,
+  "knee": "none",
+  "rejected_plateau": "none",
+  "bead_cliff": 89.41844952924423,
+  "plateau": {
+   "P": 266.2373,
+   "mu0": 2.4253,
+   "sd0": 0.1579,
+   "cliff": 89.4184,
+   "T": 889.1397,
+   "hi": 397.1641,
+   "n_empty": 76474.0,
+   "n_cells": 14516.7337,
+   "dispersion": 1.0803
+  },
+  "cell_threshold": 889.1397050194649,
+  "n_cells_prior": 8100,
+  "empty_level": 266.23730471791055,
+  "empty_max": 397.16411736214224,
+  "n_background_barcodes": 62178,
+  "n_plateau_barcodes": 62178,
+  "n_analyzed": 47076,
+  "n_train_empties": 23538,
+  "n_genes": 19161,
+  "soup_umis_per_unit": {
+   "all": 16236861.0
+  },
+  "e_unit_init": {
+   "all": 281.0
+  }
+ },
+ "train": {
+  "epochs_run": 41,
+  "epochs_planned": 69,
+  "steps": 1804,
+  "best_val": 5.067415482324467
+ },
+ "train_calibrated": {
+  "epochs_run": 35,
+  "epochs_planned": 35,
+  "steps": 1540,
+  "best_val": 5.072433093911065
+ },
+ "train_matched": {},
+ "history": [
+  {
+   "epoch": 1,
+   "train": 6.00701,
+   "val": 5.17696,
+   "s": 0.00995
+  },
+  {
+   "epoch": 2,
+   "train": 5.89004,
+   "val": 5.13948,
+   "s": 0.0098
+  },
+  {
+   "epoch": 3,
+   "train": 5.85,
+   "val": 5.11117,
+   "s": 0.00959
+  },
+  {
+   "epoch": 4,
+   "train": 5.82259,
+   "val": 5.09727,
+   "s": 0.00936
+  },
+  {
+   "epoch": 5,
+   "train": 5.81532,
+   "val": 5.09471,
+   "s": 0.00915
+  },
+  {
+   "epoch": 6,
+   "train": 5.80227,
+   "val": 5.08393,
+   "s": 0.00894
+  },
+  {
+   "epoch": 7,
+   "train": 5.79278,
+   "val": 5.08031,
+   "s": 0.00874
+  },
+  {
+   "epoch": 8,
+   "train": 5.79115,
+   "val": 5.07917,
+   "s": 0.00853
+  },
+  {
+   "epoch": 9,
+   "train": 5.782,
+   "val": 5.07698,
+   "s": 0.00834
+  },
+  {
+   "epoch": 10,
+   "train": 5.79013,
+   "val": 5.07515,
+   "s": 0.00814
+  },
+  {
+   "epoch": 11,
+   "train": 5.78223,
+   "val": 5.07301,
+   "s": 0.00795
+  },
+  {
+   "epoch": 12,
+   "train": 5.78437,
+   "val": 5.07224,
+   "s": 0.00776
+  },
+  {
+   "epoch": 13,
+   "train": 5.77868,
+   "val": 5.07158,
+   "s": 0.00758
+  },
+  {
+   "epoch": 14,
+   "train": 5.78888,
+   "val": 5.07048,
+   "s": 0.00741
+  },
+  {
+   "epoch": 15,
+   "train": 5.76969,
+   "val": 5.07222,
+   "s": 0.00724
+  },
+  {
+   "epoch": 16,
+   "train": 5.78275,
+   "val": 5.06964,
+   "s": 0.00708
+  },
+  {
+   "epoch": 17,
+   "train": 5.77907,
+   "val": 5.0692,
+   "s": 0.00692
+  },
+  {
+   "epoch": 18,
+   "train": 5.78564,
+   "val": 5.0682,
+   "s": 0.00677
+  },
+  {
+   "epoch": 19,
+   "train": 5.77242,
+   "val": 5.0694,
+   "s": 0.00663
+  },
+  {
+   "epoch": 20,
+   "train": 5.77074,
+   "val": 5.06883,
+   "s": 0.00648
+  },
+  {
+   "epoch": 21,
+   "train": 5.77127,
+   "val": 5.0683,
+   "s": 0.00635
+  },
+  {
+   "epoch": 22,
+   "train": 5.77704,
+   "val": 5.06803,
+   "s": 0.00621
+  },
+  {
+   "epoch": 23,
+   "train": 5.76534,
+   "val": 5.06958,
+   "s": 0.00609
+  },
+  {
+   "epoch": 24,
+   "train": 5.77331,
+   "val": 5.06802,
+   "s": 0.00597
+  },
+  {
+   "epoch": 25,
+   "train": 5.77455,
+   "val": 5.06829,
+   "s": 0.00585
+  },
+  {
+   "epoch": 26,
+   "train": 5.76915,
+   "val": 5.06856,
+   "s": 0.00574
+  },
+  {
+   "epoch": 27,
+   "train": 5.7768,
+   "val": 5.06806,
+   "s": 0.00564
+  },
+  {
+   "epoch": 28,
+   "train": 5.76423,
+   "val": 5.06771,
+   "s": 0.00554
+  },
+  {
+   "epoch": 29,
+   "train": 5.76542,
+   "val": 5.06838,
+   "s": 0.00544
+  },
+  {
+   "epoch": 30,
+   "train": 5.76868,
+   "val": 5.06784,
+   "s": 0.00535
+  },
+  {
+   "epoch": 31,
+   "train": 5.77227,
+   "val": 5.06808,
+   "s": 0.00526
+  },
+  {
+   "epoch": 32,
+   "train": 5.76087,
+   "val": 5.06816,
+   "s": 0.00517
+  },
+  {
+   "epoch": 33,
+   "train": 5.76361,
+   "val": 5.06742,
+   "s": 0.0051
+  },
+  {
+   "epoch": 34,
+   "train": 5.76967,
+   "val": 5.06761,
+   "s": 0.00502
+  },
+  {
+   "epoch": 35,
+   "train": 5.76864,
+   "val": 5.06745,
+   "s": 0.00494
+  },
+  {
+   "epoch": 36,
+   "train": 5.76641,
+   "val": 5.06787,
+   "s": 0.00487
+  },
+  {
+   "epoch": 37,
+   "train": 5.76964,
+   "val": 5.06769,
+   "s": 0.00481
+  },
+  {
+   "epoch": 38,
+   "train": 5.75948,
+   "val": 5.06808,
+   "s": 0.00474
+  },
+  {
+   "epoch": 39,
+   "train": 5.7649,
+   "val": 5.06796,
+   "s": 0.00468
+  },
+  {
+   "epoch": 40,
+   "train": 5.75617,
+   "val": 5.0681,
+   "s": 0.00462
+  },
+  {
+   "epoch": 41,
+   "train": 5.7622,
+   "val": 5.06825,
+   "s": 0.00457
+  }
+ ],
+ "history_calibrated": [
+  {
+   "epoch": 1,
+   "train": 5.77462,
+   "val": 5.07243,
+   "s": 6e-05
+  },
+  {
+   "epoch": 2,
+   "train": 5.77392,
+   "val": 5.07407,
+   "s": 6e-05
+  },
+  {
+   "epoch": 3,
+   "train": 5.76928,
+   "val": 5.07388,
+   "s": 6e-05
+  },
+  {
+   "epoch": 4,
+   "train": 5.76763,
+   "val": 5.07579,
+   "s": 6e-05
+  },
+  {
+   "epoch": 5,
+   "train": 5.77265,
+   "val": 5.07308,
+   "s": 6e-05
+  },
+  {
+   "epoch": 6,
+   "train": 5.76773,
+   "val": 5.07278,
+   "s": 6e-05
+  },
+  {
+   "epoch": 7,
+   "train": 5.76299,
+   "val": 5.07328,
+   "s": 6e-05
+  },
+  {
+   "epoch": 8,
+   "train": 5.76602,
+   "val": 5.07408,
+   "s": 6e-05
+  },
+  {
+   "epoch": 9,
+   "train": 5.75873,
+   "val": 5.07469,
+   "s": 6e-05
+  },
+  {
+   "epoch": 10,
+   "train": 5.76834,
+   "val": 5.07328,
+   "s": 6e-05
+  },
+  {
+   "epoch": 11,
+   "train": 5.76186,
+   "val": 5.07342,
+   "s": 6e-05
+  },
+  {
+   "epoch": 12,
+   "train": 5.76464,
+   "val": 5.07286,
+   "s": 6e-05
+  },
+  {
+   "epoch": 13,
+   "train": 5.7596,
+   "val": 5.07342,
+   "s": 6e-05
+  },
+  {
+   "epoch": 14,
+   "train": 5.77019,
+   "val": 5.0738,
+   "s": 6e-05
+  },
+  {
+   "epoch": 15,
+   "train": 5.75101,
+   "val": 5.07401,
+   "s": 6e-05
+  },
+  {
+   "epoch": 16,
+   "train": 5.76429,
+   "val": 5.07401,
+   "s": 6e-05
+  },
+  {
+   "epoch": 17,
+   "train": 5.7616,
+   "val": 5.07399,
+   "s": 6e-05
+  },
+  {
+   "epoch": 18,
+   "train": 5.76816,
+   "val": 5.07408,
+   "s": 6e-05
+  },
+  {
+   "epoch": 19,
+   "train": 5.75596,
+   "val": 5.0745,
+   "s": 6e-05
+  },
+  {
+   "epoch": 20,
+   "train": 5.75479,
+   "val": 5.07428,
+   "s": 6e-05
+  },
+  {
+   "epoch": 21,
+   "train": 5.75543,
+   "val": 5.07462,
+   "s": 6e-05
+  },
+  {
+   "epoch": 22,
+   "train": 5.76184,
+   "val": 5.07492,
+   "s": 6e-05
+  },
+  {
+   "epoch": 23,
+   "train": 5.75027,
+   "val": 5.07494,
+   "s": 6e-05
+  },
+  {
+   "epoch": 24,
+   "train": 5.75844,
+   "val": 5.07503,
+   "s": 6e-05
+  },
+  {
+   "epoch": 25,
+   "train": 5.76006,
+   "val": 5.07513,
+   "s": 6e-05
+  },
+  {
+   "epoch": 26,
+   "train": 5.75528,
+   "val": 5.07537,
+   "s": 6e-05
+  },
+  {
+   "epoch": 27,
+   "train": 5.76305,
+   "val": 5.07539,
+   "s": 6e-05
+  },
+  {
+   "epoch": 28,
+   "train": 5.75088,
+   "val": 5.0756,
+   "s": 6e-05
+  },
+  {
+   "epoch": 29,
+   "train": 5.75264,
+   "val": 5.07558,
+   "s": 6e-05
+  },
+  {
+   "epoch": 30,
+   "train": 5.75633,
+   "val": 5.07566,
+   "s": 6e-05
+  },
+  {
+   "epoch": 31,
+   "train": 5.76029,
+   "val": 5.07581,
+   "s": 6e-05
+  },
+  {
+   "epoch": 32,
+   "train": 5.74954,
+   "val": 5.07597,
+   "s": 6e-05
+  },
+  {
+   "epoch": 33,
+   "train": 5.75236,
+   "val": 5.07605,
+   "s": 6e-05
+  },
+  {
+   "epoch": 34,
+   "train": 5.75906,
+   "val": 5.07599,
+   "s": 6e-05
+  },
+  {
+   "epoch": 35,
+   "train": 5.75863,
+   "val": 5.07616,
+   "s": 6e-05
+  }
+ ],
+ "config": {
+  "n_hidden": 512,
+  "n_latent": 32,
+  "n_cond": 16,
+  "likelihood": "multinomial",
+  "eps_alpha": 10.0,
+  "eps_alpha_calibrated": 50.0,
+  "eps_alpha_pinned": 2000.0,
+  "learn_ambient_level": false,
+  "s_init": 0.01,
+  "s_max": 0.05,
+  "calibrate_swap": true,
+  "calib_clusters": 20,
+  "cell_multipliers": true,
+  "mask_silent": true,
+  "silent_broad": true,
+  "calib_retry": true,
+  "match_posterior_mean": false,
+  "keep_cell_totals": true,
+  "cell_totals_max_entries": 150000000,
+  "calib_quantile": 0.5,
+  "calib_steps_frac": 0.5,
+  "bg_reward": 0.0,
+  "s_freeze_frac": 0.0,
+  "global_lr_mult": 1.0,
+  "batch_size": 1024,
+  "target_steps": 3000,
+  "min_epochs": 20,
+  "max_epochs": 300,
+  "lr": 0.001,
+  "kl_warmup_frac": 0.2,
+  "val_frac": 0.05,
+  "patience": 8,
+  "seed": 0,
+  "low_count": 5.0,
+  "expected_cells": "none",
+  "empty_level": "none",
+  "max_barcodes": 250000,
+  "estimator": "gene",
+  "fpr": 0.004,
+  "strength": 1.0,
+  "cell_prob_cutoff": 0.5,
+  "keep_non_cells": false,
+  "device": "cuda:0"
+ },
+ "input": "/dfs7/swaruplab/vswarup/compute/glymph/data/std/kidney_rep3.h5ad",
+ "output": "out/g031b/kidney_rep3.h5ad"
+}

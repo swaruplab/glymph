@@ -1,0 +1,26 @@
+job_id	what	tool	unit	unit_names	note
+59741569	Glymph 0.3.1.dev1 default: wider silent-gene set, retry with fewer clusters	Glymph	library		out/g031
+59741570	Same without the wider set (retry only)	Glymph	library		out/g031_nobroad
+59741571	Default with a 1% false-positive budget	Glymph	library		out/g031_fpr1
+59741572	Scoring of the three variants beside Glymph 0.3.0 and CellBender 0.3.2	scoring	library		
+59741573	Tables	collect	run		
+59741590	Glymph on 80,000 cells (4 copies of the 20,000-cell library) with the memory fix	Glymph	hgmm_20k_x4		out/scaling/glymph
+59741591	Glymph on 160,000 cells (8 copies) with the memory fix	Glymph	hgmm_20k_x8		out/scaling/glymph
+59742108	Glymph 0.3.1.dev2 default: silent-gene test leaves doublet-like cells out of the cluster sums	Glymph	library		out/g031b
+59742109	Same at a 1% false-positive budget	Glymph	library		out/g031b_fpr1
+59742110	Scoring, second round	scoring	library		
+59742111	Tables, second round	collect	run		
+59742341	Glymph 0.3.1.dev3 default (three clusterings, middle estimate kept), replicate a	Glymph	library		out/g031c_a
+59742342	Same code and settings, replicate b (run-to-run stability)	Glymph	library		out/g031c_b
+59742343	Scoring, third round	scoring	library		
+59742344	Tables, third round	collect	run		
+59742464	Glymph 0.3.1.dev4 default (doublet-like cells left alone and flagged), replicate a	Glymph	library		out/g031d_a
+59742465	Same, replicate b	Glymph	library		out/g031d_b
+59742466	Same at a 1% false-positive budget	Glymph	library		out/g031d_fpr1
+59742467	Scoring, fourth round	scoring	library		
+59742468	Tables, fourth round	collect	run		
+59743125	Glymph 0.3.1.dev5, doublet-like cells spared from the exclusion constraint, replicate a	Glymph	library		out/g031e_spare_a
+59743126	Same, replicate b	Glymph	library		out/g031e_spare_b
+59743127	Same code, doublet-like cells not spared (the round-three behaviour)	Glymph	library		out/g031e_nospare
+59743128	Scoring, fifth round	scoring	library		
+59743129	Tables, fifth round	collect	run		

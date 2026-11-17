@@ -1,0 +1,11 @@
+tool	copies	cells	state	wall_s	peak_rss_gb	note
+Glymph 0.3.0	1	20000	completed	211	7.8	
+Glymph 0.3.0	2	40000	completed	297	13.7	
+Glymph 0.3.0	4	80000	failed			GPU out of memory in the silent-gene calibration (24 GB A30)
+Glymph 0.3.0	8	160000	failed			GPU out of memory in the silent-gene calibration (24 GB A30)
+CellBender 0.3.2	1	20000	completed	3368	19.5	
+CellBender 0.3.2	2	40000	completed	6625	39.7	
+CellBender 0.3.2	4	80000	completed	6342	56.1	
+CellBender 0.3.2	8	160000	completed	16156	112.2	
+Glymph 0.3.1 (in development)	4	80000	completed	443	25.1	memory fix; run 20261117-0544_glymph-031-dev, 10 GB GPU memory
+Glymph 0.3.1 (in development)	8	160000	completed	768	48.0	memory fix; run 20261117-0544_glymph-031-dev

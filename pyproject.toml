@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "glymph"
+version = "0.3.1"
+description = "Platform-general ambient RNA removal for single-cell and single-nucleus RNA-seq by count thinning"
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "pandas", "h5py", "anndata", "torch>=2.2"]
+
+[project.scripts]
+glymph = "glymph.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

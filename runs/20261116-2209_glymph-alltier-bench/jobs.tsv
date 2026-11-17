@@ -1,0 +1,28 @@
+job_id	what	tool	unit	unit_names	note
+59730205	Shared inputs for the baselines (10x layout, cell list)	prep	library		One task per library; vendor cell calls where they exist, else barcodes above the cell/background gap.
+59730206	Glymph 0.3.0, default (false-positive budget 0.4%)	Glymph	library		One A30 per library.
+59730207	Glymph 0.3.0, false-positive budget 0	Glymph	library		Trade-off curve.
+59730208	Glymph 0.3.0, false-positive budget 0.2%	Glymph	library		Trade-off curve.
+59730209	Glymph 0.3.0, false-positive budget 1%	Glymph	library		Trade-off curve.
+59730210	CellBender 0.3.2, budgets 0, 0.5% and 1% from one training run	CellBender	library		1% is its default and the tool "cellbender".
+59730211	SoupX, DecontX, DecontX with background	R baselines	library		CPU.
+59730212	scAR 0.7.0	scAR	library		One A30 per library.
+59730213	Score every tool on every library	metrics	library		Species, genotype or truth-free scores by the kind of truth.
+59730214	Collect tables	metrics	all libraries		Scores, resources, summary, failures.
+59730215	Throughput: all libraries on one node with four A30s	Glymph	all libraries		glymph batch.
+59730216	Glymph on CPU only, 16 cores	Glymph	hgmm_1k_v3		No GPU.
+59730217	Glymph on CPU only, 16 cores	Glymph	kidney_rep3		No GPU.
+59730218	Glymph on CPU only, 16 cores	Glymph	hgmm_20k_v31_HT		No GPU.
+59730219	Scaling: Glymph, library tiled 1 time	Glymph	hgmm_20k x1		Time and memory only.
+59730220	Scaling: Glymph, library tiled 2 times	Glymph	hgmm_20k x2		Time and memory only.
+59730221	Scaling: Glymph, library tiled 4 times	Glymph	hgmm_20k x4		Time and memory only.
+59730222	Scaling: Glymph, library tiled 8 times	Glymph	hgmm_20k x8		Time and memory only.
+59730223	Scaling: CellBender, library tiled 1 time	CellBender	hgmm_20k x1		Time and memory only.
+59730224	Scaling: CellBender, library tiled 2 times	CellBender	hgmm_20k x2		Time and memory only.
+59730225	Scaling: CellBender, library tiled 4 times	CellBender	hgmm_20k x4		Time and memory only.
+59730226	Scaling: CellBender, library tiled 8 times	CellBender	hgmm_20k x8		Time and memory only.
+59730227	Glymph on a V100	Glymph	hgmm_10k_v3		GPU model comparison.
+59730281	Glymph on an A100	Glymph	hgmm_10k_v3		GPU model comparison.
+59730489	SoupX and DecontX, fill-in pass for outputs the first pass missed	R baselines	library		Eight at a time: package loading from the shared filesystem failed when 48 R jobs started together.
+59741221	Species libraries scored again with alignment-artifact genes masked (unmasked scores kept beside them)	scoring	library		27 species-truth libraries.
+59741222	Tables collected again after the rescoring	collect	run		Adds scores_species_unmasked.tsv and artifact_genes.tsv.

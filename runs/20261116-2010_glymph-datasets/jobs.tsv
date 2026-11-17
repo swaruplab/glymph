@@ -1,0 +1,63 @@
+job_id	what	tool	unit	unit_names	note
+59727787	STAR index, combined human + mouse genome	STAR 2.7.10a			GRCh38-and-mm10-2020-A, sparse suffix array (half the size). 17 minutes.
+59728036	Ingest 39 libraries to the standard format	ingest	library		One array task per library.
+59728622	Ingest the tier 1 and kidney libraries	ingest	library		Twelve libraries, so one table covers every tier.
+59728185	Plateau homogeneity and knee on every library	diagnostic	all libraries		Chose the rules for the knee mode.
+59728463	Thresholds after the gap-finder fix	diagnostic	all libraries		No model fitted.
+59729311	Thresholds for every library, final code	diagnostic	all libraries		Source of the libraries table.
+59728312	Development round 1: per-cell calibration, per-cluster silent genes	Glymph dev	kidney		Development run in the dev folder, not a benchmark result.
+59728313	Development round 1: per-cell calibration, per-cluster silent genes	Glymph dev	tuning mixtures		Development run in the dev folder, not a benchmark result.
+59728314	Development round 1: per-cell calibration, per-cluster silent genes	Glymph dev	other libraries		Development run in the dev folder, not a benchmark result.
+59728315	Development round 1: per-cell calibration, per-cluster silent genes	Glymph dev	Parse IGVF		Development run in the dev folder, not a benchmark result.
+59728316	Development round 1: per-cell calibration, per-cluster silent genes	Glymph dev	Parse bone marrow		Development run in the dev folder, not a benchmark result.
+59728566	Development round 2: library-wide silent-gene ridge, per-cell multipliers	Glymph dev	kidney		Development run in the dev folder, not a benchmark result.
+59728567	Development round 2: library-wide silent-gene ridge, per-cell multipliers	Glymph dev	tuning mixtures		Development run in the dev folder, not a benchmark result.
+59728568	Development round 2: library-wide silent-gene ridge, per-cell multipliers	Glymph dev	other libraries		Development run in the dev folder, not a benchmark result.
+59728569	Development round 2: library-wide silent-gene ridge, per-cell multipliers	Glymph dev	Parse IGVF		Development run in the dev folder, not a benchmark result.
+59728570	Development round 2: library-wide silent-gene ridge, per-cell multipliers	Glymph dev	Parse bone marrow		Development run in the dev folder, not a benchmark result.
+59728716	Development round 3: depth-dependent ambient term	Glymph dev	kidney		Development run in the dev folder, not a benchmark result.
+59728717	Development round 3: depth-dependent ambient term	Glymph dev	tuning mixtures		Development run in the dev folder, not a benchmark result.
+59728718	Development round 3: depth-dependent ambient term	Glymph dev	other libraries		Development run in the dev folder, not a benchmark result.
+59728719	Development round 3: depth-dependent ambient term	Glymph dev	Parse IGVF		Development run in the dev folder, not a benchmark result.
+59728720	Development round 3: depth-dependent ambient term	Glymph dev	Parse bone marrow		Development run in the dev folder, not a benchmark result.
+59728887	Development round 4: posterior pinned to calibrated values	Glymph dev	kidney		Development run in the dev folder, not a benchmark result.
+59728888	Development round 4: posterior pinned to calibrated values	Glymph dev	tuning mixtures		Development run in the dev folder, not a benchmark result.
+59728889	Development round 4: posterior pinned to calibrated values	Glymph dev	other libraries		Development run in the dev folder, not a benchmark result.
+59728953	Development round 5: output rule keeping cell totals	Glymph dev	kidney		Development run in the dev folder, not a benchmark result.
+59728954	Development round 5: output rule keeping cell totals	Glymph dev	tuning mixtures		Development run in the dev folder, not a benchmark result.
+59728955	Development round 5: output rule keeping cell totals	Glymph dev	other libraries		Development run in the dev folder, not a benchmark result.
+59729090	Development round 6: loose prior, level matched	Glymph dev	kidney		Development run in the dev folder, not a benchmark result.
+59729091	Development round 6: loose prior, level matched	Glymph dev	tuning mixtures		Development run in the dev folder, not a benchmark result.
+59729092	Development round 6: loose prior, level matched	Glymph dev	other libraries		Development run in the dev folder, not a benchmark result.
+59729093	Development round 7: loose prior, level matched, cell totals	Glymph dev	kidney		Development run in the dev folder, not a benchmark result.
+59729094	Development round 7: loose prior, level matched, cell totals	Glymph dev	tuning mixtures		Development run in the dev folder, not a benchmark result.
+59729095	Development round 7: loose prior, level matched, cell totals	Glymph dev	other libraries		Development run in the dev folder, not a benchmark result.
+59729219	Development round 8: exclusion constraint, cell totals	Glymph dev	kidney		Development run in the dev folder, not a benchmark result.
+59729220	Development round 8: exclusion constraint, cell totals	Glymph dev	tuning mixtures		Development run in the dev folder, not a benchmark result.
+59729221	Development round 8: exclusion constraint, cell totals	Glymph dev	other libraries		Development run in the dev folder, not a benchmark result.
+59729222	Development round 9: exclusion constraint, level matched, cell totals	Glymph dev	kidney		Development run in the dev folder, not a benchmark result.
+59729223	Development round 9: exclusion constraint, level matched, cell totals	Glymph dev	tuning mixtures		Development run in the dev folder, not a benchmark result.
+59729224	Development round 9: exclusion constraint, level matched, cell totals	Glymph dev	other libraries		Development run in the dev folder, not a benchmark result.
+59729423	Development round 10: confirmation of the 0.3.0 defaults	Glymph dev	kidney		Development run in the dev folder, not a benchmark result.
+59729424	Development round 10: confirmation of the 0.3.0 defaults	Glymph dev	tuning mixtures		Development run in the dev folder, not a benchmark result.
+59729425	Development round 10: confirmation of the 0.3.0 defaults	Glymph dev	other libraries		Development run in the dev folder, not a benchmark result.
+59729712	STARsolo, BD Rhapsody human + mouse mixture 1	STAR 2.7.10a	bd_hgmm_mix1		From reads (GSE265962); md5 checked.
+59729713	STARsolo, BD Rhapsody human + mouse mixture 2	STAR 2.7.10a	bd_hgmm_mix2		From reads (GSE265962); md5 checked.
+59729714	STARsolo, Parse human + mouse mixture, sublibrary 1	STAR 2.7.10a	parse_hgmm_sub1		From reads (PRJEB67549): human, mouse and mixed wells.
+59729715	STARsolo, Parse human + mouse mixture, sublibrary 2	STAR 2.7.10a	parse_hgmm_sub2		From reads (PRJEB67549): human, mouse and mixed wells.
+59729717	Ingest the four read-based mixtures	ingest	library		Runs after the four alignments.
+59729633	CellBender with three false-positive budgets, naming test	CellBender 0.3.2	hgmm_1k_v3		Checks the output names before the full launch.
+59729469	Development round fpr 0: false-positive budget 0	Glymph dev	kidney		Development run in the dev folder, not a benchmark result.
+59729470	Development round fpr 0: false-positive budget 0	Glymph dev	tuning mixtures		Development run in the dev folder, not a benchmark result.
+59729471	Development round fpr 0.2%: false-positive budget 0.2%	Glymph dev	kidney		Development run in the dev folder, not a benchmark result.
+59729472	Development round fpr 0.2%: false-positive budget 0.2%	Glymph dev	tuning mixtures		Development run in the dev folder, not a benchmark result.
+59729600	Development round 11: no feedback of the swapped fraction	Glymph dev	kidney		Development run in the dev folder, not a benchmark result.
+59729601	Development round 11: no feedback of the swapped fraction	Glymph dev	tuning mixtures		Development run in the dev folder, not a benchmark result.
+59729602	Development round 11: no feedback of the swapped fraction	Glymph dev	other libraries		Development run in the dev folder, not a benchmark result.
+59729603	Development round 11: no feedback of the swapped fraction	Glymph dev	kidney nuclei, seed 1		Development run in the dev folder, not a benchmark result.
+59729604	Development round 11: no feedback of the swapped fraction	Glymph dev	kidney nuclei, seed 2		Development run in the dev folder, not a benchmark result.
+59729727	Development round 12: feedback with a smaller ridge	Glymph dev	kidney		Development run in the dev folder, not a benchmark result.
+59729728	Development round 12: feedback with a smaller ridge	Glymph dev	tuning mixtures		Development run in the dev folder, not a benchmark result.
+59729729	Development round 12: feedback with a smaller ridge	Glymph dev	other libraries		Development run in the dev folder, not a benchmark result.
+59729730	Development round 12: feedback with a smaller ridge	Glymph dev	kidney nuclei, seed 1		Development run in the dev folder, not a benchmark result.
+59729731	Development round 12: feedback with a smaller ridge	Glymph dev	kidney nuclei, seed 2		Development run in the dev folder, not a benchmark result.
