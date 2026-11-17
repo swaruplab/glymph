@@ -1,0 +1,636 @@
+{
+ "version": "0.3.1",
+ "device": "cuda:0",
+ "gpu": "NVIDIA A30",
+ "peak_gpu_mem_gb": 5.815,
+ "timings": {
+  "priors_s": 0.904,
+  "setup_s": 0.585,
+  "train_s": 32.524,
+  "calibrate_s": 37.435,
+  "denoise_s": 2.57,
+  "assemble_s": 0.648,
+  "read_s": 2.582,
+  "write_s": 9.191,
+  "total_s": 86.45
+ },
+ "n_cells": 83328,
+ "e_unit": {
+  "all": 18.0
+ },
+ "swap_fraction": {
+  "all": 4.999999873689376e-06
+ },
+ "ambient_multiplier": {
+  "all": 0.9457061886787415
+ },
+ "empty_alpha": 2.0,
+ "swap_calibration": {
+  "applied": true,
+  "per_cell": {
+   "0": {
+    "kappa": 0.9457061348963186,
+    "kappa_depth": 6.247651274631504,
+    "depth_ref": 706.0,
+    "n_informative": 78211,
+    "n_outlier": 5196,
+    "n_barcodes": 133350,
+    "silent_set": "broad",
+    "expected_rescaled_by": 1.3673,
+    "n_doublet_like": 187,
+    "alpha": 4.414947119741078,
+    "expected_silent_counts_median": 12.152928514198289,
+    "multiplier_over_trend_q10_q50_q90": [
+     0.582,
+     0.9,
+     1.585
+    ]
+   },
+   "masked_cells": 83407,
+   "doublet_like_cells": 187,
+   "silent_genes_per_cluster_median": 9604.0
+  },
+  "swap_learned": [
+   0.005299128592014313
+  ],
+  "swap_estimate": [
+   1e-07
+  ],
+  "kappa_estimate": [
+   0.9457061348963186
+  ],
+  "kappa_used": [
+   0.9457061290740967
+  ],
+  "swap_used": [
+   4.999999873689376e-06
+  ],
+  "n_confident_cells": 79669,
+  "confident_threshold": 149.26913094589844,
+  "pools": {
+   "0": {
+    "n_cells": 79669,
+    "n_clusters": 20,
+    "min_expected_used": 30.0,
+    "ridge": 2.781,
+    "ridge_histogram": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     2,
+     13,
+     21,
+     48,
+     124,
+     252,
+     236,
+     232,
+     288,
+     309,
+     256,
+     172,
+     181,
+     92,
+     43,
+     23,
+     3,
+     3,
+     1,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "seeds_with_signal": 3,
+    "background_at_median_depth_by_seed": [
+     122.62,
+     129.48,
+     144.45
+    ],
+    "clusters_tried": [
+     20
+    ],
+    "clusters": [
+     {
+      "cluster": 0,
+      "cells": 5075,
+      "candidates": 213,
+      "genes": 206,
+      "ratio": 1.011,
+      "used": true
+     },
+     {
+      "cluster": 1,
+      "cells": 4084,
+      "candidates": 78,
+      "genes": 20,
+      "ratio": 0.707,
+      "used": true
+     },
+     {
+      "cluster": 2,
+      "cells": 2458,
+      "candidates": 54,
+      "genes": 9,
+      "ratio": 0.582,
+      "used": true
+     },
+     {
+      "cluster": 3,
+      "cells": 2549,
+      "candidates": 56,
+      "genes": 42,
+      "ratio": 1.207,
+      "used": true
+     },
+     {
+      "cluster": 4,
+      "cells": 4019,
+      "candidates": 49,
+      "genes": 28,
+      "ratio": 0.676,
+      "used": true
+     },
+     {
+      "cluster": 5,
+      "cells": 1039,
+      "candidates": 25,
+      "genes": 4,
+      "ratio": 0.622,
+      "used": true
+     },
+     {
+      "cluster": 6,
+      "cells": 3140,
+      "candidates": 32,
+      "genes": 10,
+      "ratio": 0.568,
+      "used": true
+     },
+     {
+      "cluster": 7,
+      "cells": 1096,
+      "candidates": 5,
+      "genes": 0,
+      "ratio": "none",
+      "used": false
+     },
+     {
+      "cluster": 8,
+      "cells": 4521,
+      "candidates": 163,
+      "genes": 159,
+      "ratio": 1.078,
+      "used": true
+     },
+     {
+      "cluster": 9,
+      "cells": 3979,
+      "candidates": 80,
+      "genes": 61,
+      "ratio": 0.927,
+      "used": true
+     },
+     {
+      "cluster": 10,
+      "cells": 9288,
+      "candidates": 325,
+      "genes": 267,
+      "ratio": 1.056,
+      "used": true
+     },
+     {
+      "cluster": 11,
+      "cells": 4081,
+      "candidates": 143,
+      "genes": 130,
+      "ratio": 0.97,
+      "used": true
+     },
+     {
+      "cluster": 12,
+      "cells": 6558,
+      "candidates": 274,
+      "genes": 264,
+      "ratio": 1.001,
+      "used": true
+     },
+     {
+      "cluster": 13,
+      "cells": 3799,
+      "candidates": 88,
+      "genes": 15,
+      "ratio": 0.743,
+      "used": true
+     },
+     {
+      "cluster": 14,
+      "cells": 4797,
+      "candidates": 181,
+      "genes": 176,
+      "ratio": 1.076,
+      "used": true
+     },
+     {
+      "cluster": 15,
+      "cells": 3452,
+      "candidates": 124,
+      "genes": 105,
+      "ratio": 0.952,
+      "used": true
+     },
+     {
+      "cluster": 16,
+      "cells": 3227,
+      "candidates": 41,
+      "genes": 9,
+      "ratio": 0.539,
+      "used": true
+     },
+     {
+      "cluster": 17,
+      "cells": 3550,
+      "candidates": 61,
+      "genes": 7,
+      "ratio": 0.453,
+      "used": true
+     },
+     {
+      "cluster": 18,
+      "cells": 4480,
+      "candidates": 107,
+      "genes": 82,
+      "ratio": 0.873,
+      "used": true
+     },
+     {
+      "cluster": 19,
+      "cells": 4477,
+      "candidates": 203,
+      "genes": 182,
+      "ratio": 1.043,
+      "used": true
+     }
+    ],
+    "kappa": 0.9457061348963186,
+    "kappa_depth": 6.247651274631504,
+    "s": 1e-07,
+    "depth_ref": 706.0,
+    "cells_fitted": 78573,
+    "cells_trimmed": 2679,
+    "silent_counts": 412069.0,
+    "clusters_dropped": [],
+    "silent_genes_tested_median": 42.0,
+    "silent_genes_broad_median": 9604.0,
+    "silent_counts_broad": 929384.0,
+    "cells_left_out_of_cluster_sums": 8377
+   }
+  }
+ },
+ "removed_fraction_in_cells": 0.2001391148141184,
+ "priors": {
+  "threshold_method": "knee",
+  "confident_threshold": 149.26913094589844,
+  "n_confident": 79669,
+  "empty_sd0": 0.30950270861753565,
+  "knee": {
+   "lam_knee": 0.0083,
+   "lam_above": 0.1388,
+   "T": 149.2691,
+   "hi": 88.914,
+   "n_above": 80021.0
+  },
+  "rejected_plateau": "none",
+  "bead_cliff": "none",
+  "plateau": "none",
+  "cell_threshold": 149.26913094589844,
+  "n_cells_prior": 79669,
+  "empty_level": 18.0,
+  "empty_max": 88.9139705019464,
+  "n_background_barcodes": 153646,
+  "n_plateau_barcodes": 153646,
+  "n_analyzed": 133350,
+  "n_train_empties": 50000,
+  "n_genes": 22251,
+  "soup_umis_per_unit": {
+   "all": 2264362.0
+  },
+  "e_unit_init": {
+   "all": 18.0
+  }
+ },
+ "train": {
+  "epochs_run": 19,
+  "epochs_planned": 25,
+  "steps": 2356,
+  "best_val": 7.005061987173647
+ },
+ "train_calibrated": {
+  "epochs_run": 20,
+  "epochs_planned": 20,
+  "steps": 2480,
+  "best_val": 7.013535174771431
+ },
+ "train_matched": {},
+ "history": [
+  {
+   "epoch": 1,
+   "train": 7.21735,
+   "val": 7.04039,
+   "s": 0.00965
+  },
+  {
+   "epoch": 2,
+   "train": 7.18037,
+   "val": 7.02182,
+   "s": 0.00898
+  },
+  {
+   "epoch": 3,
+   "train": 7.17367,
+   "val": 7.01438,
+   "s": 0.00827
+  },
+  {
+   "epoch": 4,
+   "train": 7.17344,
+   "val": 7.00935,
+   "s": 0.00763
+  },
+  {
+   "epoch": 5,
+   "train": 7.17279,
+   "val": 7.00697,
+   "s": 0.00709
+  },
+  {
+   "epoch": 6,
+   "train": 7.17215,
+   "val": 7.00679,
+   "s": 0.00667
+  },
+  {
+   "epoch": 7,
+   "train": 7.17088,
+   "val": 7.00581,
+   "s": 0.0063
+  },
+  {
+   "epoch": 8,
+   "train": 7.16894,
+   "val": 7.00551,
+   "s": 0.006
+  },
+  {
+   "epoch": 9,
+   "train": 7.16961,
+   "val": 7.0054,
+   "s": 0.00573
+  },
+  {
+   "epoch": 10,
+   "train": 7.16815,
+   "val": 7.00543,
+   "s": 0.0055
+  },
+  {
+   "epoch": 11,
+   "train": 7.16695,
+   "val": 7.00506,
+   "s": 0.0053
+  },
+  {
+   "epoch": 12,
+   "train": 7.1667,
+   "val": 7.00536,
+   "s": 0.00512
+  },
+  {
+   "epoch": 13,
+   "train": 7.16665,
+   "val": 7.00527,
+   "s": 0.00496
+  },
+  {
+   "epoch": 14,
+   "train": 7.16538,
+   "val": 7.00538,
+   "s": 0.00482
+  },
+  {
+   "epoch": 15,
+   "train": 7.16432,
+   "val": 7.00534,
+   "s": 0.0047
+  },
+  {
+   "epoch": 16,
+   "train": 7.16239,
+   "val": 7.00558,
+   "s": 0.00459
+  },
+  {
+   "epoch": 17,
+   "train": 7.16129,
+   "val": 7.00569,
+   "s": 0.0045
+  },
+  {
+   "epoch": 18,
+   "train": 7.16196,
+   "val": 7.00578,
+   "s": 0.00441
+  },
+  {
+   "epoch": 19,
+   "train": 7.15896,
+   "val": 7.00614,
+   "s": 0.00434
+  }
+ ],
+ "history_calibrated": [
+  {
+   "epoch": 1,
+   "train": 7.20129,
+   "val": 7.01474,
+   "s": 0.0
+  },
+  {
+   "epoch": 2,
+   "train": 7.17757,
+   "val": 7.0139,
+   "s": 0.0
+  },
+  {
+   "epoch": 3,
+   "train": 7.17562,
+   "val": 7.01354,
+   "s": 0.0
+  },
+  {
+   "epoch": 4,
+   "train": 7.17598,
+   "val": 7.01396,
+   "s": 0.0
+  },
+  {
+   "epoch": 5,
+   "train": 7.17454,
+   "val": 7.01454,
+   "s": 0.0
+  },
+  {
+   "epoch": 6,
+   "train": 7.17343,
+   "val": 7.0142,
+   "s": 0.0
+  },
+  {
+   "epoch": 7,
+   "train": 7.17292,
+   "val": 7.01416,
+   "s": 0.0
+  },
+  {
+   "epoch": 8,
+   "train": 7.1712,
+   "val": 7.01432,
+   "s": 0.0
+  },
+  {
+   "epoch": 9,
+   "train": 7.1721,
+   "val": 7.01459,
+   "s": 0.0
+  },
+  {
+   "epoch": 10,
+   "train": 7.17068,
+   "val": 7.015,
+   "s": 0.0
+  },
+  {
+   "epoch": 11,
+   "train": 7.16958,
+   "val": 7.01535,
+   "s": 0.0
+  },
+  {
+   "epoch": 12,
+   "train": 7.16944,
+   "val": 7.01576,
+   "s": 0.0
+  },
+  {
+   "epoch": 13,
+   "train": 7.16944,
+   "val": 7.01582,
+   "s": 0.0
+  },
+  {
+   "epoch": 14,
+   "train": 7.16828,
+   "val": 7.01596,
+   "s": 0.0
+  },
+  {
+   "epoch": 15,
+   "train": 7.16737,
+   "val": 7.01651,
+   "s": 0.0
+  },
+  {
+   "epoch": 16,
+   "train": 7.16565,
+   "val": 7.01649,
+   "s": 0.0
+  },
+  {
+   "epoch": 17,
+   "train": 7.16479,
+   "val": 7.01685,
+   "s": 0.0
+  },
+  {
+   "epoch": 18,
+   "train": 7.16578,
+   "val": 7.01688,
+   "s": 0.0
+  },
+  {
+   "epoch": 19,
+   "train": 7.16311,
+   "val": 7.01718,
+   "s": 0.0
+  },
+  {
+   "epoch": 20,
+   "train": 7.16397,
+   "val": 7.01736,
+   "s": 0.0
+  }
+ ],
+ "config": {
+  "n_hidden": 512,
+  "n_latent": 32,
+  "n_cond": 16,
+  "likelihood": "multinomial",
+  "eps_alpha": 10.0,
+  "eps_alpha_calibrated": 50.0,
+  "eps_alpha_pinned": 2000.0,
+  "learn_ambient_level": false,
+  "s_init": 0.01,
+  "s_max": 0.05,
+  "calibrate_swap": true,
+  "calib_clusters": 20,
+  "cell_multipliers": true,
+  "mask_silent": true,
+  "silent_broad": true,
+  "calib_retry": true,
+  "calib_seeds": 3,
+  "spare_doublets": false,
+  "match_posterior_mean": false,
+  "keep_cell_totals": true,
+  "cell_totals_max_entries": 150000000,
+  "calib_quantile": 0.5,
+  "calib_steps_frac": 0.5,
+  "bg_reward": 0.0,
+  "s_freeze_frac": 0.0,
+  "global_lr_mult": 1.0,
+  "batch_size": 1024,
+  "target_steps": 3000,
+  "min_epochs": 20,
+  "max_epochs": 300,
+  "lr": 0.001,
+  "kl_warmup_frac": 0.2,
+  "val_frac": 0.05,
+  "patience": 8,
+  "seed": 0,
+  "low_count": 5.0,
+  "expected_cells": "none",
+  "empty_level": "none",
+  "max_barcodes": 250000,
+  "estimator": "gene",
+  "fpr": 0.004,
+  "strength": 1.0,
+  "cell_prob_cutoff": 0.5,
+  "keep_non_cells": false,
+  "device": "cuda:0"
+ },
+ "input": "/dfs7/swaruplab/vswarup/compute/glymph/data/std/bd_pbmc_Donor2881.h5ad",
+ "output": "out/glymph/bd_pbmc_Donor2881.h5ad"
+}

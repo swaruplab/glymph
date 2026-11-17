@@ -60,7 +60,7 @@
     <h1 class="gl-title">Glymph benchmark tracker</h1>
     <p class="gl-lede" data-when="scores" hidden>On the <b data-draw="num" data-source="tool_summary" data-field="libraries" data-where="tool=glymph"></b> libraries scored so far, Glymph removes <b data-draw="num" data-source="tool_summary" data-field="removed_pct" data-where="tool=glymph"></b>% of cross-species counts, in a median of <b data-draw="num" data-source="tool_summary" data-field="median_wall_s" data-where="tool=glymph"></b> s per library on one A30. <span data-when="cellbender" hidden>CellBender removes <b data-draw="num" data-source="tool_summary" data-field="removed_pct" data-where="tool=cellbender"></b>% on <b data-draw="num" data-source="tool_summary" data-field="libraries" data-where="tool=cellbender"></b> libraries, in a median of <b data-draw="num" data-source="tool_summary" data-field="median_wall_s" data-where="tool=cellbender"></b> s.</span></p>
     <p class="gl-lede" data-when="no-scores" hidden>Nothing is scored yet. The job table shows what is running.</p>
-    <p class="gl-note">Where things stand, 17 November 2026, 6 am Eastern. The benchmark of every tool on all 54 libraries finished overnight; its results are in the section "All tiers" just below. In short, against CellBender 0.3.2 on libraries Glymph 0.3.0 had never seen: about 20 times faster, lower per-cell error on 24 of 27 mixtures, level on removal for 10x cell lines, well ahead on nuclei, behind on BD Rhapsody, and it failed on libraries of 80,000 cells and more. A fix for the last two points (Glymph 0.3.1) is being tested now and is not in these tables. The tier 1 and tier 2 sections further down are the first run (Glymph 0.2.0) and are kept for the record.</p>
+    <p class="gl-note">Where things stand, 17 November 2026, 8 am Eastern. Glymph 0.3.1 is frozen and has been run on all 54 libraries; the section "All tiers" just below shows it beside Glymph 0.3.0, CellBender 0.3.2 and the other tools. In short, against CellBender: about 19 times faster per library, lower per-cell error on 27 of 32 libraries with truth, level on removal for 10x cell lines never used in development, far ahead on nuclei, 1.4 points behind on BD Rhapsody, and it over-cleans very clean tissue (xenograft skin). The project is public at <a href="https://github.com/swaruplab/glymph">github.com/swaruplab/glymph</a>, with a website at <a href="https://swaruplab.github.io/glymph/">swaruplab.github.io/glymph</a> and an overview deck in the repository's reports folder. The tier 1 and tier 2 sections further down are the first run (Glymph 0.2.0) and are kept for the record.</p>
     <p class="gl-note">Cross-species counts are the ground truth here: in a human cell every mouse read is background, and the reverse. Cell-line mixtures carry only 1 to 3% contamination, far less than tissue nuclei, so a lead on this tier alone does not show a method is better on real tissue.</p>
   </header>
 
@@ -76,8 +76,8 @@
   </section>
 
   <section class="gl-sec" id="alltier">
-    <h2 class="gl-h2">All tiers: Glymph 0.3.0 against every tool</h2>
-    <p class="gl-note">Run 20261116-2209, 54 libraries. Species truth with alignment-artifact genes masked for every tool (see the last table of this section). "Budget" is the false-positive budget: extra counts a tool may remove beyond the background it expects. Glymph's default is 0.4%, CellBender's is 1%, so the fairest rows to compare are the two at 1% and the two at 0.</p>
+    <h2 class="gl-h2">All tiers: Glymph 0.3.1 against every tool</h2>
+    <p class="gl-note">Run 20261117-0607, 54 libraries: Glymph 0.3.1 at four budgets, with Glymph 0.3.0, CellBender 0.3.2 and the other tools from run 20261116-2209 scored beside it. "Held out" now means never used to choose anything in 0.3.1 (four libraries were opened for its development and moved to "looked at"). Species truth with alignment-artifact genes masked for every tool (see the last table of this section). "Budget" is the false-positive budget: extra counts a tool may remove beyond the background it expects. Glymph's default is 0.4%, CellBender's is 1%, so the fairest rows to compare are the two at 1% and the two at 0.</p>
     <h3 class="gl-h3">Held-out libraries only: human + mouse mixtures by platform</h3>
     <div class="gl-scroll">
       <table class="gl-table" data-source="alltier_heldout" data-row-key="group,tool" id="alltier-heldout-table">
@@ -118,7 +118,7 @@
       </table>
     </div>
     </details>
-    <h3 class="gl-h3">Glymph against CellBender, library by library (both at their defaults)</h3>
+    <h3 class="gl-h3">Glymph 0.3.1 against CellBender, library by library (both at their defaults)</h3>
     <div class="gl-scroll">
       <table class="gl-table" data-source="alltier_lib" data-row-key="library" id="alltier-lib-table">
         <thead><tr>
@@ -127,7 +127,8 @@
           <th data-field="development">In development</th>
           <th data-field="cross_pct" class="gl-r">Cross-species counts, %</th>
           <th data-field="masked_pct" class="gl-r">Of which masked, %</th>
-          <th data-field="glymph_removed" class="gl-r">Removed, Glymph %</th>
+          <th data-field="glymph030_removed" class="gl-r">Removed, Glymph 0.3.0 %</th>
+          <th data-field="glymph_removed" class="gl-r">Removed, Glymph 0.3.1 %</th>
           <th data-field="cellbender_removed" class="gl-r">Removed, CellBender %</th>
           <th data-field="glymph_kept" class="gl-r">Kept, Glymph %</th>
           <th data-field="cellbender_kept" class="gl-r">Kept, CellBender %</th>

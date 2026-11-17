@@ -368,7 +368,7 @@ def main():
         alltier_res.append({"what": r["what"], "tool": r["tool"], "hardware": r["hardware"], "median_wall_s": num(r["wall_s"], 0), "longest_wall_s": None,
                             "total_hours": None, "median_ram_gb": None, "peak_ram_gb": num(r["peak_rss_gb"], 1), "peak_gpu_gb": num(r["peak_gpu_gb"], 1)})
     alltier_scaling = [{"tool": r["tool"], "cells": num(r["cells"], 0), "state": r["state"], "wall_s": num(r["wall_s"], 0),
-                        "peak_ram_gb": num(r["peak_rss_gb"], 1), "note": r["note"]} for r in read_tsv(os.path.join(AT0, "scaling.tsv"))]
+                        "peak_ram_gb": num(r["peak_rss_gb"], 1), "note": r["note"]} for r in read_tsv(os.path.join(AT if os.path.exists(os.path.join(AT, "scaling.tsv")) else AT0, "scaling.tsv"))]
     artifacts = [{"library": r["dataset"], "gene": r["gene"], "in_cells_of": r["in_cells_of"], "share_of_cross_pct": num(r["share_of_cross_pct"], 1),
                   "share_in_source_cells_pct": num(r["share_in_source_cells_pct"], 2), "share_in_soup_pct": num(r["share_in_soup_pct"], 2)}
                  for r in read_tsv(os.path.join(AT, "artifact_genes.tsv"))]

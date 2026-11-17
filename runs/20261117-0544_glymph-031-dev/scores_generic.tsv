@@ -1,0 +1,334 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on	tier	platform	kind	truth	development
+bd_hgmm_mix1	raw	9899	0	0	labels	2	100	0	0	0	0	0.39047	0	1	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	cellbender	9899	24	1.2669	labels	2	100	0	0	0	0	0.38809	0.1435	0.99562	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	g031	9899	122	1.2363	labels	2	100	0	0	0	0	0.37751	0.089292	0.99451	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	g031b	9899	119	1.257	labels	2	100	0	0	0	0	0.37756	0.089386	0.99385	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	g031b_fpr1	9899	122	1.8587	labels	2	100	0	0	0	0	0.37743	0.096596	0.98773	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	g031c_a	9899	119	1.2778	labels	2	100	0	0	0	0	0.37756	0.097116	0.99389	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	g031c_b	9899	123	1.2699	labels	2	100	0	0	0	0	0.37755	0.095119	0.99386	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	g031d_a	9899	119	1.2943	labels	2	100	0	0	0	0	0.37756	0.09228	0.99355	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	g031d_b	9899	119	1.2893	labels	2	100	0	0	0	0	0.37756	0.091734	0.9937	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	g031d_fpr1	9899	119	1.8868	labels	2	100	0	0	0	0	0.37756	0.095593	0.98743	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	g031e_nospare	9899	120	1.279	labels	2	100	0	0	0	0	0.3775	0.094581	0.99392	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	g031e_spare_a	9899	119	1.2384	labels	2	100	0	0	0	0	0.37756	0.086023	0.99387	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	g031e_spare_b	9899	119	1.2449	labels	2	100	0	0	0	0	0.37756	0.090025	0.99385	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	g031_fpr1	9899	122	1.846	labels	2	100	0	0	0	0	0.37754	0.09445	0.98844	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	g031_nobroad	9899	119	1.1036	labels	2	100	0	0	0	0	0.37756	0.079832	0.99506	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+bd_hgmm_mix1	glymph_030	9899	119	1.1167	labels	2	100	0	0	0	0	0.37756	0.079726	0.99488	t3_rhapsody	BD Rhapsody WTA	cells	species	held out
+hgmm_10k_5pv2_ctrl	raw	9361	0	0	clusters	4	65	0	0	0	0	0.022919	0	1	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	cellbender	9361	24	3.7045	clusters	4	65	0	0	0	0	0.02292	0.094909	0.99971	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	g031	9361	0	2.9305	clusters	4	65	0	0	0	0	0.022919	0.080184	0.99838	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	g031b	9361	64	2.9635	clusters	4	65	0	0	0	0	0.022503	0.08247	0.99828	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	g031b_fpr1	9361	30	3.5314	clusters	4	65	0	0	0	0	0.022833	0.097454	0.99628	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	g031c_a	9361	48	2.9744	clusters	4	65	0	0	0	0	0.022538	0.081763	0.99833	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	g031c_b	9361	20	2.9417	clusters	4	65	0	0	0	0	0.022825	0.082416	0.99833	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	g031d_a	9361	0	2.9103	clusters	4	65	0	0	0	0	0.022919	0.080733	0.99836	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	g031d_b	9361	0	2.9177	clusters	4	65	0	0	0	0	0.022919	0.08083	0.99844	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	g031d_fpr1	9361	0	3.5178	clusters	4	65	0	0	0	0	0.022919	0.096489	0.9962	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	g031e_nospare	9361	51	2.9639	clusters	4	65	0	0	0	0	0.022261	0.084428	0.99822	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	g031e_spare_a	9361	0	2.8775	clusters	4	65	0	0	0	0	0.022919	0.079556	0.99841	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	g031e_spare_b	9361	0	2.868	clusters	4	65	0	0	0	0	0.022919	0.079733	0.99842	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	g031_fpr1	9361	0	3.4979	clusters	4	65	0	0	0	0	0.022919	0.095876	0.99659	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	g031_nobroad	9361	1	2.8676	clusters	4	65	0	0	0	0	0.022919	0.076057	0.99884	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_5pv2_ctrl	glymph_030	9361	0	2.8977	clusters	4	65	0	0	0	0	0.022919	0.076104	0.99884	t1_holdout	10x 5' v2	cells	species	looked at
+hgmm_10k_gemx_v4	raw	10956	0	0	clusters	4	94	0	0	0	0	0.07821	0	1	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	cellbender	10956	0	1.5574	clusters	4	94	0	0	0	0	0.07821	0.073857	0.99948	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	g031	10956	0	1.9292	clusters	4	94	0	0	0	0	0.07821	0.066444	0.99928	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	g031b	10956	0	1.984	clusters	4	94	0	0	0	0	0.07821	0.066151	0.99923	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	g031b_fpr1	10956	3	2.5456	clusters	4	94	0	0	0	0	0.078169	0.078774	0.99807	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	g031c_a	10956	45	1.9773	clusters	4	94	0	0	0	0	0.077793	0.067534	0.99922	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	g031c_b	10956	24	1.9877	clusters	4	94	0	0	0	0	0.078023	0.068404	0.99928	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	g031d_a	10956	0	1.9463	clusters	4	94	0	0	0	0	0.07821	0.065945	0.99924	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	g031d_b	10956	0	1.9421	clusters	4	94	0	0	0	0	0.07821	0.065723	0.99918	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	g031d_fpr1	10956	0	2.5207	clusters	4	94	0	0	0	0	0.07821	0.079262	0.9982	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	g031e_nospare	10956	1	2.0852	clusters	4	94	0	0	0	0	0.078211	0.070951	0.99883	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	g031e_spare_a	10956	0	1.9334	clusters	4	94	0	0	0	0	0.07821	0.065438	0.99926	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	g031e_spare_b	10956	0	1.9268	clusters	4	94	0	0	0	0	0.07821	0.065067	0.99924	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	g031_fpr1	10956	1	2.5342	clusters	4	94	0	0	0	0	0.078211	0.079374	0.99806	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	g031_nobroad	10956	0	2.0453	clusters	4	94	0	0	0	0	0.07821	0.070666	0.99927	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_gemx_v4	glymph_030	10956	0	2.0344	clusters	4	94	0	0	0	0	0.07821	0.070451	0.99928	t1_tuning	10x GEM-X 3p v4	cells	species	tuned on
+hgmm_10k_v3	raw	10563	0	0	clusters	3	57	0	0	0	0	0.0098215	0	1	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	cellbender	10563	2	2.8619	clusters	3	57	0	0	0	0	0.0098213	0.10391	0.99963	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	g031	10563	0	3.1537	clusters	3	57	0	0	0	0	0.0098215	0.09947	0.99871	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	g031b	10563	21	3.1772	clusters	3	57	0	0	0	0	0.0098216	0.10018	0.99875	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	g031b_fpr1	10563	25	3.7554	clusters	3	57	0	0	0	0	0.0096844	0.11619	0.99772	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	g031c_a	10563	24	3.274	clusters	3	57	0	0	0	0	0.0096433	0.11716	0.99851	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	g031c_b	10563	68	3.3115	clusters	3	57	0	0	0	0	0.009506	0.10942	0.99842	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	g031d_a	10563	0	3.2394	clusters	3	57	0	0	0	0	0.0098215	0.115	0.9984	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	g031d_b	10563	0	3.1702	clusters	3	57	0	0	0	0	0.0098215	0.10067	0.9986	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	g031d_fpr1	10563	0	3.813	clusters	3	57	0	0	0	0	0.0098215	0.12824	0.99704	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	g031e_nospare	10563	29	3.1617	clusters	3	57	0	0	0	0	0.0096843	0.099586	0.99844	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	g031e_spare_a	10563	0	3.2201	clusters	3	57	0	0	0	0	0.0098215	0.10135	0.99848	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	g031e_spare_b	10563	0	3.1456	clusters	3	57	0	0	0	0	0.0098215	0.098567	0.99881	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	g031_fpr1	10563	0	3.7333	clusters	3	57	0	0	0	0	0.0098215	0.11402	0.99743	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	g031_nobroad	10563	0	3.1071	clusters	3	57	0	0	0	0	0.0098215	0.093678	0.9991	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_10k_v3	glymph_030	10563	0	3.0976	clusters	3	57	0	0	0	0	0.0098215	0.091873	0.99921	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_12k_v2	raw	12665	0	0	clusters	1	4	0	0	0	0	0.00071662	0	1	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_12k_v2	cellbender	12665	0	2.4864	clusters	1	4	0	0	0	0	0.00071662	0.081507	1	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_12k_v2	g031	12665	0	3.81	clusters	1	4	0	0	0	0	0.00071662	0.11164	0.99748	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_12k_v2	g031b	12665	0	3.8714	clusters	1	4	0	0	0	0	0.00071662	0.11575	0.99685	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_12k_v2	g031b_fpr1	12665	0	4.3991	clusters	1	4	0	0	0	0	0.00071662	0.12603	0.99527	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_12k_v2	g031c_a	12665	0	3.8614	clusters	1	4	0	0	0	0	0.00071662	0.11438	0.99716	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_12k_v2	g031c_b	12665	0	3.8847	clusters	1	4	0	0	0	0	0.00071662	0.11712	0.9959	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_12k_v2	g031d_a	12665	0	3.8342	clusters	1	4	0	0	0	0	0.00071662	0.10959	0.99842	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_12k_v2	g031d_b	12665	0	3.8352	clusters	1	4	0	0	0	0	0.00071662	0.11644	0.99779	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_12k_v2	g031d_fpr1	12665	0	4.413	clusters	1	4	0	0	0	0	0.00071662	0.13151	0.99653	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_12k_v2	g031e_spare_a	12665	0	3.7746	clusters	1	4	0	0	0	0	0.00071662	0.11507	0.99842	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_12k_v2	g031e_spare_b	12665	0	3.7791	clusters	1	4	0	0	0	0	0.00071662	0.11301	0.99496	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_12k_v2	g031_fpr1	12665	0	4.4095	clusters	1	4	0	0	0	0	0.00071662	0.12466	0.99464	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_12k_v2	g031_nobroad	12665	0	3.6088	clusters	1	4	0	0	0	0	0.00071662	0.09863	0.99937	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_12k_v2	glymph_030	12665	0	3.6378	clusters	1	4	0	0	0	0	0.00071662	0.1	0.99937	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_1k_v3	raw	999	0	0	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_1k_v3	cellbender	999	0	1.1278	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_1k_v3	g031	999	0	0.94347	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_1k_v3	g031b	999	0	0.94087	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_1k_v3	g031b_fpr1	999	0	1.5363	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_1k_v3	g031c_a	999	0	0.94075	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_1k_v3	g031c_b	999	0	0.94029	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_1k_v3	g031d_a	999	0	0.89854	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_1k_v3	g031d_b	999	0	0.8975	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_1k_v3	g031d_fpr1	999	0	1.4951	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_1k_v3	g031e_spare_a	999	0	0.89639	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_1k_v3	g031e_spare_b	999	0	0.89394	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_1k_v3	g031_fpr1	999	0	1.4827	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_1k_v3	g031_nobroad	999	0	0.83688	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_1k_v3	glymph_030	999	0	0.79473	none	0	0	0	0	0	0				t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_20k_v31_HT	raw	16273	0	0	clusters	3	60	0	0	0	0	0.034387	0	1	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	cellbender	16273	0	2.4332	clusters	3	60	0	0	0	0	0.034387	0.054308	0.99999	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	g031	16273	0	2.7618	clusters	3	60	0	0	0	0	0.034387	0.051246	0.99993	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	g031b	16273	23	2.7818	clusters	3	60	0	0	0	0	0.034404	0.052021	0.99992	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	g031b_fpr1	16273	40	3.3488	clusters	3	60	0	0	0	0	0.034364	0.068138	0.99967	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	g031c_a	16273	64	2.8345	clusters	3	60	0	0	0	0	0.034036	0.054814	0.99991	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	g031c_b	16273	48	2.7954	clusters	3	60	0	0	0	0	0.034372	0.053566	0.99989	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	g031d_a	16273	0	2.7647	clusters	3	60	0	0	0	0	0.034387	0.053102	0.99987	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	g031d_b	16273	0	2.7878	clusters	3	60	0	0	0	0	0.034387	0.052027	0.99993	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	g031d_fpr1	16273	0	3.3838	clusters	3	60	0	0	0	0	0.034387	0.06999	0.99963	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	g031e_nospare	16273	34	2.852	clusters	3	60	0	0	0	0	0.034376	0.052692	0.99986	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	g031e_spare_a	16273	0	2.7358	clusters	3	60	0	0	0	0	0.034387	0.051221	0.99992	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	g031e_spare_b	16273	0	2.7717	clusters	3	60	0	0	0	0	0.034387	0.052052	0.99992	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	g031_fpr1	16273	0	3.3581	clusters	3	60	0	0	0	0	0.034387	0.067672	0.9997	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	g031_nobroad	16273	0	2.7459	clusters	3	60	0	0	0	0	0.034387	0.049291	0.99994	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_20k_v31_HT	glymph_030	16273	0	2.7305	clusters	3	60	0	0	0	0	0.034387	0.048153	0.99994	t1_tuning	10x 3p v3.1 HT	cells	species	tuned on
+hgmm_5k_v3	raw	5171	0	0	clusters	2	28	0	0	0	0	0.0033966	0	1	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	cellbender	5171	47	1.9937	clusters	2	28	0	0	0	0	0.003398	0.093647	0.99981	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	g031	5171	1	2.2727	clusters	2	28	0	0	0	0	0.0033966	0.098095	0.99843	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	g031b	5171	14	2.3262	clusters	2	28	0	0	0	0	0.0033215	0.10827	0.99907	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	g031b_fpr1	5171	1	2.944	clusters	2	28	0	0	0	0	0.0033966	0.12585	0.99621	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	g031c_a	5171	2	2.3902	clusters	2	28	0	0	0	0	0.0033972	0.10656	0.99806	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	g031c_b	5171	3	2.3669	clusters	2	28	0	0	0	0	0.0033981	0.11033	0.99769	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	g031d_a	5171	1	2.298	clusters	2	28	0	0	0	0	0.0033966	0.10539	0.99843	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	g031d_b	5171	1	2.2833	clusters	2	28	0	0	0	0	0.0033966	0.10351	0.99861	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	g031d_fpr1	5171	1	2.8885	clusters	2	28	0	0	0	0	0.0033966	0.12421	0.99685	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	g031e_nospare	5171	1	2.3899	clusters	2	28	0	0	0	0	0.0033966	0.11456	0.99815	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	g031e_spare_a	5171	1	2.2881	clusters	2	28	0	0	0	0	0.0033966	0.1028	0.99796	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	g031e_spare_b	5171	1	2.2953	clusters	2	28	0	0	0	0	0.0033966	0.10515	0.9988	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	g031_fpr1	5171	1	2.8611	clusters	2	28	0	0	0	0	0.0033966	0.11174	0.99704	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	g031_nobroad	5171	1	2.0802	clusters	2	28	0	0	0	0	0.0033966	0.079981	0.99907	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_5k_v3	glymph_030	5171	1	2.0953	clusters	2	28	0	0	0	0	0.0033966	0.074806	0.99907	t1_tuning	10x 3p v3	cells	species	tuned on
+hgmm_6k_v2	raw	7387	0	0	clusters	2	4	0	0	0	0	0.067321	0	1	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	cellbender	7387	16	2.3056	clusters	2	4	0	0	0	0	0.067328	0.017055	0.99754	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	g031	7387	0	3.4171	clusters	2	4	0	0	0	0	0.067321	0.021404	1	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	g031b	7387	0	3.4882	clusters	2	4	0	0	0	0	0.067321	0.022806	0.99993	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	g031b_fpr1	7387	1	4.105	clusters	2	4	0	0	0	0	0.067322	0.031129	0.99993	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	g031c_a	7387	10	3.4447	clusters	2	4	0	0	0	0	0.067259	0.023163	1	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	g031c_b	7387	3	3.4685	clusters	2	4	0	0	0	0	0.06732	0.022334	1	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	g031d_a	7387	0	3.4676	clusters	2	4	0	0	0	0	0.067321	0.021316	1	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	g031d_b	7387	0	3.5364	clusters	2	4	0	0	0	0	0.067321	0.021452	0.99986	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	g031d_fpr1	7387	0	4.0883	clusters	2	4	0	0	0	0	0.067321	0.027925	0.99986	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	g031e_nospare	7387	11	3.4284	clusters	2	4	0	0	0	0	0.067176	0.023192	0.99993	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	g031e_spare_a	7387	0	3.3997	clusters	2	4	0	0	0	0	0.067321	0.020803	1	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	g031e_spare_b	7387	0	3.3979	clusters	2	4	0	0	0	0	0.067321	0.020747	0.99986	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	g031_fpr1	7387	0	4.0051	clusters	2	4	0	0	0	0	0.067321	0.028942	0.99993	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	g031_nobroad	7387	1	3.1264	clusters	2	4	0	0	0	0	0.067315	0.020021	1	t1_tuning	10x 3p v2	cells	species	tuned on
+hgmm_6k_v2	glymph_030	7387	1	3.1316	clusters	2	4	0	0	0	0	0.067322	0.019874	1	t1_tuning	10x 3p v2	cells	species	tuned on
+jurkat_32d	raw	6222	0	0	labels	2	100	0	0	0	0	0.52825	0	1	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	cellbender	6222	129	2.5666	labels	2	100	0	0	0	0	0.52533	0.75983	0.98699	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	g031	6222	0	3.3856	labels	2	100	0	0	0	0	0.52825	0.82536	0.97934	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	g031b	6222	0	3.4134	labels	2	100	0	0	0	0	0.52825	0.83426	0.97925	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	g031b_fpr1	6222	0	4.0103	labels	2	100	0	0	0	0	0.52825	0.8734	0.97385	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	g031c_a	6222	0	3.4259	labels	2	100	0	0	0	0	0.52825	0.84129	0.97923	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	g031c_b	6222	0	3.436	labels	2	100	0	0	0	0	0.52825	0.84522	0.97927	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	g031d_a	6222	0	3.437	labels	2	100	0	0	0	0	0.52825	0.84627	0.97894	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	g031d_b	6222	0	3.4102	labels	2	100	0	0	0	0	0.52825	0.83639	0.97918	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	g031d_fpr1	6222	0	4.0282	labels	2	100	0	0	0	0	0.52825	0.88083	0.97271	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	g031e_nospare	6222	0	3.4309	labels	2	100	0	0	0	0	0.52825	0.84373	0.97922	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	g031e_spare_a	6222	0	3.4229	labels	2	100	0	0	0	0	0.52825	0.84319	0.97932	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	g031e_spare_b	6222	0	3.4322	labels	2	100	0	0	0	0	0.52825	0.8392	0.97918	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	g031_fpr1	6222	0	3.9827	labels	2	100	0	0	0	0	0.52825	0.85629	0.97383	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	g031_nobroad	6222	0	3.222	labels	2	100	0	0	0	0	0.52825	0.78799	0.97913	t1_holdout	10x 3' v2	cells	species	looked at
+jurkat_32d	glymph_030	6222	0	3.2615	labels	2	100	0	0	0	0	0.52825	0.81533	0.97911	t1_holdout	10x 3' v2	cells	species	looked at
+kidney_nuc2	raw	59249	0	0	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc2	cellbender	59249	41486	40.427	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc2	g031	59249	30436	39.615	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc2	g031b	59249	31170	39.534	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc2	g031b_fpr1	59249	30715	39.871	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc2	g031c_a	59249	30688	38.635	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc2	g031c_b	59249	30762	38.345	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc2	g031d_a	59249	30944	39.994	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc2	g031d_b	59249	30976	39.764	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc2	g031d_fpr1	59249	31472	39.106	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc2	g031e_spare_a	59249	31030	38.879	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc2	g031e_spare_b	59249	30647	38.408	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc2	g031_fpr1	59249	30515	39.883	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc2	g031_nobroad	59249	30829	40.225	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc2	glymph_030	59249	30763	39.821	clusters	0	0	0	0	0	0				t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	raw	20129	0	0	clusters	6	72	0	0	0	0	0.1069	0	1	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	cellbender	20129	9398	31.649	clusters	6	72	0	0	0	0	0.10748	0.20973	0.99948	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	g031	20129	258	28.563	clusters	6	72	0	0	0	0	0.10692	0.32526	0.97968	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	g031b	20129	259	30.011	clusters	6	72	0	0	0	0	0.10694	0.37775	0.97569	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	g031b_fpr1	20129	497	29.311	clusters	6	72	0	0	0	0	0.10684	0.38607	0.96507	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	g031c_a	20129	424	25.098	clusters	6	72	0	0	0	0	0.10674	0.28726	0.99535	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	g031c_b	20129	304	30.286	clusters	6	72	0	0	0	0	0.10699	0.35332	0.98343	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	g031d_a	20129	320	32.543	clusters	6	72	0	0	0	0	0.10693	0.34937	0.99354	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	g031d_b	20129	279	32.574	clusters	6	72	0	0	0	0	0.10696	0.35424	0.9927	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	g031d_fpr1	20129	299	33.052	clusters	6	72	0	0	0	0	0.10698	0.36862	0.99224	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	g031e_nospare	20129	346	30.206	clusters	6	72	0	0	0	0	0.10694	0.36736	0.9821	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	g031e_spare_a	20129	656	24.892	clusters	6	72	0	0	0	0	0.1067	0.27469	0.99476	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	g031e_spare_b	20129	662	24.926	clusters	6	72	0	0	0	0	0.10637	0.27421	0.99531	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	g031_fpr1	20129	207	29.593	clusters	6	72	0	0	0	0	0.10691	0.33416	0.97916	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	g031_nobroad	20129	164	25.856	clusters	6	72	0	0	0	0	0.10692	0.23126	0.99725	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_nuc3	glymph_030	20129	137	24.919	clusters	6	72	0	0	0	0	0.10692	0.22734	0.9965	t2_kidney	10x 3p v3.1	nuclei	genotype	tuned on
+kidney_rep1	raw	21819	0	0	clusters	8	236	0	0	0	0	0.36614	0	1	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	cellbender	21819	835	6.8758	clusters	8	236	0	0	0	0	0.36234	0.10514	0.99948	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	g031	21819	264	6.3345	clusters	8	236	0	0	0	0	0.36521	0.11879	0.99817	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	g031b	21819	280	6.4714	clusters	8	236	0	0	0	0	0.36518	0.15062	0.99697	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	g031b_fpr1	21819	260	7.1013	clusters	8	236	0	0	0	0	0.3652	0.15915	0.99479	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	g031c_a	21819	270	6.4139	clusters	8	236	0	0	0	0	0.36519	0.15033	0.9973	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	g031c_b	21819	273	6.4032	clusters	8	236	0	0	0	0	0.36519	0.1453	0.9974	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	g031d_a	21819	267	6.9685	clusters	8	236	0	0	0	0	0.36521	0.14097	0.99761	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	g031d_b	21819	268	7.0302	clusters	8	236	0	0	0	0	0.3652	0.13656	0.99755	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	g031d_fpr1	21819	278	7.4572	clusters	8	236	0	0	0	0	0.36518	0.15129	0.9958	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	g031e_nospare	21819	276	6.4428	clusters	8	236	0	0	0	0	0.36519	0.14641	0.99757	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	g031e_spare_a	21819	259	6.1671	clusters	8	236	0	0	0	0	0.36521	0.13077	0.99738	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	g031e_spare_b	21819	273	6.1858	clusters	8	236	0	0	0	0	0.36519	0.13539	0.99781	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	g031_fpr1	21819	259	6.8729	clusters	8	236	0	0	0	0	0.36521	0.13493	0.99607	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	g031_nobroad	21819	256	6.0204	clusters	8	236	0	0	0	0	0.36523	0.10799	0.99852	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep1	glymph_030	21819	253	6.0087	clusters	8	236	0	0	0	0	0.36524	0.10791	0.99843	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	raw	28187	0	0	clusters	7	246	0	0	0	0	0.48566	0	1	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	cellbender	28187	1546	14.551	clusters	7	246	0	0	0	0	0.47999	0.12405	0.99953	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	g031	28187	142	14.128	clusters	7	246	0	0	0	0	0.48558	0.16317	0.99639	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	g031b	28187	190	15.999	clusters	7	246	0	0	0	0	0.4855	0.19281	0.9944	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	g031b_fpr1	28187	171	16.386	clusters	7	246	0	0	0	0	0.4855	0.2062	0.99244	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	g031c_a	28187	165	14.807	clusters	7	246	0	0	0	0	0.48555	0.18999	0.99531	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	g031c_b	28187	192	16.384	clusters	7	246	0	0	0	0	0.48548	0.19489	0.99454	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	g031d_a	28187	182	17.322	clusters	7	246	0	0	0	0	0.48552	0.19975	0.99443	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	g031d_b	28187	188	17.005	clusters	7	246	0	0	0	0	0.48543	0.19385	0.99449	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	g031d_fpr1	28187	177	17.705	clusters	7	246	0	0	0	0	0.48549	0.20783	0.99186	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	g031e_nospare	28187	174	15.94	clusters	7	246	0	0	0	0	0.4855	0.19479	0.9947	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	g031e_spare_a	28187	189	15.667	clusters	7	246	0	0	0	0	0.48545	0.19432	0.99502	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	g031e_spare_b	28187	180	15.806	clusters	7	246	0	0	0	0	0.4855	0.1922	0.99493	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	g031_fpr1	28187	167	15.306	clusters	7	246	0	0	0	0	0.48556	0.18029	0.99389	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	g031_nobroad	28187	131	13.934	clusters	7	246	0	0	0	0	0.48557	0.15549	0.99659	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep2	glymph_030	28187	145	14.09	clusters	7	246	0	0	0	0	0.48557	0.15931	0.99637	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	raw	6546	0	0	clusters	6	200	0	0	0	0	0.27499	0	1	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	cellbender	6546	93	3.7769	clusters	6	200	0	0	0	0	0.27331	0.11005	0.99935	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	g031	6546	4	4.2181	clusters	6	200	0	0	0	0	0.27499	0.10473	0.99846	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	g031b	6546	6	4.5021	clusters	6	200	0	0	0	0	0.27498	0.12152	0.99754	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	g031b_fpr1	6546	7	5.1139	clusters	6	200	0	0	0	0	0.27496	0.14917	0.99509	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	g031c_a	6546	8	4.5864	clusters	6	200	0	0	0	0	0.27499	0.11764	0.99803	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	g031c_b	6546	6	4.239	clusters	6	200	0	0	0	0	0.27498	0.11704	0.99789	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	g031d_a	6546	3	4.8755	clusters	6	200	0	0	0	0	0.27498	0.12735	0.99647	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	g031d_b	6546	5	4.5804	clusters	6	200	0	0	0	0	0.27498	0.12067	0.99807	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	g031d_fpr1	6546	7	5.4851	clusters	6	200	0	0	0	0	0.27494	0.1464	0.99452	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	g031e_nospare	6546	6	4.5057	clusters	6	200	0	0	0	0	0.27498	0.11999	0.99768	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	g031e_spare_a	6546	3	4.4686	clusters	6	200	0	0	0	0	0.27498	0.11901	0.99789	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	g031e_spare_b	6546	4	4.4623	clusters	6	200	0	0	0	0	0.27499	0.12407	0.99785	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	g031_fpr1	6546	5	4.8304	clusters	6	200	0	0	0	0	0.27496	0.12434	0.99588	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	g031_nobroad	6546	3	4.0748	clusters	6	200	0	0	0	0	0.27498	0.093655	0.99891	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+kidney_rep3	glymph_030	6546	3	3.9964	clusters	6	200	0	0	0	0	0.27499	0.090599	0.999	t2_kidney	10x 3p v3.1	cells	genotype	tuned on
+neat_barnyard	raw	1308	0	0	labels	1	12	0	0	0	0	0.00087483	0	1	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	cellbender	1308	0	0.9073	labels	1	12	0	0	0	0	0.00087483	0.067227	0.99756	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	g031	1308	0	7.2427	labels	1	12	0	0	0	0	0.00087483	0.16807	0.99512	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	g031b	1308	0	7.667	labels	1	12	0	0	0	0	0.00087483	0.21008	0.76392	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	g031b_fpr1	1308	0	8.1429	labels	1	12	0	0	0	0	0.00087483	0.18908	0.75562	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	g031c_a	1308	0	7.4893	labels	1	12	0	0	0	0	0.00087483	0.15126	0.99292	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	g031c_b	1308	0	7.715	labels	1	12	0	0	0	0	0.00087483	0.11765	0.90649	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	g031d_a	1308	0	7.6334	labels	1	12	0	0	0	0	0.00087483	0.13445	0.99194	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	g031d_b	1308	0	7.7628	labels	1	12	0	0	0	0	0.00087483	0.13866	0.99292	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	g031d_fpr1	1308	0	8.3732	labels	1	12	0	0	0	0	0.00087483	0.14286	0.98682	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	g031e_nospare	1308	0	7.9289	labels	1	12	0	0	0	0	0.00087483	0.23529	0.7627	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	g031e_spare_a	1308	0	7.3916	labels	1	12	0	0	0	0	0.00087483	0.11345	0.99268	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	g031e_spare_b	1308	0	7.5457	labels	1	12	0	0	0	0	0.00087483	0.14286	0.9917	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	g031_fpr1	1308	0	7.822	labels	1	12	0	0	0	0	0.00087483	0.17647	0.98999	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	g031_nobroad	1308	0	6.2029	labels	1	12	0	0	0	0	0.00087483	0.12605	0.9939	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+neat_barnyard	glymph_030	1308	0	6.0841	labels	1	12	0	0	0	0	0.00087483	0.10504	0.99414	t1_nuclei	10x Multiome GEX	nuclei	species	looked at
+parse_hgmm_sub1	raw	2439	0	0	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	cellbender	2439	0	0.76699	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	g031	2439	1	1.9899	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	g031b	2439	0	1.4185	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	g031b_fpr1	2439	0	2.0137	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	g031c_a	2439	2	3.3425	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	g031c_b	2439	27	2.8816	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	g031d_a	2439	0	2.7973	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	g031d_b	2439	0	2.8411	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	g031d_fpr1	2439	0	2.6884	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	g031e_nospare	2439	0	2.9874	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	g031e_spare_a	2439	0	2.0593	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	g031e_spare_b	2439	0	2.2062	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	g031_fpr1	2439	0	2.0131	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	g031_nobroad	2439	0	1.4216	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub1	glymph_030	2439	0	1.4201	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	raw	2831	0	0	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	cellbender	2831	0	0.87292	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	g031	2831	0	2.3654	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	g031b	2831	0	2.4911	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	g031b_fpr1	2831	0	3.0521	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	g031c_a	2831	0	2.4041	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	g031c_b	2831	0	2.5049	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	g031d_a	2831	0	2.5249	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	g031d_b	2831	0	2.3803	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	g031d_fpr1	2831	0	2.9729	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	g031e_nospare	2831	0	2.4594	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	g031e_spare_a	2831	0	2.3953	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	g031e_spare_b	2831	0	2.3447	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	g031_fpr1	2831	0	2.8371	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	g031_nobroad	2831	0	2.6698	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+parse_hgmm_sub2	glymph_030	2831	0	2.6338	clusters	0	0	0	0	0	0				t4_parse	Parse Evercode WT Mini	cells	species	held out
+pfc_ga22	raw	11924	0	0	clusters	1	21	0	0	0	0	0.025715	0	1	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	cellbender	11924	35	5.5846	clusters	1	21	0	0	0	0	0.025712	0.092378	0.9995	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	g031	11924	1	29.82	clusters	1	21	0	0	0	0	0.025716	0.48494	0.98651	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	g031b	11924	1	34.36	clusters	1	21	0	0	0	0	0.025716	0.52754	0.98451	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	g031b_fpr1	11924	1	32.947	clusters	1	21	0	0	0	0	0.025716	0.52991	0.98626	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	g031c_a	11924	1	35.759	clusters	1	21	0	0	0	0	0.025716	0.59687	0.98751	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	g031c_b	11924	1	30.08	clusters	1	21	0	0	0	0	0.025716	0.47449	0.99275	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	g031d_a	11924	3	35.617	clusters	1	21	0	0	0	0	0.025708	0.54848	0.98576	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	g031d_b	11924	3	33.287	clusters	1	21	0	0	0	0	0.025708	0.54611	0.99075	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	g031d_fpr1	11924	1	34.466	clusters	1	21	0	0	0	0	0.025716	0.5892	0.98538	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	g031e_nospare	11924	1	31.971	clusters	1	21	0	0	0	0	0.025716	0.53175	0.99025	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	g031e_spare_a	11924	1	31.381	clusters	1	21	0	0	0	0	0.025716	0.48582	0.99325	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	g031e_spare_b	11924	1	33.446	clusters	1	21	0	0	0	0	0.025716	0.5698	0.99	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	g031_fpr1	11924	1	30.168	clusters	1	21	0	0	0	0	0.025716	0.47158	0.98626	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	g031_nobroad	11924	1	28.637	clusters	1	21	0	0	0	0	0.025716	0.41175	0.99463	t5_notruth	10x 3' v3	nuclei	none	looked at
+pfc_ga22	glymph_030	11924	1	31.809	clusters	1	21	0	0	0	0	0.025716	0.43379	0.991	t5_notruth	10x 3' v3	nuclei	none	looked at
+xeno_HSC_1	raw	1646	0	0	clusters	7	129	0	0	0	0	0.38805	0	1	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	cellbender	1646	0	0.69517	clusters	7	129	0	0	0	0	0.38805	0.3073	0.99812	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	g031	1646	0	1.6102	clusters	7	129	0	0	0	0	0.38805	0.31269	0.99661	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	g031b	1646	12	2.139	clusters	7	129	0	0	0	0	0.33429	0.50082	0.99499	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	g031b_fpr1	1646	0	1.9743	clusters	7	129	0	0	0	0	0.38805	0.32493	0.99063	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	g031c_a	1646	0	1.9725	clusters	7	129	0	0	0	0	0.38805	0.44297	0.99605	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	g031c_b	1646	0	1.5556	clusters	7	129	0	0	0	0	0.38805	0.36792	0.99652	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	g031d_a	1646	0	1.8381	clusters	7	129	0	0	0	0	0.38805	0.31826	0.99573	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	g031d_b	1646	0	1.5789	clusters	7	129	0	0	0	0	0.38805	0.31074	0.99683	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	g031d_fpr1	1646	0	2.1793	clusters	7	129	0	0	0	0	0.38805	0.32791	0.99083	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	g031e_nospare	1646	8	2.2111	clusters	7	129	0	0	0	0	0.37789	0.44559	0.99517	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	g031e_spare_a	1646	0	1.7798	clusters	7	129	0	0	0	0	0.38805	0.31826	0.99581	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	g031e_spare_b	1646	0	1.8254	clusters	7	129	0	0	0	0	0.38805	0.31777	0.99574	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	g031_fpr1	1646	0	2.1992	clusters	7	129	0	0	0	0	0.38805	0.33017	0.99092	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	g031_nobroad	1646	0	1.383	clusters	7	129	0	0	0	0	0.38805	0.30803	0.99631	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_1	glymph_030	1646	0	1.6897	clusters	7	129	0	0	0	0	0.38805	0.39788	0.99583	t2_xeno	10x 3'	cells	species	looked at
+xeno_HSC_3	raw	1824	0	0	clusters	7	195	0	0	0	0	0.76288	0	1	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	cellbender	1824	0	0.77125	clusters	7	195	0	0	0	0	0.76288	0.22127	0.99779	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	g031	1824	0	1.9303	clusters	7	195	0	0	0	0	0.76288	0.3054	0.99389	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	g031b	1824	0	2.2066	clusters	7	195	0	0	0	0	0.76288	0.37565	0.99297	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	g031b_fpr1	1824	0	2.5833	clusters	7	195	0	0	0	0	0.76288	0.37287	0.98792	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	g031c_a	1824	0	2.165	clusters	7	195	0	0	0	0	0.76288	0.38381	0.99297	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	g031c_b	1824	11	1.9021	clusters	7	195	0	0	0	0	0.70515	0.34424	0.99385	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	g031d_a	1824	0	1.7745	clusters	7	195	0	0	0	0	0.76288	0.28579	0.99404	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	g031d_b	1824	0	1.7412	clusters	7	195	0	0	0	0	0.76288	0.28485	0.99405	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	g031d_fpr1	1824	0	2.3802	clusters	7	195	0	0	0	0	0.76288	0.29857	0.98828	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	g031e_nospare	1824	9	2.0012	clusters	7	195	0	0	0	0	0.7649	0.36898	0.99388	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	g031e_spare_a	1824	0	1.7368	clusters	7	195	0	0	0	0	0.76288	0.28492	0.99411	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	g031e_spare_b	1824	0	1.7385	clusters	7	195	0	0	0	0	0.76288	0.28229	0.99411	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	g031_fpr1	1824	0	2.5055	clusters	7	195	0	0	0	0	0.76288	0.32103	0.98826	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	g031_nobroad	1824	0	1.6873	clusters	7	195	0	0	0	0	0.76288	0.30283	0.99406	t2_xeno	10x 3'	cells	species	held out
+xeno_HSC_3	glymph_030	1824	0	1.6779	clusters	7	195	0	0	0	0	0.76288	0.34602	0.99456	t2_xeno	10x 3'	cells	species	held out

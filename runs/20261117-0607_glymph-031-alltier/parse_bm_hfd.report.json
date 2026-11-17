@@ -1,0 +1,2531 @@
+{
+ "version": "0.3.1",
+ "device": "cuda:0",
+ "gpu": "NVIDIA A30",
+ "peak_gpu_mem_gb": 16.661,
+ "timings": {
+  "priors_s": 27.468,
+  "setup_s": 11.924,
+  "train_s": 171.005,
+  "calibrate_s": 164.61,
+  "denoise_s": 5.509,
+  "assemble_s": 40.414,
+  "read_s": 50.005,
+  "write_s": 76.604,
+  "total_s": 547.658
+ },
+ "n_cells": 129612,
+ "e_unit": {
+  "B10": 69.99998474121094,
+  "B11": 57.0,
+  "B12": 45.000003814697266,
+  "B5": 59.000003814697266,
+  "B6": 46.000003814697266,
+  "B7": 76.99999237060547,
+  "B8": 76.99999237060547,
+  "B9": 74.00000762939453,
+  "C1": 78.00001525878906,
+  "C10": 38.999996185302734,
+  "C11": 30.999998092651367,
+  "C12": 50.000003814697266,
+  "C2": 51.0,
+  "C3": 59.000003814697266,
+  "C4": 54.000003814697266,
+  "C5": 40.000003814697266,
+  "C6": 54.000003814697266,
+  "C7": 66.00000762939453,
+  "C8": 30.999998092651367,
+  "C9": 34.0,
+  "D1": 55.000003814697266,
+  "D10": 22.000001907348633,
+  "D11": 33.000003814697266,
+  "D12": 28.000003814697266,
+  "D2": 98.00001525878906,
+  "D3": 128.99998474121094,
+  "D4": 27.000001907348633,
+  "D5": 22.000001907348633,
+  "D6": 25.000001907348633,
+  "D7": 24.0,
+  "D8": 22.000001907348633,
+  "D9": 24.0
+ },
+ "swap_fraction": {
+  "s1": 0.012455764226615429,
+  "s2": 0.00601993827149272,
+  "s3": 0.030039120465517044,
+  "s4": 0.049995001405477524,
+  "s5": 0.049995001405477524,
+  "s6": 0.049995001405477524,
+  "s7": 0.049995001405477524,
+  "s8": 0.049995001405477524
+ },
+ "ambient_multiplier": {
+  "s1": 2.8769874572753906,
+  "s2": 1.7477551698684692,
+  "s3": 0.10000000149011612,
+  "s4": 0.10000000149011612,
+  "s5": 0.10000000149011612,
+  "s6": 0.10000000149011612,
+  "s7": 0.10000000149011612,
+  "s8": 0.10000000149011612
+ },
+ "empty_alpha": 2.0,
+ "swap_calibration": {
+  "applied": true,
+  "per_cell": {
+   "0": {
+    "kappa": 2.8769869347520336,
+    "kappa_depth": 1.781538910424975,
+    "depth_ref": 10161.0,
+    "n_informative": 15796,
+    "n_outlier": 1949,
+    "n_barcodes": 36027,
+    "silent_set": "broad",
+    "expected_rescaled_by": 1.8063,
+    "n_doublet_like": 212,
+    "alpha": 1.900003038289747,
+    "expected_silent_counts_median": 22.21250714616932,
+    "multiplier_over_trend_q10_q50_q90": [
+     0.274,
+     0.785,
+     1.893
+    ]
+   },
+   "1": {
+    "kappa": 1.7477551775079492,
+    "kappa_depth": 2.4509588226371615,
+    "depth_ref": 9912.0,
+    "n_informative": 14054,
+    "n_outlier": 1651,
+    "n_barcodes": 32513,
+    "silent_set": "broad",
+    "expected_rescaled_by": 1.3636,
+    "n_doublet_like": 401,
+    "alpha": 5.536099042795449,
+    "expected_silent_counts_median": 7.124452820473756,
+    "multiplier_over_trend_q10_q50_q90": [
+     0.645,
+     0.955,
+     1.472
+    ]
+   },
+   "2": {
+    "kappa": 0.1,
+    "kappa_depth": 19.80243404500471,
+    "depth_ref": 9395.0,
+    "n_informative": 11541,
+    "n_outlier": 2629,
+    "n_barcodes": 28288,
+    "silent_set": "broad",
+    "expected_rescaled_by": 1.1397,
+    "n_doublet_like": 1104,
+    "alpha": 3.363102077452782,
+    "expected_silent_counts_median": 66.05842641670796,
+    "multiplier_over_trend_q10_q50_q90": [
+     0.537,
+     1.154,
+     2.045
+    ]
+   },
+   "3": {
+    "kappa": 0.1,
+    "kappa_depth": 24.009545358770282,
+    "depth_ref": 10427.0,
+    "n_informative": 13467,
+    "n_outlier": 2686,
+    "n_barcodes": 34026,
+    "silent_set": "broad",
+    "expected_rescaled_by": 1.1327,
+    "n_doublet_like": 1076,
+    "alpha": 2.377644561972062,
+    "expected_silent_counts_median": 68.89992736189741,
+    "multiplier_over_trend_q10_q50_q90": [
+     0.543,
+     1.236,
+     2.264
+    ]
+   },
+   "4": {
+    "kappa": 0.1,
+    "kappa_depth": 21.869413253654372,
+    "depth_ref": 10944.0,
+    "n_informative": 16317,
+    "n_outlier": 4353,
+    "n_barcodes": 45618,
+    "silent_set": "broad",
+    "expected_rescaled_by": 1.1238,
+    "n_doublet_like": 1721,
+    "alpha": 2.3564311366230486,
+    "expected_silent_counts_median": 37.95102705685275,
+    "multiplier_over_trend_q10_q50_q90": [
+     0.553,
+     1.357,
+     2.376
+    ]
+   },
+   "5": {
+    "kappa": 0.1,
+    "kappa_depth": 21.969025352635196,
+    "depth_ref": 10725.0,
+    "n_informative": 16058,
+    "n_outlier": 4280,
+    "n_barcodes": 43369,
+    "silent_set": "broad",
+    "expected_rescaled_by": 1.1499,
+    "n_doublet_like": 1678,
+    "alpha": 2.2176753143624075,
+    "expected_silent_counts_median": 53.82411184472463,
+    "multiplier_over_trend_q10_q50_q90": [
+     0.52,
+     1.316,
+     2.387
+    ]
+   },
+   "6": {
+    "kappa": 0.1,
+    "kappa_depth": 24.41663099079983,
+    "depth_ref": 10100.0,
+    "n_informative": 18144,
+    "n_outlier": 3520,
+    "n_barcodes": 42941,
+    "silent_set": "broad",
+    "expected_rescaled_by": 1.1005,
+    "n_doublet_like": 1376,
+    "alpha": 2.6358902248635268,
+    "expected_silent_counts_median": 31.639783216091253,
+    "multiplier_over_trend_q10_q50_q90": [
+     0.562,
+     1.314,
+     2.245
+    ]
+   },
+   "7": {
+    "kappa": 0.1,
+    "kappa_depth": 20.57251515608131,
+    "depth_ref": 8888.0,
+    "n_informative": 17161,
+    "n_outlier": 2817,
+    "n_barcodes": 37218,
+    "silent_set": "broad",
+    "expected_rescaled_by": 1.1187,
+    "n_doublet_like": 1054,
+    "alpha": 2.440477300001879,
+    "expected_silent_counts_median": 42.856392438977565,
+    "multiplier_over_trend_q10_q50_q90": [
+     0.55,
+     1.237,
+     2.241
+    ]
+   },
+   "masked_cells": 146423,
+   "doublet_like_cells": 8622,
+   "silent_genes_per_cluster_median": 26678.0
+  },
+  "swap_learned": [
+   0.015724485740065575,
+   0.018079616129398346,
+   0.01411372609436512,
+   0.02039003185927868,
+   0.017872801050543785,
+   0.01608678512275219,
+   0.01766650192439556,
+   0.01736108772456646
+  ],
+  "swap_estimate": [
+   0.012455762869328188,
+   0.006019937745585596,
+   0.03003911826588948,
+   0.05,
+   0.05,
+   0.05,
+   0.05,
+   0.05
+  ],
+  "kappa_estimate": [
+   2.8769869347520336,
+   1.7477551775079492,
+   0.1,
+   0.1,
+   0.1,
+   0.1,
+   0.1,
+   0.1
+  ],
+  "kappa_used": [
+   2.8769869804382324,
+   1.7477551698684692,
+   0.10000000149011612,
+   0.10000000149011612,
+   0.10000000149011612,
+   0.10000000149011612,
+   0.10000000149011612,
+   0.10000000149011612
+  ],
+  "swap_used": [
+   0.012455764226615429,
+   0.00601993827149272,
+   0.030039120465517044,
+   0.049995001405477524,
+   0.049995001405477524,
+   0.049995001405477524,
+   0.049995001405477524,
+   0.049995001405477524
+  ],
+  "n_confident_cells": 72204,
+  "confident_threshold": 1185.6868528308335,
+  "pools": {
+   "0": {
+    "n_cells": 8472,
+    "n_clusters": 20,
+    "min_expected_used": 30.0,
+    "ridge": 3.553,
+    "ridge_histogram": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     3,
+     5,
+     33,
+     60,
+     67,
+     69,
+     68,
+     82,
+     115,
+     86,
+     107,
+     151,
+     155,
+     195,
+     237,
+     206,
+     155,
+     97,
+     42,
+     14,
+     14,
+     7,
+     0
+    ],
+    "seeds_with_signal": 3,
+    "background_at_median_depth_by_seed": [
+     318.02,
+     440.84,
+     2105.76
+    ],
+    "clusters_tried": [
+     20
+    ],
+    "clusters": [
+     {
+      "cluster": 0,
+      "cells": 402,
+      "candidates": 305,
+      "genes": 56,
+      "ratio": 0.917,
+      "used": true
+     },
+     {
+      "cluster": 1,
+      "cells": 250,
+      "candidates": 56,
+      "genes": 3,
+      "ratio": 0.881,
+      "used": true
+     },
+     {
+      "cluster": 2,
+      "cells": 267,
+      "candidates": 59,
+      "genes": 0,
+      "ratio": "none",
+      "used": false
+     },
+     {
+      "cluster": 3,
+      "cells": 283,
+      "candidates": 62,
+      "genes": 23,
+      "ratio": 1.145,
+      "used": true
+     },
+     {
+      "cluster": 4,
+      "cells": 464,
+      "candidates": 91,
+      "genes": 29,
+      "ratio": 0.937,
+      "used": true
+     },
+     {
+      "cluster": 5,
+      "cells": 460,
+      "candidates": 144,
+      "genes": 47,
+      "ratio": 0.988,
+      "used": true
+     },
+     {
+      "cluster": 6,
+      "cells": 326,
+      "candidates": 50,
+      "genes": 23,
+      "ratio": 1.181,
+      "used": true
+     },
+     {
+      "cluster": 7,
+      "cells": 715,
+      "candidates": 133,
+      "genes": 52,
+      "ratio": 0.983,
+      "used": true
+     },
+     {
+      "cluster": 8,
+      "cells": 581,
+      "candidates": 202,
+      "genes": 60,
+      "ratio": 1.19,
+      "used": true
+     },
+     {
+      "cluster": 9,
+      "cells": 577,
+      "candidates": 76,
+      "genes": 33,
+      "ratio": 1.069,
+      "used": true
+     },
+     {
+      "cluster": 10,
+      "cells": 400,
+      "candidates": 26,
+      "genes": 12,
+      "ratio": 0.951,
+      "used": true
+     },
+     {
+      "cluster": 11,
+      "cells": 359,
+      "candidates": 69,
+      "genes": 23,
+      "ratio": 1.049,
+      "used": true
+     },
+     {
+      "cluster": 12,
+      "cells": 371,
+      "candidates": 69,
+      "genes": 28,
+      "ratio": 0.817,
+      "used": true
+     },
+     {
+      "cluster": 13,
+      "cells": 602,
+      "candidates": 62,
+      "genes": 18,
+      "ratio": 1.206,
+      "used": true
+     },
+     {
+      "cluster": 14,
+      "cells": 565,
+      "candidates": 115,
+      "genes": 49,
+      "ratio": 0.933,
+      "used": true
+     },
+     {
+      "cluster": 15,
+      "cells": 316,
+      "candidates": 63,
+      "genes": 2,
+      "ratio": 1.453,
+      "used": true
+     },
+     {
+      "cluster": 16,
+      "cells": 245,
+      "candidates": 50,
+      "genes": 1,
+      "ratio": 1.031,
+      "used": true
+     },
+     {
+      "cluster": 17,
+      "cells": 490,
+      "candidates": 212,
+      "genes": 76,
+      "ratio": 1.034,
+      "used": true
+     },
+     {
+      "cluster": 18,
+      "cells": 322,
+      "candidates": 76,
+      "genes": 40,
+      "ratio": 0.996,
+      "used": true
+     },
+     {
+      "cluster": 19,
+      "cells": 477,
+      "candidates": 49,
+      "genes": 15,
+      "ratio": 0.753,
+      "used": true
+     }
+    ],
+    "kappa": 2.8769869347520336,
+    "kappa_depth": 1.781538910424975,
+    "s": 0.012455762869328188,
+    "depth_ref": 10161.0,
+    "cells_fitted": 8205,
+    "cells_trimmed": 467,
+    "silent_counts": 54242.0,
+    "clusters_dropped": [],
+    "silent_genes_tested_median": 23.0,
+    "silent_genes_broad_median": 26840.0,
+    "silent_counts_broad": 360678.0,
+    "cells_left_out_of_cluster_sums": 2223
+   },
+   "1": {
+    "n_cells": 8529,
+    "n_clusters": 20,
+    "min_expected_used": 30.0,
+    "ridge": 1.766,
+    "ridge_histogram": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     2,
+     4,
+     5,
+     23,
+     45,
+     84,
+     98,
+     108,
+     83,
+     82,
+     92,
+     115,
+     159,
+     175,
+     200,
+     266,
+     274,
+     184,
+     127,
+     64,
+     26,
+     10,
+     4,
+     0,
+     0
+    ],
+    "seeds_with_signal": 3,
+    "background_at_median_depth_by_seed": [
+     335.45,
+     344.95,
+     1833.15
+    ],
+    "clusters_tried": [
+     20
+    ],
+    "clusters": [
+     {
+      "cluster": 0,
+      "cells": 241,
+      "candidates": 255,
+      "genes": 3,
+      "ratio": 1.073,
+      "used": true
+     },
+     {
+      "cluster": 1,
+      "cells": 458,
+      "candidates": 75,
+      "genes": 29,
+      "ratio": 1.056,
+      "used": true
+     },
+     {
+      "cluster": 2,
+      "cells": 375,
+      "candidates": 52,
+      "genes": 8,
+      "ratio": 0.813,
+      "used": true
+     },
+     {
+      "cluster": 3,
+      "cells": 375,
+      "candidates": 59,
+      "genes": 10,
+      "ratio": 0.809,
+      "used": true
+     },
+     {
+      "cluster": 4,
+      "cells": 454,
+      "candidates": 114,
+      "genes": 4,
+      "ratio": 1.006,
+      "used": true
+     },
+     {
+      "cluster": 5,
+      "cells": 507,
+      "candidates": 107,
+      "genes": 25,
+      "ratio": 1.029,
+      "used": true
+     },
+     {
+      "cluster": 6,
+      "cells": 460,
+      "candidates": 47,
+      "genes": 13,
+      "ratio": 1.039,
+      "used": true
+     },
+     {
+      "cluster": 7,
+      "cells": 410,
+      "candidates": 91,
+      "genes": 33,
+      "ratio": 1.008,
+      "used": true
+     },
+     {
+      "cluster": 8,
+      "cells": 196,
+      "candidates": 31,
+      "genes": 0,
+      "ratio": "none",
+      "used": false
+     },
+     {
+      "cluster": 9,
+      "cells": 605,
+      "candidates": 62,
+      "genes": 13,
+      "ratio": 1.218,
+      "used": true
+     },
+     {
+      "cluster": 10,
+      "cells": 490,
+      "candidates": 209,
+      "genes": 56,
+      "ratio": 0.915,
+      "used": true
+     },
+     {
+      "cluster": 11,
+      "cells": 426,
+      "candidates": 77,
+      "genes": 27,
+      "ratio": 1.019,
+      "used": true
+     },
+     {
+      "cluster": 12,
+      "cells": 273,
+      "candidates": 78,
+      "genes": 0,
+      "ratio": "none",
+      "used": false
+     },
+     {
+      "cluster": 13,
+      "cells": 521,
+      "candidates": 186,
+      "genes": 59,
+      "ratio": 1.009,
+      "used": true
+     },
+     {
+      "cluster": 14,
+      "cells": 279,
+      "candidates": 52,
+      "genes": 2,
+      "ratio": 1.342,
+      "used": true
+     },
+     {
+      "cluster": 15,
+      "cells": 537,
+      "candidates": 132,
+      "genes": 42,
+      "ratio": 1.049,
+      "used": true
+     },
+     {
+      "cluster": 16,
+      "cells": 271,
+      "candidates": 94,
+      "genes": 6,
+      "ratio": 0.635,
+      "used": true
+     },
+     {
+      "cluster": 17,
+      "cells": 863,
+      "candidates": 328,
+      "genes": 72,
+      "ratio": 1.023,
+      "used": true
+     },
+     {
+      "cluster": 18,
+      "cells": 436,
+      "candidates": 112,
+      "genes": 34,
+      "ratio": 1.09,
+      "used": true
+     },
+     {
+      "cluster": 19,
+      "cells": 352,
+      "candidates": 70,
+      "genes": 13,
+      "ratio": 0.895,
+      "used": true
+     }
+    ],
+    "kappa": 1.7477551775079492,
+    "kappa_depth": 2.4509588226371615,
+    "s": 0.006019937745585596,
+    "depth_ref": 9912.0,
+    "cells_fitted": 8060,
+    "cells_trimmed": 255,
+    "silent_counts": 30301.0,
+    "clusters_dropped": [],
+    "silent_genes_tested_median": 13.0,
+    "silent_genes_broad_median": 25017.0,
+    "silent_counts_broad": 135445.0,
+    "cells_left_out_of_cluster_sums": 812
+   },
+   "2": {
+    "n_cells": 8103,
+    "n_clusters": 20,
+    "min_expected_used": 30.0,
+    "ridge": 1.8,
+    "ridge_histogram": [
+     1,
+     0,
+     1,
+     2,
+     3,
+     4,
+     8,
+     15,
+     18,
+     33,
+     48,
+     91,
+     120,
+     153,
+     208,
+     290,
+     362,
+     408,
+     543,
+     754,
+     895,
+     1065,
+     1299,
+     1252,
+     986,
+     633,
+     305,
+     116,
+     52,
+     15,
+     5,
+     5,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "seeds_with_signal": 3,
+    "background_at_median_depth_by_seed": [
+     251.38,
+     1628.86,
+     1853.81
+    ],
+    "clusters_tried": [
+     20
+    ],
+    "clusters": [
+     {
+      "cluster": 0,
+      "cells": 437,
+      "candidates": 368,
+      "genes": 304,
+      "ratio": 0.813,
+      "used": true
+     },
+     {
+      "cluster": 1,
+      "cells": 192,
+      "candidates": 295,
+      "genes": 229,
+      "ratio": 0.774,
+      "used": true
+     },
+     {
+      "cluster": 2,
+      "cells": 325,
+      "candidates": 719,
+      "genes": 667,
+      "ratio": 0.88,
+      "used": true
+     },
+     {
+      "cluster": 3,
+      "cells": 258,
+      "candidates": 493,
+      "genes": 324,
+      "ratio": 0.818,
+      "used": true
+     },
+     {
+      "cluster": 4,
+      "cells": 295,
+      "candidates": 329,
+      "genes": 194,
+      "ratio": 0.774,
+      "used": true
+     },
+     {
+      "cluster": 5,
+      "cells": 399,
+      "candidates": 570,
+      "genes": 456,
+      "ratio": 0.886,
+      "used": true
+     },
+     {
+      "cluster": 6,
+      "cells": 557,
+      "candidates": 285,
+      "genes": 221,
+      "ratio": 0.758,
+      "used": true
+     },
+     {
+      "cluster": 7,
+      "cells": 447,
+      "candidates": 319,
+      "genes": 248,
+      "ratio": 0.686,
+      "used": true
+     },
+     {
+      "cluster": 8,
+      "cells": 320,
+      "candidates": 453,
+      "genes": 293,
+      "ratio": 0.842,
+      "used": true
+     },
+     {
+      "cluster": 9,
+      "cells": 688,
+      "candidates": 853,
+      "genes": 596,
+      "ratio": 0.862,
+      "used": true
+     },
+     {
+      "cluster": 10,
+      "cells": 593,
+      "candidates": 249,
+      "genes": 180,
+      "ratio": 1.185,
+      "used": true
+     },
+     {
+      "cluster": 11,
+      "cells": 348,
+      "candidates": 678,
+      "genes": 644,
+      "ratio": 1.058,
+      "used": true
+     },
+     {
+      "cluster": 12,
+      "cells": 422,
+      "candidates": 164,
+      "genes": 126,
+      "ratio": 0.793,
+      "used": true
+     },
+     {
+      "cluster": 13,
+      "cells": 374,
+      "candidates": 1087,
+      "genes": 834,
+      "ratio": 1.107,
+      "used": true
+     },
+     {
+      "cluster": 14,
+      "cells": 504,
+      "candidates": 336,
+      "genes": 258,
+      "ratio": 0.921,
+      "used": true
+     },
+     {
+      "cluster": 15,
+      "cells": 320,
+      "candidates": 436,
+      "genes": 360,
+      "ratio": 1.058,
+      "used": true
+     },
+     {
+      "cluster": 16,
+      "cells": 241,
+      "candidates": 321,
+      "genes": 232,
+      "ratio": 1.044,
+      "used": true
+     },
+     {
+      "cluster": 17,
+      "cells": 527,
+      "candidates": 921,
+      "genes": 821,
+      "ratio": 1.318,
+      "used": true
+     },
+     {
+      "cluster": 18,
+      "cells": 358,
+      "candidates": 441,
+      "genes": 365,
+      "ratio": 0.992,
+      "used": true
+     },
+     {
+      "cluster": 19,
+      "cells": 498,
+      "candidates": 373,
+      "genes": 283,
+      "ratio": 0.77,
+      "used": true
+     }
+    ],
+    "kappa": 0.1,
+    "kappa_depth": 19.80243404500471,
+    "s": 0.03003911826588948,
+    "depth_ref": 9395.0,
+    "cells_fitted": 8103,
+    "cells_trimmed": 541,
+    "silent_counts": 1016402.0,
+    "clusters_dropped": [],
+    "silent_genes_tested_median": 293.0,
+    "silent_genes_broad_median": 27198.0,
+    "silent_counts_broad": 1576586.0,
+    "cells_left_out_of_cluster_sums": 673
+   },
+   "3": {
+    "n_cells": 8369,
+    "n_clusters": 20,
+    "min_expected_used": 30.0,
+    "ridge": 1.792,
+    "ridge_histogram": [
+     1,
+     1,
+     0,
+     0,
+     1,
+     4,
+     4,
+     4,
+     12,
+     14,
+     39,
+     79,
+     145,
+     226,
+     326,
+     446,
+     674,
+     910,
+     886,
+     893,
+     1096,
+     1316,
+     1591,
+     1444,
+     1180,
+     938,
+     596,
+     291,
+     140,
+     52,
+     18,
+     7,
+     4,
+     4,
+     3,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    "seeds_with_signal": 3,
+    "background_at_median_depth_by_seed": [
+     2090.99,
+     2162.14,
+     2284.49
+    ],
+    "clusters_tried": [
+     20
+    ],
+    "clusters": [
+     {
+      "cluster": 0,
+      "cells": 509,
+      "candidates": 407,
+      "genes": 299,
+      "ratio": 0.928,
+      "used": true
+     },
+     {
+      "cluster": 1,
+      "cells": 256,
+      "candidates": 1266,
+      "genes": 1011,
+      "ratio": 0.988,
+      "used": true
+     },
+     {
+      "cluster": 2,
+      "cells": 113,
+      "candidates": 212,
+      "genes": 159,
+      "ratio": 1.045,
+      "used": true
+     },
+     {
+      "cluster": 3,
+      "cells": 437,
+      "candidates": 293,
+      "genes": 206,
+      "ratio": 0.928,
+      "used": true
+     },
+     {
+      "cluster": 4,
+      "cells": 242,
+      "candidates": 642,
+      "genes": 432,
+      "ratio": 0.889,
+      "used": true
+     },
+     {
+      "cluster": 5,
+      "cells": 276,
+      "candidates": 371,
+      "genes": 184,
+      "ratio": 0.813,
+      "used": true
+     },
+     {
+      "cluster": 6,
+      "cells": 348,
+      "candidates": 598,
+      "genes": 469,
+      "ratio": 0.997,
+      "used": true
+     },
+     {
+      "cluster": 7,
+      "cells": 358,
+      "candidates": 665,
+      "genes": 492,
+      "ratio": 1.31,
+      "used": true
+     },
+     {
+      "cluster": 8,
+      "cells": 556,
+      "candidates": 677,
+      "genes": 429,
+      "ratio": 0.871,
+      "used": true
+     },
+     {
+      "cluster": 9,
+      "cells": 527,
+      "candidates": 879,
+      "genes": 689,
+      "ratio": 0.81,
+      "used": true
+     },
+     {
+      "cluster": 10,
+      "cells": 383,
+      "candidates": 610,
+      "genes": 353,
+      "ratio": 0.858,
+      "used": true
+     },
+     {
+      "cluster": 11,
+      "cells": 364,
+      "candidates": 714,
+      "genes": 577,
+      "ratio": 0.872,
+      "used": true
+     },
+     {
+      "cluster": 12,
+      "cells": 700,
+      "candidates": 1176,
+      "genes": 868,
+      "ratio": 0.979,
+      "used": true
+     },
+     {
+      "cluster": 13,
+      "cells": 549,
+      "candidates": 591,
+      "genes": 428,
+      "ratio": 0.883,
+      "used": true
+     },
+     {
+      "cluster": 14,
+      "cells": 514,
+      "candidates": 462,
+      "genes": 237,
+      "ratio": 1.146,
+      "used": true
+     },
+     {
+      "cluster": 15,
+      "cells": 600,
+      "candidates": 383,
+      "genes": 245,
+      "ratio": 1.169,
+      "used": true
+     },
+     {
+      "cluster": 16,
+      "cells": 601,
+      "candidates": 1371,
+      "genes": 1299,
+      "ratio": 1.073,
+      "used": true
+     },
+     {
+      "cluster": 17,
+      "cells": 333,
+      "candidates": 1048,
+      "genes": 974,
+      "ratio": 1.224,
+      "used": true
+     },
+     {
+      "cluster": 18,
+      "cells": 253,
+      "candidates": 444,
+      "genes": 386,
+      "ratio": 0.751,
+      "used": true
+     },
+     {
+      "cluster": 19,
+      "cells": 450,
+      "candidates": 537,
+      "genes": 413,
+      "ratio": 0.854,
+      "used": true
+     }
+    ],
+    "kappa": 0.1,
+    "kappa_depth": 24.009545358770282,
+    "s": 0.05,
+    "depth_ref": 10427.0,
+    "cells_fitted": 8369,
+    "cells_trimmed": 372,
+    "silent_counts": 1657282.0,
+    "clusters_dropped": [],
+    "silent_genes_tested_median": 428.0,
+    "silent_genes_broad_median": 26808.0,
+    "silent_counts_broad": 2374232.0,
+    "cells_left_out_of_cluster_sums": 468
+   },
+   "4": {
+    "n_cells": 9384,
+    "n_clusters": 20,
+    "min_expected_used": 30.0,
+    "ridge": 1.781,
+    "ridge_histogram": [
+     5,
+     0,
+     0,
+     1,
+     1,
+     2,
+     3,
+     8,
+     8,
+     26,
+     43,
+     85,
+     142,
+     246,
+     301,
+     401,
+     592,
+     791,
+     919,
+     930,
+     1165,
+     1507,
+     1646,
+     1512,
+     1169,
+     717,
+     360,
+     151,
+     64,
+     30,
+     8,
+     3,
+     2,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "seeds_with_signal": 3,
+    "background_at_median_depth_by_seed": [
+     351.75,
+     2028.71,
+     2157.82
+    ],
+    "clusters_tried": [
+     20
+    ],
+    "clusters": [
+     {
+      "cluster": 0,
+      "cells": 619,
+      "candidates": 544,
+      "genes": 413,
+      "ratio": 0.723,
+      "used": true
+     },
+     {
+      "cluster": 1,
+      "cells": 573,
+      "candidates": 974,
+      "genes": 821,
+      "ratio": 0.847,
+      "used": true
+     },
+     {
+      "cluster": 2,
+      "cells": 288,
+      "candidates": 619,
+      "genes": 410,
+      "ratio": 0.83,
+      "used": true
+     },
+     {
+      "cluster": 3,
+      "cells": 479,
+      "candidates": 485,
+      "genes": 339,
+      "ratio": 1.07,
+      "used": true
+     },
+     {
+      "cluster": 4,
+      "cells": 543,
+      "candidates": 253,
+      "genes": 208,
+      "ratio": 0.982,
+      "used": true
+     },
+     {
+      "cluster": 5,
+      "cells": 614,
+      "candidates": 1051,
+      "genes": 813,
+      "ratio": 0.942,
+      "used": true
+     },
+     {
+      "cluster": 6,
+      "cells": 256,
+      "candidates": 372,
+      "genes": 251,
+      "ratio": 1.114,
+      "used": true
+     },
+     {
+      "cluster": 7,
+      "cells": 266,
+      "candidates": 403,
+      "genes": 315,
+      "ratio": 1.258,
+      "used": true
+     },
+     {
+      "cluster": 8,
+      "cells": 377,
+      "candidates": 460,
+      "genes": 277,
+      "ratio": 0.723,
+      "used": true
+     },
+     {
+      "cluster": 9,
+      "cells": 387,
+      "candidates": 546,
+      "genes": 436,
+      "ratio": 1.121,
+      "used": true
+     },
+     {
+      "cluster": 10,
+      "cells": 300,
+      "candidates": 674,
+      "genes": 615,
+      "ratio": 1.052,
+      "used": true
+     },
+     {
+      "cluster": 11,
+      "cells": 691,
+      "candidates": 527,
+      "genes": 375,
+      "ratio": 0.784,
+      "used": true
+     },
+     {
+      "cluster": 12,
+      "cells": 428,
+      "candidates": 1346,
+      "genes": 1077,
+      "ratio": 1.031,
+      "used": true
+     },
+     {
+      "cluster": 13,
+      "cells": 732,
+      "candidates": 1268,
+      "genes": 1103,
+      "ratio": 1.15,
+      "used": true
+     },
+     {
+      "cluster": 14,
+      "cells": 547,
+      "candidates": 269,
+      "genes": 202,
+      "ratio": 1.219,
+      "used": true
+     },
+     {
+      "cluster": 15,
+      "cells": 400,
+      "candidates": 385,
+      "genes": 310,
+      "ratio": 0.866,
+      "used": true
+     },
+     {
+      "cluster": 16,
+      "cells": 519,
+      "candidates": 352,
+      "genes": 278,
+      "ratio": 0.883,
+      "used": true
+     },
+     {
+      "cluster": 17,
+      "cells": 170,
+      "candidates": 489,
+      "genes": 448,
+      "ratio": 0.99,
+      "used": true
+     },
+     {
+      "cluster": 18,
+      "cells": 619,
+      "candidates": 1356,
+      "genes": 1304,
+      "ratio": 1.104,
+      "used": true
+     },
+     {
+      "cluster": 19,
+      "cells": 576,
+      "candidates": 466,
+      "genes": 344,
+      "ratio": 0.962,
+      "used": true
+     }
+    ],
+    "kappa": 0.1,
+    "kappa_depth": 21.869413253654372,
+    "s": 0.05,
+    "depth_ref": 10944.0,
+    "cells_fitted": 9384,
+    "cells_trimmed": 613,
+    "silent_counts": 1627864.0,
+    "clusters_dropped": [],
+    "silent_genes_tested_median": 375.0,
+    "silent_genes_broad_median": 26229.0,
+    "silent_counts_broad": 2232068.0,
+    "cells_left_out_of_cluster_sums": 699
+   },
+   "5": {
+    "n_cells": 9641,
+    "n_clusters": 20,
+    "min_expected_used": 30.0,
+    "ridge": 1.803,
+    "ridge_histogram": [
+     1,
+     0,
+     0,
+     0,
+     2,
+     7,
+     3,
+     9,
+     11,
+     23,
+     35,
+     76,
+     125,
+     206,
+     300,
+     396,
+     641,
+     769,
+     854,
+     890,
+     990,
+     1291,
+     1548,
+     1514,
+     1294,
+     951,
+     652,
+     324,
+     152,
+     77,
+     30,
+     11,
+     2,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "seeds_with_signal": 3,
+    "background_at_median_depth_by_seed": [
+     343.69,
+     2032.66,
+     2307.96
+    ],
+    "clusters_tried": [
+     20
+    ],
+    "clusters": [
+     {
+      "cluster": 0,
+      "cells": 808,
+      "candidates": 1497,
+      "genes": 1291,
+      "ratio": 1.319,
+      "used": true
+     },
+     {
+      "cluster": 1,
+      "cells": 485,
+      "candidates": 971,
+      "genes": 634,
+      "ratio": 1.018,
+      "used": true
+     },
+     {
+      "cluster": 2,
+      "cells": 61,
+      "candidates": 96,
+      "genes": 85,
+      "ratio": 1.027,
+      "used": true
+     },
+     {
+      "cluster": 3,
+      "cells": 478,
+      "candidates": 243,
+      "genes": 152,
+      "ratio": 0.619,
+      "used": true
+     },
+     {
+      "cluster": 4,
+      "cells": 526,
+      "candidates": 383,
+      "genes": 277,
+      "ratio": 0.907,
+      "used": true
+     },
+     {
+      "cluster": 5,
+      "cells": 1436,
+      "candidates": 1887,
+      "genes": 1652,
+      "ratio": 0.891,
+      "used": true
+     },
+     {
+      "cluster": 6,
+      "cells": 934,
+      "candidates": 1130,
+      "genes": 691,
+      "ratio": 0.876,
+      "used": true
+     },
+     {
+      "cluster": 7,
+      "cells": 449,
+      "candidates": 420,
+      "genes": 230,
+      "ratio": 0.954,
+      "used": true
+     },
+     {
+      "cluster": 8,
+      "cells": 390,
+      "candidates": 381,
+      "genes": 277,
+      "ratio": 0.824,
+      "used": true
+     },
+     {
+      "cluster": 9,
+      "cells": 496,
+      "candidates": 337,
+      "genes": 230,
+      "ratio": 0.926,
+      "used": true
+     },
+     {
+      "cluster": 10,
+      "cells": 511,
+      "candidates": 561,
+      "genes": 409,
+      "ratio": 0.855,
+      "used": true
+     },
+     {
+      "cluster": 11,
+      "cells": 168,
+      "candidates": 347,
+      "genes": 294,
+      "ratio": 0.901,
+      "used": true
+     },
+     {
+      "cluster": 12,
+      "cells": 624,
+      "candidates": 1069,
+      "genes": 759,
+      "ratio": 0.934,
+      "used": true
+     },
+     {
+      "cluster": 13,
+      "cells": 364,
+      "candidates": 427,
+      "genes": 311,
+      "ratio": 0.949,
+      "used": true
+     },
+     {
+      "cluster": 14,
+      "cells": 456,
+      "candidates": 733,
+      "genes": 555,
+      "ratio": 1.105,
+      "used": true
+     },
+     {
+      "cluster": 15,
+      "cells": 87,
+      "candidates": 135,
+      "genes": 76,
+      "ratio": 0.945,
+      "used": true
+     },
+     {
+      "cluster": 16,
+      "cells": 682,
+      "candidates": 437,
+      "genes": 271,
+      "ratio": 1.168,
+      "used": true
+     },
+     {
+      "cluster": 17,
+      "cells": 380,
+      "candidates": 816,
+      "genes": 508,
+      "ratio": 0.847,
+      "used": true
+     },
+     {
+      "cluster": 18,
+      "cells": 178,
+      "candidates": 1280,
+      "genes": 1053,
+      "ratio": 0.982,
+      "used": true
+     },
+     {
+      "cluster": 19,
+      "cells": 128,
+      "candidates": 36,
+      "genes": 24,
+      "ratio": 0.938,
+      "used": true
+     }
+    ],
+    "kappa": 0.1,
+    "kappa_depth": 21.969025352635196,
+    "s": 0.05,
+    "depth_ref": 10725.0,
+    "cells_fitted": 9641,
+    "cells_trimmed": 543,
+    "silent_counts": 1736045.0,
+    "clusters_dropped": [],
+    "silent_genes_tested_median": 294.0,
+    "silent_genes_broad_median": 26713.0,
+    "silent_counts_broad": 2459543.0,
+    "cells_left_out_of_cluster_sums": 626
+   },
+   "6": {
+    "n_cells": 9879,
+    "n_clusters": 20,
+    "min_expected_used": 30.0,
+    "ridge": 1.759,
+    "ridge_histogram": [
+     1,
+     1,
+     0,
+     0,
+     4,
+     1,
+     2,
+     13,
+     15,
+     36,
+     63,
+     105,
+     194,
+     276,
+     392,
+     559,
+     730,
+     945,
+     1076,
+     1156,
+     1296,
+     1664,
+     1686,
+     1445,
+     1140,
+     902,
+     544,
+     275,
+     115,
+     47,
+     20,
+     13,
+     7,
+     7,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "seeds_with_signal": 3,
+    "background_at_median_depth_by_seed": [
+     1998.48,
+     2179.14,
+     2201.91
+    ],
+    "clusters_tried": [
+     20
+    ],
+    "clusters": [
+     {
+      "cluster": 0,
+      "cells": 530,
+      "candidates": 379,
+      "genes": 283,
+      "ratio": 0.928,
+      "used": true
+     },
+     {
+      "cluster": 1,
+      "cells": 794,
+      "candidates": 1259,
+      "genes": 951,
+      "ratio": 0.96,
+      "used": true
+     },
+     {
+      "cluster": 2,
+      "cells": 552,
+      "candidates": 1535,
+      "genes": 1162,
+      "ratio": 1.052,
+      "used": true
+     },
+     {
+      "cluster": 3,
+      "cells": 640,
+      "candidates": 410,
+      "genes": 266,
+      "ratio": 1.108,
+      "used": true
+     },
+     {
+      "cluster": 4,
+      "cells": 591,
+      "candidates": 568,
+      "genes": 389,
+      "ratio": 0.818,
+      "used": true
+     },
+     {
+      "cluster": 5,
+      "cells": 394,
+      "candidates": 754,
+      "genes": 543,
+      "ratio": 0.934,
+      "used": true
+     },
+     {
+      "cluster": 6,
+      "cells": 523,
+      "candidates": 739,
+      "genes": 503,
+      "ratio": 0.811,
+      "used": true
+     },
+     {
+      "cluster": 7,
+      "cells": 687,
+      "candidates": 625,
+      "genes": 453,
+      "ratio": 0.908,
+      "used": true
+     },
+     {
+      "cluster": 8,
+      "cells": 509,
+      "candidates": 1011,
+      "genes": 895,
+      "ratio": 0.825,
+      "used": true
+     },
+     {
+      "cluster": 9,
+      "cells": 409,
+      "candidates": 782,
+      "genes": 662,
+      "ratio": 1.116,
+      "used": true
+     },
+     {
+      "cluster": 10,
+      "cells": 197,
+      "candidates": 624,
+      "genes": 560,
+      "ratio": 0.824,
+      "used": true
+     },
+     {
+      "cluster": 11,
+      "cells": 586,
+      "candidates": 493,
+      "genes": 320,
+      "ratio": 0.82,
+      "used": true
+     },
+     {
+      "cluster": 12,
+      "cells": 277,
+      "candidates": 344,
+      "genes": 184,
+      "ratio": 0.911,
+      "used": true
+     },
+     {
+      "cluster": 13,
+      "cells": 346,
+      "candidates": 566,
+      "genes": 450,
+      "ratio": 1.001,
+      "used": true
+     },
+     {
+      "cluster": 14,
+      "cells": 274,
+      "candidates": 680,
+      "genes": 438,
+      "ratio": 0.876,
+      "used": true
+     },
+     {
+      "cluster": 15,
+      "cells": 526,
+      "candidates": 520,
+      "genes": 373,
+      "ratio": 0.847,
+      "used": true
+     },
+     {
+      "cluster": 16,
+      "cells": 710,
+      "candidates": 1337,
+      "genes": 1210,
+      "ratio": 1.228,
+      "used": true
+     },
+     {
+      "cluster": 17,
+      "cells": 85,
+      "candidates": 222,
+      "genes": 211,
+      "ratio": 0.964,
+      "used": true
+     },
+     {
+      "cluster": 18,
+      "cells": 538,
+      "candidates": 302,
+      "genes": 221,
+      "ratio": 0.895,
+      "used": true
+     },
+     {
+      "cluster": 19,
+      "cells": 711,
+      "candidates": 1583,
+      "genes": 1516,
+      "ratio": 1.044,
+      "used": true
+     }
+    ],
+    "kappa": 0.1,
+    "kappa_depth": 24.41663099079983,
+    "s": 0.05,
+    "depth_ref": 10100.0,
+    "cells_fitted": 9879,
+    "cells_trimmed": 467,
+    "silent_counts": 2116616.0,
+    "clusters_dropped": [],
+    "silent_genes_tested_median": 450.0,
+    "silent_genes_broad_median": 26788.0,
+    "silent_counts_broad": 2779385.0,
+    "cells_left_out_of_cluster_sums": 524
+   },
+   "7": {
+    "n_cells": 9827,
+    "n_clusters": 20,
+    "min_expected_used": 30.0,
+    "ridge": 1.77,
+    "ridge_histogram": [
+     1,
+     0,
+     1,
+     2,
+     2,
+     1,
+     5,
+     18,
+     12,
+     40,
+     58,
+     80,
+     138,
+     209,
+     300,
+     479,
+     690,
+     894,
+     889,
+     925,
+     1162,
+     1418,
+     1478,
+     1326,
+     911,
+     642,
+     386,
+     171,
+     86,
+     28,
+     14,
+     10,
+     5,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "seeds_with_signal": 3,
+    "background_at_median_depth_by_seed": [
+     1768.87,
+     1855.07,
+     1883.64
+    ],
+    "clusters_tried": [
+     20
+    ],
+    "clusters": [
+     {
+      "cluster": 0,
+      "cells": 699,
+      "candidates": 999,
+      "genes": 763,
+      "ratio": 0.978,
+      "used": true
+     },
+     {
+      "cluster": 1,
+      "cells": 467,
+      "candidates": 548,
+      "genes": 456,
+      "ratio": 0.986,
+      "used": true
+     },
+     {
+      "cluster": 2,
+      "cells": 708,
+      "candidates": 1175,
+      "genes": 1052,
+      "ratio": 1.251,
+      "used": true
+     },
+     {
+      "cluster": 3,
+      "cells": 599,
+      "candidates": 390,
+      "genes": 289,
+      "ratio": 0.912,
+      "used": true
+     },
+     {
+      "cluster": 4,
+      "cells": 290,
+      "candidates": 182,
+      "genes": 143,
+      "ratio": 0.908,
+      "used": true
+     },
+     {
+      "cluster": 5,
+      "cells": 729,
+      "candidates": 1437,
+      "genes": 1382,
+      "ratio": 1.027,
+      "used": true
+     },
+     {
+      "cluster": 6,
+      "cells": 698,
+      "candidates": 560,
+      "genes": 425,
+      "ratio": 0.913,
+      "used": true
+     },
+     {
+      "cluster": 7,
+      "cells": 356,
+      "candidates": 217,
+      "genes": 154,
+      "ratio": 0.899,
+      "used": true
+     },
+     {
+      "cluster": 8,
+      "cells": 292,
+      "candidates": 337,
+      "genes": 304,
+      "ratio": 1.161,
+      "used": true
+     },
+     {
+      "cluster": 9,
+      "cells": 313,
+      "candidates": 618,
+      "genes": 438,
+      "ratio": 0.937,
+      "used": true
+     },
+     {
+      "cluster": 10,
+      "cells": 472,
+      "candidates": 1254,
+      "genes": 997,
+      "ratio": 1.02,
+      "used": true
+     },
+     {
+      "cluster": 11,
+      "cells": 388,
+      "candidates": 413,
+      "genes": 317,
+      "ratio": 0.908,
+      "used": true
+     },
+     {
+      "cluster": 12,
+      "cells": 427,
+      "candidates": 702,
+      "genes": 616,
+      "ratio": 1.064,
+      "used": true
+     },
+     {
+      "cluster": 13,
+      "cells": 277,
+      "candidates": 148,
+      "genes": 126,
+      "ratio": 0.895,
+      "used": true
+     },
+     {
+      "cluster": 14,
+      "cells": 569,
+      "candidates": 324,
+      "genes": 234,
+      "ratio": 1.164,
+      "used": true
+     },
+     {
+      "cluster": 15,
+      "cells": 890,
+      "candidates": 619,
+      "genes": 460,
+      "ratio": 0.847,
+      "used": true
+     },
+     {
+      "cluster": 16,
+      "cells": 471,
+      "candidates": 597,
+      "genes": 392,
+      "ratio": 0.875,
+      "used": true
+     },
+     {
+      "cluster": 17,
+      "cells": 678,
+      "candidates": 951,
+      "genes": 786,
+      "ratio": 0.832,
+      "used": true
+     },
+     {
+      "cluster": 18,
+      "cells": 95,
+      "candidates": 186,
+      "genes": 164,
+      "ratio": 0.641,
+      "used": true
+     },
+     {
+      "cluster": 19,
+      "cells": 409,
+      "candidates": 727,
+      "genes": 615,
+      "ratio": 0.895,
+      "used": true
+     }
+    ],
+    "kappa": 0.1,
+    "kappa_depth": 20.57251515608131,
+    "s": 0.05,
+    "depth_ref": 8888.0,
+    "cells_fitted": 9827,
+    "cells_trimmed": 471,
+    "silent_counts": 1675989.0,
+    "clusters_dropped": [],
+    "silent_genes_tested_median": 425.0,
+    "silent_genes_broad_median": 27307.0,
+    "silent_counts_broad": 2309174.0,
+    "cells_left_out_of_cluster_sums": 532
+   }
+  }
+ },
+ "removed_fraction_in_cells": 0.17814721334877212,
+ "priors": {
+  "threshold_method": "plateau",
+  "confident_threshold": 1185.6868528308335,
+  "n_confident": 72204,
+  "empty_sd0": 0.28257607399616275,
+  "knee": "none",
+  "rejected_plateau": "none",
+  "bead_cliff": 12.55943215754791,
+  "plateau": {
+   "P": 47.2575,
+   "mu0": 1.6745,
+   "sd0": 0.2826,
+   "cliff": 12.5594,
+   "T": 397.1641,
+   "hi": 88.914,
+   "n_empty": 1778150.0,
+   "n_cells": 293374.8959,
+   "dispersion": 1.0171
+  },
+  "cell_threshold": 397.16411736214224,
+  "n_cells_prior": 87910,
+  "empty_level": 47.257450975161,
+  "empty_max": 88.9139705019464,
+  "n_background_barcodes": 1387197,
+  "n_plateau_barcodes": 1387197,
+  "n_analyzed": 300000,
+  "n_train_empties": 50000,
+  "n_genes": 41912,
+  "soup_umis_per_unit": {
+   "B10": 2368271.0,
+   "B11": 2531444.0,
+   "B12": 2525366.0,
+   "B5": 2442678.0,
+   "B6": 2559486.0,
+   "B7": 2171309.0,
+   "B8": 2196409.0,
+   "B9": 2232109.0,
+   "C1": 2116329.0,
+   "C10": 2406954.0,
+   "C11": 2078089.0,
+   "C12": 2648368.0,
+   "C2": 2657799.0,
+   "C3": 2566651.0,
+   "C4": 2678270.0,
+   "C5": 2472349.0,
+   "C6": 2653803.0,
+   "C7": 2501272.0,
+   "C8": 1843340.0,
+   "C9": 2179141.0,
+   "D1": 2620605.0,
+   "D10": 632953.0,
+   "D11": 325596.0,
+   "D12": 1686952.0,
+   "D2": 1389371.0,
+   "D3": 270852.0,
+   "D4": 1156200.0,
+   "D5": 719336.0,
+   "D6": 1020610.0,
+   "D7": 979851.0,
+   "D8": 676920.0,
+   "D9": 976045.0
+  },
+  "e_unit_init": {
+   "B10": 70.0,
+   "B11": 57.0,
+   "B12": 45.0,
+   "B5": 59.0,
+   "B6": 46.0,
+   "B7": 77.0,
+   "B8": 77.0,
+   "B9": 74.0,
+   "C1": 78.0,
+   "C10": 39.0,
+   "C11": 31.0,
+   "C12": 50.0,
+   "C2": 51.0,
+   "C3": 59.0,
+   "C4": 54.0,
+   "C5": 40.0,
+   "C6": 54.0,
+   "C7": 66.0,
+   "C8": 31.0,
+   "C9": 34.0,
+   "D1": 55.0,
+   "D10": 22.0,
+   "D11": 33.0,
+   "D12": 28.0,
+   "D2": 98.0,
+   "D3": 129.0,
+   "D4": 27.0,
+   "D5": 22.0,
+   "D6": 25.0,
+   "D7": 24.0,
+   "D8": 22.0,
+   "D9": 24.0
+  }
+ },
+ "train": {
+  "epochs_run": 20,
+  "epochs_planned": 20,
+  "steps": 5580,
+  "best_val": 7.094826963239077
+ },
+ "train_calibrated": {
+  "epochs_run": 20,
+  "epochs_planned": 20,
+  "steps": 5580,
+  "best_val": 7.107197710105022
+ },
+ "train_matched": {},
+ "history": [
+  {
+   "epoch": 1,
+   "train": 7.15563,
+   "val": 7.12167,
+   "s": 0.00998
+  },
+  {
+   "epoch": 2,
+   "train": 7.10443,
+   "val": 7.10632,
+   "s": 0.01054
+  },
+  {
+   "epoch": 3,
+   "train": 7.10341,
+   "val": 7.10913,
+   "s": 0.0112
+  },
+  {
+   "epoch": 4,
+   "train": 7.10762,
+   "val": 7.10764,
+   "s": 0.01203
+  },
+  {
+   "epoch": 5,
+   "train": 7.10385,
+   "val": 7.10246,
+   "s": 0.01281
+  },
+  {
+   "epoch": 6,
+   "train": 7.09791,
+   "val": 7.1007,
+   "s": 0.01348
+  },
+  {
+   "epoch": 7,
+   "train": 7.09534,
+   "val": 7.09933,
+   "s": 0.0141
+  },
+  {
+   "epoch": 8,
+   "train": 7.09189,
+   "val": 7.09807,
+   "s": 0.01464
+  },
+  {
+   "epoch": 9,
+   "train": 7.09259,
+   "val": 7.09763,
+   "s": 0.0151
+  },
+  {
+   "epoch": 10,
+   "train": 7.09127,
+   "val": 7.09719,
+   "s": 0.0155
+  },
+  {
+   "epoch": 11,
+   "train": 7.09023,
+   "val": 7.09663,
+   "s": 0.01584
+  },
+  {
+   "epoch": 12,
+   "train": 7.08753,
+   "val": 7.09624,
+   "s": 0.01613
+  },
+  {
+   "epoch": 13,
+   "train": 7.09153,
+   "val": 7.09582,
+   "s": 0.01639
+  },
+  {
+   "epoch": 14,
+   "train": 7.08731,
+   "val": 7.09545,
+   "s": 0.0166
+  },
+  {
+   "epoch": 15,
+   "train": 7.08756,
+   "val": 7.09527,
+   "s": 0.01678
+  },
+  {
+   "epoch": 16,
+   "train": 7.08798,
+   "val": 7.09515,
+   "s": 0.01693
+  },
+  {
+   "epoch": 17,
+   "train": 7.08469,
+   "val": 7.09497,
+   "s": 0.01706
+  },
+  {
+   "epoch": 18,
+   "train": 7.08651,
+   "val": 7.09483,
+   "s": 0.01716
+  },
+  {
+   "epoch": 19,
+   "train": 7.08366,
+   "val": 7.09486,
+   "s": 0.01725
+  },
+  {
+   "epoch": 20,
+   "train": 7.08218,
+   "val": 7.09483,
+   "s": 0.01733
+  }
+ ],
+ "history_calibrated": [
+  {
+   "epoch": 1,
+   "train": 7.10375,
+   "val": 7.11161,
+   "s": 0.03731
+  },
+  {
+   "epoch": 2,
+   "train": 7.10303,
+   "val": 7.10916,
+   "s": 0.03731
+  },
+  {
+   "epoch": 3,
+   "train": 7.10336,
+   "val": 7.10896,
+   "s": 0.03731
+  },
+  {
+   "epoch": 4,
+   "train": 7.10203,
+   "val": 7.10869,
+   "s": 0.03731
+  },
+  {
+   "epoch": 5,
+   "train": 7.10191,
+   "val": 7.1084,
+   "s": 0.03731
+  },
+  {
+   "epoch": 6,
+   "train": 7.09958,
+   "val": 7.10839,
+   "s": 0.03731
+  },
+  {
+   "epoch": 7,
+   "train": 7.09872,
+   "val": 7.108,
+   "s": 0.03731
+  },
+  {
+   "epoch": 8,
+   "train": 7.09711,
+   "val": 7.10783,
+   "s": 0.03731
+  },
+  {
+   "epoch": 9,
+   "train": 7.09818,
+   "val": 7.10761,
+   "s": 0.03731
+  },
+  {
+   "epoch": 10,
+   "train": 7.09752,
+   "val": 7.10761,
+   "s": 0.03731
+  },
+  {
+   "epoch": 11,
+   "train": 7.09703,
+   "val": 7.10745,
+   "s": 0.03731
+  },
+  {
+   "epoch": 12,
+   "train": 7.09482,
+   "val": 7.10733,
+   "s": 0.03731
+  },
+  {
+   "epoch": 13,
+   "train": 7.09916,
+   "val": 7.10723,
+   "s": 0.03731
+  },
+  {
+   "epoch": 14,
+   "train": 7.09519,
+   "val": 7.10739,
+   "s": 0.03731
+  },
+  {
+   "epoch": 15,
+   "train": 7.09569,
+   "val": 7.10732,
+   "s": 0.03731
+  },
+  {
+   "epoch": 16,
+   "train": 7.09635,
+   "val": 7.1072,
+   "s": 0.03731
+  },
+  {
+   "epoch": 17,
+   "train": 7.09321,
+   "val": 7.10733,
+   "s": 0.03731
+  },
+  {
+   "epoch": 18,
+   "train": 7.09517,
+   "val": 7.10732,
+   "s": 0.03731
+  },
+  {
+   "epoch": 19,
+   "train": 7.09241,
+   "val": 7.10739,
+   "s": 0.03731
+  },
+  {
+   "epoch": 20,
+   "train": 7.09102,
+   "val": 7.10748,
+   "s": 0.03731
+  }
+ ],
+ "config": {
+  "n_hidden": 512,
+  "n_latent": 32,
+  "n_cond": 16,
+  "likelihood": "multinomial",
+  "eps_alpha": 10.0,
+  "eps_alpha_calibrated": 50.0,
+  "eps_alpha_pinned": 2000.0,
+  "learn_ambient_level": false,
+  "s_init": 0.01,
+  "s_max": 0.05,
+  "calibrate_swap": true,
+  "calib_clusters": 20,
+  "cell_multipliers": true,
+  "mask_silent": true,
+  "silent_broad": true,
+  "calib_retry": true,
+  "calib_seeds": 3,
+  "spare_doublets": false,
+  "match_posterior_mean": false,
+  "keep_cell_totals": true,
+  "cell_totals_max_entries": 150000000,
+  "calib_quantile": 0.5,
+  "calib_steps_frac": 0.5,
+  "bg_reward": 0.0,
+  "s_freeze_frac": 0.0,
+  "global_lr_mult": 1.0,
+  "batch_size": 1024,
+  "target_steps": 3000,
+  "min_epochs": 20,
+  "max_epochs": 300,
+  "lr": 0.001,
+  "kl_warmup_frac": 0.2,
+  "val_frac": 0.05,
+  "patience": 8,
+  "seed": 0,
+  "low_count": 5.0,
+  "expected_cells": "none",
+  "empty_level": "none",
+  "max_barcodes": 250000,
+  "estimator": "gene",
+  "fpr": 0.004,
+  "strength": 1.0,
+  "cell_prob_cutoff": 0.5,
+  "keep_non_cells": false,
+  "device": "cuda:0"
+ },
+ "input": "/dfs7/swaruplab/vswarup/compute/glymph/data/std/parse_bm_hfd.h5ad",
+ "output": "out/glymph/parse_bm_hfd.h5ad"
+}
