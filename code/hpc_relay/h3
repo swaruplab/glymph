@@ -1,0 +1,4 @@
+#!/bin/bash
+# Run one command on the HPC3 login node through the office Studio (off campus, no VPN).
+b=$(printf '%s' "$1" | base64 | tr -d '\n')
+ssh -o BatchMode=yes -o ConnectTimeout=15 studio-work "c=\$(echo $b | /usr/bin/base64 -D); ssh -o BatchMode=yes -o ConnectTimeout=20 hpc3 \"\$c\""

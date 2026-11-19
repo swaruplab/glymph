@@ -26,6 +26,18 @@ background. Same-species background is invisible and is extrapolated, as in Schr
 et al. Evaluation cells are chosen from the raw matrix alone, so every tool is scored
 on the same barcodes; barcodes a tool did not call are reported as missing.
 
+Same-species truth, measured (columns ending in _measured, added 2026-11-18). The extrapolation above
+assumes the background inside a cell has the species split of the empty partitions. It can be checked where
+the background is visible, human RNA in mouse cells against mouse RNA in human cells, and it does not always
+hold: in hgmm_10k_v3 the empty partitions are 88% human and the background inside cells is 70% human, so the
+extrapolation expects three times too much same-species background in human cells and a third of it in
+mouse cells; in jurkat_32d it is 1.75 and 0.54 times. The measured version takes, for a cell of one species
+and its depth, the ratio of (the background of its own species that cells of the other species receive at
+that depth) to (the background of the other species that cells of its species receive), each a constant
+plus a share of depth fitted on the cleanest nine tenths of the cells, and multiplies the cell's
+cross-species counts by it. It assumes only that the background does not depend on the species of the
+cell it lands in. Both versions are reported; no tool's output enters either.
+
 Alignment artifacts. A few genes collect reads from the wrong genome (ribosomal RNA reads
 on mouse Gm42418 and Lars2 are the known case), so their "cross-species" counts are not RNA
 from another cell and no ambient remover should be scored on them. A gene is masked when,
@@ -54,6 +66,23 @@ from scipy.stats import kendalltau
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "src"))
 from glymph.background import ordmag_threshold  # noqa: E402
 from glymph.io import read_counts  # noqa: E402
+
+
+def fit_line(n: np.ndarray, y: np.ndarray) -> np.ndarray:
+    """y ~ Poisson(a + b * n) with a, b >= 0 (EM updates): background counts as a constant plus a share of depth."""
+    if n.size < 20 or y.sum() <= 0:
+        return np.array([np.nan, np.nan])
+    th = np.array([max(y.mean() * 0.5, 1e-6), max(y.mean() * 0.5 / max(n.mean(), 1.0), 1e-12)])
+    Z = np.stack([np.ones_like(n, dtype=np.float64), n.astype(np.float64)], 1)
+    col = Z.sum(0)
+    for _ in range(5000):
+        mu = np.maximum(Z @ th, 1e-12)
+        new = th * ((y / mu)[:, None] * Z).sum(0) / col
+        if np.all(np.abs(new - th) <= 1e-7 * np.maximum(th, 1e-12)):
+            th = new
+            break
+        th = new
+    return th
 
 
 def gene_species(var: pd.DataFrame) -> np.ndarray:
@@ -154,6 +183,21 @@ def main():
             pd.DataFrame(art_rows, columns=["dataset", "gene", "in_cells_of", "share_of_cross_pct", "share_in_source_cells_pct",
                                             "share_in_soup_pct"]).to_csv(args.artifacts_out, sep="\t", index=False, float_format="%.4g")
 
+    # Background of each species as the cells of the other species receive it: a constant plus a share of depth,
+    # on the cleanest nine tenths of those cells (see "Same-species truth, measured" in the module docstring).
+    N_ev = per_sp[ev].sum(1)
+    line = {}
+    for o in (0, 1):  # line[o]: background of species 1 - o in cells of species o
+        c = own_e == o
+        n_, y_ = N_ev[c], per_sp[ev][c, 1 - o]
+        if c.sum() >= 20:
+            sh = y_ / np.maximum(n_, 1)
+            k_ = sh <= np.quantile(sh, 0.9)
+            line[o] = fit_line(n_[k_], y_[k_])
+        else:
+            line[o] = np.array([np.nan, np.nan])
+    measured_ok = bool(np.all(np.isfinite(line[0])) and np.all(np.isfinite(line[1])))
+
     ev_names = raw.obs_names[ev]
     Xe = X[ev]
     rows = []
@@ -191,6 +235,15 @@ def main():
         Nb = before.sum(1)
         true_frac = (cr_b + exp_own) / np.maximum(Nb, 1)
         est_frac = (Nb - after.sum(1)) / np.maximum(Nb, 1)
+        if measured_ok:
+            la, lb = np.stack([line[0], line[1]])[own_p].T  # the other species' background in cells of this species
+            oa, ob = np.stack([line[0], line[1]])[1 - own_p].T  # this species' background in cells of the other species
+            ratio_m = (oa + ob * Nb) / np.maximum(la + lb * Nb, 1e-9)
+            exp_own_m = np.minimum(cr_b * ratio_m, own_b)
+            true_frac_m = (cr_b + exp_own_m) / np.maximum(Nb, 1)
+        else:
+            exp_own_m = np.full_like(exp_own, np.nan)
+            true_frac_m = np.full_like(true_frac, np.nan)
         row = {
             "dataset": args.name,
             "tool": tool,
@@ -209,6 +262,11 @@ def main():
             "n_noninteger": int((np.abs(Yp.data - np.round(Yp.data)) > 1e-6).sum()),
             "contam_rmsle": float(np.sqrt(np.mean((np.log1p(est_frac) - np.log1p(true_frac)) ** 2))),
             "contam_kendall": float(kendalltau(est_frac, true_frac).statistic) if tool != "raw" else np.nan,
+            "same_species_ratio_measured": own_removed.sum() / max(np.nansum(exp_own_m), 1e-9) if measured_ok else np.nan,
+            "native_loss_measured": max(0.0, own_removed.sum() - np.nansum(exp_own_m)) / max(own_b.sum() - np.nansum(exp_own_m), 1) if measured_ok else np.nan,
+            "contam_rmsle_measured": float(np.sqrt(np.mean((np.log1p(est_frac) - np.log1p(true_frac_m)) ** 2))) if measured_ok else np.nan,
+            "contam_kendall_measured": float(kendalltau(est_frac, true_frac_m).statistic) if (measured_ok and tool != "raw") else np.nan,
+            "own_expected_measured_over_extrapolated": float(np.nansum(exp_own_m) / max(exp_own.sum(), 1e-9)) if measured_ok else np.nan,
             "ambient_human_share": float(amb_split[0]),
             "cell_threshold": float(T),
             "n_masked_genes": n_masked,
@@ -220,7 +278,7 @@ def main():
             pd.DataFrame(
                 {"barcode": ev_names[present], "species": np.where(own_p == 0, "human", "mouse"), "n_raw": Nb,
                  "cross_before": cr_b, "cross_after": cr_a, "own_before": own_b, "own_after": own_a,
-                 "true_frac": true_frac, "est_frac": est_frac}
+                 "true_frac": true_frac, "est_frac": est_frac, "true_frac_measured": true_frac_m}
             ).to_csv(os.path.join(args.per_cell, f"{args.name}.{tool}.tsv.gz"), sep="\t", index=False)
 
     df = pd.DataFrame(rows)

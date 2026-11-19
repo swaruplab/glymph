@@ -27,7 +27,7 @@ m = pd.concat([pd.read_csv(f, sep="\t") for f in glob.glob(os.path.join(mdir, "*
 have = m.groupby("dataset").tool.apply(set)
 full = [d for d, t in have.items() if set(tools) <= t]
 m = m[m.dataset.isin(full)]
-BETTER_HIGH = {"cross_species_removed", "own_retained", "contam_kendall", "marker_removed_nonpt", "marker_kept_pt"}
+BETTER_HIGH = {"cross_species_removed", "own_retained", "contam_kendall", "contam_kendall_measured", "marker_removed_nonpt", "marker_kept_pt"}
 
 
 def block(t, cols, title):
@@ -38,7 +38,7 @@ def block(t, cols, title):
     for c in cols:
         p = t[t.tool.isin(tools)].pivot(index="dataset", columns="tool", values=c)[tools]
         rows[c] = p.mean()
-        if c in BETTER_HIGH or c in ("contam_rmsle",):
+        if c in BETTER_HIGH or c in ("contam_rmsle", "contam_rmsle_measured"):
             ref = p[tools[0]]
             wins = {x: int(((p[x] > ref) if c in BETTER_HIGH else (p[x] < ref)).sum()) for x in tools[1:]}
             rows[c + "  (libraries better than " + tools[0] + ")"] = pd.Series(wins)
@@ -56,7 +56,10 @@ def block(t, cols, title):
 
 
 sp = m[m.get("cross_species_removed").notna()] if "cross_species_removed" in m else m.iloc[:0]
-block(sp, ["cross_species_removed", "own_retained", "same_species_ratio", "native_loss", "contam_rmsle", "contam_kendall"], "species mixtures")
+cols_sp = ["cross_species_removed", "own_retained", "same_species_ratio", "native_loss", "contam_rmsle", "contam_kendall"]
+if "contam_rmsle_measured" in sp and sp.contam_rmsle_measured.notna().any():  # same-species truth with the split measured inside cells
+    cols_sp += ["same_species_ratio_measured", "native_loss_measured", "contam_rmsle_measured", "contam_kendall_measured"]
+block(sp, cols_sp, "species mixtures")
 kid = m[m.dataset.str.startswith("kidney")]
 block(kid, ["contam_rmsle", "contam_kendall", "removed_over_truth", "marker_removed_nonpt", "marker_kept_pt"], "kidney")
 if "--per-library" in sys.argv or os.environ.get("PER_LIBRARY"):

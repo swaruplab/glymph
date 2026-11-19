@@ -31,6 +31,9 @@ import sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 HPC3_BASE = "/dfs7/swaruplab/vswarup/compute/glymph"
 SSH = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=20"]
+# Off campus without the VPN: GLYMPH_HPC3_VIA=studio-work asks the scheduler through that host (it is on campus and has
+# its own HPC3 key). Result files are then not fetched here; pull them with code/hpc_relay/h3pull.
+VIA = os.environ.get("GLYMPH_HPC3_VIA", "")
 HIDE_TOOLS = {"glymph_map"}  # an output-rule experiment that was scored once with the main tools
 
 
@@ -78,7 +81,8 @@ def sacct(job_ids):
     if not job_ids:
         return []
     fmt = "JobID,JobName,State,ElapsedRaw,Start,End,MaxRSS,NodeList,ExitCode"
-    cmd = SSH + ["hpc3", f"sacct -j {','.join(job_ids)} -P -n --format={fmt}"]
+    remote = f"sacct -j {','.join(job_ids)} -P -n --format={fmt}"
+    cmd = SSH + ([VIA, f"ssh -o BatchMode=yes -o ConnectTimeout=20 hpc3 '{remote}'"] if VIA else ["hpc3", remote])
     out = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
     if out.returncode != 0:
         print("[tracker] sacct failed:", out.stderr.strip()[:300], file=sys.stderr)
@@ -113,8 +117,9 @@ def main():
         rid = run["run_id"]
         rdir = os.path.join(ROOT, "runs", rid)
         os.makedirs(rdir, exist_ok=True)
-        # Small result files come back through the transfer node.
-        if run.get("host", "").lower().startswith("hpc3"):
+        # Small result files come back through the transfer node, while a run is still going. A finished run's tables
+        # are final and may have been renamed by role (relabel_tools.py), so they are not fetched again.
+        if run.get("host", "").lower().startswith("hpc3") and run.get("status", "").upper() != "DONE" and not VIA:
             for sub in ("out/deliverables/", "out/envs/"):
                 subprocess.run(
                     ["rsync", "-a", "--timeout=60", "--exclude=*.h5ad", f"hpc3-xfer:{HPC3_BASE}/{rid}/{sub}", rdir + "/"],
@@ -285,24 +290,34 @@ def main():
 
     # All-tier benchmark (20261116-2209): means per group and tool, per-library head to head,
     # truth-free scores, resources and scaling. Rounded here to what the page prints.
-    # AT0 is the first all-tier run (Glymph 0.3.0); AT is the run of 0.3.1 on the same libraries, which
-    # scores 0.3.0 beside it (glymph_030) and reuses the other tools' outputs. Until AT has tables the
-    # page shows AT0.
+    # AT0 is the first all-tier run (Glymph 0.3.0) and AT1 the run of 0.3.1. AT is the run of 0.3.2 beside
+    # CellBender 0.4.0 on the same libraries: its tables name the tools by role (relabel_tools.py), so
+    # "glymph" is 0.3.2, "cellbender" is 0.4.0, and the versions before are scored beside them as
+    # glymph_031 and cellbender032. PREV is the earlier Glymph shown beside the current one per library.
     AT0 = os.path.join(ROOT, "runs", "20261116-2209_glymph-alltier-bench")
-    AT = os.path.join(ROOT, "runs", "20261117-0607_glymph-031-alltier")
+    AT1 = os.path.join(ROOT, "runs", "20261117-0607_glymph-031-alltier")
+    AT = os.path.join(ROOT, "runs", "20261117-1342_glymph-cb040-bench")
+    OTHERS = {"scar": "scAR 0.7.0", "soupx": "SoupX 1.6.2", "decontx": "DecontX", "decontx_bg": "DecontX + background"}
     if os.path.exists(os.path.join(AT, "summary.tsv")):
+        PREV = "glymph_031"
+        LABEL = {"glymph": "Glymph 0.3.2 (budget 0.4%, default)", "glymph_fpr0": "Glymph 0.3.2 (budget 0)", "glymph_fpr02": "Glymph 0.3.2 (budget 0.2%)",
+                 "glymph_fpr1": "Glymph 0.3.2 (budget 1%)", "glymph_rep2": "Glymph 0.3.2 (default, second run)", "glymph_031": "Glymph 0.3.1 (budget 0.4%)",
+                 "cellbender": "CellBender 0.4.0 (budget 1%, default)", "cellbender_fpr05": "CellBender 0.4.0 (budget 0.5%)", "cellbender_fpr0": "CellBender 0.4.0 (budget 0)",
+                 "cellbender032": "CellBender 0.3.2 (budget 1%, default)", "cellbender032_fpr05": "CellBender 0.3.2 (budget 0.5%)",
+                 "cellbender032_fpr0": "CellBender 0.3.2 (budget 0)", **OTHERS}
+        RES_TOOLS = ("glymph", "glymph_031", "cellbender", "cellbender032", "scar", "soupx", "decontx", "decontx_bg")
+    elif os.path.exists(os.path.join(AT1, "summary.tsv")):
+        AT, PREV = AT1, "glymph_030"
         LABEL = {"glymph": "Glymph 0.3.1 (budget 0.4%, default)", "glymph_fpr0": "Glymph 0.3.1 (budget 0)", "glymph_fpr02": "Glymph 0.3.1 (budget 0.2%)",
                  "glymph_fpr1": "Glymph 0.3.1 (budget 1%)", "glymph_030": "Glymph 0.3.0 (budget 0.4%)", "glymph_030_fpr0": "Glymph 0.3.0 (budget 0)",
                  "glymph_030_fpr1": "Glymph 0.3.0 (budget 1%)", "cellbender": "CellBender 0.3.2 (budget 1%, default)",
-                 "cellbender_fpr05": "CellBender 0.3.2 (budget 0.5%)", "cellbender_fpr0": "CellBender 0.3.2 (budget 0)",
-                 "scar": "scAR 0.7.0", "soupx": "SoupX 1.6.2", "decontx": "DecontX", "decontx_bg": "DecontX + background"}
+                 "cellbender_fpr05": "CellBender 0.3.2 (budget 0.5%)", "cellbender_fpr0": "CellBender 0.3.2 (budget 0)", **OTHERS}
         RES_TOOLS = ("glymph", "glymph_030", "cellbender", "scar", "soupx", "decontx", "decontx_bg")
     else:
-        AT = AT0
+        AT, PREV = AT0, None
         LABEL = {"glymph": "Glymph 0.3.0 (budget 0.4%, default)", "glymph_fpr0": "Glymph 0.3.0 (budget 0)", "glymph_fpr02": "Glymph 0.3.0 (budget 0.2%)",
                  "glymph_fpr1": "Glymph 0.3.0 (budget 1%)", "cellbender": "CellBender 0.3.2 (budget 1%, default)",
-                 "cellbender_fpr05": "CellBender 0.3.2 (budget 0.5%)", "cellbender_fpr0": "CellBender 0.3.2 (budget 0)",
-                 "scar": "scAR 0.7.0", "soupx": "SoupX 1.6.2", "decontx": "DecontX", "decontx_bg": "DecontX + background"}
+                 "cellbender_fpr05": "CellBender 0.3.2 (budget 0.5%)", "cellbender_fpr0": "CellBender 0.3.2 (budget 0)", **OTHERS}
         RES_TOOLS = ("glymph", "cellbender", "scar", "soupx", "decontx", "decontx_bg")
     rank = {t: i for i, t in enumerate(LABEL)}
     GORDER = ["cell-line mixtures, other (10x)", "BD Rhapsody", "Parse Evercode", "xenograft skin (10x)", "nuclei mixture (10x)",
@@ -336,7 +351,7 @@ def main():
         g, c = t.get("glymph"), t.get("cellbender")
         if not g or not c:
             continue
-        g0 = t.get("glymph_030", {})
+        g0 = t.get(PREV, {}) if PREV else {}
         alltier_lib.append({
             "library": lib, "platform": g.get("platform", ""), "development": g.get("development", ""),
             "glymph030_removed": num(g0.get("cross_species_removed"), 1, 100), "glymph030_rmsle": num(g0.get("contam_rmsle"), 3),
@@ -364,7 +379,7 @@ def main():
                             "median_wall_s": int(round(med(w))), "longest_wall_s": int(round(max(w))), "total_hours": round(sum(w) / 3600, 1),
                             "median_ram_gb": round(med(m), 1) if m else None, "peak_ram_gb": round(max(m), 1) if m else None,
                             "peak_gpu_gb": round(max(gm), 1) if gm else None})
-    for r in read_tsv(os.path.join(AT0, "resources_extra.tsv")):
+    for r in read_tsv(os.path.join(AT if os.path.exists(os.path.join(AT, "resources_extra.tsv")) else AT0, "resources_extra.tsv")):
         alltier_res.append({"what": r["what"], "tool": r["tool"], "hardware": r["hardware"], "median_wall_s": num(r["wall_s"], 0), "longest_wall_s": None,
                             "total_hours": None, "median_ram_gb": None, "peak_ram_gb": num(r["peak_rss_gb"], 1), "peak_gpu_gb": num(r["peak_gpu_gb"], 1)})
     alltier_scaling = [{"tool": r["tool"], "cells": num(r["cells"], 0), "state": r["state"], "wall_s": num(r["wall_s"], 0),

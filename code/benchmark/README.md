@@ -80,6 +80,10 @@ Each tool writes to `out/<tool>/`, with `<library>.time.txt` from `/usr/bin/time
 
 Deliverables land in `out/deliverables/`: `species_mix_metrics.tsv`, `runtime.tsv`, `benchmark_summary.pdf`, and one barcode rank plot per library.
 
+After a run is scored: `relabel_tools.py` renames tools in the run's tables by role (the CellBender 0.4.0 benchmark scores it as `cellbender040` and names it `cellbender`, keeping the tables as scored under `as_scored/`), `report_versions.py` prints the head-to-head summary, and `count_stripped_cells.py` counts, per library and tool, the cells that lost more than 10% of their counts when that is more than three times their true background plus 3 points. `05c_build_cellbender040.sbatch` builds the CellBender 0.4.0 environment; `20_cellbender_array.sbatch` and `40_scaling.sbatch` take the version to run.
+
+Diagnostics for 0.3.2 (cells that carry expression of their own on their cluster's silent genes): `diag_heavy_cells.py` (which cells lose far more than their true background, and which genes), `diag_match.py` (the flagged cells by background match, with truth), `diag_stripped_share.py` (flagged cells that stay held to the silent genes, by share removed, against truth), `diag_profile_gap.py` (how far the background inside cells is from the empty-droplet profile, gene by gene: the feasibility check for a measured profile).
+
 Diagnostics used while developing Glymph: `diag_budget.py` (true ambient level and swap fraction from a regression of cross-species counts on depth, beside what Glymph learned), `diag_shape.py` (does the background inside cells look like the soup or like the average cell) and `diag_exclusion.py` (can the swap fraction be read from genes that groups of cells do not express, without species labels).
 
 ## Tier 2: mouse kidney strain mixture, cells and nuclei

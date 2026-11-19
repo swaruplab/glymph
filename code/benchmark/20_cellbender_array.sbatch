@@ -9,8 +9,10 @@
 #SBATCH --array=1-7
 #SBATCH --output=logs/%x_%A_%a.out
 #SBATCH --error=logs/%x_%A_%a.err
-# Baseline: CellBender 0.3.2 at defaults, as run in the published benchmarks.
-# (v0.4.0 is documented to reproduce v0.3.x output; 0.3.2 is the version installed here.)
+# Baseline: CellBender at defaults. By default the lab's 0.3.2 through its working launcher (below).
+# Another version: set CB_CMD to the command that stands for "cellbender", and CB_TAG to its tool name:
+#   CB_TAG=cellbender040 CB_CMD=/dfs7/swaruplab/vswarup/bin/miniconda_envs/glymph_bench_cellbender040/bin/cellbender
+# (0.4.0, built by 05c_build_cellbender040.sbatch).
 #
 # Launched through the lab's working recipe, /dfs7/swaruplab/vswarup/bin/cellbender_fix: every
 # CellBender install on HPC3 trains and then dies at the checkpoint save with
@@ -50,7 +52,10 @@ work="out/${CB_TAG:-cellbender}/$name"
 mkdir -p "$work"
 nvidia-smi --query-gpu=name,memory.total --format=csv,noheader
 cd "$work"   # CellBender writes its checkpoint into the working directory
-bash "$SLURM_SUBMIT_DIR/code/benchmark/profile.sh" "../$name" "$PY" "$FIX/cellbender_safe.py" remove-background --cuda \
+cmd="${CB_CMD:-$PY $FIX/cellbender_safe.py}"
+echo "command: $cmd"
+# shellcheck disable=SC2086
+bash "$SLURM_SUBMIT_DIR/code/benchmark/profile.sh" "../$name" $cmd remove-background --cuda \
   --input "$input" --output "$name.h5" --checkpoint-mins 20 $extra > "$name.cb.log" 2>&1 || true
 if [ -n "${CB_FPRS:-}" ]; then
   for f in "${name}"_FPR_*_filtered.h5; do
