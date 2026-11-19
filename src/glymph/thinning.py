@@ -60,7 +60,20 @@ def apportion(r, v, share, n_rows: int, mode: str = "budget", strength: float = 
     return torch.minimum(base + extra, v)
 
 
-def gene_budget(g, v, share, n_genes: int, strength: float = 1.0, fpr: float = 0.0, iters: int = 44):
+def _allowance(g, v, p, n_genes: int, fpr: float, cap):
+    """Per-entry false-positive allowance: fpr of the entry's native counts, scaled per gene so that a gene's
+    allowance never exceeds cap times its expected background (cap None: no limit)."""
+    extra = fpr * v * (1.0 - p)
+    if cap is None or fpr <= 0:
+        return extra
+    z = torch.zeros(n_genes, device=v.device, dtype=torch.float64)
+    bg = z.index_add(0, g, (v * p).double())
+    ex = z.index_add(0, g, extra.double())
+    factor = torch.where(ex > 0, (cap * bg / ex.clamp_min(1e-12)).clamp(max=1.0), torch.ones_like(ex))
+    return extra * factor[g].to(extra.dtype)
+
+
+def gene_budget(g, v, share, n_genes: int, strength: float = 1.0, fpr: float = 0.0, iters: int = 44, cap=None):
     """Per-gene background budget, allocated to the most probable entries.
 
     g, v, share: gene index, count and posterior background share of every nonzero entry of
@@ -85,11 +98,18 @@ def gene_budget(g, v, share, n_genes: int, strength: float = 1.0, fpr: float = 0
     The extra counts are taken the same way, from the entries where background is most
     probable, so they go first to single counts in cells that barely express the gene. Use 0
     to remove exactly the expected background.
+
+    cap limits that allowance to a share of the gene's expected background. A share of native
+    counts is small beside the background of a dirty library and large beside that of a clean
+    one: at 1% background, an allowance of 0.4% of native counts is 40% more than the
+    background itself (xenograft skin, 2026-11-17: twice the expected same-species background
+    removed). With cap = 0.2 a gene never gives up more than 1.2 times its expected background,
+    and a gene with no expected background gives up nothing.
     """
     p = (share * strength).clamp(1e-6, 1.0 - 1e-6)  # float32-safe: 1 - 1e-9 would round to 1 and give infinite odds
     o = p / (1.0 - p)
     zeros = torch.zeros(n_genes, device=v.device, dtype=torch.float64)
-    target = torch.round(zeros.index_add(0, g, (v * (p + fpr * (1.0 - p))).double()))
+    target = torch.round(zeros.index_add(0, g, (v * p + _allowance(g, v, p, n_genes, fpr, cap)).double()))
     lo = torch.full((n_genes,), -40.0, device=v.device)  # log t: everything removed
     hi = torch.full((n_genes,), 40.0, device=v.device)  # log t: nothing removed
     vp1 = v + 1.0
@@ -114,7 +134,7 @@ def gene_budget(g, v, share, n_genes: int, strength: float = 1.0, fpr: float = 0
     return torch.minimum(c + extra, v)
 
 
-def gene_budget_blocked(g, v, share, n_genes: int, strength: float = 1.0, fpr: float = 0.0, max_entries: int = 20_000_000):
+def gene_budget_blocked(g, v, share, n_genes: int, strength: float = 1.0, fpr: float = 0.0, max_entries: int = 20_000_000, cap=None):
     """gene_budget over blocks of genes, so peak memory does not grow with the library.
 
     Each gene's budget is independent of every other gene's, so the allocation can be done for a
@@ -123,7 +143,7 @@ def gene_budget_blocked(g, v, share, n_genes: int, strength: float = 1.0, fpr: f
     If a block still does not fit, it is done on the CPU.
     """
     if g.numel() <= max_entries:
-        return gene_budget(g, v, share, n_genes, strength, fpr)
+        return gene_budget(g, v, share, n_genes, strength, fpr, cap=cap)
     counts = torch.bincount(g, minlength=n_genes)
     edges, acc, start = [0], 0, 0
     for j, n in enumerate(counts.tolist()):
@@ -138,16 +158,16 @@ def gene_budget_blocked(g, v, share, n_genes: int, strength: float = 1.0, fpr: f
         if idx.numel() == 0:
             continue
         try:
-            out[idx] = gene_budget(g[idx] - g0, v[idx], share[idx], g1 - g0, strength, fpr)
+            out[idx] = gene_budget(g[idx] - g0, v[idx], share[idx], g1 - g0, strength, fpr, cap=cap)
         except torch.OutOfMemoryError:
             torch.cuda.empty_cache()
-            out[idx] = gene_budget((g[idx] - g0).cpu(), v[idx].cpu(), share[idx].cpu(), g1 - g0, strength, fpr).to(v.device)
+            out[idx] = gene_budget((g[idx] - g0).cpu(), v[idx].cpu(), share[idx].cpu(), g1 - g0, strength, fpr, cap=cap).to(v.device)
         del idx
     return out
 
 
 def gene_cell_budget(g, r, v, share, n_genes: int, n_cells: int, strength: float = 1.0, fpr: float = 0.0,
-                     outer: int = 3, iters: int = 40):
+                     outer: int = 3, iters: int = 40, cap=None):
     """Gene budget that also keeps each cell's own background total.
 
     gene_budget fixes how many counts each gene gives up across the library and takes them from
@@ -166,7 +186,7 @@ def gene_cell_budget(g, r, v, share, n_genes: int, n_cells: int, strength: float
     """
     p = (share * strength).clamp(1e-6, 1.0 - 1e-6)
     logit = torch.log(p) - torch.log1p(-p)
-    w = (v * (p + fpr * (1.0 - p))).double()
+    w = (v * p + _allowance(g, v, p, n_genes, fpr, cap)).double()  # allowance capped per gene, see gene_budget
     zg = torch.zeros(n_genes, device=v.device, dtype=torch.float64)
     zc = torch.zeros(n_cells, device=v.device, dtype=torch.float64)
     target_g = torch.round(zg.index_add(0, g, w))

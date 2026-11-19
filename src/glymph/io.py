@@ -258,6 +258,8 @@ def read_counts(path, layout: str = "auto", integer: bool = True) -> ad.AnnData:
             var["gene_id"] = var["gene_ids"].astype(str) if "gene_ids" in var else var.index.astype(str)
         out = _finalize(a.X, a.obs_names.to_numpy(), var, path, drop_empty=False, integer=integer)
         out.obs = a.obs.copy()
+        if "unspliced" in a.layers:  # molecules with intronic sequence, beside X (splice.py)
+            out.layers["unspliced"] = sp.csr_matrix(a.layers["unspliced"]).astype(np.int32)
         keep = np.diff(out.X.indptr) > 0
         return out[keep].copy()
     if p.suffix in (".h5", ".hdf5"):

@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import time
 from dataclasses import asdict, dataclass
 
@@ -47,7 +48,29 @@ class Config:
     silent_broad: bool = True  # silent genes also among genes too rare to test one by one (exact Poisson test against the measured level)
     calib_retry: bool = True  # no silent-gene signal: try again with half as many clusters, down to two
     calib_seeds: int = 3  # clusterings tried for the silent-gene estimate; the middle estimate is kept
-    spare_doublets: bool = False  # True: cells flagged doublet-like are not held to their cluster's silent genes (they are flagged either way)
+    calib_embedding: str = "pca"  # what the calibration clusters are built on: "pca" (principal components of the counts: the same in every run) or "latent" (the model's latent space, as up to 0.3.2)
+    silent_tree: bool = True  # silent genes decided on a tree: clusters and their sub-clusters (multires.py); False: one resolution, as up to 0.3.2
+    tree_children: int = 8  # sub-clusters per cluster, at most
+    tree_min_cells: int = 40  # cells per sub-cluster, about
+    tree_carriers: float = 0.25  # a sub-cluster overrules its cluster for a gene that this share of its cells carries
+    tree_peel: int = 0  # above 0: the first version of the tree, which also sets up to this many expressing sub-clusters aside and tests the rest (lost removal on BD Rhapsody and marker counts on tissue, 2026-11-18)
+    splice: bool = False  # use layers["unspliced"] (nuclei): spliced against unspliced molecules as a second negative control (splice.py). Off by default: on the two kidney nuclei libraries it moved tubule-marker removal by 1 to 3 points either way and raised removed over truth by 0.04 (2026-11-18)
+    splice_silent: bool = True  # ... to call a gene silent where its molecules are spliced like background, and never where they are not
+    splice_output: bool = True  # ... and to update each entry's background share by its own molecules before counts are removed
+    swap_contrast: bool = True  # which profile the depth-proportional background has (soup or average cell) is read from gene contrast (exclusion._swap_shape); False: left to the per-cell fit, which cannot tell and kept the swapped fraction at its start (up to 0.3.2)
+    calib_cross_check: bool = True  # the background level is fitted under two rules for which gene and cluster pairs are tested (they follow the fit, or are settled at the start), and where the two differ by more than half the lower one is kept: each rule runs away on some library (exclusion.silent_budget). False: one rule only, the next option
+    calib_fixed_candidates: bool = False  # the single rule when calib_cross_check is off: False, the tested pairs follow the fit (up to 0.4.0rc1); True, they are settled at the starting amounts
+    swap_gate: float = 0.05  # the search is made only where the depth-proportional background is at most this share of depth; beyond it (nuclei) that background keeps the soup profile
+    swap_cap: float = 0.05  # upper bound of the swapped fraction read from silent genes; what it takes stays on the soup profile (0.3 was tried on 2026-11-18 and over-cleaned kidney nuclei)
+    silent_factor_max: float = 1.0  # above 1: a gene at the same multiple of the fitted background in every cluster that does not express it is silent there, up to this multiple. Off: right on cell-line mixtures (3 gave +2 points on two 10x libraries), wrong on tissue, where such genes are weakly expressed (kidney whole cells: 1.8 times the true background removed, 2026-11-18)
+    superpose: bool = False  # a cluster (or sub-cluster) that is a larger cluster plus background-like RNA takes that cluster's silent genes. Off: it cleans the 150 dirty cells of a BD cell-line mixture (+4 points) and merges true cell types in tissue (kidney: up to 2.1 times the true background removed; a xenograft lost 11 points, 2026-11-18)
+    factor_budget: bool = True  # ... and that multiple is the gene's background level in every cell (False: only the silent sets use it)
+    splice_shift: float = 0.0  # logit shift of the unspliced share from the empty partitions to background inside cells (negative: fitted on the count-silent genes, the first version)
+    doublet_match: float = 0.5  # a cell with far more counts on its cluster's silent genes than background explains is left alone when those counts match the background profile less than this (0: never, as in 0.3.1)
+    doublet_share_max: float = 0.2  # ... or when more than this share of its counts is on those genes (1: no limit)
+    cluster_match: float = 0.0  # ... or when its cluster's own expression explains less than this share of its counts (0: not used, the default; 0.3 and 0.5 were tested for 0.3.2 and changed little)
+    spare_doublets: bool = False  # True: every such cell is left alone, whatever its profile
+    calib_ridge_max: float = 5.0  # a clustering whose level and fit still disagree by more than this at the end does not count
     match_posterior_mean: bool = False  # after the second phase, shift the multipliers' prior so the posterior mean lands on the calibrated value, and train a third, short phase
     keep_cell_totals: bool = True  # output rule also keeps each cell's expected background total (thinning.gene_cell_budget)
     cell_totals_max_entries: int = 150_000_000  # above this many entries the gene-only rule is used, in blocks
@@ -79,7 +102,10 @@ class Config:
     # False-positive budget of the gene estimator, the same idea as CellBender's --fpr (whose default is 0.01).
     # 0 removes the expected background only. 0.005 was chosen on the first benchmark (seven 10x human + mouse
     # mixtures), where it gave the same native loss as CellBender; 0.01 matched CellBender's removal but lost more.
-    fpr: float = 0.004  # false-positive budget: extra removal allowed per gene as a share of its native counts. 0.4% is where same-species removal equals its expected value on the seven tuning mixtures with 0.3.0 (0.2%: 0.84 of it; 0.5%: 1.11); 0.2.0 used 0.5%. CellBender's default is 1%.
+    fpr: float = 0.003  # false-positive budget: extra removal allowed per gene as a share of its native counts. 0.3% is where same-species removal equals its expected value on the 15 development mixtures with 0.4.0 (1.00 by the benchmark's extrapolation, 1.02 with the split measured inside cells; 0.4% gave 1.08 and 1.10 once the swapped fraction was read from gene contrast, 2026-11-18). 0.4% was the value for 0.3.0 to 0.3.2.
+    fpr_background_cap: float = -1.0  # a gene's false-positive allowance is at most this share of its expected background (negative: no limit, the default; 0.2 was tested for 0.3.2 and under-cleaned BD Rhapsody)
+    swap_start: float = 2e-4  # starting value of the swapped fraction in the silent-gene fit (negative: the learned value, as before 0.3.2)
+    silent_wide_level: float = -1.0  # the wider silent set is tested against this multiple of the fitted background (negative: the ridge level, the default; 1.0 was tested for 0.3.2 and lost removal on Parse)
     strength: float = 1.0
     cell_prob_cutoff: float = 0.5
     keep_non_cells: bool = False
@@ -207,7 +233,7 @@ def fit(model: GlymphNet, csr: DeviceCSR, unit, pool, prior_logit, cfg: Config, 
 
 
 @torch.no_grad()
-def calibrate_background(model: GlymphNet, csr: DeviceCSR, unit, pool, prior_logit, cell_threshold: float, cfg: Config) -> dict:
+def calibrate_background(model: GlymphNet, csr: DeviceCSR, unit, pool, prior_logit, cell_threshold: float, cfg: Config, u=None) -> dict:
     """Set the model's ambient multiplier and swapped fraction from silent genes (exclusion.silent_budget).
 
     Uses barcodes the model calls cells that are also at or above the confident-cell depth,
@@ -224,16 +250,32 @@ def calibrate_background(model: GlymphNet, csr: DeviceCSR, unit, pool, prior_log
         post = model.posterior(x, nz, unit[b], pool[b], prior_logit[b], model.lk(b), model.sc(b))
         z[b], prob[b], tot[b] = post.z, post.cell_prob, post.N
     rows = torch.nonzero((prob >= cfg.cell_prob_cutoff) & (tot >= cell_threshold), as_tuple=True)[0]
+    if cfg.calib_embedding == "pca" and rows.numel() >= 50:
+        from .multires import pca_embedding
+
+        # Clusters from the counts themselves: the latent space differs between two runs on a GPU, and on
+        # libraries with few testable genes the estimate moved with it.
+        z = pca_embedding(csr, rows, torch.arange(n, device=device), seed=cfg.seed)
     learned = model.s().detach().clone()
     e_now, soup_now, chibar_now = model.e().detach(), torch.exp(model.log_soup), torch.exp(model.log_chibar)
+    splice = None
+    if u is not None and cfg.splice and cfg.silent_tree:
+        bg = torch.nonzero(prob < cfg.cell_prob_cutoff, as_tuple=True)[0]
+        splice = {"u": u, "bg_rows": bg, "bg_pool": pool[bg], "silent": cfg.splice_silent, "shift": cfg.splice_shift}
     kappa, swap, diag, states = silent_budget(
-        csr, rows, z[rows], tot[rows], unit[rows], pool[rows], e_now, soup_now, chibar_now, learned,
-        n_clusters=cfg.calib_clusters, s_max=model.s_max, seed=cfg.seed, broad=cfg.silent_broad, retry=cfg.calib_retry, seeds=cfg.calib_seeds,
+        csr, rows, z[rows], tot[rows], unit[rows], pool[rows], e_now, soup_now, chibar_now, learned, splice=splice,
+        n_clusters=cfg.calib_clusters, s_max=max(model.s_max, cfg.swap_cap) if cfg.swap_contrast else model.s_max, seed=cfg.seed, broad=cfg.silent_broad, retry=cfg.calib_retry, seeds=cfg.calib_seeds, s_start=cfg.swap_start, wide_level=cfg.silent_wide_level, ridge_max=cfg.calib_ridge_max,
+        tree=cfg.silent_tree, tree_children=cfg.tree_children, tree_min_cells=cfg.tree_min_cells, tree_peel=cfg.tree_peel, tree_carriers=cfg.tree_carriers,
+        swap_contrast=cfg.swap_contrast, swap_gate=cfg.swap_gate, fixed_candidates=cfg.calib_fixed_candidates, cross_check=cfg.calib_cross_check, factor_max=cfg.silent_factor_max,
+        superpose=cfg.superpose, superpose_share=cfg.doublet_share_max if cfg.doublet_share_max < 1 else 0.2, superpose_match=cfg.doublet_match if cfg.doublet_match > 0 else 0.5,
     )
+    model.log_phi = None
     new_s, new_k = learned.clone(), torch.ones_like(learned)
     for p_ in range(len(kappa)):
         if kappa[p_] is not None:
             new_k[p_], new_s[p_] = kappa[p_], swap[p_]
+    if float(new_s.max()) > 0.8 * model.s_max:  # a swapped fraction read above the bound of the learned one (nuclei): the bound moves
+        model.s_max = float(1.25 * new_s.max())
     ratio = (new_s / model.s_max).clamp(1e-4, 1.0 - 1e-4)
     model.logit_s.copy_(torch.log(ratio / (1.0 - ratio)))
     model.log_kappa.copy_(torch.log(new_k))
@@ -241,15 +283,44 @@ def calibrate_background(model: GlymphNet, csr: DeviceCSR, unit, pool, prior_log
     # (cfg.cell_multipliers), the evidence of its own counts on its cluster's silent genes.
     per_cell = {}
     kappa_cell = new_k[pool].clone()
-    doublet_like = torch.zeros(n, dtype=torch.bool, device=device)
+    excess = torch.zeros(n, dtype=torch.bool, device=device)
+    bg_match = torch.full((n,), float("nan"), dtype=torch.float32, device=device)
+    cl_match = torch.full((n,), float("nan"), dtype=torch.float32, device=device)
+    sil_share = torch.full((n,), float("nan"), dtype=torch.float32, device=device)
     for p_, st in enumerate(states):
         if st is None:
             continue
         sel = torch.nonzero(pool == p_, as_tuple=True)[0]
         called = (prob[sel] >= cfg.cell_prob_cutoff) if cfg.cell_multipliers else torch.zeros(sel.numel(), dtype=torch.bool, device=device)
-        m, per_cell[str(p_)], dbl = cell_multipliers(csr, sel, z[sel], tot[sel], unit[sel], e_now, soup_now, chibar_now[p_], st, called)
+        soup_p, chibar_p = soup_now, chibar_now[p_]
+        phi = st.get("phi")
+        if phi is not None and bool((phi != 1.0).any()):  # genes with a background level of their own (exclusion: shared level)
+            soup_p, chibar_p = soup_now * phi.to(soup_now.dtype).unsqueeze(0), chibar_p * phi.to(chibar_p.dtype)
+            if cfg.factor_budget:
+                if model.log_phi is None:
+                    model.log_phi = torch.zeros_like(model.log_chibar)
+                model.log_phi[p_] = torch.log(phi.to(model.log_chibar.dtype))
+        m, per_cell[str(p_)], exc, mt = cell_multipliers(csr, sel, z[sel], tot[sel], unit[sel], e_now, soup_p, chibar_p, st, called, cluster_test=cfg.cluster_match > 0)
         kappa_cell[sel] = m
-        doublet_like[sel] = dbl
+        excess[sel] = exc
+        bg_match[sel], cl_match[sel], sil_share[sel] = mt[0].to(torch.float32), mt[1].to(torch.float32), mt[2].to(torch.float32)
+    # Cells with far more counts on their cluster's silent genes than background explains. A heavily
+    # contaminated cell stays held to the silent genes: its counts there follow the background
+    # profile and are at most a fifth of the cell. A cell that fails either condition carries
+    # expression of its own on those genes (a doublet, or a cell type too rare for its own cluster)
+    # and is left alone (see exclusion.cell_multipliers and background_match).
+    if cfg.spare_doublets:
+        spared = excess.clone()
+    else:
+        spared = torch.zeros_like(excess)
+        if cfg.doublet_match > 0:
+            spared |= excess & ~(bg_match >= cfg.doublet_match)
+        if cfg.doublet_share_max < 1:
+            spared |= excess & (sil_share > cfg.doublet_share_max)
+        if cfg.cluster_match > 0:
+            spared |= excess & ~(cl_match >= cfg.cluster_match)
+    sparing = cfg.spare_doublets or cfg.doublet_match > 0 or cfg.doublet_share_max < 1 or cfg.cluster_match > 0
+    doublet_like = spared if sparing else excess
     if per_cell:
         model.cell_log_kappa = torch.log(kappa_cell.clamp_min(1e-3))
     # Exclusion constraint (cfg.mask_silent): hand the model each cluster's silent genes.
@@ -259,20 +330,30 @@ def calibrate_background(model: GlymphNet, csr: DeviceCSR, unit, pool, prior_log
         for p_, st in enumerate(states):
             if st is None:
                 continue
-            # doublet-like cells are not held to their cluster's silent genes (see cell_multipliers)
-            spared = doublet_like if cfg.spare_doublets else torch.zeros_like(doublet_like)
             sel = torch.nonzero((pool == p_) & (prob >= cfg.cell_prob_cutoff) & ~spared, as_tuple=True)[0]
             if sel.numel():
                 cluster[sel] = torch.cdist(z[sel].double(), st["centres"]).argmin(1) + offset
-            rows_.append(st.get("mask_broad", st["mask"]))
+            rows_.append(st.get("mask_strip", st.get("mask_broad", st["mask"])))
             offset += st["mask"].shape[0]
         mask = torch.cat(rows_ + [torch.zeros(1, rows_[0].shape[1], dtype=torch.bool, device=device)]).to(torch.float32)
         cluster[cluster < 0] = offset  # the empty last row
         model.silent_mask, model.cell_cluster = mask, cluster
         per_cell["masked_cells"] = int((cluster < offset).sum())
-        per_cell["doublet_like_cells"] = int(doublet_like.sum())
+        per_cell["silent_excess_cells"] = int(excess.sum())
+        per_cell["doublet_like_cells"] = int(spared.sum())
         per_cell["silent_genes_per_cluster_median"] = float(torch.median(mask[:-1].sum(1)))
-    model.doublet_like = doublet_like
+    model.doublet_like, model.background_match, model.cluster_match, model.silent_share = doublet_like, bg_match, cl_match, sil_share
+    # per-gene unspliced shares of background and of own expression, one row per pool, for the output step
+    model.splice_prof = None
+    if any(st is not None and "splice" in st for st in states):
+        G = csr.shape[1]
+        prof = {"pi_bg": torch.zeros(len(states), G, device=device), "pi_nat": torch.zeros(len(states), G, device=device),
+                "informative": torch.zeros(len(states), G, dtype=torch.bool, device=device)}
+        for p_, st in enumerate(states):
+            if st is not None and "splice" in st:
+                for key in prof:
+                    prof[key][p_] = st["splice"][key].to(prof[key].dtype)
+        model.splice_prof = prof
     return {"applied": any(v is not None for v in kappa), "per_cell": per_cell,
             "swap_learned": [float(v) for v in learned.cpu()], "swap_estimate": swap, "kappa_estimate": kappa,
             "kappa_used": [float(v) for v in new_k.cpu()], "swap_used": [float(v) for v in model.s().detach().cpu()],
@@ -298,7 +379,7 @@ def posterior_drift(model: GlymphNet, csr: DeviceCSR, unit, pool, prior_logit, c
 
 
 @torch.no_grad()
-def denoise(model: GlymphNet, csr: DeviceCSR, unit, pool, prior_logit, cfg: Config, cell_threshold: float = 0.0) -> dict:
+def denoise(model: GlymphNet, csr: DeviceCSR, unit, pool, prior_logit, cfg: Config, cell_threshold: float = 0.0, u=None) -> dict:
     """Posterior pass and thinning. Returns the new data vector in the CSR's own order."""
     device, n = csr.device, csr.shape[0]
     new_data = torch.zeros_like(csr.data)
@@ -306,12 +387,25 @@ def denoise(model: GlymphNet, csr: DeviceCSR, unit, pool, prior_logit, cfg: Conf
     cols = {k: torch.zeros(n, device=device) for k in ("cell_prob", "eps", "removed", "exp_amb", "exp_swp")}
     totals = torch.zeros(n, device=device)
     z_all = None
+    sprof = getattr(model, "splice_prof", None) if (u is not None and cfg.splice and cfg.splice_output) else None
+    moved = [0.0, 0.0, 0.0]
+    if sprof is not None:
+        from .splice import splice_update
     for i in range(0, n, 4096):
         b = torch.arange(i, min(i + 4096, n), device=device)
         x, nz = csr.dense(b)
-        r, _, v, pos = nz
+        r, c_, v, pos = nz
         post = model.posterior(x, nz, unit[b], pool[b], prior_logit[b], model.lk(b), model.sc(b))
         share = post.share_amb + post.share_swp
+        if sprof is not None:
+            # each entry's background share, updated by how many of its molecules are unspliced (splice.py)
+            pp = pool[b][r]
+            new = splice_update(share, v, u[pos], sprof["pi_bg"][pp, c_], sprof["pi_nat"][pp, c_], sprof["informative"][pp, c_])
+            called = (post.cell_prob >= cfg.cell_prob_cutoff)[r]
+            moved[0] += float((v * share)[called].sum())
+            moved[1] += float((v * new)[called].sum())
+            moved[2] += float((v * (new - share).abs())[called].sum())
+            share = new
         zeros = torch.zeros(b.numel(), device=device)
         if share_all is None:
             m = apportion(r, v, share, b.numel(), cfg.estimator, cfg.strength)
@@ -339,6 +433,7 @@ def denoise(model: GlymphNet, csr: DeviceCSR, unit, pool, prior_logit, cfg: Conf
         is_cell = cols["cell_prob"] >= cfg.cell_prob_cutoff
         removed = torch.zeros(n, device=device)
         groups = (is_cell & (totals >= cell_threshold), is_cell & (totals < cell_threshold))
+        cap = cfg.fpr_background_cap if cfg.fpr_background_cap >= 0 else None
         if csr.data.numel() <= 2 * cfg.cell_totals_max_entries:
             row = torch.repeat_interleave(torch.arange(n, device=device), lens)
             for group in groups:
@@ -348,9 +443,9 @@ def denoise(model: GlymphNet, csr: DeviceCSR, unit, pool, prior_logit, cfg: Conf
                 v = csr.data[idx]
                 g = csr.indices[idx].long()
                 if cfg.keep_cell_totals and idx.numel() <= cfg.cell_totals_max_entries:
-                    m = gene_cell_budget(g, row[idx], v, share_all[idx], csr.shape[1], n, cfg.strength, cfg.fpr)
+                    m = gene_cell_budget(g, row[idx], v, share_all[idx], csr.shape[1], n, cfg.strength, cfg.fpr, cap=cap)
                 else:
-                    m = gene_budget_blocked(g, v, share_all[idx], csr.shape[1], cfg.strength, cfg.fpr)
+                    m = gene_budget_blocked(g, v, share_all[idx], csr.shape[1], cfg.strength, cfg.fpr, cap=cap)
                 new_data[idx] = v - m  # entries of non-cell barcodes stay at zero: all background
                 removed.index_add_(0, row[idx], m)
         else:
@@ -377,10 +472,10 @@ def denoise(model: GlymphNet, csr: DeviceCSR, unit, pool, prior_logit, cfg: Conf
                         continue
                     v, g, sh = csr.data[idx], csr.indices[idx].long() - g0, share_all[idx]
                     try:
-                        m = gene_budget(g, v, sh, g1 - g0, cfg.strength, cfg.fpr)
+                        m = gene_budget(g, v, sh, g1 - g0, cfg.strength, cfg.fpr, cap=cap)
                     except torch.OutOfMemoryError:
                         torch.cuda.empty_cache()
-                        m = gene_budget(g.cpu(), v.cpu(), sh.cpu(), g1 - g0, cfg.strength, cfg.fpr).to(device)
+                        m = gene_budget(g.cpu(), v.cpu(), sh.cpu(), g1 - g0, cfg.strength, cfg.fpr, cap=cap).to(device)
                     new_data[idx] = v - m
                     removed.index_add_(0, torch.searchsorted(csr.indptr, idx, right=True) - 1, m)
                     del idx, v, g, sh, m
@@ -389,8 +484,17 @@ def denoise(model: GlymphNet, csr: DeviceCSR, unit, pool, prior_logit, cfg: Conf
     out = {k: t.cpu().numpy() for k, t in cols.items()}
     dl = getattr(model, "doublet_like", None)
     out["doublet_like"] = dl.cpu().numpy() if dl is not None else np.zeros(n, dtype=bool)
+    bm = getattr(model, "background_match", None)
+    out["background_match"] = bm.cpu().numpy() if bm is not None else np.full(n, np.nan, dtype=np.float32)
+    cm = getattr(model, "cluster_match", None)
+    out["cluster_match"] = cm.cpu().numpy() if cm is not None else np.full(n, np.nan, dtype=np.float32)
+    ss = getattr(model, "silent_share", None)
+    out["silent_share"] = ss.cpu().numpy() if ss is not None else np.full(n, np.nan, dtype=np.float32)
     out["data"] = new_data.cpu().numpy()
     out["z"] = z_all.cpu().numpy()
+    if sprof is not None:
+        out["splice_output"] = {"expected_background_counts_before": moved[0], "expected_background_counts_after": moved[1],
+                                "counts_moved_between_entries": moved[2]}
     return out
 
 
@@ -444,7 +548,21 @@ def remove_background(
 
     Xa = X[pri.analyzed][:, pri.genes].tocsr()
     Xa.sort_indices()
+    if os.environ.get("GLYMPH_DEBUG_DUMP"):  # development only (see exclusion.silent_budget)
+        np.savez(os.environ["GLYMPH_DEBUG_DUMP"] + ".index.npz", genes=pri.genes, analyzed=pri.analyzed)
     csr = DeviceCSR(Xa, device)
+    u_t = None
+    if cfg.splice and "unspliced" in adata.layers:
+        # unspliced molecules of every nonzero entry, in the order of the entries (never more than the entry itself)
+        Ul = sp.csr_matrix(adata.layers["unspliced"])[pri.analyzed][:, pri.genes].tocsr()
+        pat = Xa.copy()
+        pat.data = np.ones_like(pat.data)
+        Z = (pat + Ul.multiply(pat)).tocsr()
+        Z.sort_indices()
+        if Z.nnz == Xa.nnz:
+            u_t = torch.as_tensor(np.minimum(Z.data - 1, Xa.data).astype(np.float32), device=device)
+            log(f"[glymph] unspliced layer: {float(u_t.sum()) / max(float(Xa.data.sum()), 1.0):.3f} of the molecules of the analysed barcodes")
+        del Ul, pat, Z
     unit_t = torch.as_tensor(pri.unit, device=device)
     pool_t = torch.as_tensor(pri.pool, device=device)
     prior_t = torch.as_tensor(pri.prior_cell_logit, device=device)
@@ -475,7 +593,7 @@ def remove_background(
     calib = {"applied": False}
     t_cell = float(pri.diagnostics.get("confident_threshold", pri.diagnostics["cell_threshold"]))
     if cfg.calibrate_swap:
-        calib = calibrate_background(model, csr, unit_t, pool_t, prior_t, t_cell, cfg)
+        calib = calibrate_background(model, csr, unit_t, pool_t, prior_t, t_cell, cfg, u=u_t)
         fmt = lambda xs: [None if v is None else round(v, 4) for v in xs]  # noqa: E731
         log(f"[glymph] background budget from silent genes: ambient multiplier {fmt(calib['kappa_estimate'])}, "
             f"swapped fraction {fmt(calib['swap_estimate'])} (learned {fmt(calib['swap_learned'])})")
@@ -497,7 +615,7 @@ def remove_background(
             train["matched"] = fit(model, csr, unit_t, pool_t, prior_t, cfg, log, phase="calibrated")
             calib["posterior_over_calibrated_after"] = [float(v) for v in (posterior_drift(model, csr, unit_t, pool_t, prior_t, t_cell, cfg) * drift).cpu()]
     timer.mark("calibrate_s")
-    res = denoise(model, csr, unit_t, pool_t, prior_t, cfg, t_cell)
+    res = denoise(model, csr, unit_t, pool_t, prior_t, cfg, t_cell, u=u_t)
     timer.mark("denoise_s")
 
     n_a = Xa.shape[0]
@@ -515,7 +633,11 @@ def remove_background(
     obs["glymph_expected_ambient"] = res["exp_amb"]
     obs["glymph_expected_swapped"] = res["exp_swp"]
     obs["glymph_epsilon"] = res["eps"]
-    obs["glymph_doublet_like"] = res["doublet_like"]  # a second cell's expression on the cluster's silent genes; left as it is
+    obs["glymph_doublet_like"] = res["doublet_like"]  # a second expression program on the cluster's silent genes (doublet or rare cell type); left alone
+    obs["glymph_background_match"] = res["background_match"]  # cells with far more silent-gene counts than background explains: how closely those counts follow the background profile (NaN elsewhere)
+    obs["glymph_silent_share"] = res["silent_share"]  # the same cells: share of their counts on their cluster's silent genes (NaN elsewhere)
+    if cfg.cluster_match > 0:
+        obs["glymph_cluster_match"] = res["cluster_match"]  # the same cells: share of their counts that their cluster's own expression explains
     keep = np.ones(n_a, bool) if cfg.keep_non_cells else obs["glymph_is_cell"].to_numpy()
 
     var = adata.var.copy()
@@ -539,6 +661,7 @@ def remove_background(
         "ambient_multiplier": {n: float(v) for n, v in zip(pri.pool_names, torch.exp(model.log_kappa).cpu().numpy())},
         "empty_alpha": float(model.empty_alpha),
         "swap_calibration": calib,
+        "splice_output": res.get("splice_output"),
         "removed_fraction_in_cells": float(res["removed"][is_cell].sum() / max(1.0, n_raw[is_cell].sum())),
         "priors": pri.diagnostics,
         "train": {k: v for k, v in train.items() if k not in ("history", "calibrated", "matched")},

@@ -131,6 +131,11 @@ class GlymphNet(nn.Module):
         self.silent_mask = None
         self.cell_cluster = None
         self.doublet_like = None  # per barcode: carries a second cell's expression (api.calibrate_background)
+        self.background_match = None  # per barcode: profile match of flagged cells (api.calibrate_background)
+        self.cluster_match = None  # per barcode: share of a flagged cell's counts its cluster explains (api.calibrate_background)
+        self.silent_share = None  # per barcode: share of a flagged cell's counts on its cluster's silent genes (api.calibrate_background)
+        self.log_phi = None  # [P, G] log of each gene's own background level as a multiple of the fitted profile (api.calibrate_background), or None
+        self.splice_prof = None  # per pool: unspliced shares of background and of own expression per gene (api.calibrate_background)
         self.log_e = nn.Parameter(torch.log(e_init).clone())
         s0 = min(max(s_init / self.s_max, 1e-4), 1.0 - 1e-4)  # s = s_max * sigmoid(logit_s)
         self.logit_s = nn.Parameter(torch.full((chibar.shape[0],), math.log(s0 / (1.0 - s0))))
@@ -183,9 +188,13 @@ class GlymphNet(nn.Module):
         eps_m = eps_m + lkap  # the encoder predicts the multiplier relative to kappa
         return N, ls, lc, cond, z_mu, z_lv, eps_m, eps_ls, prior_logit + y_res, lkap
 
-    def _cell_mixture(self, N, e, s, eps, log_chi, nz, ls, lc):
+    def _cell_mixture(self, N, e, s, eps, log_chi, nz, ls, lc, pool=None):
         """Log composition probability of every nonzero entry under y = 1, split by source."""
         r, c, _, _ = nz
+        if self.log_phi is not None and pool is not None:
+            # the gene's own background level inside cells, as a multiple of the fitted profile (exclusion: shared level)
+            lphi = self.log_phi[pool[r], c]
+            ls, lc = ls + lphi, lc + lphi
         amb = eps * e
         d = (N * (1.0 - s) - amb).clamp_min(self.d_floor)
         swp = s * N
@@ -225,7 +234,7 @@ class GlymphNet(nn.Module):
 
         # y = 1
         log_chi = self._native(z, cond, cluster)
-        d, lp1, _, _, _ = self._cell_mixture(N, e, s, eps, log_chi, nz, ls, lc)
+        d, lp1, _, _, _ = self._cell_mixture(N, e, s, eps, log_chi, nz, ls, lc, pool)
         comp1 = self._composition(v, lp1, r, N)
         logd = torch.log(d)
         size1 = -logd - math.log(self.d_scale) - 0.5 * LOG2PI - 0.5 * ((logd - self.d_loc) / self.d_scale) ** 2
@@ -264,7 +273,7 @@ class GlymphNet(nn.Module):
         eps = torch.exp(eps_m + 0.5 * torch.exp(eps_ls) ** 2)
         e, s = self.e()[unit], self.s()[pool]
         log_chi = self._native(z_mu, cond, cluster)
-        _, lp, _, lp_amb, lp_swp = self._cell_mixture(N, e, s, eps, log_chi, nz, ls, lc)
+        _, lp, _, lp_amb, lp_swp = self._cell_mixture(N, e, s, eps, log_chi, nz, ls, lc, pool)
         share_amb = torch.exp(lp_amb - lp)
         share_swp = torch.exp(lp_swp - lp)
         return SimpleNamespace(
