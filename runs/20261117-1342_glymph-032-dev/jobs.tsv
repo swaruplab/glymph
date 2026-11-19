@@ -1,0 +1,33 @@
+job_id	what	tool	unit	unit_names	note
+59755512	Glymph 0.3.2.dev1 default: allowance capped at 20% of a gene's expected background, swapped fraction starts small; replicate a	Glymph	library		out/h1_a
+59755513	Same, replicate b	Glymph	library		out/h1_b
+59755514	Same without the cap on the allowance	Glymph	library		out/h1_nocap
+59755515	Same with the swapped fraction started at the learned value, as in 0.3.1	Glymph	library		out/h1_oldswap
+59755516	Scoring, first round	scoring	library		
+59755517	Tables, first round	collect	run		
+59785510	Glymph 0.3.2.dev2: wider silent set tested against the fitted background, not the ridge level; cap and small swap start kept; replicate a	Glymph	library		out/h2_a
+59785511	Same, replicate b	Glymph	library		out/h2_b
+59785512	Same without the cap on the allowance, replicate a	Glymph	library		out/h2_nocap_a
+59785513	Same without the cap, replicate b	Glymph	library		out/h2_nocap_b
+59785514	Scoring, second round	scoring	library		
+59785515	Tables, second round	collect	run		
+59786833	Glymph 0.3.2.dev3: flagged cells whose silent-gene counts do not follow the background profile are left alone (match below 0.5); no cap, ridge level for the wider set, small swap start; replicate a	Glymph	library		out/h3_m50_a
+59786834	Same, replicate b	Glymph	library		out/h3_m50_b
+59786835	Same with the match threshold at 0.7, replicate a	Glymph	library		out/h3_m70_a
+59786836	Same with the match threshold at 0.7, replicate b	Glymph	library		out/h3_m70_b
+59786837	Same with every flagged cell left alone	Glymph	library		out/h3_all
+59786838	Scoring, third round	scoring	library		
+59786839	Tables, third round	collect	run		
+59788136	Glymph 0.3.2.dev4: two profile tests for flagged cells (background match 0.5, cluster match 0.3), convergence check on the level, single-cluster estimate as a last resort; replicate a	Glymph	library		out/h4_a
+59788137	Same, replicate b	Glymph	library		out/h4_b
+59788138	Same, replicate c	Glymph	library		out/h4_c
+59788139	Same, replicate d	Glymph	library		out/h4_d
+59788140	Same with the cluster match threshold at 0.5, replicate a	Glymph	library		out/h4_cm50_a
+59788141	Same with the cluster match threshold at 0.5, replicate b	Glymph	library		out/h4_cm50_b
+59788142	Scoring, fourth round	scoring	library		
+59788143	Tables, fourth round	collect	run		
+59800643	Glymph 0.3.2.dev5: flagged cells are left alone when their background match is below 0.5 or more than 20% of their counts is on silent genes; cluster match off; convergence check and single-cluster estimate kept; replicate a	Glymph	library		out/h5_a
+59800644	Same, replicate b	Glymph	library		out/h5_b
+59800645	Same, replicate c	Glymph	library		out/h5_c
+59800646	Scoring, fifth round	scoring	library		
+59800647	Tables, fifth round	collect	run		

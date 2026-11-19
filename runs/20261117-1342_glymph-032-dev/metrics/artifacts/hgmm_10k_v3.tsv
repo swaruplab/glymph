@@ -1,0 +1,3 @@
+dataset	gene	in_cells_of	share_of_cross_pct	share_in_source_cells_pct	share_in_soup_pct
+hgmm_10k_v3	hg19_RNA18S5	mouse	1.577	0.05083	0.1206
+hgmm_10k_v3	hg19_RNA28S5	mouse	0.8905	0.02785	0.04641

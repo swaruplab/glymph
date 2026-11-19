@@ -29,6 +29,7 @@ then keeps the learned value.
 from __future__ import annotations
 
 import math
+import os
 
 import torch
 
@@ -343,12 +344,76 @@ def _robust_plane(y, Z, lab, incl, theta, lo, hi, k, max_ratio: float = 1.5, shr
             use &= lab != worst
             dropped.append(worst)
             continue
-        return {"theta": theta, "n_cells": int(idx.numel()), "n_trimmed": int((w == 0).sum()),
+        kept = torch.zeros(y.numel(), dtype=torch.bool, device=y.device)
+        kept[idx[w > 0]] = True
+        return {"theta": theta, "n_cells": int(idx.numel()), "n_trimmed": int((w == 0).sum()), "kept": kept,
                 "counts": float((w * yy).sum()), "ratio": {int(c): round(float(F[c]), 3) for c in torch.nonzero(cnt > 0, as_tuple=True)[0]},
                 "dropped": dropped}
 
 
 @torch.no_grad()
+def _swap_shape(X, A, A2, D, cand_rate, on, theta, need, ridge_frac: float = 0.1, steps: int = 11, window: float = 0.15, slack: float = 0.02, s_cap: float = 0.3):
+    """Which profile the depth-proportional background has, from gene contrast.
+
+    Background of gene g in cluster c = kappa * A + kappa_d * A2 + s * D: A and A2 carry the soup profile, D the
+    average cell profile (swapped molecules). Summed over a cell's silent genes, the last two cannot be told apart:
+    both grow with depth. Gene by gene they can, because a gene that cells hold more of than the soup does (nuclear
+    and mitochondrial RNA) carries more background than the soup predicts exactly when s > 0. Fitting that directly
+    fails, though: the silent genes are chosen as those near the lowest ridge of observed over expected, the genes
+    that would show a larger s lie above the ridge while s is too small, and the fit confirms where it started
+    (with the truth at s = 3% it settled at 1.6% whatever the solver; on a 10x cell-line mixture at 1.2% where the
+    cross-species counts give 1.6%, 2026-11-18).
+
+    So the split is searched, not fitted. The depth-proportional background that the current fit puts on the pairs
+    `on` is kept, and shared between the two profiles in every proportion w (0: all soup profile, 1: all cell
+    profile). For each w the candidate pairs are compared with their expected background, and the w at which the
+    most pairs lie within `window` dex of the lowest ridge wins: with the right profile the silent genes line up
+    on one level, with the wrong one they smear by how much more of each gene cells hold than the soup. Expression
+    lines up at no w. Among proportions within `slack` of the best the smallest is taken.
+
+    The soup profile stays (w = 0) unless the best proportion puts clearly more pairs on the ridge than it does: by
+    two standard deviations of a count and by 3%. Libraries with a few hundred candidate pairs cannot show that,
+    and following their best proportion made the estimate jump (a Parse sublibrary went from 87% to 66% of its
+    cross-species counts removed on a difference of 6 pairs in 104, 2026-11-18). A swapped fraction above s_cap is
+    held there and the rest stays on the soup profile.
+
+    X, A, A2, D [k, G]; cand_rate [k, G]: the cluster's rate is at most delta times the top cluster's (and the
+    cluster is large enough). Returns (kappa_d, s, table) or None when there is nothing to split.
+    """
+    base = theta[0] * A
+    dp = theta[1] * A2 + theta[2] * D
+    T = float((dp * on).sum())
+    SA2, SD = float((A2 * on).sum()), float((D * on).sum())
+    if T <= 0 or SA2 <= 0 or SD <= 0:
+        return None
+    table, best = [], None
+    for i in range(steps):
+        w = i / (steps - 1)
+        kd, sw = (1.0 - w) * T / SA2, w * T / SD
+        B = base + kd * A2 + sw * D
+        c = cand_rate & (B >= need)
+        if int(c.sum()) < 20:
+            continue
+        lr = torch.log10((X[c] / B[c].clamp_min(1e-12)).clamp_min(1e-12))
+        level, _ = _leftmost_peak(lr, frac=ridge_frac)
+        if level is None:
+            continue
+        n_in = int(((lr - math.log10(level)).abs() <= window).sum())
+        table.append((round(w, 2), n_in, round(level, 3)))
+        if best is None or n_in > best[1]:
+            best = (w, n_in, kd, sw)
+    if best is None:
+        return None
+    w = min(float(w_) for w_, n_in, _ in table if n_in >= (1.0 - slack) * best[1])
+    n0 = next((n_in for w_, n_in, _ in table if w_ == 0.0), None)
+    clear = n0 is not None and best[1] - n0 >= max(2.0 * math.sqrt(max(n0, 1.0)), 0.03 * n0)
+    if not clear:
+        w = 0.0
+    sw = min(w * T / SD, s_cap)
+    kd = (T - sw * SD) / SA2
+    return kd, sw, {"swap_share_of_depth_proportional": w, "swap_share_is_clear": bool(clear), "pairs_on_the_ridge_by_share": table}
+
+
 def silent_budget(
     csr,
     rows: torch.Tensor,
@@ -375,6 +440,25 @@ def silent_budget(
     broad_tail: float = 0.05,
     retry: bool = True,
     seeds: int = 3,
+    s_start: float = 2e-4,
+    wide_level: float = -1.0,
+    ridge_max: float = 5.0,
+    tree: bool = True,
+    tree_children: int = 8,
+    tree_min_cells: int = 40,
+    tree_peel: int = 0,
+    tree_carriers: float = 0.25,
+    splice: dict | None = None,
+    swap_contrast: bool = True,
+    swap_gate: float = 0.05,
+    fixed_candidates: bool = False,
+    cross_check: bool = True,
+    cross_ratio: float = 1.5,
+    factor_max: float = 1.0,
+    superpose: bool = False,
+    superpose_share: float = 0.2,
+    superpose_match: float = 0.5,
+    superpose_genes: int = 50,
 ):
     """Label-free background budget, fitted cell by cell on genes each cell's cluster does not express.
 
@@ -428,6 +512,12 @@ def silent_budget(
          and its counts there are no more than background alone explains (inside the lower
          1 - broad_tail of a Poisson with the measured background as mean). Both sets together
          go to cell_multipliers and to the decoder's exclusion constraint.
+         Gene contrast (swap_contrast, 0.4.0). Summed over a cell's silent genes, kappa_d and s cannot be told
+         apart: both grow with depth, and the fit left s where it started (zero on every cell-line mixture
+         looked at, where the cross-species counts ask for 0.3 to 1.6% of depth, 2026-11-18). The split is
+         read from the genes instead (_swap_shape), from the second round on and with the cells the fit set
+         aside left out of the cluster sums; the fit then has two amounts to find, the constant one and the
+         depth-proportional one in that shape.
       6. No signal (retry): the clustering is repeated with half as many clusters, down to two.
          Fewer, larger clusters expect more background counts per gene, which is what a small
          or clean library lacks (one Parse sublibrary and one 1,000-cell library had no estimate
@@ -472,68 +562,179 @@ def silent_budget(
         # background per cell at the median depth is the middle one is kept.
         e_bar = float(e[u_sel].to(f64).mean())
         cands = []
-        for sd in range(seed, seed + max(1, int(seeds))):
-            info_s = {}
-            for k in ks:
-                lab = kmeans(z[sel], k, seed=sd)
-                X = csr.group_sums(rows[sel], lab, k)
-                n_cu = torch.zeros(k * U, dtype=f64, device=dev).index_add_(0, lab * U + u_sel, torch.ones_like(d)).view(k, U)
-                A = n_cu @ amb
-                n_ref = float(torch.median(d))
-                n2_cu = torch.zeros(k * U, dtype=f64, device=dev).index_add_(0, lab * U + u_sel, d / n_ref).view(k, U)
-                A2 = n2_cu @ amb  # ambient-profile counts per unit kappa_d
-                Ntot = torch.zeros(k, dtype=f64, device=dev).index_add_(0, lab, d)
-                chi = chibar[p].to(f64)
-                D = Ntot.unsqueeze(1) * chi.unsqueeze(0)
-                sizes = torch.bincount(lab, minlength=k)
-                big = sizes >= min_cells
-                rate = X / Ntot.clamp_min(1.0).unsqueeze(1)
-                rmax = torch.where(big.unsqueeze(1), rate, torch.zeros_like(rate)).max(0).values
-                theta = torch.tensor([1.0, 0.05, float(min(max(float(s_ref[p]), 0.002), s_max))], dtype=f64, device=dev)
-                lo = torch.tensor([kappa_min, 0.0, 0.0], dtype=f64, device=dev)
-                hi = torch.tensor([kappa_max, depth_max, s_max], dtype=f64, device=dev)
-                shrink = torch.tensor([0.0, 0.0, 0.03], dtype=f64, device=dev)
-                fit, table = None, []
-                for _ in range(rounds):
-                    B = theta[0] * A + theta[1] * A2 + theta[2] * D
-                    rho = X / B.clamp_min(1e-12)
-                    for need in (min_expected, min_expected / 3.0):  # a second, looser look before giving up
-                        cand = big.unsqueeze(1) & (rate <= delta * rmax.unsqueeze(0)) & (B >= need)
-                        level, hist = _leftmost_peak(torch.log10(rho[cand].clamp_min(1e-12)), frac=ridge_frac)
-                        if level is not None:
+        # Two clusters must show silent genes, so that one impure cluster cannot set the level alone. When no
+        # clustering offers that (small split-pool libraries: an estimate in one run and none in the next, and
+        # without one the removal fell from 90% to 56%), a single cluster is accepted as a last resort. The
+        # level is the lowest peak of observed over expected counts, so it comes from the purest cluster and
+        # errs toward too little background, never too much.
+        # Two rules for which pairs are tested, each from every starting clustering (cross_check). The pairs can follow
+        # the fit (those that expect enough background under the current amounts) or be settled at the start (one
+        # empty-partition level per cell). Each rule runs away on some library: following the fit, a larger
+        # background makes more weakly expressed genes testable and they pull it up (a BD Rhapsody PBMC library:
+        # 17% of depth, a quarter of the cells set aside; 3.7% from two of three clusterings in 0.3.2); settled at
+        # the start, the same happened on a Parse bone marrow library (34% of depth against 2.8%). Neither did on
+        # the other 24 libraries looked at, where the two rules agree within a fifth (2026-11-18). Expression can
+        # only add counts to genes taken for silent, so where the two rules differ by more than half, the
+        # lower answer is the one that did not run away, and it is kept.
+        modes = (False, True) if cross_check else (bool(fixed_candidates),)
+        for min_groups in ((2, 1) if retry else (2,)):
+            for sd in range(seed, seed + max(1, int(seeds))):
+                for fixed_now in modes:
+                    info_s = {}
+                    for k in ks:
+                        lab = kmeans(z[sel], k, seed=sd)
+                        X = csr.group_sums(rows[sel], lab, k)
+                        n_cu = torch.zeros(k * U, dtype=f64, device=dev).index_add_(0, lab * U + u_sel, torch.ones_like(d)).view(k, U)
+                        A = n_cu @ amb
+                        n_ref = float(torch.median(d))
+                        n2_cu = torch.zeros(k * U, dtype=f64, device=dev).index_add_(0, lab * U + u_sel, d / n_ref).view(k, U)
+                        A2 = n2_cu @ amb  # ambient-profile counts per unit kappa_d
+                        Ntot = torch.zeros(k, dtype=f64, device=dev).index_add_(0, lab, d)
+                        chi = chibar[p].to(f64)
+                        D = Ntot.unsqueeze(1) * chi.unsqueeze(0)
+                        sizes = torch.bincount(lab, minlength=k)
+                        big = sizes >= min_cells
+                        rate = X / Ntot.clamp_min(1.0).unsqueeze(1)
+                        rmax = torch.where(big.unsqueeze(1), rate, torch.zeros_like(rate)).max(0).values
+                        # The swapped fraction starts small. It and the depth-proportional ambient term both grow with
+                        # depth, and on a library with few silent genes the fit cannot tell them apart and moves little
+                        # from where it starts. Starting at the learned value (0.6% of depth) left that much swapped
+                        # background in place on clean tissue with nothing measured to support it (xenograft skin,
+                        # 2026-11-17); a small start lets it grow only where the silent-gene counts ask for it.
+                        s0 = float(min(max(float(s_ref[p]), 0.002), s_max)) if s_start < 0 else float(min(s_start, s_max))
+                        theta = torch.tensor([1.0, 0.05, s0], dtype=f64, device=dev)
+                        lo = torch.tensor([kappa_min, 0.0, 0.0], dtype=f64, device=dev)
+                        hi = torch.tensor([kappa_max, depth_max, s_max], dtype=f64, device=dev)
+                        shrink = torch.tensor([0.0, 0.0, 0.03], dtype=f64, device=dev)
+                        fit, table = None, []
+                        shape, kept_cells = None, None
+                        B_start = theta[0] * A + theta[1] * A2 + theta[2] * D
+                        for rnd in range(rounds + 2 if swap_contrast else rounds):
+                            theta_before = theta.clone()
+                            B = theta[0] * A + theta[1] * A2 + theta[2] * D
+                            rho = X / B.clamp_min(1e-12)
+                            B_test = B_start if fixed_now else B
+                            for need in (min_expected, min_expected / 3.0):  # a second, looser look before giving up
+                                cand = big.unsqueeze(1) & (rate <= delta * rmax.unsqueeze(0)) & (B_test >= need)
+                                level, hist = _leftmost_peak(torch.log10(rho[cand].clamp_min(1e-12)), frac=ridge_frac)
+                                if level is not None:
+                                    break
+                            # Swapped molecules are a few percent of a cell at most. Where the depth-proportional background is
+                            # more than swap_gate of depth it is ambient RNA that the nucleus carries, and it keeps the soup
+                            # profile: on kidney nuclei the search put 13 to 14% of depth on the average nucleus profile
+                            # (twice as many candidate pairs on the ridge), and by the genotype truth that removed 1.45 times
+                            # the true background on one library and halved the rank agreement on the other. Related cell
+                            # types express each other's genes weakly and in the proportions of the average cell, which a
+                            # cell-line mixture cannot show.
+                            dp_share = float(theta[1]) * e_bar / n_ref + float(theta[2])
+                            gate_open = swap_contrast and dp_share <= swap_gate
+                            if rnd >= 1:
+                                info_s["depth_proportional_background_share_of_depth"] = round(dp_share, 4)
+                            if gate_open and level is not None and rnd >= 1:
+                                # which profile the depth-proportional background has (_swap_shape), on cluster sums without
+                                # the cells the last fit set aside: a doublet adds counts with the profile of other cells
+                                Xs, As, A2s, Ds = X, A, A2, D
+                                if kept_cells is not None and not bool(kept_cells.all()):
+                                    kc = kept_cells
+                                    Xs = csr.group_sums(rows[sel][kc], lab[kc], k)
+                                    n_s = torch.zeros(k * U, dtype=f64, device=dev).index_add_(0, (lab * U + u_sel)[kc], torch.ones_like(d[kc])).view(k, U)
+                                    n2_s = torch.zeros(k * U, dtype=f64, device=dev).index_add_(0, (lab * U + u_sel)[kc], (d / n_ref)[kc]).view(k, U)
+                                    N_s = torch.zeros(k, dtype=f64, device=dev).index_add_(0, lab[kc], d[kc])
+                                    As, A2s, Ds = n_s @ amb, n2_s @ amb, N_s.unsqueeze(1) * chi.unsqueeze(0)
+                                rate_s = Xs / Ds.sum(1, keepdim=True).clamp_min(1e-12)  # D sums to the cluster's depth
+                                rmax_s = torch.where(big.unsqueeze(1), rate_s, torch.zeros_like(rate_s)).max(0).values
+                                cr = big.unsqueeze(1) & (rate_s <= delta * rmax_s.unsqueeze(0))
+                                got = _swap_shape(Xs, As, A2s, Ds, cr, cand & (rho <= level * 10.0**0.15), theta, need, ridge_frac=ridge_frac, s_cap=s_max)
+                                if got is not None:
+                                    theta = torch.stack([theta[0], torch.as_tensor(min(got[0], depth_max), dtype=f64, device=dev),
+                                                         torch.as_tensor(min(got[1], s_max), dtype=f64, device=dev)])
+                                    shape = got[2]
+                                    B = theta[0] * A + theta[1] * A2 + theta[2] * D
+                                    rho = X / B.clamp_min(1e-12)
+                                    cand = big.unsqueeze(1) & (rate <= delta * rmax.unsqueeze(0)) & ((B_start if fixed_now else B) >= need)
+                                    lvl2, hist2 = _leftmost_peak(torch.log10(rho[cand].clamp_min(1e-12)), frac=ridge_frac)
+                                    if lvl2 is not None:
+                                        level, hist = lvl2, hist2
+                            info_s["min_expected_used"] = float(need)
+                            info_s["ridge"] = None if level is None else round(level, 3)
+                            info_s["ridge_histogram"] = [int(v) for v in hist]
+                            mask = torch.zeros(k, G, dtype=torch.bool, device=dev)
+                            if level is not None:
+                                mask = cand & (rho <= level * 10.0**0.15)
+                            table = [{"cluster": c, "cells": int(sizes[c]), "candidates": int(cand[c].sum()), "genes": int(mask[c].sum())} for c in range(k)]
+                            if int(mask.any(1).sum()) < min_groups:
+                                fit = None
+                                break
+                            mk = mask.to(f64)
+                            y = csr.masked_row_sums(rows[sel], lab, mask)
+                            a = e[u_sel].to(f64) * (soup64 @ mk.T)[u_sel, lab]
+                            dd = d * (mk @ chi)[lab]
+                            if gate_open and rnd >= 1 and shape is not None:
+                                # two amounts: the constant one, and the depth-proportional one in the shape just read
+                                col = theta[1] * a * d / n_ref + theta[2] * dd
+                                Z = torch.stack([a, col], dim=1)
+                                fit = _robust_plane(y, Z, lab, mask.any(1)[lab], torch.stack([theta[0], torch.ones((), dtype=f64, device=dev)]),
+                                                    lo[:2].clone(), torch.tensor([kappa_max, 1e3], dtype=f64, device=dev), k)
+                                if fit is not None:
+                                    m_dp = fit["theta"][1]
+                                    s_new = (theta[2] * m_dp).clamp(max=s_max)
+                                    # what the cap takes from the swapped part goes to the soup-profile part, count for count
+                                    spill = (theta[2] * m_dp - s_new) * dd.sum() / (a * d / n_ref).sum().clamp_min(1e-12)
+                                    fit["theta"] = torch.stack([fit["theta"][0], (theta[1] * m_dp + spill).clamp(max=depth_max), s_new])
+                            else:
+                                Z = torch.stack([a, a * d / n_ref, dd], dim=1)
+                                fit = _robust_plane(y, Z, lab, mask.any(1)[lab], theta, lo, hi, k, shrink=shrink)
+                            if fit is None:
+                                break
+                            theta = fit["theta"]
+                            kept_cells = fit["kept"] | ~mask.any(1)[lab]
+                            if rnd + 1 >= rounds and (not gate_open or bool(((theta - theta_before).abs() <= 0.02 * theta_before.clamp_min(1e-4)).all())):
+                                break
+                            if not gate_open:
+                                shape = None
+                        info_s["fit_rounds"] = rnd + 1
+                        if shape is not None:
+                            info_s.update(shape)
+                        # The level is read against the fit of the round before, so at the end it sits near 1 when the
+                        # two agree (1.1 to 3.6 on every development library). Where it does not, the "silent" group
+                        # of this clustering is a group of weakly expressed genes: on one Parse tissue library such
+                        # clusterings ended at 8.9 and 11, and when two of the three seeds did, 11 to 17% of the
+                        # counts were removed instead of 2%. Such a clustering does not count; fewer clusters are tried.
+                        if fit is not None and level is not None and level > ridge_max:
+                            info_s["not_converged_ridge"] = round(level, 3)
+                            fit = None
+                        if fit is not None:
                             break
-                    info_s["min_expected_used"] = float(need)
-                    info_s["ridge"] = None if level is None else round(level, 3)
-                    info_s["ridge_histogram"] = [int(v) for v in hist]
-                    mask = torch.zeros(k, G, dtype=torch.bool, device=dev)
-                    if level is not None:
-                        mask = cand & (rho <= level * 10.0**0.15)
-                    table = [{"cluster": c, "cells": int(sizes[c]), "candidates": int(cand[c].sum()), "genes": int(mask[c].sum())} for c in range(k)]
-                    if int(mask.any(1).sum()) < 2:
-                        fit = None
-                        break
-                    mk = mask.to(f64)
-                    y = csr.masked_row_sums(rows[sel], lab, mask)
-                    a = e[u_sel].to(f64) * (soup64 @ mk.T)[u_sel, lab]
-                    dd = d * (mk @ chi)[lab]
-                    Z = torch.stack([a, a * d / n_ref, dd], dim=1)
-                    fit = _robust_plane(y, Z, lab, mask.any(1)[lab], theta, lo, hi, k, shrink=shrink)
-                    if fit is None:
-                        break
-                    theta = fit["theta"]
-                if fit is not None:
-                    break
-            if fit is not None:
-                cands.append({"lab": lab, "k": k, "theta": theta, "fit": fit, "table": table, "level": level, "need": need, "B": B,
-                              "mask": mask, "big": big, "n_ref": n_ref, "chi": chi, "info": info_s, "seed": sd,
-                              "value": e_bar * float(theta[0] + theta[1]) + float(theta[2]) * n_ref})
+                    if fit is not None:
+                        cands.append({"lab": lab, "k": k, "theta": theta, "fit": fit, "table": table, "level": level, "need": need, "B": B,
+                                      "mask": mask, "big": big, "n_ref": n_ref, "chi": chi, "info": info_s, "seed": sd,
+                                      "value": e_bar * float(theta[0] + theta[1]) + float(theta[2]) * n_ref, "groups": min_groups, "fixed": fixed_now})
+            if cands:
+                break
         if cands:
             cands.sort(key=lambda c: c["value"])
-            best = cands[(len(cands) - 1) // 2]
+            mids = {}
+            for m_ in modes:
+                grp = [c for c in cands if c["fixed"] == m_]
+                if grp:
+                    mids[m_] = grp[(len(grp) - 1) // 2]
+            rule = modes[0] if modes[0] in mids else next(iter(mids))
+            if len(mids) == 2:
+                lo_rule = min(mids, key=lambda m_: mids[m_]["value"])
+                hi_rule = not lo_rule
+                info["rules_disagree"] = bool(mids[hi_rule]["value"] > cross_ratio * mids[lo_rule]["value"])
+                if info["rules_disagree"]:
+                    rule = lo_rule
+                info["background_by_seed_other_rule"] = [round(c["value"], 2) for c in cands if c["fixed"] != rule]
+            info["tested_pairs_rule"] = "settled at the start" if rule else "follow the fit"
+            best = mids[rule]
+            cands = [c for c in cands if c["fixed"] == rule]
             lab, k, theta, fit, table, level, need, B = (best[x] for x in ("lab", "k", "theta", "fit", "table", "level", "need", "B"))
             mask, big, n_ref, chi = (best[x] for x in ("mask", "big", "n_ref", "chi"))
             info.update(best["info"])
             info["seeds_with_signal"] = len(cands)
+            if best["groups"] < 2:
+                info["single_cluster_estimate"] = True
             info["background_at_median_depth_by_seed"] = [round(c["value"], 2) for c in cands]
         else:
             info.update(info_s)
@@ -560,7 +761,42 @@ def silent_budget(
         centres = torch.zeros(k, zsel.shape[1], dtype=f64, device=dev).index_add_(0, lab, zsel) / cnt.clamp_min(1.0)
         keep_c = torch.tensor([c not in fit["dropped"] for c in range(k)], device=dev)
         states[-1] = {"centres": centres, "mask": mask & keep_c.unsqueeze(1), "kappa": kap, "kappa_depth": kap_d, "depth_ref": n_ref, "s": s_fit}
-        if broad:
+        if broad and tree and tree_peel > 0:
+            # Multi-resolution silent sets, first version (multires.tree_silent): every cluster is split into sub-clusters; a gene one or two
+            # sub-clusters express is silent for the rest, and a sub-cluster that holds far more of its parent's
+            # counts than its share of the background overrules the parent. Isolated carriers do not count.
+            from .multires import subclusters, tree_silent
+
+            fine, parent, fcentres = subclusters(z[sel], lab, k, min_cells=tree_min_cells, max_children=tree_children, seed=seed)
+            sp_arg = None
+            if splice is not None:
+                # Spliced against unspliced molecules (splice.py): per-gene unspliced shares of background and of
+                # own expression, measured on the empty partitions, the tested silent genes and each gene's top cluster.
+                from .splice import splice_profiles, sums_of
+
+                bg = splice["bg_rows"][splice["bg_pool"] == p]
+                zero = torch.zeros(bg.numel(), dtype=torch.long, device=dev)
+                Xe = csr.group_sums(bg, zero, 1)[0] if bg.numel() else torch.zeros(G, dtype=f64, device=dev)
+                Ue = sums_of(csr, splice["u"], bg, zero, 1)[0] if bg.numel() else torch.zeros(G, dtype=f64, device=dev)
+                Xk = csr.group_sums(rows[sel], lab, k)
+                Uk = torch.minimum(sums_of(csr, splice["u"], rows[sel], lab, k), Xk)
+                prof = splice_profiles(Xe, Ue, Xk, Uk, B, mask & keep_c.unsqueeze(1), big, level, shift=splice.get("shift", 0.0))
+                info["splice"] = prof["diag"]
+                states[-1]["splice"] = {key: prof[key] for key in ("pi_bg", "pi_nat", "informative")}
+                if splice.get("silent", True) and int(prof["informative"].sum()) >= 50:
+                    sp_arg = {"u": splice["u"], **states[-1]["splice"]}
+                del Xk, Uk
+            silent, strip, rate_f, _, tdiag = tree_silent(csr, rows[sel], fine, parent, k, d, u_sel, e, soup64, chi, theta, n_ref, level, need,
+                                                          keep_c, big, delta=delta, tail=broad_tail, max_peel=tree_peel, splice=sp_arg)
+            states[-1].update({"centres": fcentres, "mask": (mask & keep_c.unsqueeze(1))[parent] & silent, "mask_broad": silent,
+                               "rate": rate_f, "parent": parent})
+            if sp_arg is not None:
+                states[-1]["mask_strip"] = strip  # also the genes whose molecules are spliced like background
+            info.update(tdiag)
+            info["silent_genes_tested_median"] = float(torch.median(mask.sum(1).to(f64)))
+            info["silent_genes_broad_median"] = float(torch.median(silent.sum(1).to(f64)))
+            info["silent_counts_broad"] = tdiag["silent_counts"]
+        elif broad:
             # B and level are those of the last round, the ones the tested set above was read against.
             # Cells whose silent-gene counts are far above the fit (doublets, misplaced cells) are left
             # out of the cluster sums first: a handful of them express a gene for real and would keep it
@@ -585,15 +821,165 @@ def silent_budget(
                 Bc = theta[0] * (n_c @ amb) + theta[1] * (n2_c @ amb) + theta[2] * Nc.unsqueeze(1) * chi.unsqueeze(0)
                 rate_c = Xc / Nc.clamp_min(1.0).unsqueeze(1)
                 rmax_c = torch.where(big.unsqueeze(1), rate_c, torch.zeros_like(rate_c)).max(0).values
-                lam = (level * Bc).clamp_min(1e-12)
+                # What "background alone explains" is the fitted background itself (wide_level = 1). Up to 0.3.1
+                # the test used the ridge level instead, the lowest peak of observed over fitted counts in the
+                # cluster sums. That peak sits 1.1 to 1.8 times above the fit because the sums include cells
+                # the fit leaves out; here those cells are already out of the sums, so using it again let a gene
+                # with up to 1.8 times the fitted background be called silent and stripped (the over-cleaning
+                # of clean tissue, 2026-11-17). A negative wide_level restores the ridge level.
+                lv = level if wide_level < 0 else wide_level
+                lam = (lv * Bc).clamp_min(1e-12)
                 fits_background = (Xc < 0.5) | (torch.special.gammainc(Xc.clamp_min(1e-6), lam) >= broad_tail)  # P(Poisson(lam) >= X)
-                tested = (Bc >= need) & (Xc <= level * 10.0**0.15 * Bc)
+                tested = (Bc >= need) & (Xc <= lv * 10.0**0.15 * Bc)
                 rare = (Bc < need) & fits_background
                 wide = (mask | (big.unsqueeze(1) & (rate_c <= delta * rmax_c.unsqueeze(0)) & (tested | rare))) & keep_c.unsqueeze(1)
                 inc = ok & (aw > 0)
                 if int(inc.sum()) >= 50:  # the wider set's expected counts, rescaled to what its cells show
                     scale = float(min(max(float(yw[inc].sum() / (muw[inc].sum() / scale).clamp_min(1e-9)), 0.25), 4.0))
+            # The gene's own background level, read across clusters (multires.shared_level): a gene that sits at the same
+            # multiple of the fit in every cluster that does not express it is silent there, at that multiple.
+            phi = torch.ones(G, dtype=f64, device=dev)
+            if factor_max > 1.0:
+                from .multires import shared_level
+
+                cand_c = (big & keep_c).unsqueeze(1) & (rate_c <= delta * rmax_c.unsqueeze(0))
+                member, phi = shared_level(Xc, lv * Bc, cand_c, need, broad_tail, factor_max)
+                up, dn = phi > 1.25, phi < 0.8
+                info.update({"genes_with_shared_level_above_1.25": int(up.sum()), "genes_with_shared_level_below_0.8": int(dn.sum()),
+                             "pairs_silent_by_shared_level": int((member & ~wide).sum()),
+                             "counts_silent_by_shared_level": float((Xc * (member & ~wide).to(f64)).sum()),
+                             "fitted_background_on_genes_with_a_level": float((lv * Bc * (phi != 1.0).unsqueeze(0)).sum()),
+                             "the_same_at_their_levels": float((lv * Bc * phi.unsqueeze(0) * (phi != 1.0).unsqueeze(0)).sum())})
+                wide = wide | member
+            # A cluster that is another cluster plus background-like RNA is not a cell type. Cells that carry several
+            # times the usual background cluster apart (on a BD Rhapsody cell-line mixture, 80 mouse cells with 6% human
+            # RNA made a cluster in which every human gene counted as expressed and was kept, 2026-11-18). The rule
+            # that 0.3.2 applies to single cells is applied to clusters: where the silent genes of a larger cluster
+            # hold at least three times this cluster's fitted background and at most a fifth of its counts, on many
+            # genes and in the proportions of the background, the cluster takes the larger cluster's silent genes.
+            # Its cells are then judged one by one as before (cell_multipliers, background_match). A cell type of its
+            # own has those counts on genes of its own: to reach three times the background its program must hold
+            # two thirds of them, and then they do not follow the background's proportions.
+            merged_into = {}
+            if superpose:
+                sizes = torch.bincount(lab, minlength=k)
+                Bphi = lv * Bc * phi.unsqueeze(0)
+                usable = big & keep_c
+                rec, near = {}, []
+                for c in range(k):
+                    if not bool(big[c]):
+                        continue
+                    for a_ in range(k):
+                        if a_ == c or not bool(usable[a_]) or int(sizes[a_]) <= int(sizes[c]) or not bool((wide[a_] & ~wide[c]).any()):
+                            continue
+                        S = wide[a_]
+                        yv, qv = Xc[c] * S, Bphi[c] * S
+                        Yt, Qt = float(yv.sum()), float(qv.sum())
+                        n_g = int((yv > 0).sum())
+                        if n_g < superpose_genes or Qt <= 0 or Yt < 3.0 * Qt:
+                            continue
+                        share = Yt / max(float(Nc[c]), 1.0)
+                        ov = float(torch.minimum(yv / Yt, qv / Qt).sum())
+                        row = {"cluster": c, "like": a_, "cells": int(sizes[c]), "share_of_counts": round(share, 4), "over_background": round(Yt / Qt, 2),
+                               "match": round(ov, 3), "genes": n_g}
+                        if share <= superpose_share and ov >= superpose_match:
+                            if c not in rec or ov > rec[c]["match"]:
+                                rec[c] = row
+                        else:
+                            near.append(row)
+                for c, row in rec.items():
+                    root = row["like"]
+                    while root in rec:  # a larger cluster each time, so this ends
+                        root = rec[root]["like"]
+                    merged_into[c] = root
+                for c, root in merged_into.items():
+                    wide[c], mask[c] = wide[root], mask[root]
+                    keep_c[c] = True
+                info["clusters_given_a_larger_clusters_silent_genes"] = list(rec.values())
+                best_near = {}
+                for r_ in near:  # per cluster kept apart, the larger cluster it resembles most
+                    if r_["cluster"] not in rec and (r_["cluster"] not in best_near or r_["match"] > best_near[r_["cluster"]]["match"]):
+                        best_near[r_["cluster"]] = r_
+                info["clusters_far_above_background_kept_apart"] = sorted(best_near.values(), key=lambda r: -r["match"])[:10]
+            states[-1]["mask"] = mask & keep_c.unsqueeze(1)
+            states[-1]["phi"] = phi
             states[-1]["mask_broad"] = wide
+            states[-1]["rate"] = rate_c  # counts per unit depth, cells far above the fit left out (cell_multipliers: cluster match)
+            strip = None
+            if splice is not None:
+                # Spliced against unspliced molecules (splice.py). A gene is also silent in a cluster where its
+                # molecules are spliced like background (and no more than four times the fitted background), and
+                # never where they are unspliced like the gene's own expression.
+                from .splice import splice_profiles, splice_support, splice_veto, sums_of
+
+                bg = splice["bg_rows"][splice["bg_pool"] == p]
+                zero = torch.zeros(bg.numel(), dtype=torch.long, device=dev)
+                Xe = csr.group_sums(bg, zero, 1)[0] if bg.numel() else torch.zeros(G, dtype=f64, device=dev)
+                Ue = sums_of(csr, splice["u"], bg, zero, 1)[0] if bg.numel() else torch.zeros(G, dtype=f64, device=dev)
+                Uc = torch.minimum(sums_of(csr, splice["u"], rows_sel[ok], lab[ok], k), Xc)
+                prof = splice_profiles(Xe, Ue, Xc, Uc, Bc, mask & keep_c.unsqueeze(1), big, level, shift=splice.get("shift", 0.0))
+                info["splice"] = prof["diag"]
+                states[-1]["splice"] = {key: prof[key] for key in ("pi_bg", "pi_nat", "informative")}
+                if splice.get("silent", True) and int(prof["informative"].sum()) >= 50:
+                    pb, pn, inf_ = prof["pi_bg"].unsqueeze(0), prof["pi_nat"].unsqueeze(0), prof["informative"].unsqueeze(0)
+                    veto = splice_veto(Xc, Uc, pb, pn, inf_)
+                    sup = splice_support(Xc, Uc, pb, pn, inf_) & (Xc <= 4.0 * lv * Bc) & big.unsqueeze(1) & keep_c.unsqueeze(1) & ~veto
+                    info["splice"].update({"cluster_gene_pairs_silent_by_splicing_only": int((sup & ~wide).sum()),
+                                           "cluster_gene_pairs_vetoed_by_splicing": int((wide & veto).sum()),
+                                           "counts_silent_by_splicing_only": float((Xc * (sup & ~wide).to(f64)).sum())})
+                    wide = wide & ~veto
+                    strip = wide | sup
+                    states[-1]["mask_broad"], states[-1]["mask_strip"] = wide, strip
+            if tree:
+                # Multi-resolution silent sets (multires.py): every cluster is split into sub-clusters, and a
+                # sub-cluster overrules its cluster for a gene that a quarter or more of its cells carry. Doublets
+                # are a few percent of a sub-cluster and overrule nothing; a sub-type or a rare cell type does.
+                from .multires import subcluster_carriers, subclusters
+
+                fine, parent, fcentres = subclusters(z[sel], lab, k, min_cells=tree_min_cells, max_children=tree_children, seed=seed)
+                Fn = int(parent.numel())
+                Xf, Npos, Uf = subcluster_carriers(csr, rows_sel, fine, Fn, d, u_sel, e, soup64 * phi.unsqueeze(0), chi * phi, theta, n_ref, lv,
+                                                   u=splice["u"] if strip is not None else None)
+                n_f = torch.bincount(fine, minlength=Fn).to(f64)
+                N_f = torch.zeros(Fn, dtype=f64, device=dev).index_add_(0, fine, d)
+                over = (Npos >= 3.0) & (Npos >= tree_carriers * n_f.unsqueeze(1))
+                if superpose:
+                    # the same question for a sub-cluster: far above its background on its cluster's silent genes, at
+                    # most a fifth of its counts, in the proportions of the background, is a sub-cluster of dirty
+                    # cells and overrules nothing
+                    Sp = wide[parent]
+                    yv = Xf * Sp
+                    qp = lv * Bc * phi.unsqueeze(0) * wide  # the cluster's background on its silent genes
+                    Np = torch.zeros(k, dtype=f64, device=dev).index_add_(0, lab, d)
+                    Qt = qp.sum(1)[parent] * N_f / Np[parent].clamp_min(1.0)  # the sub-cluster's part, by depth
+                    Yt = yv.sum(1)
+                    ov = torch.minimum(yv / Yt.clamp_min(1e-12).unsqueeze(1), (qp / qp.sum(1, keepdim=True).clamp_min(1e-12))[parent]).sum(1)
+                    like_bg = ((yv > 0).sum(1) >= superpose_genes) & (Yt >= 3.0 * Qt) & (Yt <= superpose_share * N_f.clamp_min(1.0)) & (ov >= superpose_match)
+                    for c in merged_into:  # sub-clusters of a cluster already judged as a whole
+                        like_bg |= parent == c
+                    info["subclusters_background_like_not_overruling"] = int(like_bg.sum())
+                    over = over & ~like_bg.unsqueeze(1)
+                    del Sp, yv, qp
+                if strip is not None:  # a sub-cluster whose own molecules of the gene are unspliced like expression
+                    from .splice import splice_veto
+
+                    over |= splice_veto(Xf, Uf, prof["pi_bg"].unsqueeze(0), prof["pi_nat"].unsqueeze(0), prof["informative"].unsqueeze(0))
+                wide_f = wide[parent] & ~over
+                info.update({"fine_clusters": Fn, "fine_cells_median": float(torch.median(n_f)),
+                             "subcluster_gene_pairs_overruling_parent": int((wide[parent] & over).sum()),
+                             "counts_kept_by_overruling": float((Xf * (wide[parent] & over).to(f64)).sum())})
+                states[-1].update({"centres": fcentres, "mask": (mask & keep_c.unsqueeze(1))[parent] & wide_f, "mask_broad": wide_f,
+                                   "rate": Xf / N_f.clamp_min(1.0).unsqueeze(1), "parent": parent})
+                if strip is not None:
+                    states[-1]["mask_strip"] = strip[parent] & ~over
+            if os.environ.get("GLYMPH_DEBUG_DUMP"):  # development only: the silent test, pair by pair (code/benchmark/diag_silent_pairs.py)
+                dbg = {"Xc": Xc, "Bc": Bc, "rate": rate_c, "rmax": rmax_c, "wide": wide, "tested_mask": mask, "keep_c": keep_c, "big": big,
+                       "lv": float(lv), "level": float(level), "need": float(need), "theta": theta, "lab": lab, "sel": sel, "rows": rows_sel,
+                       "odd": odd, "depth": d, "tail": broad_tail, "delta": delta, "A": n_c @ amb, "A2": n2_c @ amb, "Nc": Nc, "chi": chi}
+                dbg["phi"], dbg["merged_into"] = phi, merged_into
+                if tree:
+                    dbg.update({"fine": fine, "parent": parent, "over": over, "wide_f": wide_f, "Xf": Xf, "Npos": Npos, "n_f": n_f})
+                torch.save({k_: (v_.cpu() if torch.is_tensor(v_) else v_) for k_, v_ in dbg.items()}, f"{os.environ['GLYMPH_DEBUG_DUMP']}.pool{p}.pt")
             info["silent_genes_tested_median"] = float(torch.median(mask.sum(1).to(f64)))
             info["silent_genes_broad_median"] = float(torch.median(wide.sum(1).to(f64)))
             info["silent_counts_broad"] = float((Xc * wide.to(f64)).sum())
@@ -601,8 +987,68 @@ def silent_budget(
     return kappas, swaps, diag, states
 
 
+def _overlap(y, lam):
+    """Overlap of counts y with expected counts lam (same row totals), over its expectation for Poisson draws.
+
+    sum_g min(y_g, lam_g) against sum_g lam_g (1 - P(Poisson(lam_g) = floor(lam_g))), the exact mean of
+    min(Poisson(lam), lam) gene by gene. With few counts over thousands of genes the raw overlap is far
+    below one even for a perfect match; the ratio is about 1 for a match and falls toward 0 otherwise.
+    """
+    fl = torch.floor(lam)
+    pmf = torch.exp(fl * torch.log(lam.clamp_min(1e-30)) - lam - torch.lgamma(fl + 1.0))
+    want = (lam * (1.0 - pmf)).sum(1)
+    got = torch.minimum(y, lam).sum(1)
+    return torch.where(want > 0, got / want.clamp_min(1e-12), torch.full_like(got, float("nan")))
+
+
 @torch.no_grad()
-def cell_multipliers(csr, rows, z, depth, unit, e, soup, chibar_p, state, called=None, doublet_fold: float = 5.0, doublet_share: float = 0.05):
+def background_match(csr, rows, lab, mask, amb_scale, soup, unit, swp_scale, chibar_p, rate=None, chunk: int = 512):
+    """Two profile tests for cells with far more counts on their cluster's silent genes than background explains.
+
+    Background match: how closely the cell's counts on the silent genes follow the fitted background
+    profile there (ambient plus swapped, normalised over the silent genes). About 1 when those counts
+    are background; low when they sit on genes background does not favour, which is a second cell's
+    expression (a doublet) or a cell type too rare to form its own cluster.
+
+    Cluster match (needs rate, the clusters' counts per unit depth): the share of all the cell's counts
+    that its cluster's own expression explains, that is the share of its counts on the other genes
+    times how closely they follow the cluster's profile there. A heavily contaminated member of the
+    cluster still looks like the cluster on the genes the cluster expresses; a cell that was only
+    placed there (the human immune cells of a mouse xenograft, in a mouse cluster) does not, and its
+    counts on the "silent" genes are its own even when they resemble the background profile, which
+    they do when the background on those genes came from cells like it.
+
+    amb_scale and swp_scale are per row: multiplier times ambient counts per partition, and swapped
+    fraction times depth. Returns (background match, cluster match), NaN where there is nothing to compare.
+    """
+    f64 = torch.float64
+    out = torch.full((rows.numel(),), float("nan"), dtype=f64, device=rows.device)
+    member = torch.full((rows.numel(),), float("nan"), dtype=f64, device=rows.device)
+    chi = chibar_p.to(f64).unsqueeze(0)
+    for i in range(0, rows.numel(), chunk):
+        sl = slice(i, i + chunk)
+        x, _ = csr.dense(rows[sl])
+        x = x.to(f64)
+        m = mask[lab[sl]].to(f64)
+        y = x * m
+        b = (amb_scale[sl].to(f64).unsqueeze(1) * soup[unit[sl]].to(f64) + swp_scale[sl].to(f64).unsqueeze(1) * chi) * m
+        Y, Bt = y.sum(1, keepdim=True), b.sum(1, keepdim=True)
+        o = _overlap(y, Y * b / Bt.clamp_min(1e-30))
+        out[sl] = torch.where((Y.squeeze(1) > 0) & (Bt.squeeze(1) > 0), o, torch.full_like(o, float("nan")))
+        if rate is not None:
+            own = x - y
+            pr = rate[lab[sl]].to(f64) * (1.0 - m)
+            n_own, Pt = own.sum(1, keepdim=True), pr.sum(1, keepdim=True)
+            o2 = _overlap(own, n_own * pr / Pt.clamp_min(1e-30))
+            share = n_own.squeeze(1) / x.sum(1).clamp_min(1.0)
+            member[sl] = torch.where((n_own.squeeze(1) > 0) & (Pt.squeeze(1) > 0), share * o2, torch.zeros_like(o2))
+            del own, pr
+        del x, m, y, b
+    return out, member
+
+
+@torch.no_grad()
+def cell_multipliers(csr, rows, z, depth, unit, e, soup, chibar_p, state, called=None, doublet_fold: float = 5.0, doublet_share: float = 0.05, cluster_test: bool = False):
     """Ambient multiplier of each barcode: the fitted trend in depth, then the cell's own evidence.
 
     Every barcode starts from kappa + kappa_d * N / N_ref. The background per cell is not one
@@ -615,20 +1061,30 @@ def cell_multipliers(csr, rows, z, depth, unit, e, soup, chibar_p, state, called
     counts are far above the fit keep the trend value; a cell's own multiplier stays within a
     fifth to five times the trend.
 
-    Doublet-like cells. A cell with more than doublet_fold times the counts background explains
-    on its cluster's silent genes, and more than doublet_share of all its counts there, is
-    returned in the flag vector and written to the output (glymph_doublet_like). Both conditions
-    are needed: a nucleus in a dirty library has many counts on silent genes but no more than
-    background explains, and a cell in a clean library can carry several times the usual
-    background and still be a singlet. By default such a cell is still held to its cluster's
-    silent genes, which strips a partner cell's exclusive genes from a true doublet. Sparing
-    these cells (Config.spare_doublets) was tested on 2026-11-17 and is off: it did not reduce
-    the over-removal on the one kidney library that has it (1.28 times the truth either way),
-    and it left the most contaminated cells of BD Rhapsody and Parse mixtures uncleaned (removal
-    91% to 88% and 82-90% to 67%). Users who call doublets after cleaning should drop flagged
-    cells first or turn the option on.
+    Cells with a second expression program. A cell with more than doublet_fold times the counts
+    background explains on its cluster's silent genes, and more than doublet_share of all its counts
+    there, is returned in the excess flag. Both conditions are needed: a nucleus in a dirty library
+    has many counts on silent genes but no more than background explains, and a cell in a clean
+    library can carry several times the usual background and still be a singlet. Such a cell is
+    either heavily contaminated or it expresses those genes itself: a doublet, or a cell type too
+    rare to form its own cluster (the human immune cells of a mouse xenograft sat in mouse clusters
+    and lost 92 to 99% of their counts in 0.3.1, where every flagged cell was still held to its
+    cluster's silent genes). Two things tell them apart. The gene profile: background_match is near
+    1 when the cell's silent-gene counts follow the fitted background profile and low when they do
+    not. And the amount: among flagged cells that passed the profile test, those with up to 15 to 20%
+    of their counts on silent genes carried at least that much background by the species and genotype
+    truths, and those with more lost two to twenty times their true background (development
+    libraries, 2026-11-18: xenograft 27 to 36% removed against 0.6 to 1.3%; kidney 23 to 43% against
+    8 to 15%). api.calibrate_background leaves a cell alone when its match is below
+    Config.doublet_match or its silent share is above Config.doublet_share_max: no exclusion
+    constraint, trend multiplier, glymph_doublet_like in the output. A third test, whether the cell
+    looks like its cluster on the genes the cluster expresses (Config.cluster_match), changed little
+    and is off. Sparing every flagged cell was tested on
+    2026-11-17 and left the most contaminated cells of BD Rhapsody and Parse mixtures uncleaned
+    (removal 91% to 88% and 82-90% to 67%).
 
-    Returns (multiplier per row, diagnostics, doublet-like flag per row).
+    Returns (multiplier per row, diagnostics, excess flag per row, [3, rows] background match, cluster match (with cluster_test) and
+    share of the cell's counts on the silent genes; NaN where not flagged).
     """
     f64 = torch.float64
     kap, kap_d, n_ref, s = float(state["kappa"]), float(state["kappa_depth"]), float(state["depth_ref"]), float(state["s"])
@@ -663,9 +1119,19 @@ def cell_multipliers(csr, rows, z, depth, unit, e, soup, chibar_p, state, called
     diag = {"kappa": kap, "kappa_depth": kap_d, "depth_ref": n_ref, "n_informative": int(w.sum()), "n_outlier": int((outlier & informative).sum()),
             "n_barcodes": int(rows.numel()), "silent_set": "broad" if wide else "tested", "expected_rescaled_by": round(scale, 4)}
     doublet_like = informative & (y > doublet_fold * mu) & (y > doublet_share * dep) if wide else torch.zeros_like(informative)
-    diag["n_doublet_like"] = int(doublet_like.sum())
+    diag["n_silent_excess"] = int(doublet_like.sum())
+    match = torch.full((3, rows.numel()), float("nan"), dtype=f64, device=z.device)  # background match, cluster match, silent share
+    fl = torch.nonzero(doublet_like, as_tuple=True)[0]
+    if fl.numel():
+        bm, cm = background_match(csr, rows[fl], lab[fl], mask, (k_n * e[unit].to(f64))[fl], soup, unit[fl], (s * dep)[fl], chibar_p,
+                                  rate=state.get("rate") if cluster_test else None)
+        match[0, fl], match[1, fl], match[2, fl] = bm, cm, (y / dep.clamp_min(1.0))[fl]
+        for name, v in (("background_match_q10_q50_q90", bm), ("cluster_match_q10_q50_q90", cm)):
+            v = v[~torch.isnan(v)]
+            if v.numel():
+                diag[name] = [round(float(x), 3) for x in torch.quantile(v, torch.tensor([0.1, 0.5, 0.9], dtype=f64, device=z.device))]
     if int(w.sum()) < 50:
-        return k_n.to(torch.float32), diag, doublet_like
+        return k_n.to(torch.float32), diag, doublet_like, match
     excess = float((((y - mu) ** 2 - mu)[w]).sum())
     alpha = float(((k_n * a)[w]).pow(2).sum()) / excess if excess > 0 else 50.0
     alpha = min(max(alpha, 0.5), 50.0)
@@ -676,4 +1142,4 @@ def cell_multipliers(csr, rows, z, depth, unit, e, soup, chibar_p, state, called
     q = torch.quantile((m / k_n)[w], torch.tensor([0.1, 0.5, 0.9], dtype=f64, device=z.device))
     diag.update({"alpha": alpha, "expected_silent_counts_median": float(torch.median(mu[w])),
                  "multiplier_over_trend_q10_q50_q90": [round(float(x), 3) for x in q]})
-    return m.to(torch.float32), diag, doublet_like
+    return m.to(torch.float32), diag, doublet_like, match

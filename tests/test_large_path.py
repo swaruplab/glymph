@@ -82,8 +82,31 @@ def test_large_output_path_matches_single_pass():
     assert (big["data"] <= csr.data.numpy()).all() and (big["data"] >= 0).all()
 
 
+
+def test_allowance_capped_by_background():
+    """With a cap, a gene gives up at most (1 + cap) times its expected background, and nothing where it expects none."""
+    from glymph.thinning import gene_budget, gene_cell_budget
+
+    rng = np.random.default_rng(7)
+    n, G = 6000, 40
+    g = torch.from_numpy(rng.integers(0, G, n))
+    r = torch.from_numpy(rng.integers(0, 300, n))
+    v = torch.from_numpy(rng.integers(1, 30, n).astype(np.float32))
+    p = torch.from_numpy((rng.random(n) * 0.02).astype(np.float32))
+    p[g < 10] = 1e-6  # ten genes with no expected background
+    bg = torch.zeros(G, dtype=torch.float64).index_add_(0, g, (v * p.clamp(1e-6, 1 - 1e-6)).double())
+    for fn in (lambda cap: gene_budget(g, v, p, G, fpr=0.01, cap=cap), lambda cap: gene_cell_budget(g, r, v, p, G, 300, fpr=0.01, cap=cap)):
+        free, capped = fn(None), fn(0.2)
+        rm_free = torch.zeros(G, dtype=torch.float64).index_add_(0, g, free.double())
+        rm_cap = torch.zeros(G, dtype=torch.float64).index_add_(0, g, capped.double())
+        assert float(rm_cap[:10].sum()) == 0.0 and float(rm_free[:10].sum()) > 0.0
+        assert bool((rm_cap <= torch.round(1.2 * bg) + 1).all()) and bool((rm_cap <= rm_free + 1).all())
+        assert bool((capped <= v).all()) and bool((capped >= 0).all()) and bool((capped == torch.round(capped)).all())
+
+
 if __name__ == "__main__":
     test_chunked_sums_match_dense()
     test_take_returns_long_columns()
     test_large_output_path_matches_single_pass()
-    print("large-library paths: ok")
+    test_allowance_capped_by_background()
+    print("large-library paths and capped allowance: ok")

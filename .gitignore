@@ -15,3 +15,5 @@ data/kidney_strainmix/
 *.h5
 *.mtx
 *.mtx.gz
+# per-cell score tables are working copies of files that stay on HPC3
+runs/*/metrics/per_cell/

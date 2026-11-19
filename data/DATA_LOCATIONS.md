@@ -56,6 +56,30 @@ Nothing has been deleted. Removing `exp_*`, `prep/`, the failed attempts, `glymp
 
 Under `hpc3:/dfs7/swaruplab/vswarup/bin/miniconda_envs/`: `glymph_bench_r` (1.0 GB), `glymph_bench_scar` (2.4 GB), `glymph_bench_ambidose` (0.3 GB). Versions are in `runs/20261116-1539_glymph-hgmm-bench/*.versions.txt`.
 
+## Kidney strain mixture: alignment files and spliced/unspliced counts (added 2026-11-18)
+
+For the spliced/unspliced measurement in Glymph 0.4.0 development (run `20261118-1245_glymph-040-dev`).
+
+| What | Where | Size | Source |
+|---|---|---|---|
+| Cell Ranger alignment files of the five libraries | `hpc3:/dfs7/swaruplab/vswarup/compute/glymph/data/kidney_strainmix/bam/{nuc2,nuc3,rep1,rep2,rep3}_possorted_genome_bam.bam` | 20.1, 29.4, 34.4, 43.4, 16.6 GB (144 GB) | authors' submitted files in the SRA public bucket (`sra-pub-src-1` and `sra-pub-src-2`), fetched 2026-11-18 by `code/benchmark/50_download_kidney_bams.sh`; md5 checked against the bucket's ETag where it is a plain md5 |
+| Molecules per gene and barcode: unspliced, spliced, ambiguous | `hpc3:/dfs7/swaruplab/vswarup/compute/glymph/data/splice/kidney_{nuc2,nuc3,rep3}.{unspliced,spliced,ambiguous}.npz` | under 1 GB | `code/benchmark/51_bam_splice_counts.py` (reads classified by position against the 10x mm10-2020-A annotation) |
+| Standardised nuclei libraries with `layers["unspliced"]` | `hpc3:/dfs7/swaruplab/vswarup/compute/glymph/data/std_splice/kidney_{nuc2,nuc3}.h5ad` | under 2 GB | `code/benchmark/52_add_splice_layers.py` |
+
+Only the two nuclei libraries carry splicing information. The three whole-cell libraries (rep1, rep2, rep3; 94 GB of alignment files) were aligned without introns: 0.4 to 0.7% of their molecules are unspliced everywhere, so their files are of no further use here and can be deleted once that is approved.
+
+## Outputs of the 0.4.0 development and confirmation runs (added 2026-11-19)
+
+Decontaminated matrices and reports, one folder per tool or variant, kept on HPC3. Score tables are in each run folder under `runs/`.
+
+| What | Where | Size |
+|---|---|---|
+| Development rounds M1 to M8 and the splicing rounds (variants of Glymph 0.4.0.dev on 23 to 26 libraries; current ones in `out/`, earlier ones in `out_old/`; test outputs with the silent-test dump in `out_dbg/`) | `hpc3:/dfs7/swaruplab/vswarup/compute/glymph/20261118-1245_glymph-040-dev/` | 109 GB |
+| Glymph 0.4.0rc1, 54 libraries, two passes | `hpc3:/dfs7/swaruplab/vswarup/compute/glymph/20261118-2004_glymph-040rc1-bench/out/{glymph,glymph_rep2}/` | 15 GB |
+| Glymph 0.4.0rc2, 54 libraries, two passes | `hpc3:/dfs7/swaruplab/vswarup/compute/glymph/20261118-2355_glymph-040rc2-bench/out/{glymph,glymph_rep2}/` | 15 GB |
+
+The development folder can go once 0.4.0 is settled (it holds nothing that the two confirmation runs and the tables do not cover, except the dumps used for diagnosis). Nothing has been deleted; deletion needs a yes.
+
 ## Scratch elsewhere
 
 `studio-work:~/LocalDocuments/compute/_dev_glymph/`: a copy of `src`, `tests`, `code`, `config` used for CPU unit tests (a few MB). Safe to delete.

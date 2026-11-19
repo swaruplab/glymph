@@ -11,7 +11,7 @@
 # Run-time and memory against library size: one tool on a library made COPIES times larger
 # (make_scaled_library.py). For time and memory only, never accuracy.
 #   sbatch --export=ALL,TOOL=glymph,COPIES=8,BASE=<raw.h5>,NAME=hgmm_20k 40_scaling.sbatch
-# TOOL is glymph or cellbender. Output: out/scaling/<TOOL>/<NAME>_x<COPIES>.{time.txt,gpu.csv,host.txt}
+# TOOL is glymph, cellbender (0.3.2 with the checkpoint fix) or cellbender040. Output: out/scaling/<TOOL>/<NAME>_x<COPIES>.{time.txt,gpu.csv,host.txt}
 set -euo pipefail
 cd "$SLURM_SUBMIT_DIR"
 : "${TOOL:?}" "${COPIES:?}" "${BASE:?}" "${NAME:?}"
@@ -32,6 +32,15 @@ cellbender)
   FIX=/dfs7/swaruplab/vswarup/bin/cellbender_fix
   work="out/scaling/cellbender/$tag.work"; mkdir -p "$work"; cd "$work"
   bash "$SLURM_SUBMIT_DIR/code/benchmark/profile.sh" "../$tag" "$FIX/venv/bin/python" "$FIX/cellbender_safe.py" \
+    remove-background --cuda --input "$big" --output "$tag.h5" --checkpoint-mins 20 > "$tag.cb.log" 2>&1 || true
+  test -s "${tag}_filtered.h5" || { tail -30 "$tag.cb.log"; exit 1; }
+  cd "$SLURM_SUBMIT_DIR"; rm -rf "$work"
+  ;;
+cellbender040)
+  # CellBender 0.4.0 from its own environment (05c_build_cellbender040.sbatch); the plain command saves its checkpoint
+  CB=/dfs7/swaruplab/vswarup/bin/miniconda_envs/glymph_bench_cellbender040/bin/cellbender
+  work="out/scaling/cellbender040/$tag.work"; mkdir -p "$work"; cd "$work"
+  bash "$SLURM_SUBMIT_DIR/code/benchmark/profile.sh" "../$tag" "$CB" \
     remove-background --cuda --input "$big" --output "$tag.h5" --checkpoint-mins 20 > "$tag.cb.log" 2>&1 || true
   test -s "${tag}_filtered.h5" || { tail -30 "$tag.cb.log"; exit 1; }
   cd "$SLURM_SUBMIT_DIR"; rm -rf "$work"

@@ -13,7 +13,8 @@ import json
 from deck_kit import *  # noqa: F401,F403
 
 N = json.load(open(os.path.join(PRES, "deck_figures", "numbers.json")))
-RUN = os.path.join(ROOT, "runs", "20261117-0607_glymph-031-alltier")
+RUN = os.path.join(ROOT, "runs", "20261117-1342_glymph-cb040-bench")
+GV, CV = N.get("glymph_version", "0.3.1"), N.get("cellbender_version", "0.3.2")
 
 
 def rows(path):
@@ -110,7 +111,7 @@ def key_dot(shapes, x, y, color, label, d=0.16):
 # ================================================================ title
 S = Slide(notes="""Glymph is the lab's ambient RNA remover. The talk has four parts: what is missing in the field, the one idea
 behind Glymph, how it is built, and how it compares with every current tool on 54 libraries from three platforms.
-All benchmark numbers are for Glymph 0.3.1 against CellBender 0.3.2 unless a slide says otherwise.""", transition="fade", footer=False)
+All benchmark numbers are for Glymph """ + GV + """ against CellBender """ + CV + """ unless a slide says otherwise.""", transition="fade", footer=False)
 S.anim(S.sh.add_picture(icon("Drop", "gold", 0.10), Inches(8.2), Inches(1.2), Inches(4.9), Inches(4.9)), "zoom", at=100, dur=1100)
 S.anim(tb(S.sh, LM, 1.55, 9, 0.35, [[("SWARUP LAB  ·  UCI MIND", {"spc": 3})]], size=11, color="goldtxt", bold=True), "fade")
 S.anim(tb(S.sh, LM, 1.95, 9, 1.7, "Glymph", size=96, color="ink", font=HEAD, name="!!title"), "rise", gap=220)
@@ -292,11 +293,13 @@ S = Slide("The idea  ·  per cell", "Then every cell gets its own amount", act=1
 library: in the kidney truth set the mean per cell is 1.4 to 1.6 times the median. So after the library-level fit, each cell's
 own counts on its cluster's silent genes say whether it carries more or less than the trend, and it gets its own multiplier,
 shrunk toward the trend when its evidence is thin. The same silent genes also constrain the model: it may not explain counts
-on them as expression. On the twelve libraries never used in development, the rank agreement between estimated and true
+on them as expression. One guard goes with that. A cell with far more counts on those genes than background explains is held to
+the constraint only if the counts follow the measured background profile and are at most a fifth of the cell; otherwise it
+expresses those genes itself, as a rare cell type or a doublet would, and it is left alone and flagged. On the twelve libraries never used in development, the rank agreement between estimated and true
 per-cell background is {N['conf_g_rank']:.2f} for Glymph and {N['conf_c_rank']:.2f} for CellBender.""")
 card_row(S, [("Gauge", "A multiplier per cell", "Its own silent-gene counts, compared with what the library trend predicts."),
              ("LockKey", "An exclusion constraint", "The model may not call counts on a cluster's silent genes expression."),
-             ("Eye", "Doublet-like cells flagged", "A cell that clearly expresses its silent genes is marked in the output.")], y=1.8, h=2.75)
+             ("Eye", "Rare cells left alone", "A cell that expresses those genes itself is not stripped; it is flagged.")], y=1.8, h=2.75)
 chip_row(S, [(f"{N['conf_g_rank']:.2f}", "rank agreement with the true per-cell background, Glymph, 12 libraries never seen"),
              (f"{N['conf_c_rank']:.2f}", "the same for CellBender")], y=4.8, h=1.12, big_size=24)
 S.takehome("Per-cell amounts are where measuring pays off most.")
@@ -403,8 +406,9 @@ S = Slide("The benchmark  ·  design", "54 libraries with four kinds of truth", 
 mixtures (cell lines on 10x, BD Rhapsody and Parse, a nuclei mixture, and six xenografts), where every count of the other
 species is background; five mouse kidney libraries pooled from three strains, where genotypes give the background of every
 cell (Janssen et al. 2023); eight Parse libraries with one tissue per well; and 14 libraries without truth, scored on count
-integrity and marker leakage. Tools: Glymph, CellBender 0.3.2, scAR, SoupX, and DecontX with and without an empty-droplet
-background. Twelve mixtures were never used to choose anything in Glymph 0.3.1. Genes that collect reads aligned to the wrong
+integrity and marker leakage. Tools: Glymph, CellBender, scAR, SoupX, and DecontX with and without an empty-droplet
+background; CellBender 0.4.0 and 0.3.2 were both run and score the same within noise. Twelve mixtures were never used to choose
+anything in Glymph. Genes that collect reads aligned to the wrong
 genome, such as ribosomal RNA on mouse Gm42418, are masked for every tool by a rule that uses raw counts only.""")
 chip_row(S, [("54", "libraries"), ("3", "platforms: 10x, BD Rhapsody, Parse"), ("6", "tools on the same GPU model"), ("12", "mixtures never seen in development")],
          y=1.8, h=1.2, big_size=30)
@@ -450,6 +454,20 @@ fig_right_chips(S, "percell_error.png", [(f"{N['err_wins']} of {N['err_total']}"
                                           (f"{N['conf_g_rank']:.2f}", f"rank agreement on the same 12; CellBender {N['conf_c_rank']:.2f}")],
                 "Glymph knows which cells are dirty: about half of CellBender's per-cell error.", fig_w=7.3, chip_w=4.3, fmt=bal)
 S.finish()
+
+if "strip_g" in N:
+    S = Slide("The benchmark  ·  safety", "Almost no cell loses more than its background", act=3, notes=f"""A count that does not
+depend on any tool, over the {N['strip_libs']} mixtures and their {N['strip_cells']:,} cells with a species truth: cells that lost more
+than 10% of their counts when that is more than three times their true background plus three points. Glymph: {N['strip_g']} cells.
+CellBender: {N['strip_c']:,}. scAR: {N['strip_scar']:,}. DecontX with an empty-droplet background: {N['strip_decontx']:,}. SoupX:
+{N['strip_soupx']}, because it removes little anywhere. The version of Glymph before this one had {N['strip_g1']}: most were the human
+immune cells of mouse xenografts, which sat in mouse clusters and lost nearly all their counts. Glymph now leaves a cell alone,
+and flags it, when its counts on silent genes do not look like background or are more than a fifth of the cell.""")
+    fig_right_chips(S, "stripped_cells.png", [(f"{N['strip_g']}", f"Glymph, of {N['strip_cells']:,} cells in {N['strip_libs']} mixtures"),
+                                               (f"{N['strip_c']:,}", "CellBender, on the same cells"),
+                                               (f"{N['strip_g1']}", "Glymph before rare cells were protected")],
+                    "Rare cells keep their counts: a cell with genes of its own is left alone and flagged.", fmt=bal)
+    S.finish()
 
 S = Slide("The benchmark  ·  removal", "Level on cell lines, far ahead on nuclei", act=3, notes=f"""Each panel is one group of
 mixtures. Up is more cross-species counts removed; right is more of the cells' own counts kept. Each line follows a tool's
@@ -501,19 +519,20 @@ S.finish()
 
 S = Slide("The benchmark  ·  limits", "Where Glymph does not win yet", act=3, notes=f"""Three honest limits. First, clean tissue. On
 the four xenograft libraries never used in development Glymph removes {pct(N['confxeno_g_rem'], 0)} of cross-species counts against
-{pct(N['confxeno_c_rem'], 0)}, but it also removes {N['confxeno_g_ratio']:.1f} times the expected same-species background and keeps
-{pct(N['confxeno_g_kept'])} of the cells' own counts against {pct(N['confxeno_c_kept'])}. Those libraries have so little background
-that only one to five genes can be tested, and the measured level is too high. Second, BD Rhapsody: on the one mixture never
-used in development Glymph removes {pct(N['confbd_g_rem'])} and CellBender {pct(N['confbd_c_rem'])}. Third, repeat runs on such thin
-libraries differ by up to eight points of removal. One kidney library is also cleaned 1.2 to 1.3 times beyond the truth, and on
-Parse tissue libraries Glymph keeps fewer counts of cluster-specific marker genes in their own cluster than CellBender does
-(94% against 99%), a sign of the same over-cleaning.""")
-card_row(S, [("Plant", "Clean tissue", [f"Xenografts: {pct(N['confxeno_g_rem'], 0)} removed against {pct(N['confxeno_c_rem'], 0)}.",
-                                         f"But {N['confxeno_g_ratio']:.0f} times the expected background of the cells' own species goes with it."]),
+{pct(N['confxeno_c_rem'], 0)} and keeps {pct(N['confxeno_g_kept'])} of the cells' own counts against {pct(N['confxeno_c_kept'])}: it
+still removes {N['confxeno_g_ratio']:.1f} times the expected same-species background, down from {N['confxeno_g1_ratio']:.1f} in the
+version before. Second, repeat runs. Those libraries have so little background that only a few genes can be tested, and a second
+run of the same code removed {pct(N['confxeno_g2_rem'], 0)} there with a ratio of {N['confxeno_g2_ratio']:.1f}; on one of the four the
+first run found no estimate at all and fell back to the learned values. Third, BD Rhapsody: on the one mixture never used in
+development Glymph removes {pct(N['confbd_g_rem'])} and CellBender {pct(N['confbd_c_rem'])}. One kidney library is also cleaned 1.2 to
+1.3 times beyond the truth, and CellBender keeps slightly more of the cells' own counts on the twelve libraries never seen
+({pct(N['conf_c_kept'])} against {pct(N['conf_g_kept'])}); part of that is same-species background it leaves in.""")
+card_row(S, [("Plant", "Clean tissue", [f"Xenografts: {pct(N['confxeno_g_kept'])} of own counts kept against {pct(N['confxeno_c_kept'])}.",
+                                         f"Still {N['confxeno_g_ratio']:.1f} times the expected same-species background."]),
+             ("ArrowsClockwise", "Repeat runs", ["Very clean libraries give few silent genes to test.",
+                                                 f"Two runs removed {pct(N['confxeno_g_rem'], 0)} and {pct(N['confxeno_g2_rem'], 0)} on the xenografts."]),
              ("SquaresFour", "BD Rhapsody removal", [f"{pct(N['confbd_g_rem'])} against {pct(N['confbd_c_rem'])} on the mixture never seen.",
-                                                     "Per-cell error is a quarter of CellBender's."]),
-             ("ArrowsClockwise", "Repeat runs", ["Libraries with very little background give few silent genes to test.",
-                                                 "Their result moves by up to 8 points between runs."])], y=2.0, h=3.6)
+                                                     "Per-cell error is a quarter of CellBender's."])], y=2.0, h=3.6)
 S.takehome("Very clean libraries are the open problem: too few silent genes to measure with.")
 S.finish()
 

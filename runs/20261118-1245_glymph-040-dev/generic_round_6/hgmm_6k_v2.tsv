@@ -1,0 +1,11 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+hgmm_6k_v2	raw	7387	0	0	clusters	2	4	0	0	0	0	0.067084	0	1
+hgmm_6k_v2	cellbender	7387	7	2.2955	clusters	2	4	0	0	0	0	0.067088	0.017058	0.99734
+hgmm_6k_v2	glymph_032	7387	0	3.4201	clusters	2	4	0	0	0	0	0.067084	0.021785	0.99986
+hgmm_6k_v2	m2_a	7387	0	3.4799	clusters	2	4	0	0	0	0	0.067084	0.021158	0.99958
+hgmm_6k_v2	m3_a	7387	0	3.4682	clusters	2	4	0	0	0	0	0.067084	0.01701	0.99916
+hgmm_6k_v2	m3_nofactor	7387	0	3.566	clusters	2	4	0	0	0	0	0.067084	0.026914	0.99951
+hgmm_6k_v2	m5_a	7387	0	3.5716	clusters	2	4	0	0	0	0	0.067084	0.026689	0.99958
+hgmm_6k_v2	m6_a	7387	0	3.5725	clusters	2	4	0	0	0	0	0.067084	0.027139	0.99958
+hgmm_6k_v2	m6_b	7387	0	3.5747	clusters	2	4	0	0	0	0	0.067084	0.027042	0.99951
+hgmm_6k_v2	m6_fpr3	7387	0	3.4671	clusters	2	4	0	0	0	0	0.067084	0.025772	0.99951

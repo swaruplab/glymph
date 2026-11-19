@@ -1,0 +1,10 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+bd_ileum_cartridge2	raw	10667	0	0	clusters	8	125	0	0	0	0	1.0945	0	1
+bd_ileum_cartridge2	cellbender	10667	0	1.2357	clusters	8	125	0	0	0	0	1.0945	0.066291	0.99963
+bd_ileum_cartridge2	decontx	10667	0	12.257	clusters	8	125	0	0	0	8852570	1.0945	0.1512	0.99695
+bd_ileum_cartridge2	glymph	10667	10	3.6433	clusters	8	125	0	0	0	0	1.0941	0.12331	0.99686
+bd_ileum_cartridge2	glymph_032	10667	10	3.3441	clusters	8	125	0	0	0	0	1.0941	0.12115	0.99694
+bd_ileum_cartridge2	glymph_rc1	10667	10	3.6496	clusters	8	125	0	0	0	0	1.0941	0.12335	0.99688
+bd_ileum_cartridge2	glymph_rep2	10667	10	3.7023	clusters	8	125	0	0	0	0	1.0941	0.12355	0.99679
+bd_ileum_cartridge2	scar	10667	0	16.802	clusters	8	125	5441780	6.6584e+06	0	0	1.0945	0.14608	0.95063
+bd_ileum_cartridge2	soupx	10667	0	3	clusters	8	125	0	0	0	8953763	1.0945	0.089393	0.99727

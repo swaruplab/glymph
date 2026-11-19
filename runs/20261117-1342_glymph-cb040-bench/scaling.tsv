@@ -1,0 +1,17 @@
+tool	copies	cells	state	wall_s	peak_rss_gb	peak_gpu_gb	gpu_held_gb	note
+Glymph 0.3.2	1	20000	completed	211	7.5	13.8	17.3	
+Glymph 0.3.2	2	40000	completed	297	13.1	11.9	14.4	
+Glymph 0.3.2	4	80000	completed	562	24.0	10.1	14.5	
+Glymph 0.3.2	8	160000	completed	968	45.8	18.6	22.5	
+CellBender 0.4.0	1	20000	completed	3225	19.8		8.9	
+CellBender 0.4.0	2	40000	completed	6978	37.7		8.9	
+CellBender 0.4.0	4	80000	completed	6636	54.7		10.2	
+CellBender 0.4.0	8	160000	completed	16138	128.0		14.7	
+Glymph 0.3.1	1	20000	completed	206	7.8	13.8		from run 20261117-0607
+Glymph 0.3.1	2	40000	completed	296	13.7	11.9		from run 20261117-0607
+Glymph 0.3.1	4	80000	completed	451	25.2	10.1		from run 20261117-0607
+Glymph 0.3.1	8	160000	completed	822	47.9	18.6		from run 20261117-0607
+CellBender 0.3.2	1	20000	completed	3368	19.5			from run 20261116-2209
+CellBender 0.3.2	2	40000	completed	6625	39.7			from run 20261116-2209
+CellBender 0.3.2	4	80000	completed	6342	56.1			from run 20261116-2209
+CellBender 0.3.2	8	160000	completed	16156	112.2			from run 20261116-2209

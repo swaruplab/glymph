@@ -1,0 +1,9 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+parse_igvf_AXHN	raw	11359	0	0	labels	5	202	0	0	0	0	0.22158	0	1
+parse_igvf_AXHN	cellbender	11359	0	1.0069	labels	5	202	0	0	0	0	0.22158	0.12294	0.99432
+parse_igvf_AXHN	decontx	11359	0	4.8697	labels	5	202	0	0	0	16759236	0.22158	0.20027	0.99332
+parse_igvf_AXHN	glymph	11359	0	1.6458	labels	5	202	0	0	0	0	0.22158	0.10919	0.99076
+parse_igvf_AXHN	glymph_032	11359	0	2.3228	labels	5	202	0	0	0	0	0.22158	0.1591	0.98611
+parse_igvf_AXHN	glymph_rep2	11359	0	1.6435	labels	5	202	0	0	0	0	0.22158	0.1094	0.99081
+parse_igvf_AXHN	scar	11359	0	19.325	labels	5	202	9498310	1.1946e+07	0	0	0.22158	0.44579	0.93536
+parse_igvf_AXHN	soupx	11359	0	1	labels	5	202	0	0	0	16774434	0.22158	0.080483	0.99705

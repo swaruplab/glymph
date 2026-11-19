@@ -12,7 +12,7 @@ Background is not a rare artifact: published estimates are 3 to 35% of a cell's 
 ## What was missing
 
 <div class="gl-cards">
-<div class="gl-card"><h3>Speed</h3><p>The standard tool trains a new model on every library. In our benchmark its median was 35 min per library on one A30 GPU, and 4 h 29 min for 160,000 cells.</p></div>
+<div class="gl-card"><h3>Speed</h3><p>The standard tool trains a new model on every library. In our benchmark its median was 36 min per library on one A30 GPU, and 4 h 29 min for 160,000 cells.</p></div>
 <div class="gl-card"><h3>A measured amount</h3><p>A flexible model can explain background as expression and fit the data just as well, so priors decide the amount. CellBender removed 74% of the expected same-species background across 27 mixtures.</p></div>
 <div class="gl-card"><h3>More than one platform</h3><p>One plateau of empty droplets and one ambient profile per run is a 10x premise. BD Rhapsody and Parse Evercode fall outside it.</p></div>
 <div class="gl-card"><h3>Intact counts</h3><p>The faster alternatives return fractional counts or, in one case, counts higher than the raw data.</p></div>
@@ -43,6 +43,10 @@ empty-partition levels plus 0.47 per unit of depth. Glymph measured 0.56 to 0.59
 Background is not one number per library. Each cell's own counts on its cluster's silent genes say whether it carries more or
 less than the trend, and it gets its own multiplier, shrunk toward the trend when its evidence is thin. The same silent genes
 constrain the model: it may not explain counts on them as expression.
+
+One guard goes with that constraint. A cell with far more counts on those genes than background explains is held to it only if the
+counts follow the measured background profile and are at most a fifth of the cell. Otherwise the cell expresses those genes
+itself, as a rare cell type or a doublet would: it is left alone and flagged.
 
 <p class="gl-take"><b>TAKE-HOME</b>Every library carries thousands of negative controls. Glymph reads the background off them.</p>
 

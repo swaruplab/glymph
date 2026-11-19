@@ -1,0 +1,13 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger
+parse_hgmm_sub1	raw	2439	0	0	clusters	0	0	0	0	0	0
+parse_hgmm_sub1	cellbender	2439	0	0.75201	clusters	0	0	0	0	0	0
+parse_hgmm_sub1	glymph_032	2439	0	3.0133	clusters	0	0	0	0	0	0
+parse_hgmm_sub1	m1_pca_a	2439	0	2.3505	clusters	0	0	0	0	0	0
+parse_hgmm_sub1	m2_a	2439	0	2.3102	clusters	0	0	0	0	0	0
+parse_hgmm_sub1	m3_a	2439	0	2.5802	clusters	0	0	0	0	0	0
+parse_hgmm_sub1	m3_nofactor	2439	0	2.5675	clusters	0	0	0	0	0	0
+parse_hgmm_sub1	m4_a	2439	0	2.6047	clusters	0	0	0	0	0	0
+parse_hgmm_sub1	m5_a	2439	0	2.3828	clusters	0	0	0	0	0	0
+parse_hgmm_sub1	m5_b	2439	0	2.3826	clusters	0	0	0	0	0	0
+parse_hgmm_sub1	m5_fpr2	2439	0	2.1892	clusters	0	0	0	0	0	0
+parse_hgmm_sub1	m5_fpr3	2439	0	2.2851	clusters	0	0	0	0	0	0

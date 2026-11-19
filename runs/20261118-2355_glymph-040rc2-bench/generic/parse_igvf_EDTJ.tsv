@@ -1,0 +1,10 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+parse_igvf_EDTJ	raw	10811	0	0	labels	5	196	0	0	0	0	0.2804	0	1
+parse_igvf_EDTJ	cellbender	10811	0	1.0797	labels	5	196	0	0	0	0	0.2804	0.12496	0.99307
+parse_igvf_EDTJ	decontx	10811	0	4.5491	labels	5	196	0	0	0	15787466	0.2804	0.21587	0.99446
+parse_igvf_EDTJ	glymph	10811	0	1.5869	labels	5	196	0	0	0	0	0.2804	0.1279	0.98948
+parse_igvf_EDTJ	glymph_032	10811	0	1.4216	labels	5	196	0	0	0	0	0.2804	0.11601	0.99288
+parse_igvf_EDTJ	glymph_rc1	10811	0	1.5863	labels	5	196	0	0	0	0	0.2804	0.12756	0.98954
+parse_igvf_EDTJ	glymph_rep2	10811	0	1.5874	labels	5	196	0	0	0	0	0.2804	0.12855	0.98948
+parse_igvf_EDTJ	scar	10811	0	20.227	labels	5	196	8843337	1.1001e+07	0	0	0.2804	0.47869	0.92448
+parse_igvf_EDTJ	soupx	10811	0	1.2	labels	5	196	0	0	0	15815454	0.2804	0.11427	0.99579

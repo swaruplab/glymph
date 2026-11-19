@@ -16,8 +16,8 @@ hide:
 [Code on GitHub](https://github.com/swaruplab/glymph){ .md-button }
 
 <div class="gl-stats">
-<div class="gl-stat"><b>19×</b><span>faster per library than CellBender, on the same GPU</span></div>
-<div class="gl-stat"><b>27 of 32</b><span>libraries with truth where Glymph is more accurate per cell</span></div>
+<div class="gl-stat"><b>20×</b><span>faster per library than CellBender, on the same GPU</span></div>
+<div class="gl-stat"><b>30 of 32</b><span>libraries with truth where Glymph is more accurate per cell</span></div>
 <div class="gl-stat"><b>3</b><span>platforms: 10x Chromium, BD Rhapsody, Parse Evercode</span></div>
 <div class="gl-stat"><b>0</b><span>counts added: the output is whole numbers, never above the raw count</span></div>
 </div>
@@ -33,7 +33,7 @@ autoencoder separate expression from background.
 
 <div class="gl-cards">
 <div class="gl-card"><h3>Measured, not inferred</h3><p>The amount of background comes from silent genes, checked against genotype truth in mouse kidney.</p></div>
-<div class="gl-card"><h3>Fast</h3><p>A median of 98 s per library on one GPU, against 35 min for CellBender. 160,000 cells in 14 min.</p></div>
+<div class="gl-card"><h3>Fast</h3><p>A median of 98 s per library on one GPU, against 36 min for CellBender. 160,000 cells in 16 min.</p></div>
 <div class="gl-card"><h3>Three platforms</h3><p>Droplets, microwells and split-pool barcoding, with no vendor cell calls needed.</p></div>
 <div class="gl-card"><h3>Whole counts</h3><p>Integers in, integers out. No entry is ever higher than it was.</p></div>
 </div>

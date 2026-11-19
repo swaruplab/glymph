@@ -1,0 +1,9 @@
+# 20261117-1342_glymph-032-dev
+Request: "fix the clean-tissue over-cleaning, then benchmark against CellBender 0.4.0" (2026-11-17). This run is the fix: development rounds on libraries already opened.
+Routing: HPC3 because Glymph needs a CUDA GPU and the data and the other tools' outputs are there.
+Resources: gpu partition, one A30 per library, 4 CPUs, 48 GB, 1 h, account vswarup_lab_gpu (nodes hpc3-gpu-18-03 and 18-04 excluded); scoring on standard, 4 CPUs, 64 GB, account vswarup_lab.   Job/tmux: see jobs.tsv.
+Inputs: 23 development libraries of config/datasets.tsv (rows 1, 9, 10, 14, 16, 17, 18, 32, 33, 34, 42, 44 to 55): the 21 of the 0.3.1 development plus two Parse tissue libraries already looked at (parse_igvf_NOOZ, parse_bm_hfd) for marker retention. The 12 confirmation mixtures stay shut.          Env: Glymph 0.3.2.dev1 to dev5 in the scanpy env (torch 2.10, CUDA 12); Glymph 0.3.1 and CellBender 0.3.2 outputs linked for side-by-side scoring.
+Started: 2026-11-17 13:48 EST  Finished: 2026-11-18 02:55 EST  Status: DONE
+Actual: five rounds, 25 Glymph configurations times 23 libraries (575 GPU tasks of 1 to 10 min, about 2.5 GB of GPU memory on small libraries) and five scoring passes; wall time 13 h including a 9 h gap while the laptop was asleep (jobs ran on).
+Outputs: summary_by_variant.tsv (means per configuration), metrics/ and generic/ (one table per library, every configuration), decisions.tsv (what each round showed and why the next change was made), jobs.tsv. Glymph outputs (.h5ad) stay on HPC3 under the run folder, out/h1_* to out/h5_*.
+Notes: frozen as Glymph 0.3.2 after round five; the benchmark is 20261117-1342_glymph-cb040-bench. The laptop lost the UCI VPN and Tailscale between 08:20 and 13:40; unit tests were run on an HPC3 compute node because the Studio stayed unreachable. From 02:00 on 2026-11-18 HPC3 was reached through the office Studio (VPN down, Tailscale up; code/hpc_relay).

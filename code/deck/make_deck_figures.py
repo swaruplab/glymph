@@ -19,7 +19,10 @@ import pandas as pd  # noqa: E402
 
 THEME = sys.argv[1] if len(sys.argv) > 1 else "dark"
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-RUN = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, "runs", "20261117-0607_glymph-031-alltier")
+RUN = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, "runs", "20261117-1342_glymph-cb040-bench")
+# Which versions the tools "glymph" and "cellbender" of this run's tables are (versions.json in the run folder).
+VERS = json.load(open(os.path.join(RUN, "versions.json"))) if os.path.exists(os.path.join(RUN, "versions.json")) else {"glymph": "0.3.1", "cellbender": "0.3.2"}
+GV, CV = VERS["glymph"], VERS["cellbender"]
 RUN0 = os.path.join(ROOT, "runs", "20261116-2209_glymph-alltier-bench")
 OUT = os.path.join(ROOT, "reports", "deck_figures", THEME)
 os.makedirs(OUT, exist_ok=True)
@@ -31,7 +34,7 @@ plt.rcParams.update({"font.family": "Avenir Next", "font.size": 13, "axes.edgeco
                      "axes.facecolor": "none", "figure.facecolor": "none", "savefig.facecolor": "none", "axes.titlesize": 14,
                      "axes.titlecolor": T["ink"], "axes.labelsize": 13, "legend.frameon": False})
 G, B = "Glymph", "CellBender"
-NUM = {}
+NUM = {"glymph_version": GV, "cellbender_version": CV}
 
 
 def save(fig, name):
@@ -61,15 +64,19 @@ def mean(tool, col, libs, t=sp):
 
 
 # ---------------------------------------------------------------- numbers the slides quote
+PAIR = [("glymph", "g"), ("cellbender", "c")]
+# the versions before, where this run scored them beside the current ones: Glymph 0.3.1 (g1), CellBender 0.3.2 (c2)
+# and a second run of the current Glymph (g2), for the spread between two runs of the same code
+BOTH = PAIR + [(t, tag) for t, tag in (("glymph_031", "g1"), ("cellbender032", "c2"), ("glymph_rep2", "g2")) if (sp.tool == t).any()]
 for key, libs in (("all", list(sp.dataset.unique())), ("conf", CONF), ("conf10x", CONF[:7]), ("confxeno", CONF[7:11]), ("confbd", CONF[11:])):
-    for tool, tag in (("glymph", "g"), ("cellbender", "c")):
+    for tool, tag in BOTH:
         for col, short in (("cross_species_removed", "rem"), ("own_retained", "kept"), ("contam_rmsle", "err"), ("contam_kendall", "rank"),
                            ("same_species_ratio", "ratio")):
             NUM[f"{key}_{tag}_{short}"] = round(mean(tool, col, libs), 4)
     NUM[f"{key}_n"] = len(libs)
 for g, libs in GROUPS.items():
     k = g.split()[0].lower()
-    for tool, tag in (("glymph", "g"), ("cellbender", "c")):
+    for tool, tag in BOTH:
         NUM[f"grp_{k}_{tag}_rem"] = round(mean(tool, "cross_species_removed", libs), 4)
         NUM[f"grp_{k}_{tag}_err"] = round(mean(tool, "contam_rmsle", libs), 4)
     NUM[f"grp_{k}_n"] = len(libs)
@@ -79,7 +86,7 @@ NUM["err_wins"], NUM["err_total"] = int((p.glymph < p.cellbender).sum()), int(le
 pr = pd.concat([sp[sp.tool.isin(["glymph", "cellbender"])].pivot(index="dataset", columns="tool", values="contam_kendall"),
                 kid[kid.tool.isin(["glymph", "cellbender"])].pivot(index="dataset", columns="tool", values="contam_kendall")])
 NUM["rank_wins"] = int((pr.glymph > pr.cellbender).sum())
-for tool, tag in (("glymph", "g"), ("cellbender", "c")):
+for tool, tag in BOTH:
     k = kid[kid.tool == tool]
     NUM[f"kid_{tag}_err"], NUM[f"kid_{tag}_rank"] = round(float(k.contam_rmsle.mean()), 4), round(float(k.contam_kendall.mean()), 3)
     NUM[f"kid_{tag}_rot"] = round(float(k.removed_over_truth.mean()), 3)
@@ -117,8 +124,8 @@ save(fig, "speed_per_library")
 # ---------------------------------------------------------------- 2. scaling with library size
 sc_path = os.path.join(RUN, "scaling.tsv")
 sc = pd.read_csv(sc_path if os.path.exists(sc_path) else os.path.join(RUN0, "scaling.tsv"), sep="\t")
-gl = sc[sc.tool.str.contains("0.3.1") & (sc.state == "completed")]
-cb = sc[sc.tool.str.startswith("CellBender")]
+gl = sc[(sc.tool == f"Glymph {GV}") & (sc.state == "completed")]
+cb = sc[sc.tool == f"CellBender {CV}"]
 
 
 def dur(s):
@@ -184,6 +191,37 @@ for ax, (title, libs) in zip(axes, panels):
 axes[0].set_ylabel("Cross-species counts removed, %")
 fig.tight_layout(w_pad=1.6)
 save(fig, "tradeoff_by_platform")
+
+# ---------------------------------------------------------------- 5. cells that lose far more than their background
+st_path = os.path.join(RUN, "stripped_cells.tsv")
+if os.path.exists(st_path):
+    st = pd.read_csv(st_path, sep="\t")
+    tot = st.groupby("tool")[["cells", "cells_stripped_far_beyond_truth"]].sum()
+    for tool, tag in BOTH + [("scar", "scar"), ("soupx", "soupx"), ("decontx_bg", "decontx")]:
+        if tool in tot.index:
+            NUM[f"strip_{tag}"] = int(tot.loc[tool, "cells_stripped_far_beyond_truth"])
+    NUM["strip_cells"], NUM["strip_libs"] = int(tot.loc["glymph", "cells"]), int(st.dataset.nunique())
+    xe = st[st.dataset.str.startswith("xeno")].groupby("tool").cells_stripped_far_beyond_truth.sum()
+    for tool, tag in BOTH:
+        if tool in xe.index:
+            NUM[f"strip_xeno_{tag}"] = int(xe[tool])
+    show = [("scar", "scAR", T["muted"]), ("cellbender", f"{B} {CV}", T["cool"]), ("decontx_bg", "DecontX", T["muted"]),
+            ("glymph_031", f"{G} 0.3.1", T["muted"]), ("glymph", f"{G} {GV}", T["warm"]), ("soupx", "SoupX", T["muted"])]
+    show = [x for x in show if x[0] in tot.index]
+    fig, ax = plt.subplots(figsize=(7.6, 4.4))
+    for i, (tool, name, col) in enumerate(reversed(show)):
+        v = max(float(tot.loc[tool, "cells_stripped_far_beyond_truth"]), 0.8)
+        ax.hlines(i, 0.8, v, color=T["hair"], lw=2.2, zorder=1)
+        ax.plot([v], [i], ls="", marker="o", ms=11, color=col, mec=T["surface"], mew=1.2, zorder=3)
+        ax.annotate(f"{int(tot.loc[tool, 'cells_stripped_far_beyond_truth']):,}", (v, i), xytext=(11, 0), textcoords="offset points", va="center", fontsize=13.5, color=T["ink"])
+    ax.set_xscale("log")
+    ax.set_xlim(0.8, 60000)
+    ax.set_yticks(range(len(show)))
+    ax.set_yticklabels([n for _, n, _ in reversed(show)], fontsize=13)
+    ax.set_ylim(-0.6, len(show) - 0.4)
+    ax.set_xlabel(f"Cells stripped far beyond their background, of {NUM['strip_cells']:,} (log scale)")
+    ax.grid(axis="y", visible=False)
+    save(fig, "stripped_cells")
 
 json.dump(NUM, open(os.path.join(ROOT, "reports", "deck_figures", "numbers.json"), "w"), indent=1)
 print(json.dumps(NUM)[:1500])

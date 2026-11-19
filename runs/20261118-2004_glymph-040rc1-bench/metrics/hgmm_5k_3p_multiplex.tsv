@@ -1,0 +1,9 @@
+dataset	tool	n_eval_cells	n_missing	n_multiplets_excluded	raw_cross_species_pct	cross_species_removed	median_cell_removal	own_retained	same_species_ratio	native_loss	n_above_raw	added_counts	n_negative	n_noninteger	contam_rmsle	contam_kendall	same_species_ratio_measured	native_loss_measured	contam_rmsle_measured	contam_kendall_measured	own_expected_measured_over_extrapolated	ambient_human_share	cell_threshold	n_masked_genes	masked_cross_pct
+hgmm_5k_3p_multiplex	raw	4239	0	105	0.92892	0	0	1	0	0	0	0	0	0	0.02334		0	0	0.023468		1.077	0.62941	9311.1	0	0
+hgmm_5k_3p_multiplex	cellbender	4239	0	105	0.92892	0.95265	0.98582	0.99578	0.41438	0	0	0	0	0	0.0090624	0.60155	0.38476	0	0.0097504	0.44655	1.077	0.62941	9311.1	0	0
+hgmm_5k_3p_multiplex	decontx	4239	0	105	0.92892	0.50984	0.48799	0.99939	0.060054	0	0	0	0	29117446	0.015185	0.80206	0.055762	0	0.015601	0.63827	1.077	0.62941	9311.1	0	0
+hgmm_5k_3p_multiplex	glymph	4239	0	105	0.92892	0.98589	0.98933	0.98916	1.0646	0.00066511	0	0	0	0	0.0043974	0.92031	0.98856	0	0.0049852	0.76003	1.077	0.62941	9311.1	0	0
+hgmm_5k_3p_multiplex	glymph_032	4239	0	105	0.92892	0.95998	0.97475	0.99086	0.89742	0	0	0	0	0	0.0046218	0.80485	0.83328	0	0.0055792	0.61492	1.077	0.62941	9311.1	0	0
+hgmm_5k_3p_multiplex	glymph_rep2	4239	0	105	0.92892	0.986	0.98947	0.98915	1.0655	0.00067391	0	0	0	0	0.0044063	0.92062	0.98935	0	0.0049836	0.76129	1.077	0.62941	9311.1	0	0
+hgmm_5k_3p_multiplex	scar	4239	0	105	0.92892	0.99548	0.99764	0.98897	1.0826	0.00084958	16705537	2.977e+07	0	0	0.0085805	0.36902	1.0052	5.7693e-05	0.0087676	0.28481	1.077	0.62941	9311.1	0	0
+hgmm_5k_3p_multiplex	soupx	4239	0	105	0.92892	0.61632	0.62627	0.99109	0.8746	0	0	0	0	28732323	0.011861	0.12244	0.8121	0	0.011778	0.24385	1.077	0.62941	9311.1	0	0

@@ -1,0 +1,13 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+hgmm_12k_v2	raw	12665	0	0	clusters	1	4	0	0	0	0	0.00071662	0	1
+hgmm_12k_v2	cellbender	12665	0	2.4978	clusters	1	4	0	0	0	0	0.00071662	0.084247	1
+hgmm_12k_v2	glymph_032	12665	0	3.7903	clusters	1	4	0	0	0	0	0.00071662	0.1137	0.99874
+hgmm_12k_v2	glymph_032_rep2	12665	0	3.7945	clusters	1	4	0	0	0	0	0.00071662	0.10959	0.99811
+hgmm_12k_v2	m1_pca_a	12665	0	3.7954	clusters	1	4	0	0	0	0	0.00071662	0.11575	0.99874
+hgmm_12k_v2	m1_pca_b	12665	0	3.8004	clusters	1	4	0	0	0	0	0.00071662	0.11438	0.99842
+hgmm_12k_v2	m1_tree_a	12665	0	3.7851	clusters	1	4	0	0	0	0	0.00071662	0.13288	0.99653
+hgmm_12k_v2	m1_tree_b	12665	0	3.7944	clusters	1	4	0	0	0	0	0.00071662	0.12671	0.99527
+hgmm_12k_v2	m1_treepca_a	12665	0	3.7805	clusters	1	4	0	0	0	0	0.00071662	0.12534	0.99779
+hgmm_12k_v2	m1_treepca_b	12665	0	3.7785	clusters	1	4	0	0	0	0	0.00071662	0.12466	0.99748
+hgmm_12k_v2	m2_a	12665	0	3.8041	clusters	1	4	0	0	0	0	0.00071662	0.11438	0.99779
+hgmm_12k_v2	m2_b	12665	0	3.8012	clusters	1	4	0	0	0	0	0.00071662	0.1137	0.99748

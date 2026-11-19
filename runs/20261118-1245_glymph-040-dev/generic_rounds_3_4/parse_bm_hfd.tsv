@@ -1,0 +1,17 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+parse_bm_hfd	raw	72204	0	0	labels	5	5	0	0	0	0	0.0011666	0	1
+parse_bm_hfd	cellbender	72204	63082	42.131	labels	5	5	0	0	0	0	0.0009445	0.73418	0.99946
+parse_bm_hfd	glymph_032	72204	0	14.601	labels	5	5	0	0	0	0	0.0011666	0.76448	0.90042
+parse_bm_hfd	glymph_032_rep2	72204	9	20.46	labels	5	5	0	0	0	0	0.0011664	0.92236	0.85192
+parse_bm_hfd	m1_pca_a	72204	18	8.852	labels	5	5	0	0	0	0	0.0011664	0.50539	0.91304
+parse_bm_hfd	m1_pca_b	72204	13	8.662	labels	5	5	0	0	0	0	0.0011665	0.49527	0.91282
+parse_bm_hfd	m2_a	72204	14	8.8052	labels	5	5	0	0	0	0	0.0011665	0.49895	0.91129
+parse_bm_hfd	m2_b	72204	15	8.808	labels	5	5	0	0	0	0	0.0011664	0.51117	0.91265
+parse_bm_hfd	m3_a	72204	50	10.958	labels	5	5	0	0	0	0	0.0011658	0.77613	0.92958
+parse_bm_hfd	m3_b	72204	44	10.952	labels	5	5	0	0	0	0	0.0011659	0.76949	0.93114
+parse_bm_hfd	m3_fpr2	72204	42	10.838	labels	5	5	0	0	0	0	0.0011659	0.76502	0.93009
+parse_bm_hfd	m3_nobudget	72204	25	12.643	labels	5	5	0	0	0	0	0.0011661	0.71073	0.92838
+parse_bm_hfd	m3_nofactor	72204	19	12.087	labels	5	5	0	0	0	0	0.0011664	0.67952	0.93031
+parse_bm_hfd	m3_noswap	72204	23	9.3033	labels	5	5	0	0	0	0	0.001166	0.5757	0.9257
+parse_bm_hfd	m4_a	72204	18174	13.945	labels	5	5	0	0	0	0	0.001194	0.76838	0.9088
+parse_bm_hfd	m4_b	72204	17795	14.038	labels	5	5	0	0	0	0	0.0011925	0.78851	0.89944

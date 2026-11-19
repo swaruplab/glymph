@@ -1,0 +1,4 @@
+dataset	gene	in_cells_of	share_of_cross_pct	share_in_source_cells_pct	share_in_soup_pct
+neat_barnyard	LINC00486	mouse	5.108	0.09624	0.2843
+neat_barnyard	PLCG2	mouse	17.89	0.4865	0.7517
+neat_barnyard	FP671120.4	mouse	3.028	0.003579	0.04837

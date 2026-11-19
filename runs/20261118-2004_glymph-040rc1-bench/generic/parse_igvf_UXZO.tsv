@@ -1,0 +1,9 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+parse_igvf_UXZO	raw	11446	0	0	labels	5	189	0	0	0	0	0.23123	0	1
+parse_igvf_UXZO	cellbender	11446	0	1.2003	labels	5	189	0	0	0	0	0.23123	0.13106	0.99432
+parse_igvf_UXZO	decontx	11446	0	4.6706	labels	5	189	0	0	0	15755525	0.23123	0.1969	0.9952
+parse_igvf_UXZO	glymph	11446	0	1.8557	labels	5	189	0	0	0	0	0.23123	0.12806	0.99061
+parse_igvf_UXZO	glymph_032	11446	0	2.5025	labels	5	189	0	0	0	0	0.23123	0.16826	0.98184
+parse_igvf_UXZO	glymph_rep2	11446	0	1.855	labels	5	189	0	0	0	0	0.23123	0.12808	0.99053
+parse_igvf_UXZO	scar	11446	0	21.921	labels	5	189	8479428	1.0544e+07	0	0	0.23123	0.46832	0.94923
+parse_igvf_UXZO	soupx	11446	0	1.2	labels	5	189	0	0	0	15753724	0.23123	0.092238	0.99666

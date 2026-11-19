@@ -1,0 +1,13 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+parse_igvf_NOOZ	raw	11346	0	0	labels	5	199	0	0	0	0	0.31022	0	1
+parse_igvf_NOOZ	cellbender	11346	0	1.0013	labels	5	199	0	0	0	0	0.31022	0.12517	0.99338
+parse_igvf_NOOZ	glymph_032	11346	0	1.7227	labels	5	199	0	0	0	0	0.31022	0.14966	0.99083
+parse_igvf_NOOZ	glymph_032_rep2	11346	0	1.4622	labels	5	199	0	0	0	0	0.31022	0.1207	0.99208
+parse_igvf_NOOZ	m1_pca_a	11346	0	2.3301	labels	5	199	0	0	0	0	0.31022	0.22379	0.98276
+parse_igvf_NOOZ	m1_pca_b	11346	0	2.3303	labels	5	199	0	0	0	0	0.31022	0.22231	0.98269
+parse_igvf_NOOZ	m1_tree_a	11346	0	2.0866	labels	5	199	0	0	0	0	0.31022	0.15432	0.98664
+parse_igvf_NOOZ	m1_tree_b	11346	0	1.5723	labels	5	199	0	0	0	0	0.31022	0.11832	0.99135
+parse_igvf_NOOZ	m1_treepca_a	11346	0	2.3242	labels	5	199	0	0	0	0	0.31022	0.21053	0.98305
+parse_igvf_NOOZ	m1_treepca_b	11346	0	2.3239	labels	5	199	0	0	0	0	0.31022	0.20995	0.98304
+parse_igvf_NOOZ	m2_a	11346	0	2.3345	labels	5	199	0	0	0	0	0.31022	0.22348	0.98274
+parse_igvf_NOOZ	m2_b	11346	0	2.3344	labels	5	199	0	0	0	0	0.31022	0.2233	0.98261

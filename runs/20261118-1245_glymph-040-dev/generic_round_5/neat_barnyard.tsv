@@ -1,0 +1,13 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+neat_barnyard	raw	1308	0	0	labels	1	12	0	0	0	0	0.00087483	0	1
+neat_barnyard	cellbender	1308	0	0.9166	labels	1	12	0	0	0	0	0.00087483	0.07563	0.99805
+neat_barnyard	glymph_032	1308	0	7.586	labels	1	12	0	0	0	0	0.00087483	0.14286	0.99292
+neat_barnyard	m1_pca_a	1308	0	7.5085	labels	1	12	0	0	0	0	0.00087483	0.18908	0.99341
+neat_barnyard	m2_a	1308	0	7.9475	labels	1	12	0	0	0	0	0.00087483	0.21008	0.99219
+neat_barnyard	m3_a	1308	0	7.441	labels	1	12	0	0	0	0	0.00087483	0.2563	0.98853
+neat_barnyard	m3_nofactor	1308	0	7.7079	labels	1	12	0	0	0	0	0.00087483	0.22269	0.98804
+neat_barnyard	m4_a	1308	0	7.3902	labels	1	12	0	0	0	0	0.00087483	0.23529	0.98901
+neat_barnyard	m5_a	1308	0	7.9162	labels	1	12	0	0	0	0	0.00087483	0.20168	0.99268
+neat_barnyard	m5_b	1308	0	7.9577	labels	1	12	0	0	0	0	0.00087483	0.21008	0.99341
+neat_barnyard	m5_fpr2	1308	0	7.7118	labels	1	12	0	0	0	0	0.00087483	0.18908	0.99487
+neat_barnyard	m5_fpr3	1308	0	7.8303	labels	1	12	0	0	0	0	0.00087483	0.19748	0.99414

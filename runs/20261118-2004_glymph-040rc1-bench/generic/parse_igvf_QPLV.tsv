@@ -1,0 +1,9 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+parse_igvf_QPLV	raw	12180	0	0	labels	5	204	0	0	0	0	0.19861	0	1
+parse_igvf_QPLV	cellbender	12180	0	1.2759	labels	5	204	0	0	0	0	0.19861	0.14485	0.99354
+parse_igvf_QPLV	decontx	12180	0	4.0649	labels	5	204	0	0	0	17334018	0.19861	0.21809	0.99321
+parse_igvf_QPLV	glymph	12180	0	1.6043	labels	5	204	0	0	0	0	0.19861	0.11799	0.99051
+parse_igvf_QPLV	glymph_032	12180	0	1.4807	labels	5	204	0	0	0	0	0.19861	0.12502	0.99227
+parse_igvf_QPLV	glymph_rep2	12180	0	1.5997	labels	5	204	0	0	0	0	0.19861	0.11809	0.99058
+parse_igvf_QPLV	scar	12180	0	20.373	labels	5	204	9621679	1.1989e+07	0	0	0.19861	0.44619	0.94967
+parse_igvf_QPLV	soupx	12180	0	1	labels	5	204	0	0	0	17345654	0.19861	0.088993	0.99724

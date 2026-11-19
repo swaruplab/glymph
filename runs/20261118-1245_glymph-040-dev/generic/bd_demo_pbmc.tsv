@@ -1,0 +1,9 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+bd_demo_pbmc	raw	11370	0	0	clusters	7	80	0	0	0	0	0.068572	0	1
+bd_demo_pbmc	cellbender	11370	1	1.9865	clusters	7	80	0	0	0	0	0.068573	0.15802	0.99942
+bd_demo_pbmc	glymph_032	11370	0	5.406	clusters	7	80	0	0	0	0	0.068572	0.31272	0.99365
+bd_demo_pbmc	m6_fpr3	11370	3	17.052	clusters	7	80	0	0	0	0	0.068532	0.43409	0.98753
+bd_demo_pbmc	m7_a	11370	0	2.1769	clusters	7	80	0	0	0	0	0.068572	0.16069	0.99934
+bd_demo_pbmc	m7_b	11370	0	2.178	clusters	7	80	0	0	0	0	0.068572	0.161	0.99936
+bd_demo_pbmc	m8_a	11370	0	2.1777	clusters	7	80	0	0	0	0	0.068572	0.16089	0.99937
+bd_demo_pbmc	m8_b	11370	0	2.1763	clusters	7	80	0	0	0	0	0.068572	0.15981	0.9994

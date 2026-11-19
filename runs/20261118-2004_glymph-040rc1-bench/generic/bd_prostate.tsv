@@ -1,0 +1,9 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+bd_prostate	raw	15857	0	0	clusters	9	391	0	0	0	0	0.88962	0	1
+bd_prostate	cellbender	15857	0	2.3542	clusters	9	391	0	0	0	0	0.88962	0.051312	0.99996
+bd_prostate	decontx	15857	0	7.7719	clusters	9	391	0	0	0	30221498	0.88962	0.20957	0.99623
+bd_prostate	glymph	15857	0	5.3621	clusters	9	391	0	0	0	0	0.88962	0.12257	0.99882
+bd_prostate	glymph_032	15857	0	6.3241	clusters	9	391	0	0	0	0	0.88962	0.12849	0.99763
+bd_prostate	glymph_rep2	15857	0	5.3629	clusters	9	391	0	0	0	0	0.88962	0.12268	0.99882
+bd_prostate	scar	15857	0	30.357	clusters	9	391	13759927	1.6703e+07	0	0	0.88962	0.21162	0.9396
+bd_prostate	soupx	15857	0	2.3	clusters	9	391	0	0	0	30287943	0.88962	0.043418	0.9986

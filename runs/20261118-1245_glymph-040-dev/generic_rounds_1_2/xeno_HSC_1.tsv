@@ -1,0 +1,13 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+xeno_HSC_1	raw	1646	0	0	clusters	7	129	0	0	0	0	0.38805	0	1
+xeno_HSC_1	cellbender	1646	0	0.69288	clusters	7	129	0	0	0	0	0.38805	0.30694	0.99811
+xeno_HSC_1	glymph_032	1646	0	1.8406	clusters	7	129	0	0	0	0	0.38805	0.32146	0.99583
+xeno_HSC_1	glymph_032_rep2	1646	0	1.6186	clusters	7	129	0	0	0	0	0.38805	0.31102	0.99647
+xeno_HSC_1	m1_pca_a	1646	0	1.5089	clusters	7	129	0	0	0	0	0.38805	0.31771	0.99612
+xeno_HSC_1	m1_pca_b	1646	0	1.5092	clusters	7	129	0	0	0	0	0.38805	0.3172	0.9961
+xeno_HSC_1	m1_tree_a	1646	0	1.384	clusters	7	129	0	0	0	0	0.38805	0.30834	0.9963
+xeno_HSC_1	m1_tree_b	1646	0	1.6883	clusters	7	129	0	0	0	0	0.38805	0.32922	0.996
+xeno_HSC_1	m1_treepca_a	1646	0	1.6355	clusters	7	129	0	0	0	0	0.38805	0.36682	0.99594
+xeno_HSC_1	m1_treepca_b	1646	0	1.6357	clusters	7	129	0	0	0	0	0.38805	0.36679	0.99594
+xeno_HSC_1	m2_a	1646	0	1.5119	clusters	7	129	0	0	0	0	0.38805	0.31707	0.99612
+xeno_HSC_1	m2_b	1646	0	1.5086	clusters	7	129	0	0	0	0	0.38805	0.31793	0.99613

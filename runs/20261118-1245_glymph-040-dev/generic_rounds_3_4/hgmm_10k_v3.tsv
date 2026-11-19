@@ -1,0 +1,17 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+hgmm_10k_v3	raw	10563	0	0	clusters	3	57	0	0	0	0	0.0098215	0	1
+hgmm_10k_v3	cellbender	10563	5	2.8898	clusters	3	57	0	0	0	0	0.0098216	0.10305	0.99956
+hgmm_10k_v3	glymph_032	10563	0	3.1524	clusters	3	57	0	0	0	0	0.0098215	0.1024	0.99866
+hgmm_10k_v3	glymph_032_rep2	10563	0	3.1565	clusters	3	57	0	0	0	0	0.0098215	0.097965	0.99875
+hgmm_10k_v3	m1_pca_a	10563	0	3.169	clusters	3	57	0	0	0	0	0.0098215	0.099432	0.99859
+hgmm_10k_v3	m1_pca_b	10563	0	3.1646	clusters	3	57	0	0	0	0	0.0098215	0.099808	0.99881
+hgmm_10k_v3	m2_a	10563	0	3.1752	clusters	3	57	0	0	0	0	0.0098215	0.10184	0.99879
+hgmm_10k_v3	m2_b	10563	0	3.1836	clusters	3	57	0	0	0	0	0.0098215	0.10158	0.99864
+hgmm_10k_v3	m3_a	10563	0	3.1916	clusters	3	57	0	0	0	0	0.0098215	0.12068	0.99723
+hgmm_10k_v3	m3_b	10563	0	3.1924	clusters	3	57	0	0	0	0	0.0098215	0.11857	0.99723
+hgmm_10k_v3	m3_fpr2	10563	0	2.9996	clusters	3	57	0	0	0	0	0.0098215	0.11387	0.99765
+hgmm_10k_v3	m3_nobudget	10563	0	3.3081	clusters	3	57	0	0	0	0	0.0098215	0.11361	0.99756
+hgmm_10k_v3	m3_nofactor	10563	0	3.2583	clusters	3	57	0	0	0	0	0.0098215	0.1047	0.99833
+hgmm_10k_v3	m3_noswap	10563	0	3.1515	clusters	3	57	0	0	0	0	0.0098215	0.11933	0.99723
+hgmm_10k_v3	m4_a	10563	0	3.3843	clusters	3	57	0	0	0	0	0.0098215	0.13001	0.99754
+hgmm_10k_v3	m4_b	10563	0	3.3862	clusters	3	57	0	0	0	0	0.0098215	0.12963	0.9975

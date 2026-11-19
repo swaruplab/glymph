@@ -1,0 +1,9 @@
+#!/bin/bash
+# h3push <remote directory on HPC3> <local path>...   (local paths are copied into the remote directory)
+# MacBook -> Studio scratch -> HPC3 transfer node. Code and configs only.
+remote="$1"; shift
+key=$(printf '%s' "$remote" | /sbin/md5 | cut -c1-12)
+rel="LocalDocuments/compute/glymph_relay/push_$key"
+ssh -o BatchMode=yes -o ConnectTimeout=15 studio-work "rm -rf $rel && mkdir -p $rel" || exit 1
+rsync -a --timeout=120 --exclude='__pycache__' --rsync-path=/opt/homebrew/bin/rsync "$@" "studio-work:$rel/" || exit 1
+ssh -o BatchMode=yes -o ConnectTimeout=15 studio-work "/opt/homebrew/bin/rsync -a --timeout=120 $rel/ hpc3-xfer:$remote/"

@@ -1,0 +1,11 @@
+#!/bin/bash
+# h3wait <seconds between checks> <job id>...   Wait until none of the jobs is queued or running, asking through the office Studio.
+# A check that cannot reach the cluster counts as "still running" (the laptop may be asleep or off the network).
+here=$(dirname "$0"); every="$1"; shift
+ids=$(IFS=,; echo "$*")
+while true; do
+  n=$("$here/h3" "squeue -h -j $ids 2>/dev/null | wc -l" 2>/dev/null | tr -d ' ')
+  if [ "$n" = "0" ]; then echo "$(date '+%H:%M') all done"; exit 0; fi
+  echo "$(date '+%H:%M') still queued or running: ${n:-unreachable}"
+  /bin/sleep "$every"
+done

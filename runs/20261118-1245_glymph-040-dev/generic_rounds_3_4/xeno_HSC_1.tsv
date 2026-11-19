@@ -1,0 +1,17 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+xeno_HSC_1	raw	1646	0	0	clusters	7	130	0	0	0	0	0.40139	0	1
+xeno_HSC_1	cellbender	1646	0	0.69288	clusters	7	130	0	0	0	0	0.40139	0.29732	0.99811
+xeno_HSC_1	glymph_032	1646	0	1.8406	clusters	7	130	0	0	0	0	0.40139	0.31166	0.99583
+xeno_HSC_1	glymph_032_rep2	1646	0	1.6186	clusters	7	130	0	0	0	0	0.40139	0.30139	0.99647
+xeno_HSC_1	m1_pca_a	1646	0	1.5089	clusters	7	130	0	0	0	0	0.40139	0.3078	0.99612
+xeno_HSC_1	m1_pca_b	1646	0	1.5092	clusters	7	130	0	0	0	0	0.40139	0.30736	0.9961
+xeno_HSC_1	m2_a	1646	0	1.5119	clusters	7	130	0	0	0	0	0.40139	0.30716	0.99612
+xeno_HSC_1	m2_b	1646	0	1.5086	clusters	7	130	0	0	0	0	0.40139	0.30798	0.99613
+xeno_HSC_1	m3_a	1646	0	1.509	clusters	7	130	0	0	0	0	0.40139	0.30719	0.99612
+xeno_HSC_1	m3_b	1646	0	1.5072	clusters	7	130	0	0	0	0	0.40139	0.30763	0.99613
+xeno_HSC_1	m3_fpr2	1646	0	1.3123	clusters	7	130	0	0	0	0	0.40139	0.30024	0.99798
+xeno_HSC_1	m3_nobudget	1646	0	1.5079	clusters	7	130	0	0	0	0	0.40139	0.30698	0.99611
+xeno_HSC_1	m3_nofactor	1646	0	1.5108	clusters	7	130	0	0	0	0	0.40139	0.30695	0.99611
+xeno_HSC_1	m3_noswap	1646	0	1.5123	clusters	7	130	0	0	0	0	0.40139	0.30757	0.99613
+xeno_HSC_1	m4_a	1646	0	1.51	clusters	7	130	0	0	0	0	0.40139	0.3071	0.99611
+xeno_HSC_1	m4_b	1646	0	1.5116	clusters	7	130	0	0	0	0	0.40139	0.30677	0.99612

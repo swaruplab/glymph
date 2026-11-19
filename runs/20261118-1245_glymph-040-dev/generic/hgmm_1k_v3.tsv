@@ -1,0 +1,10 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger
+hgmm_1k_v3	raw	999	0	0	none	0	0	0	0	0	0
+hgmm_1k_v3	cellbender	999	0	1.1262	none	0	0	0	0	0	0
+hgmm_1k_v3	glymph_032	999	0	0.92388	none	0	0	0	0	0	0
+hgmm_1k_v3	m2_a	999	0	0.91946	none	0	0	0	0	0	0
+hgmm_1k_v3	m6_fpr3	999	0	0.82171	none	0	0	0	0	0	0
+hgmm_1k_v3	m7_a	999	0	0.77449	none	0	0	0	0	0	0
+hgmm_1k_v3	m7_b	999	0	0.77434	none	0	0	0	0	0	0
+hgmm_1k_v3	m8_a	999	0	0.82261	none	0	0	0	0	0	0
+hgmm_1k_v3	m8_b	999	0	0.82218	none	0	0	0	0	0	0
