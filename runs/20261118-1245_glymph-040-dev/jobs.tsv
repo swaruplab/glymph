@@ -1,0 +1,81 @@
+job_id	what	tool	unit	unit_names	note
+59816728	Spliced / unspliced / ambiguous molecule counts from the alignment file	splice	kidney_nuc2	kidney_nuc2	data/splice/kidney_nuc2.*
+59816729	Same	splice	kidney_rep3	kidney_rep3	
+59816913	Same	splice	kidney_nuc3	kidney_nuc3	
+59816914	Same	splice	kidney_rep1	kidney_rep1	
+59816915	Glymph 0.4.0.dev1: multi-resolution silent sets (clusters split into sub-clusters), latent-space clusters; replicate a	Glymph	library		out/m1_tree_a
+59816916	Same, replicate b	Glymph	library		out/m1_tree_b
+59816917	Multi-resolution silent sets on clusters from principal components of the counts; replicate a	Glymph	library		out/m1_treepca_a
+59816918	Same, replicate b	Glymph	library		out/m1_treepca_b
+59816919	One resolution as in 0.3.2, clusters from principal components; replicate a	Glymph	library		out/m1_pca_a
+59816920	Same, replicate b	Glymph	library		out/m1_pca_b
+59816921	Scoring, first round	scoring	library		
+59816922	Tables, first round	collect	run		
+59817150	Spliced / unspliced counts, kidney_rep2 (cancelled: whole-cell libraries were aligned without introns)	splice	kidney_rep2	kidney_rep2	cancelled, as was 59816914
+59817186	Standard input file with spliced / unspliced layers	ingest	kidney_nuc2	kidney_nuc2	data/std_splice/kidney_nuc2.h5ad
+59818431	Same	ingest	kidney_nuc3	kidney_nuc3	
+59818535	Glymph 0.4.0.dev2 on the kidney nuclei with splicing (silent sets and output), first version (shift fitted, first tree, latent clusters); replicate a	Glymph	library	kidney_nuc2,kidney_nuc3	out/s1_full_a
+59818536	Same, replicate b	Glymph	library	kidney_nuc2,kidney_nuc3	out/s1_full_b
+59818537	Splicing for the silent sets only, a	Glymph	library	kidney_nuc2,kidney_nuc3	out/s1_silent_a
+59818538	Same, b	Glymph	library	kidney_nuc2,kidney_nuc3	out/s1_silent_b
+59818539	Splicing for the output step only, a	Glymph	library	kidney_nuc2,kidney_nuc3	out/s1_output_a
+59818540	Same, b	Glymph	library	kidney_nuc2,kidney_nuc3	out/s1_output_b
+59818541	Splicing off, a	Glymph	library	kidney_nuc2,kidney_nuc3	out/s1_off_a
+59818542	Same, b	Glymph	library	kidney_nuc2,kidney_nuc3	out/s1_off_b
+59818543	Scoring, first splicing round	scoring	library	kidney_nuc2,kidney_nuc3	
+59818784	Glymph 0.4.0.dev4: clusters from principal components, tree that only protects (a sub-cluster overrules its cluster where a quarter of its cells carry a gene); replicate a	Glymph	library		out/m2_a
+59818785	Same, replicate b	Glymph	library		out/m2_b
+59818786	Kidney nuclei, same code, splicing off	Glymph	library	kidney_nuc2,kidney_nuc3	out/s2_off
+59818787	Splicing for the output step only (background share fixed at the empty partitions' value)	Glymph	library	kidney_nuc2,kidney_nuc3	out/s2_output
+59818788	Splicing for the silent sets only	Glymph	library	kidney_nuc2,kidney_nuc3	out/s2_silent
+59818789	Splicing for both, replicate a	Glymph	library	kidney_nuc2,kidney_nuc3	out/s2_full_a
+59818790	Same, replicate b	Glymph	library	kidney_nuc2,kidney_nuc3	out/s2_full_b
+59818791	Splicing for both with the shift fitted on the count-silent genes	Glymph	library	kidney_nuc2,kidney_nuc3	out/s2_fullfit
+59818792	Scoring, second round	scoring	library		
+59820742	Analysis of the 0.4.0.dev5 test outputs on three mixtures (silent-test dump, removal by excess over the ambient profile)	diagnostic	library	hgmm_10k_v3,bd_hgmm_mix1,hgmm_1k_v3	logs/dev_59820742.out
+59820883	Glymph 0.4.0.dev5: gene contrast for the swapped fraction and the level shared across clusters (new defaults); replicate a	Glymph	library		out/m3_a
+59820884	Same, replicate b	Glymph	library		out/m3_b
+59820885	Level shared across clusters only (--no-swap-contrast)	Glymph	library		out/m3_noswap
+59820886	Gene contrast only (--silent-factor-max=1)	Glymph	library		out/m3_nofactor
+59820887	Both, the shared level used for the silent sets and not for the budget (--no-factor-budget)	Glymph	library		out/m3_nobudget
+59820888	Both, false-positive allowance 0.2% instead of 0.4% (--fpr=0.002)	Glymph	library		out/m3_fpr2
+59820889	Scoring, third round	scoring	library		
+59821007	What Glymph leaves, by the class of the silent test (dev5 outputs)	diagnostic	library	bd_hgmm_mix1,hgmm_10k_v3	logs/dev_59821007.out
+59821267	0.4.0.dev6 on three mixtures with the silent-test dump	Glymph	library	bd_hgmm_mix1,hgmm_10k_v3,hgmm_1k_v3	out_dbg/d6
+59821280,59821326,59821401	Unit tests of the working copy (dev2)	tests			logs/dev_<job>.out
+59821375	Analysis of the dev6 outputs	diagnostic	library	bd_hgmm_mix1,hgmm_10k_v3,hgmm_1k_v3	logs/dev_59821375.out
+59821402	0.4.0.dev7 on six mixtures with the silent-test dump, then the same analysis	Glymph	library	bd_hgmm_mix1,hgmm_10k_v3,hgmm_1k_v3,xeno_HSC_1,jurkat_32d,neat_barnyard	out_dbg/d7, logs/dev_59821402.out
+59820889,59821514	Scoring, third round: cancelled while waiting in the queue (two tasks done); rounds M3 and M4 are scored together by 59821592	scoring	library		earlier variants (first tree, splicing rounds) moved from out/ to out_old/; their tables are in metrics_rounds_1_2/ and generic_rounds_1_2/
+59821586	Glymph 0.4.0.dev7: as M3 plus background-like clusters take a larger cluster's silent genes; replicate a	Glymph	library		out/m4_a
+59821587	Same, replicate b	Glymph	library		out/m4_b
+59821588	False-positive allowance 0.2% (--fpr=0.002): cancelled in the queue once round M4 was rejected	Glymph	library		
+59821589	False-positive allowance 0.1% (--fpr=0.001): cancelled in the queue	Glymph	library		
+59821590	Largest shared level 2 instead of 3: cancelled in the queue	Glymph	library		
+59821591	Without the tree: cancelled in the queue	Glymph	library		
+59821592	Scoring, rounds M3 and M4: cancelled, replaced by 59821753 and 59821754 (the GPU queue put the four variants hours behind)	scoring	library		
+59821753	Scoring: round M3 and the two main runs of round M4	scoring	library		
+59821754	Scoring of the four cancelled variants: cancelled	scoring	library		
+59822066	0.4.0.dev7 with the silent-test dump on three tissue libraries (for the per-cell look at merged clusters)	Glymph	library	xeno_HSC_3,kidney_rep2,pfc_ga22	out_dbg/d7
+59822067	Species split of the background inside cells; per-cell look at merged clusters	diagnostic	library		logs/dev_59822067.out
+59822426	Glymph 0.4.0.dev8: gene contrast only where clear, bound 30% of depth; shared level and background-like clusters off; replicate a	Glymph	library		out/m5_a
+59822427	Same, replicate b	Glymph	library		out/m5_b
+59822428	False-positive allowance 0.3% (--fpr=0.003)	Glymph	library		out/m5_fpr3
+59822429	False-positive allowance 0.2% (--fpr=0.002)	Glymph	library		out/m5_fpr2
+59822430	Scoring, round M5 (earlier replicates and rejected variants moved to out_old/)	scoring	library		
+59822431	Unit tests of 0.4.0.dev8	tests			logs/dev_59822431.out
+59824967	Per-cell look at merged clusters on three tissue libraries (dev7 dumps)	diagnostic	library	xeno_HSC_3,kidney_rep2,pfc_ga22	logs/dev_59824967.out
+59824971	Glymph 0.4.0.dev9: swapped fraction searched only below 5% depth-proportional background, bound 5%; replicate a	Glymph	library		out/m6_a
+59824972	Same, replicate b	Glymph	library		out/m6_b
+59824973	False-positive allowance 0.3% (--fpr=0.003)	Glymph	library		out/m6_fpr3
+59824974	Scoring, round M6, with the measured same-species truth as extra columns	scoring	library		
+59824975	Unit tests of 0.4.0.dev9	tests			logs/dev_59824975.out
+59825012	0.4.0.dev9 with --superpose and the silent-test dump on seven libraries, then the per-cell look at merged clusters	Glymph	library	xeno_HSC_3,kidney_rep2,kidney_rep1,kidney_rep3,pfc_ga22,parse_igvf_NOOZ,bd_hgmm_mix1	out_dbg/d9s, logs/dev_59825012.out
+59827573	Glymph 0.4.0.dev10: tested pairs settled before the fit; replicate a	Glymph	library		out/m7_a (26 libraries)
+59827574	Same, replicate b	Glymph	library		out/m7_b
+59827575	The 0.4.0rc1 behaviour on the three added libraries (--no-calib-fixed-candidates)	Glymph	library	bd_demo_pbmc,bd_spleen,bd_liver	out/m6_fpr3
+59827576	Scoring, round M7	scoring	library		
+59827577	Unit tests of 0.4.0.dev10	tests			logs/dev_59827577.out
+59828740	Glymph 0.4.0.dev11: both rules for the tested pairs with the cross-check; replicate a	Glymph	library		out/m8_a (26 libraries)
+59828741	Same, replicate b	Glymph	library		out/m8_b
+59828742	Scoring, round M8 (after the scoring of round M7)	scoring	library		
+59828743	Unit tests of 0.4.0.dev11	tests			logs/dev_59828743.out

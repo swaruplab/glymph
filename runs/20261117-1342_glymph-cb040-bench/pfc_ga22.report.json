@@ -1,0 +1,701 @@
+{
+ "version": "0.3.2",
+ "device": "cuda:0",
+ "gpu": "NVIDIA A30",
+ "peak_gpu_mem_gb": 4.719,
+ "timings": {
+  "priors_s": 0.882,
+  "setup_s": 0.648,
+  "train_s": 30.136,
+  "calibrate_s": 30.543,
+  "denoise_s": 1.926,
+  "assemble_s": 0.655,
+  "read_s": 3.175,
+  "write_s": 7.116,
+  "total_s": 75.094
+ },
+ "n_cells": 15772,
+ "e_unit": {
+  "all": 188.99998474121094
+ },
+ "swap_fraction": {
+  "all": 4.999999873689376e-06
+ },
+ "ambient_multiplier": {
+  "all": 0.10000000149011612
+ },
+ "empty_alpha": 9.711051872606305,
+ "swap_calibration": {
+  "applied": true,
+  "per_cell": {
+   "0": {
+    "kappa": 0.1,
+    "kappa_depth": 6.964797773639372,
+    "depth_ref": 3491.0,
+    "n_informative": 15430,
+    "n_outlier": 310,
+    "n_barcodes": 66851,
+    "silent_set": "broad",
+    "expected_rescaled_by": 0.9948,
+    "n_silent_excess": 20,
+    "background_match_q10_q50_q90": [
+     0.093,
+     0.211,
+     0.76
+    ],
+    "alpha": 5.496481535072278,
+    "expected_silent_counts_median": 35.9540445714978,
+    "multiplier_over_trend_q10_q50_q90": [
+     0.636,
+     0.937,
+     1.476
+    ]
+   },
+   "masked_cells": 15727,
+   "silent_excess_cells": 20,
+   "doublet_like_cells": 13,
+   "silent_genes_per_cluster_median": 8381.0
+  },
+  "swap_learned": [
+   0.008099285885691643
+  ],
+  "swap_estimate": [
+   1e-07
+  ],
+  "kappa_estimate": [
+   0.1
+  ],
+  "kappa_used": [
+   0.10000000149011612
+  ],
+  "swap_used": [
+   4.999999873689376e-06
+  ],
+  "n_confident_cells": 11923,
+  "confident_threshold": 748.1178280472201,
+  "pools": {
+   "0": {
+    "n_cells": 11923,
+    "n_clusters": 20,
+    "min_expected_used": 30.0,
+    "ridge": 1.413,
+    "ridge_histogram": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     5,
+     16,
+     22,
+     51,
+     88,
+     152,
+     255,
+     331,
+     430,
+     499,
+     584,
+     558,
+     607,
+     541,
+     534,
+     412,
+     237,
+     120,
+     69,
+     22,
+     5,
+     4,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "seeds_with_signal": 3,
+    "background_at_median_depth_by_seed": [
+     1325.43,
+     1335.25,
+     1555.55
+    ],
+    "clusters_tried": [
+     20
+    ],
+    "clusters": [
+     {
+      "cluster": 0,
+      "cells": 763,
+      "candidates": 309,
+      "genes": 292,
+      "ratio": 0.913,
+      "used": true
+     },
+     {
+      "cluster": 1,
+      "cells": 333,
+      "candidates": 55,
+      "genes": 14,
+      "ratio": 1.304,
+      "used": true
+     },
+     {
+      "cluster": 2,
+      "cells": 844,
+      "candidates": 433,
+      "genes": 350,
+      "ratio": 1.015,
+      "used": true
+     },
+     {
+      "cluster": 3,
+      "cells": 676,
+      "candidates": 330,
+      "genes": 213,
+      "ratio": 0.969,
+      "used": true
+     },
+     {
+      "cluster": 4,
+      "cells": 205,
+      "candidates": 101,
+      "genes": 68,
+      "ratio": 0.783,
+      "used": true
+     },
+     {
+      "cluster": 5,
+      "cells": 616,
+      "candidates": 252,
+      "genes": 220,
+      "ratio": 1.0,
+      "used": true
+     },
+     {
+      "cluster": 6,
+      "cells": 834,
+      "candidates": 408,
+      "genes": 306,
+      "ratio": 1.077,
+      "used": true
+     },
+     {
+      "cluster": 7,
+      "cells": 386,
+      "candidates": 175,
+      "genes": 109,
+      "ratio": 1.001,
+      "used": true
+     },
+     {
+      "cluster": 8,
+      "cells": 736,
+      "candidates": 445,
+      "genes": 263,
+      "ratio": 1.065,
+      "used": true
+     },
+     {
+      "cluster": 9,
+      "cells": 131,
+      "candidates": 102,
+      "genes": 78,
+      "ratio": 0.945,
+      "used": true
+     },
+     {
+      "cluster": 10,
+      "cells": 299,
+      "candidates": 53,
+      "genes": 17,
+      "ratio": 1.188,
+      "used": true
+     },
+     {
+      "cluster": 11,
+      "cells": 468,
+      "candidates": 237,
+      "genes": 203,
+      "ratio": 1.006,
+      "used": true
+     },
+     {
+      "cluster": 12,
+      "cells": 745,
+      "candidates": 561,
+      "genes": 430,
+      "ratio": 1.118,
+      "used": true
+     },
+     {
+      "cluster": 13,
+      "cells": 647,
+      "candidates": 317,
+      "genes": 289,
+      "ratio": 0.826,
+      "used": true
+     },
+     {
+      "cluster": 14,
+      "cells": 822,
+      "candidates": 312,
+      "genes": 268,
+      "ratio": 0.95,
+      "used": true
+     },
+     {
+      "cluster": 15,
+      "cells": 576,
+      "candidates": 267,
+      "genes": 166,
+      "ratio": 0.951,
+      "used": true
+     },
+     {
+      "cluster": 16,
+      "cells": 375,
+      "candidates": 84,
+      "genes": 27,
+      "ratio": 1.197,
+      "used": true
+     },
+     {
+      "cluster": 17,
+      "cells": 477,
+      "candidates": 123,
+      "genes": 68,
+      "ratio": 1.065,
+      "used": true
+     },
+     {
+      "cluster": 18,
+      "cells": 1153,
+      "candidates": 575,
+      "genes": 441,
+      "ratio": 1.111,
+      "used": true
+     },
+     {
+      "cluster": 19,
+      "cells": 837,
+      "candidates": 406,
+      "genes": 321,
+      "ratio": 0.782,
+      "used": true
+     }
+    ],
+    "kappa": 0.1,
+    "kappa_depth": 6.964797773639372,
+    "s": 1e-07,
+    "depth_ref": 3491.0,
+    "cells_fitted": 11923,
+    "cells_trimmed": 208,
+    "silent_counts": 460596.0,
+    "clusters_dropped": [],
+    "silent_genes_tested_median": 213.0,
+    "silent_genes_broad_median": 8381.0,
+    "silent_counts_broad": 668742.0,
+    "cells_left_out_of_cluster_sums": 160
+   }
+  }
+ },
+ "removed_fraction_in_cells": 0.31512450674027376,
+ "priors": {
+  "threshold_method": "plateau",
+  "confident_threshold": 748.1178280472201,
+  "n_confident": 11924,
+  "empty_sd0": 0.13596364648856674,
+  "knee": "none",
+  "rejected_plateau": "none",
+  "bead_cliff": 79.24465962305585,
+  "plateau": {
+   "P": 187.9115,
+   "mu0": 2.274,
+   "sd0": 0.136,
+   "cliff": 79.2447,
+   "T": 561.0092,
+   "hi": 187.9115,
+   "n_empty": 42136.0,
+   "n_cells": 23749.0608,
+   "dispersion": 1.0433
+  },
+  "cell_threshold": 561.0092271509837,
+  "n_cells_prior": 12188,
+  "empty_level": 187.91152984989495,
+  "empty_max": 187.91152984989495,
+  "n_background_barcodes": 26493,
+  "n_plateau_barcodes": 26493,
+  "n_analyzed": 66851,
+  "n_train_empties": 26493,
+  "n_genes": 27754,
+  "soup_umis_per_unit": {
+   "all": 4126406.0
+  },
+  "e_unit_init": {
+   "all": 189.0
+  }
+ },
+ "train": {
+  "epochs_run": 23,
+  "epochs_planned": 48,
+  "steps": 1449,
+  "best_val": 7.64658216305706
+ },
+ "train_calibrated": {
+  "epochs_run": 24,
+  "epochs_planned": 24,
+  "steps": 1512,
+  "best_val": 7.66111803163435
+ },
+ "train_matched": {},
+ "history": [
+  {
+   "epoch": 1,
+   "train": 8.15131,
+   "val": 7.67733,
+   "s": 0.01002
+  },
+  {
+   "epoch": 2,
+   "train": 8.1919,
+   "val": 7.67194,
+   "s": 0.01013
+  },
+  {
+   "epoch": 3,
+   "train": 8.15864,
+   "val": 7.6616,
+   "s": 0.0103
+  },
+  {
+   "epoch": 4,
+   "train": 8.1291,
+   "val": 7.6564,
+   "s": 0.01023
+  },
+  {
+   "epoch": 5,
+   "train": 8.26761,
+   "val": 7.65789,
+   "s": 0.00998
+  },
+  {
+   "epoch": 6,
+   "train": 8.05256,
+   "val": 7.64927,
+   "s": 0.0098
+  },
+  {
+   "epoch": 7,
+   "train": 8.18347,
+   "val": 7.65035,
+   "s": 0.00952
+  },
+  {
+   "epoch": 8,
+   "train": 8.1032,
+   "val": 7.6472,
+   "s": 0.0093
+  },
+  {
+   "epoch": 9,
+   "train": 8.04142,
+   "val": 7.6476,
+   "s": 0.00909
+  },
+  {
+   "epoch": 10,
+   "train": 8.1318,
+   "val": 7.65079,
+   "s": 0.00889
+  },
+  {
+   "epoch": 11,
+   "train": 8.07082,
+   "val": 7.64702,
+   "s": 0.00872
+  },
+  {
+   "epoch": 12,
+   "train": 8.24574,
+   "val": 7.64883,
+   "s": 0.00855
+  },
+  {
+   "epoch": 13,
+   "train": 8.08862,
+   "val": 7.64738,
+   "s": 0.00843
+  },
+  {
+   "epoch": 14,
+   "train": 8.10243,
+   "val": 7.64823,
+   "s": 0.00826
+  },
+  {
+   "epoch": 15,
+   "train": 8.07248,
+   "val": 7.64658,
+   "s": 0.0081
+  },
+  {
+   "epoch": 16,
+   "train": 8.05264,
+   "val": 7.64667,
+   "s": 0.00793
+  },
+  {
+   "epoch": 17,
+   "train": 8.15379,
+   "val": 7.64833,
+   "s": 0.00775
+  },
+  {
+   "epoch": 18,
+   "train": 8.12522,
+   "val": 7.64735,
+   "s": 0.00761
+  },
+  {
+   "epoch": 19,
+   "train": 8.22545,
+   "val": 7.64916,
+   "s": 0.00747
+  },
+  {
+   "epoch": 20,
+   "train": 8.08168,
+   "val": 7.64733,
+   "s": 0.00734
+  },
+  {
+   "epoch": 21,
+   "train": 8.10464,
+   "val": 7.64902,
+   "s": 0.00718
+  },
+  {
+   "epoch": 22,
+   "train": 8.04774,
+   "val": 7.64792,
+   "s": 0.00704
+  },
+  {
+   "epoch": 23,
+   "train": 8.22995,
+   "val": 7.6498,
+   "s": 0.00692
+  }
+ ],
+ "history_calibrated": [
+  {
+   "epoch": 1,
+   "train": 8.12964,
+   "val": 7.6671,
+   "s": 0.0
+  },
+  {
+   "epoch": 2,
+   "train": 8.17913,
+   "val": 7.66112,
+   "s": 0.0
+  },
+  {
+   "epoch": 3,
+   "train": 8.15083,
+   "val": 7.66151,
+   "s": 0.0
+  },
+  {
+   "epoch": 4,
+   "train": 8.12546,
+   "val": 7.66132,
+   "s": 0.0
+  },
+  {
+   "epoch": 5,
+   "train": 8.26501,
+   "val": 7.6628,
+   "s": 0.0
+  },
+  {
+   "epoch": 6,
+   "train": 8.05199,
+   "val": 7.66128,
+   "s": 0.0
+  },
+  {
+   "epoch": 7,
+   "train": 8.18311,
+   "val": 7.66215,
+   "s": 0.0
+  },
+  {
+   "epoch": 8,
+   "train": 8.10237,
+   "val": 7.66279,
+   "s": 0.0
+  },
+  {
+   "epoch": 9,
+   "train": 8.04091,
+   "val": 7.66184,
+   "s": 0.0
+  },
+  {
+   "epoch": 10,
+   "train": 8.13059,
+   "val": 7.66191,
+   "s": 0.0
+  },
+  {
+   "epoch": 11,
+   "train": 8.06915,
+   "val": 7.66225,
+   "s": 0.0
+  },
+  {
+   "epoch": 12,
+   "train": 8.24467,
+   "val": 7.66237,
+   "s": 0.0
+  },
+  {
+   "epoch": 13,
+   "train": 8.08712,
+   "val": 7.66313,
+   "s": 0.0
+  },
+  {
+   "epoch": 14,
+   "train": 8.10177,
+   "val": 7.66369,
+   "s": 0.0
+  },
+  {
+   "epoch": 15,
+   "train": 8.07181,
+   "val": 7.66329,
+   "s": 0.0
+  },
+  {
+   "epoch": 16,
+   "train": 8.05255,
+   "val": 7.66383,
+   "s": 0.0
+  },
+  {
+   "epoch": 17,
+   "train": 8.15431,
+   "val": 7.66405,
+   "s": 0.0
+  },
+  {
+   "epoch": 18,
+   "train": 8.1253,
+   "val": 7.66423,
+   "s": 0.0
+  },
+  {
+   "epoch": 19,
+   "train": 8.22567,
+   "val": 7.66499,
+   "s": 0.0
+  },
+  {
+   "epoch": 20,
+   "train": 8.08194,
+   "val": 7.66473,
+   "s": 0.0
+  },
+  {
+   "epoch": 21,
+   "train": 8.10672,
+   "val": 7.66493,
+   "s": 0.0
+  },
+  {
+   "epoch": 22,
+   "train": 8.05072,
+   "val": 7.66521,
+   "s": 0.0
+  },
+  {
+   "epoch": 23,
+   "train": 8.23367,
+   "val": 7.66546,
+   "s": 0.0
+  },
+  {
+   "epoch": 24,
+   "train": 8.15694,
+   "val": 7.66526,
+   "s": 0.0
+  }
+ ],
+ "config": {
+  "n_hidden": 512,
+  "n_latent": 32,
+  "n_cond": 16,
+  "likelihood": "multinomial",
+  "eps_alpha": 10.0,
+  "eps_alpha_calibrated": 50.0,
+  "eps_alpha_pinned": 2000.0,
+  "learn_ambient_level": false,
+  "s_init": 0.01,
+  "s_max": 0.05,
+  "calibrate_swap": true,
+  "calib_clusters": 20,
+  "cell_multipliers": true,
+  "mask_silent": true,
+  "silent_broad": true,
+  "calib_retry": true,
+  "calib_seeds": 3,
+  "doublet_match": 0.5,
+  "doublet_share_max": 0.2,
+  "cluster_match": 0.0,
+  "spare_doublets": false,
+  "calib_ridge_max": 5.0,
+  "match_posterior_mean": false,
+  "keep_cell_totals": true,
+  "cell_totals_max_entries": 150000000,
+  "calib_quantile": 0.5,
+  "calib_steps_frac": 0.5,
+  "bg_reward": 0.0,
+  "s_freeze_frac": 0.0,
+  "global_lr_mult": 1.0,
+  "batch_size": 1024,
+  "target_steps": 3000,
+  "min_epochs": 20,
+  "max_epochs": 300,
+  "lr": 0.001,
+  "kl_warmup_frac": 0.2,
+  "val_frac": 0.05,
+  "patience": 8,
+  "seed": 0,
+  "low_count": 5.0,
+  "expected_cells": "none",
+  "empty_level": "none",
+  "max_barcodes": 250000,
+  "estimator": "gene",
+  "fpr": 0.004,
+  "fpr_background_cap": -1.0,
+  "swap_start": 0.0002,
+  "silent_wide_level": -1.0,
+  "strength": 1.0,
+  "cell_prob_cutoff": 0.5,
+  "keep_non_cells": false,
+  "device": "cuda:0"
+ },
+ "input": "/dfs7/swaruplab/vswarup/compute/glymph/data/std/pfc_ga22.h5ad",
+ "output": "out/glymph/pfc_ga22.h5ad"
+}

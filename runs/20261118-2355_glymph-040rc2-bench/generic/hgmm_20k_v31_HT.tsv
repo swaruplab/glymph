@@ -1,0 +1,10 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+hgmm_20k_v31_HT	raw	16273	0	0	clusters	3	62	0	0	0	0	0.029535	0	1
+hgmm_20k_v31_HT	cellbender	16273	0	2.4396	clusters	3	62	0	0	0	0	0.029535	0.08794	0.99998
+hgmm_20k_v31_HT	decontx	16273	0	8.0546	clusters	3	62	0	0	0	87602657	0.029535	0.25977	0.9982
+hgmm_20k_v31_HT	glymph	16273	0	2.6924	clusters	3	62	0	0	0	0	0.029535	0.094756	0.99989
+hgmm_20k_v31_HT	glymph_032	16273	0	2.729	clusters	3	62	0	0	0	0	0.029535	0.080433	0.99994
+hgmm_20k_v31_HT	glymph_rc1	16273	0	2.6934	clusters	3	62	0	0	0	0	0.029535	0.095076	0.99991
+hgmm_20k_v31_HT	glymph_rep2	16273	0	2.693	clusters	3	62	0	0	0	0	0.029535	0.095091	0.99989
+hgmm_20k_v31_HT	scar	16273	0	6.7522	clusters	3	62	47181710	7.7313e+07	0	0	0.029535	0.1562	0.97357
+hgmm_20k_v31_HT	soupx	16273	0	2.2	clusters	3	62	0	0	0	86206183	0.029535	0.067595	0.99711

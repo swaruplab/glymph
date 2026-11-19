@@ -1,0 +1,9 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+parse_igvf_PIQO	raw	10519	0	0	labels	5	194	0	0	0	0	0.27658	0	1
+parse_igvf_PIQO	cellbender	10519	0	0.82266	labels	5	194	0	0	0	0	0.27658	0.11456	0.99427
+parse_igvf_PIQO	decontx	10519	0	5.2674	labels	5	194	0	0	0	15301833	0.27658	0.25938	0.99278
+parse_igvf_PIQO	glymph	10519	0	1.3087	labels	5	194	0	0	0	0	0.27658	0.12453	0.99456
+parse_igvf_PIQO	glymph_032	10519	0	2.0623	labels	5	194	0	0	0	0	0.27658	0.15898	0.9883
+parse_igvf_PIQO	glymph_rep2	10519	0	1.3107	labels	5	194	0	0	0	0	0.27658	0.12433	0.99448
+parse_igvf_PIQO	scar	10519	0	20.415	labels	5	194	8539939	1.0621e+07	0	0	0.27658	0.51282	0.92573
+parse_igvf_PIQO	soupx	10519	0	1	labels	5	194	0	0	0	15317550	0.27658	0.096044	0.99658

@@ -1,0 +1,9 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+parse_igvf_BVLA	raw	11793	0	0	labels	5	203	0	0	0	0	0.19777	0	1
+parse_igvf_BVLA	cellbender	11793	0	0.95975	labels	5	203	0	0	0	0	0.19777	0.13248	0.99484
+parse_igvf_BVLA	decontx	11793	0	4.005	labels	5	203	0	0	0	17647221	0.19777	0.20824	0.99315
+parse_igvf_BVLA	glymph	11793	0	1.6528	labels	5	203	0	0	0	0	0.19777	0.12419	0.99017
+parse_igvf_BVLA	glymph_032	11793	0	1.4601	labels	5	203	0	0	0	0	0.19777	0.13386	0.99225
+parse_igvf_BVLA	glymph_rep2	11793	0	1.652	labels	5	203	0	0	0	0	0.19777	0.12435	0.99024
+parse_igvf_BVLA	scar	11793	0	19.589	labels	5	203	9807174	1.2416e+07	0	0	0.19777	0.41463	0.95336
+parse_igvf_BVLA	soupx	11793	0	1.4	labels	5	203	0	0	0	17649246	0.19777	0.11349	0.9961

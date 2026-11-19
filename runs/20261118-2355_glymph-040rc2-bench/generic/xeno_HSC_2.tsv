@@ -1,0 +1,10 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger
+xeno_HSC_2	raw	1226	0	0	none	0	0	0	0	0	0
+xeno_HSC_2	cellbender	1226	0	0.80305	none	0	0	0	0	0	0
+xeno_HSC_2	decontx	1226	0	0.86123	none	0	0	0	0	0	1313462
+xeno_HSC_2	glymph	1226	0	1.1293	none	0	0	0	0	0	0
+xeno_HSC_2	glymph_032	1226	0	1.2067	none	0	0	0	0	0	0
+xeno_HSC_2	glymph_rc1	1226	0	1.1294	none	0	0	0	0	0	0
+xeno_HSC_2	glymph_rep2	1226	0	1.1077	none	0	0	0	0	0	0
+xeno_HSC_2	scar	1226	87	62.372	none	0	0	677029	1.0081e+06	0	0
+xeno_HSC_2	soupx	1226	0	1	none	0	0	0	0	0	1312393

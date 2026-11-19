@@ -1,0 +1,10 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+pfc_ga22	raw	11924	0	0	clusters	1	21	0	0	0	0	0.025715	0	1
+pfc_ga22	cellbender	11924	46	5.5883	clusters	1	21	0	0	0	0	0.025709	0.094575	0.9995
+pfc_ga22	glymph_032	11924	1	31.174	clusters	1	21	0	0	0	0	0.025716	0.46893	0.98751
+pfc_ga22	m2_a	11924	1	15.865	clusters	1	21	0	0	0	0	0.025716	0.3157	0.997
+pfc_ga22	m6_fpr3	11924	1	15.784	clusters	1	21	0	0	0	0	0.025716	0.31509	0.997
+pfc_ga22	m7_a	11924	1	15.377	clusters	1	21	0	0	0	0	0.025716	0.30993	0.99738
+pfc_ga22	m7_b	11924	1	15.369	clusters	1	21	0	0	0	0	0.025716	0.31115	0.99738
+pfc_ga22	m8_a	11924	1	15.803	clusters	1	21	0	0	0	0	0.025716	0.31617	0.99725
+pfc_ga22	m8_b	11924	1	15.767	clusters	1	21	0	0	0	0	0.025716	0.31475	0.99713

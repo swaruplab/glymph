@@ -1,0 +1,9 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+bd_pbmc_Donor2881	raw	79669	0	0	clusters	1	1	0	0	0	0	0.028259	0	1
+bd_pbmc_Donor2881	cellbender	79669	50286	59.906	clusters	1	1	0	0	0	0	0.027242	0.094942	0
+bd_pbmc_Donor2881	decontx	79669	0	22.545	clusters	1	1	0	0	0	35298356	0.028259	0.48646	0.98853
+bd_pbmc_Donor2881	glymph	79669	0	10.19	clusters	1	1	0	0	0	0	0.028259	0.10974	0.99036
+bd_pbmc_Donor2881	glymph_032	79669	0	20.698	clusters	1	1	0	0	0	0	0.028259	0.15289	0.98154
+bd_pbmc_Donor2881	glymph_rep2	79669	0	10.19	clusters	1	1	0	0	0	0	0.028259	0.10904	0.99091
+bd_pbmc_Donor2881	scar	79669	0	50.76	clusters	1	1	13424377	1.3859e+07	0	0	0.028259	0.0099374	0.83825
+bd_pbmc_Donor2881	soupx	79669	0	11.3	clusters	1	1	0	0	0	36882234	0.028259	0.11353	0.99512

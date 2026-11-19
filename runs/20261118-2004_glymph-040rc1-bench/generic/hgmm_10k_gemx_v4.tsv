@@ -1,0 +1,9 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+hgmm_10k_gemx_v4	raw	10956	0	0	clusters	4	94	0	0	0	0	0.07821	0	1
+hgmm_10k_gemx_v4	cellbender	10956	0	1.5151	clusters	4	94	0	0	0	0	0.07821	0.071503	0.99961
+hgmm_10k_gemx_v4	decontx	10956	0	2.9326	clusters	4	94	0	0	0	71036625	0.07821	0.081774	0.99894
+hgmm_10k_gemx_v4	glymph	10956	0	2.1178	clusters	4	94	0	0	0	0	0.07821	0.062968	0.99934
+hgmm_10k_gemx_v4	glymph_032	10956	0	1.9908	clusters	4	94	0	0	0	0	0.07821	0.067516	0.99923
+hgmm_10k_gemx_v4	glymph_rep2	10956	0	2.1177	clusters	4	94	0	0	0	0	0.07821	0.063146	0.99944
+hgmm_10k_gemx_v4	scar	10956	0	3.649	clusters	4	94	40250069	6.3187e+07	0	0	0.07821	0.08301	0.89779
+hgmm_10k_gemx_v4	soupx	10956	0	1.7	clusters	4	94	0	0	0	70036938	0.07821	0.040199	0.99783

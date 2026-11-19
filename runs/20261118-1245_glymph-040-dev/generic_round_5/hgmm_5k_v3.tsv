@@ -1,0 +1,13 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+hgmm_5k_v3	raw	5171	0	0	clusters	2	44	0	0	0	0	0.0049267	0	1
+hgmm_5k_v3	cellbender	5171	36	1.9892	clusters	2	44	0	0	0	0	0.0049188	0.13213	0.99984
+hgmm_5k_v3	glymph_032	5171	1	2.313	clusters	2	44	0	0	0	0	0.0049267	0.13542	0.99808
+hgmm_5k_v3	m1_pca_a	5171	1	2.2775	clusters	2	44	0	0	0	0	0.0049267	0.14677	0.99782
+hgmm_5k_v3	m2_a	5171	1	2.2694	clusters	2	44	0	0	0	0	0.0049267	0.14791	0.99743
+hgmm_5k_v3	m3_a	5171	1	2.3998	clusters	2	44	0	0	0	0	0.0049267	0.1531	0.99633
+hgmm_5k_v3	m3_nofactor	5171	1	2.3519	clusters	2	44	0	0	0	0	0.0049267	0.15358	0.99805
+hgmm_5k_v3	m4_a	5171	1	2.3867	clusters	2	44	0	0	0	0	0.0049267	0.1445	0.99743
+hgmm_5k_v3	m5_a	5171	1	2.2623	clusters	2	44	0	0	0	0	0.0049267	0.1445	0.99717
+hgmm_5k_v3	m5_b	5171	1	2.2734	clusters	2	44	0	0	0	0	0.0049267	0.14239	0.99701
+hgmm_5k_v3	m5_fpr2	5171	1	2.0749	clusters	2	44	0	0	0	0	0.0049267	0.13542	0.99802
+hgmm_5k_v3	m5_fpr3	5171	1	2.1644	clusters	2	44	0	0	0	0	0.0049267	0.1385	0.9975

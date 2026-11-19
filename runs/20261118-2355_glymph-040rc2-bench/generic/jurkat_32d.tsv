@@ -1,0 +1,10 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+jurkat_32d	raw	6222	0	0	labels	2	100	0	0	0	0	0.52825	0	1
+jurkat_32d	cellbender	6222	128	2.5676	labels	2	100	0	0	0	0	0.52536	0.75918	0.98697
+jurkat_32d	decontx	6222	0	1.5121	labels	2	100	0	0	0	11738366	0.52825	0.79298	0.99989
+jurkat_32d	glymph	6222	2	4.5054	labels	2	100	0	0	0	0	0.52813	0.98044	0.97137
+jurkat_32d	glymph_032	6222	0	3.4188	labels	2	100	0	0	0	0	0.52825	0.84034	0.97929
+jurkat_32d	glymph_rc1	6222	2	4.5054	labels	2	100	0	0	0	0	0.52813	0.98051	0.97137
+jurkat_32d	glymph_rep2	6222	2	4.5044	labels	2	100	0	0	0	0	0.52813	0.98029	0.97142
+jurkat_32d	scar	6222	0	5.2184	labels	2	100	9128043	1.1445e+07	0	0	0.52825	1	0.97089
+jurkat_32d	soupx	6222	0	3.1	labels	2	100	0	0	0	13851724	0.52825	0.76669	0.98071

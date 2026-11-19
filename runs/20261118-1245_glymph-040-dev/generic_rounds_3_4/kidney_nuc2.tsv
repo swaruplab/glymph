@@ -1,0 +1,17 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger
+kidney_nuc2	raw	59249	0	0	clusters	0	0	0	0	0	0
+kidney_nuc2	cellbender	59249	41760	40.388	clusters	0	0	0	0	0	0
+kidney_nuc2	glymph_032	59249	31317	38.676	clusters	0	0	0	0	0	0
+kidney_nuc2	glymph_032_rep2	59249	31008	38.993	clusters	0	0	0	0	0	0
+kidney_nuc2	m1_pca_a	59249	33136	37.689	clusters	0	0	0	0	0	0
+kidney_nuc2	m1_pca_b	59249	32893	38.001	clusters	0	0	0	0	0	0
+kidney_nuc2	m2_a	59249	32710	38.978	clusters	0	0	0	0	0	0
+kidney_nuc2	m2_b	59249	32919	38.023	clusters	0	0	0	0	0	0
+kidney_nuc2	m3_a	59249	35403	34.969	clusters	0	0	0	0	0	0
+kidney_nuc2	m3_b	59249	35325	35.122	clusters	0	0	0	0	0	0
+kidney_nuc2	m3_fpr2	59249	31987	37.631	clusters	0	0	0	0	0	0
+kidney_nuc2	m3_nobudget	59249	31773	37.824	clusters	0	0	0	0	0	0
+kidney_nuc2	m3_nofactor	59249	32725	35.712	clusters	0	0	0	0	0	0
+kidney_nuc2	m3_noswap	59249	32839	40.41	clusters	0	0	0	0	0	0
+kidney_nuc2	m4_a	59249	31462	37.237	clusters	0	0	0	0	0	0
+kidney_nuc2	m4_b	59249	32092	37.144	clusters	0	0	0	0	0	0

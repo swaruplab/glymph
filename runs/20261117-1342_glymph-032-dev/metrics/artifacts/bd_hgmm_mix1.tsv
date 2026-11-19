@@ -1,0 +1,6 @@
+dataset	gene	in_cells_of	share_of_cross_pct	share_in_source_cells_pct	share_in_soup_pct
+bd_hgmm_mix1	mm10_Lars2	human	0.5319	0.009558	0.01448
+bd_hgmm_mix1	mm10_Comt	human	0.7358	0.03527	0.04817
+bd_hgmm_mix1	mm10_Gm42418	human	14.19	0.2281	1.204
+bd_hgmm_mix1	GRCh38_EIF5AL1	mouse	0.9384	0.0224	0.03506
+bd_hgmm_mix1	GRCh38_PABPN1	mouse	0.5305	0.02021	0.03311

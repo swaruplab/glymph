@@ -1,0 +1,9 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+bd_spleen	raw	8061	0	0	clusters	12	370	0	0	0	0	1.4213	0	1
+bd_spleen	cellbender	8061	0	1.3003	clusters	12	370	0	0	0	0	1.4213	0.064932	0.99973
+bd_spleen	glymph_032	8061	2	5.2071	clusters	12	370	0	0	0	0	1.4213	0.19824	0.99514
+bd_spleen	m6_fpr3	8061	2	5.6099	clusters	12	370	0	0	0	0	1.4213	0.20109	0.9961
+bd_spleen	m7_a	8061	2	4.7944	clusters	12	370	0	0	0	0	1.4213	0.17719	0.99742
+bd_spleen	m7_b	8061	2	4.7963	clusters	12	370	0	0	0	0	1.4213	0.17717	0.99737
+bd_spleen	m8_a	8061	2	5.6085	clusters	12	370	0	0	0	0	1.4213	0.20109	0.99609
+bd_spleen	m8_b	8061	2	5.6067	clusters	12	370	0	0	0	0	1.4213	0.20101	0.9961

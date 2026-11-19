@@ -1,0 +1,17 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+kidney_rep2	raw	28187	0	0	clusters	7	236	0	0	0	0	0.36162	0	1
+kidney_rep2	cellbender	28187	1551	14.565	clusters	7	236	0	0	0	0	0.35712	0.13092	0.9996
+kidney_rep2	glymph_032	28187	153	15.158	clusters	7	236	0	0	0	0	0.36155	0.18232	0.99696
+kidney_rep2	glymph_032_rep2	28187	187	16.07	clusters	7	236	0	0	0	0	0.36152	0.19994	0.99681
+kidney_rep2	m1_pca_a	28187	589	15.378	clusters	7	236	0	0	0	0	0.35922	0.21462	0.99515
+kidney_rep2	m1_pca_b	28187	601	15.368	clusters	7	236	0	0	0	0	0.35908	0.21422	0.99544
+kidney_rep2	m2_a	28187	573	15.442	clusters	7	236	0	0	0	0	0.35914	0.2057	0.9953
+kidney_rep2	m2_b	28187	531	15.456	clusters	7	236	0	0	0	0	0.35949	0.20658	0.99523
+kidney_rep2	m3_a	28187	97	21.379	clusters	7	236	0	0	0	0	0.36121	0.21159	0.99562
+kidney_rep2	m3_b	28187	85	21.323	clusters	7	236	0	0	0	0	0.36129	0.21169	0.99561
+kidney_rep2	m3_fpr2	28187	93	21.22	clusters	7	236	0	0	0	0	0.36126	0.20707	0.99609
+kidney_rep2	m3_nobudget	28187	829	16.571	clusters	7	236	0	0	0	0	0.35804	0.20669	0.99507
+kidney_rep2	m3_nofactor	28187	560	15.459	clusters	7	236	0	0	0	0	0.35908	0.20598	0.99532
+kidney_rep2	m3_noswap	28187	77	21.371	clusters	7	236	0	0	0	0	0.36133	0.21211	0.99553
+kidney_rep2	m4_a	28187	136	23.651	clusters	7	236	0	0	0	0	0.36122	0.26574	0.91105
+kidney_rep2	m4_b	28187	116	23.654	clusters	7	236	0	0	0	0	0.36131	0.26617	0.91103

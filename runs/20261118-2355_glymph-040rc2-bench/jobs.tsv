@@ -1,0 +1,5 @@
+job_id	what	tool	unit	unit_names	note
+59829009	Glymph 0.4.0rc2, every library	Glymph	library		out/glymph
+59829010	Same, second run	Glymph	library		out/glymph_rep2
+59829011	Scoring of every tool on every library (both versions of the same-species truth)	scoring	library		out/metrics, out/generic
+59829012	Tables into out/deliverables	collect			

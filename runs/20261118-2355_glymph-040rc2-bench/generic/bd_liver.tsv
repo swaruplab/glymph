@@ -1,0 +1,10 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+bd_liver	raw	13590	0	0	clusters	10	281	0	0	0	0	0.78546	0	1
+bd_liver	cellbender	13590	4	2.4129	clusters	10	281	0	0	0	0	0.78548	0.084578	0.99933
+bd_liver	decontx	13590	0	7.4785	clusters	10	281	0	0	0	23057542	0.78546	0.17291	0.99174
+bd_liver	glymph	13590	0	3.5513	clusters	10	281	0	0	0	0	0.78546	0.11991	0.99854
+bd_liver	glymph_032	13590	0	3.6339	clusters	10	281	0	0	0	0	0.78546	0.12536	0.99774
+bd_liver	glymph_rc1	13590	0	3.55	clusters	10	281	0	0	0	0	0.78546	0.11993	0.99853
+bd_liver	glymph_rep2	13590	0	3.5461	clusters	10	281	0	0	0	0	0.78546	0.11987	0.99857
+bd_liver	scar	13590	0	20.274	clusters	10	281	15156333	1.8148e+07	0	0	0.78546	0.1725	0.96286
+bd_liver	soupx	13590	0	2.3	clusters	10	281	0	0	0	23064045	0.78546	0.063444	0.99837

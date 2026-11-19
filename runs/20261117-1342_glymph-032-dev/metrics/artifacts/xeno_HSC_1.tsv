@@ -1,0 +1,5 @@
+dataset	gene	in_cells_of	share_of_cross_pct	share_in_source_cells_pct	share_in_soup_pct
+xeno_HSC_1	GRCh38_CSF1	mouse	1.466	0.00457	0.0203
+xeno_HSC_1	GRCh38_IL6	mouse	7.9	0.0005896	0.1042
+xeno_HSC_1	GRCh38_PLCG2	mouse	0.6785	0.0007371	0.02564
+xeno_HSC_1	GRCh38_SRSF1	mouse	0.5459	0.003685	0.01015

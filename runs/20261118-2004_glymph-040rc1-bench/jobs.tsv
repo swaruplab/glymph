@@ -1,0 +1,8 @@
+job_id	what	tool	unit	unit_names	note
+59825865	Glymph 0.4.0rc1, every library	Glymph	library		out/glymph
+59825866	Same, second run	Glymph	library		out/glymph_rep2
+59825867	Scoring of every tool on every library (both versions of the same-species truth)	scoring	library		out/metrics, out/generic
+59825868	Tables into out/deliverables	collect			
+59825869	Unit tests of 0.4.0rc1	tests			logs/glymph_tests_59825869.out
+59827533	Scoring of the five kidney libraries again (data link corrected)	scoring	library	kidney_rep1,kidney_rep2,kidney_rep3,kidney_nuc2,kidney_nuc3	
+59827534	Tables into out/deliverables again	collect			

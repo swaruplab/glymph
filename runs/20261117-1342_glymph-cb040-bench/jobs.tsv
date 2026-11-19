@@ -1,0 +1,23 @@
+job_id	what	tool	unit	unit_names	note
+59755209	Build the CellBender 0.4.0 environment	CellBender	run		CPU job on the standard partition.
+59775078	CellBender 0.4.0, test on one small library (hgmm_1k_v3), three budgets from one run	CellBender	hgmm_1k_v3		out/cellbender040
+59779508	CellBender 0.4.0 on the other 53 libraries, budgets 0, 0.5% and 1% from one training run	CellBender	library		Same settings as 0.3.2 in the first benchmark: defaults, automatic priors.
+59786944	Scaling, CellBender 0.4.0, 20,000 cells	CellBender	hgmm_20k_x1		
+59786945	Scaling, CellBender 0.4.0, 40,000 cells	CellBender	hgmm_20k_x2		
+59786946	Scaling, CellBender 0.4.0, 80,000 cells	CellBender	hgmm_20k_x4		
+59786947	Scaling, CellBender 0.4.0, 160,000 cells	CellBender	hgmm_20k_x8		160 GB and a 10 h limit (0.3.2 needed 112 GB and 4.5 h)
+59801837	Glymph 0.3.2, default (false-positive budget 0.4%)	Glymph	library		One A30 per library. out/glymph
+59801838	Glymph 0.3.2, budget 0	Glymph	library		out/glymph_fpr0
+59801839	Glymph 0.3.2, budget 0.2%	Glymph	library		out/glymph_fpr02
+59801840	Glymph 0.3.2, budget 1%	Glymph	library		out/glymph_fpr1
+59801841	Glymph 0.3.2, default, second run of the same code (run-to-run spread)	Glymph	library		out/glymph_rep2
+59801842	Scoring of every tool on every library	scoring	library		CellBender 0.4.0 scored as cellbender040; CellBender 0.3.2, scAR, SoupX, DecontX and Glymph 0.3.1 scored again from the linked outputs.
+59801843	Tables	collect	run		
+59801844	42 libraries on one node with four A30s, Glymph 0.3.2	Glymph	run	COMPLETED, 19 min 53 s (1,146 s for the 42 libraries, 26.7 GB RAM)	Throughput.
+59801845	Glymph 0.3.2 without a GPU, 16 cores	Glymph	hgmm_1k_v3		
+59801846	Glymph 0.3.2 without a GPU, 16 cores	Glymph	kidney_rep3		
+59801847	Glymph 0.3.2 without a GPU, 16 cores	Glymph	hgmm_20k_v31_HT		
+59801848	Scaling, Glymph 0.3.2, 20,000 cells	Glymph	hgmm_20k_x1		
+59801849	Scaling, Glymph 0.3.2, 40,000 cells	Glymph	hgmm_20k_x2		
+59801850	Scaling, Glymph 0.3.2, 80,000 cells	Glymph	hgmm_20k_x4		
+59801851	Scaling, Glymph 0.3.2, 160,000 cells	Glymph	hgmm_20k_x8		

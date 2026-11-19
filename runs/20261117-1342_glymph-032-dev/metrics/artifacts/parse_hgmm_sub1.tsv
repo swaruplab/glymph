@@ -1,0 +1,4 @@
+dataset	gene	in_cells_of	share_of_cross_pct	share_in_source_cells_pct	share_in_soup_pct
+parse_hgmm_sub1	mm10_Lars2	human	10.83	0.1972	0.5341
+parse_hgmm_sub1	mm10_Gm42418	human	68.32	1.828	4.703
+parse_hgmm_sub1	GRCh38_PLCG2	mouse	6.636	0.4344	0.1654

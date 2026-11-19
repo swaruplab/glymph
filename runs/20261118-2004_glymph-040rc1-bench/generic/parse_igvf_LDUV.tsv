@@ -1,0 +1,9 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+parse_igvf_LDUV	raw	10678	0	0	labels	5	191	0	0	0	0	0.31652	0	1
+parse_igvf_LDUV	cellbender	10678	0	0.92567	labels	5	191	0	0	0	0	0.31652	0.12355	0.9937
+parse_igvf_LDUV	decontx	10678	0	4.1053	labels	5	191	0	0	0	15498803	0.31652	0.20545	0.99432
+parse_igvf_LDUV	glymph	10678	0	1.6371	labels	5	191	0	0	0	0	0.31652	0.15263	0.99212
+parse_igvf_LDUV	glymph_032	10678	0	1.6264	labels	5	191	0	0	0	0	0.31652	0.13982	0.99112
+parse_igvf_LDUV	glymph_rep2	10678	0	1.641	labels	5	191	0	0	0	0	0.31652	0.15294	0.99217
+parse_igvf_LDUV	scar	10678	0	20.591	labels	5	191	8566848	1.0665e+07	0	0	0.31652	0.49803	0.95353
+parse_igvf_LDUV	soupx	10678	0	1.1	labels	5	191	0	0	0	15498812	0.31652	0.1059	0.99602

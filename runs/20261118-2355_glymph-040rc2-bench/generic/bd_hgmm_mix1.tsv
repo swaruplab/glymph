@@ -1,0 +1,10 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+bd_hgmm_mix1	raw	9899	0	0	labels	2	100	0	0	0	0	0.39047	0	1
+bd_hgmm_mix1	cellbender	9899	28	1.2567	labels	2	100	0	0	0	0	0.38752	0.14168	0.99548
+bd_hgmm_mix1	decontx	9899	0	1.933	labels	2	100	0	0	0	26515928	0.39047	0.23243	0.99736
+bd_hgmm_mix1	glymph	9899	119	1.2166	labels	2	100	0	0	0	0	0.37756	0.087977	0.99456
+bd_hgmm_mix1	glymph_032	9899	119	1.2656	labels	2	100	0	0	0	0	0.37756	0.095031	0.99381
+bd_hgmm_mix1	glymph_rc1	9899	119	1.2157	labels	2	100	0	0	0	0	0.37756	0.087652	0.99454
+bd_hgmm_mix1	glymph_rep2	9899	119	1.2152	labels	2	100	0	0	0	0	0.37756	0.088112	0.99457
+bd_hgmm_mix1	scar	9899	0	6.1578	labels	2	100	16733973	1.9778e+07	0	0	0.39047	0.16612	0.99502
+bd_hgmm_mix1	soupx	9899	0	1	labels	2	100	0	0	0	26471815	0.39047	0.063204	0.99659

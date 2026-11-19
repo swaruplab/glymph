@@ -1,0 +1,9 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger
+hgmm_1k_3p_LT	raw	708	0	0	none	0	0	0	0	0	0
+hgmm_1k_3p_LT	cellbender	708	0	2.0137	none	0	0	0	0	0	0
+hgmm_1k_3p_LT	decontx	708	0	2.9992	none	0	0	0	0	0	3433024
+hgmm_1k_3p_LT	glymph	708	0	1.747	none	0	0	0	0	0	0
+hgmm_1k_3p_LT	glymph_032	708	0	1.8075	none	0	0	0	0	0	0
+hgmm_1k_3p_LT	glymph_rep2	708	0	1.75	none	0	0	0	0	0	0
+hgmm_1k_3p_LT	scar	708	0	3.5782	none	0	0	2192833	4.3149e+06	0	0
+hgmm_1k_3p_LT	soupx	708	0	1	none	0	0	0	0	0	1305866

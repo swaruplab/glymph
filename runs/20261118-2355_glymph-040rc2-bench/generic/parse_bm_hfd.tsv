@@ -1,0 +1,10 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger	marker_off_pct_before	marker_removed_off	marker_kept_on
+parse_bm_hfd	raw	72204	0	0	labels	5	5	0	0	0	0	0.0011666	0	1
+parse_bm_hfd	cellbender	72204	63082	42.131	labels	5	5	0	0	0	0	0.0009445	0.73418	0.99946
+parse_bm_hfd	decontx	72204	0	10.692	labels	5	5	0	0	0	251673626	0.0011666	0.12646	0.89282
+parse_bm_hfd	glymph	72204	26	10.736	labels	5	5	0	0	0	0	0.0011664	0.6454	0.89148
+parse_bm_hfd	glymph_032	72204	0	14.601	labels	5	5	0	0	0	0	0.0011666	0.76448	0.90042
+parse_bm_hfd	glymph_rc1	72204	24	10.703	labels	5	5	0	0	0	0	0.0011662	0.65808	0.88818
+parse_bm_hfd	glymph_rep2	72204	21	10.686	labels	5	5	0	0	0	0	0.0011663	0.64628	0.89148
+parse_bm_hfd	scar	72204	0	34.87	labels	5	5	88215272	1.054e+08	0	0	0.0011666	0.96609	0.89096
+parse_bm_hfd	soupx	72204	0	3	labels	5	5	0	0	0	252436626	0.0011666	0.60362	0.98062

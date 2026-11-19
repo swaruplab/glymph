@@ -1,0 +1,9 @@
+dataset	tool	n_eval_cells	n_missing	removed_pct	groups_from	n_marker_groups	n_markers	n_above_raw	added_counts	n_negative	n_noninteger
+kidney_nuc2	raw	59249	0	0	clusters	0	0	0	0	0	0
+kidney_nuc2	cellbender	59249	41760	40.388	clusters	0	0	0	0	0	0
+kidney_nuc2	decontx	59249	0	23.199	clusters	0	0	0	0	0	37864156
+kidney_nuc2	glymph	59249	32878	38.011	clusters	0	0	0	0	0	0
+kidney_nuc2	glymph_032	59249	31317	38.676	clusters	0	0	0	0	0	0
+kidney_nuc2	glymph_rep2	59249	33178	39.345	clusters	0	0	0	0	0	0
+kidney_nuc2	scar	59249	0	51.454	clusters	0	0	15578479	1.6071e+07	0	0
+kidney_nuc2	soupx	59249	0	3.9	clusters	0	0	0	0	0	39342714

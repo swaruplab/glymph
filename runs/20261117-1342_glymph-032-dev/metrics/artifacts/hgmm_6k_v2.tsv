@@ -1,0 +1,3 @@
+dataset	gene	in_cells_of	share_of_cross_pct	share_in_source_cells_pct	share_in_soup_pct
+hgmm_6k_v2	mm10_Gm42418	human	0.8573	0.01907	0.05993
+hgmm_6k_v2	mm10_AY036118	human	0.6092	0.006794	0.03351
